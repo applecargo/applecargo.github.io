@@ -1,30 +1,35 @@
 [markdown syntax 배우기](http://dynalon.github.io/mdwiki/#!quickstart.md)
+[markdown_syntax_advanced](http://daringfireball.net/projects/markdown/syntax)
+
+*italic*
+**bold**
+~~strike-through~~
 
 * `guy, 무선공유기, 생파사진up`
-* `우인씨, 케이스 만들어주기 (방산시장)`
+	* `우인씨, 케이스 만들어주기 (방산시장)`
 * SECO, 사장님 뵙기 / 그래픽 디자인
 * `DISCO-TECH(unmakelab) - 주제. 내용+구체적내용(plan)`
 * 웹사이트 (Dianaband) 정리 - 1)selling platform 2)research blog 쓰기
 * `웹사이트 (또는 trello 사용?) - (내 웹사이트) - 할일들.. tag 잡아서 운영 evernote?`
 * `로봇공방 - 웍숍 10/4 - 구체적 계획`
-* *DJ amsterdam - looping & recording/sequencing 진행
-* *surface instrument - woodpiano set 개발
-* *lecture4lecture
-* *(walter benjamin's Arcade) - agile
-* *art study - research - 공간으로 전개.
-* *media-tech study (of wonjung) - 사운드시계 / 옹달샘연주
+* *DJ amsterdam - looping & recording/sequencing 진행*
+* *surface instrument - woodpiano set 개발*
+* *lecture4lecture*
+* *(walter benjamin's Arcade) - agile*
+* *art study - research - 공간으로 전개.*
+* *media-tech study (of wonjung) - 사운드시계 / 옹달샘연주*
 * collaboration with Hoonida Kim
-* *octopi - 3D printer
+* *octopi - 3D printer*
 * 집단적 사건, 사건을 만들기...
 * 마이크 조명 판매
 * 로스팅 수망 사기 / 카메라 렌즈 사기.
 * `sign6 답메일 쓰기`
 * 구름. 기호. clouds.
-* *퍼레이드
-* *음악/뮤직/노래/시/이야기/글/내러티브
-* *사운드
-* *weather radio
-* *zine sprint 작업하기
+* *퍼레이드*
+* *음악/뮤직/노래/시/이야기/글/내러티브*
+* *사운드*
+* *weather radio*
+* *zine sprint 작업하기*
 
 (형식적으로는)
 전체적으로 볼때...

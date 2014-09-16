@@ -4,21 +4,21 @@ on mdwiki
 =========
 
 # official
-[http://dynalon.github.io/mdwiki/#!index.md](http://dynalon.github.io/mdwiki/#!index.md)
+<http://dynalon.github.io/mdwiki/#!index.md>
 [tutorial-syntax](http://dynalon.github.io/mdwiki/#!quickstart.md)
 
 ## github.pages
-[http://blog.devalias.net/post/92579952637/mdwiki-and-how-to-get-started](http://blog.devalias.net/post/92579952637/mdwiki-and-how-to-get-started)
+<http://blog.devalias.net/post/92579952637/mdwiki-and-how-to-get-started>
 
 ### examples
-[http://biopy.github.io/#!index.md](http://biopy.github.io/#!index.md)
+<http://biopy.github.io/#!index.md>
 
 
 on github.pages
 ===============
 
 # official
-[https://pages.github.com/](https://pages.github.com/)
+<https://pages.github.com/>
 
 # blog sources
 [(korean)http://leechwin.tistory.com/20](http://leechwin.tistory.com/20)
@@ -28,7 +28,7 @@ on github.pages
 [(korean)https://gist.github.com/re4lfl0w/fadc6bee495c63b4f893](https://gist.github.com/re4lfl0w/fadc6bee495c63b4f893)
 
 # examples
-[biopy](http://biopy.github.io/#!index.md)
+<http://biopy.github.io/#!index.md>
 
 how to use images from github?
 ==============================
@@ -37,7 +37,9 @@ how to use images from github?
 picasa or flickr.. but flickr seems not good enough anymore.. they say.. yahoo spoiled it too much. damn.
 so went to picasa.. but this one also does not allow me to get external link (for embedding)
 but following link shows how to do it.
-[http://www.bigwhizbang.com/internet-business/embed-picasa-slideshow/](http://www.bigwhizbang.com/internet-business/embed-picasa-slideshow/)
+
+<http://www.bigwhizbang.com/internet-business/embed-picasa-slideshow/>
+
 and then i get this result.. what a nice guy!
 [myimgonpicasa](https://lh4.googleusercontent.com/-mCZpT-Jbw5Y/VBavFkyrjDI/AAAAAAAAAWI/7g4v2Za2F2I/s800/DSC02314.JPG)
 
@@ -67,37 +69,37 @@ on bootstrap and less for layout
 
 # bootstrap
 official
-[http://getbootstrap.com/](http://getbootstrap.com/)
+<http://getbootstrap.com/>
 blog
-[http://demun.tistory.com/2133](http://demun.tistory.com/2133)
+<http://demun.tistory.com/2133>
 
 # themes
-[http://dynalon.github.io/mdwiki/#!customizing.md](http://dynalon.github.io/mdwiki/#!customizing.md)
-[http://bootswatch.com/](http://bootswatch.com/)
+<http://dynalon.github.io/mdwiki/#!customizing.md>
+<http://bootswatch.com/](http://bootswatch.com/>
 
 # customizers
-[http://www.stylebootstrap.info/](http://www.stylebootstrap.info/)
-[http://pikock.github.io/bootstrap-magic/app/index.html#!/editor](http://pikock.github.io/bootstrap-magic/app/index.html#!/editor)
-[http://bootswatchr.com/gallery](http://bootswatchr.com/gallery)
+<http://www.stylebootstrap.info/>
+<http://pikock.github.io/bootstrap-magic/app/index.html#!/editor>
+<http://bootswatchr.com/gallery>
 [http://bootswatchr.com/gallery/images/grayer/full (*)](http://bootswatchr.com/gallery/images/grayer/full)
 
 re-building is better in the end... (they are just commercials or.. not really customizing..)
 
 # customizing @ official site also possible..
-[http://getbootstrap.com/customize/#less-variables](http://getbootstrap.com/customize/#less-variables)
+<http://getbootstrap.com/customize/#less-variables>
 
 # or get a copy and do less re-compile bootstrap 3 locally also nice. (fast!)
-[http://lesscss.org/usage/](http://lesscss.org/usage/)
+<http://lesscss.org/usage/>
 
 
 on other helpful things to make mdwiki more automatic
 =====================================================
 
 # ghost
-[https://ghost.org/](https://ghost.org/)
+<https://ghost.org/>
 # travis-ci
-[http://docs.travis-ci.com/user/getting-started/](http://docs.travis-ci.com/user/getting-started/)
-[http://en.wikipedia.org/wiki/Travis_CI](http://en.wikipedia.org/wiki/Travis_CI)
+<http://docs.travis-ci.com/user/getting-started/>
+<http://en.wikipedia.org/wiki/Travis_CI>
 
 
 why not bitbucket? i prefer it than github, though

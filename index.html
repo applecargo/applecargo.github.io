@@ -8,86 +8,86 @@
    See http://github.com/Dynalon/mdwiki for a copy of the source code.
 -->
 <head>
-    <title>MDwiki</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="fragment" content="!">
-    <link rel="shortcut icon" type="image/x-icon" href="favicon.png" />
-    <meta charset="UTF-8">
-    <style type="text/css">
-    /* hide the main content while we assemble everything */
-    .md-hidden-load { display: none; }
+<title>MDwiki</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="fragment" content="!">
+<link rel="shortcut icon" type="image/x-icon" href="favicon.png" />
+<meta charset="UTF-8">
+<style type="text/css">
+/* hide the main content while we assemble everything */
+.md-hidden-load { display: none; }
 
-    .anchor-highlight {
-        font-size: 0.7em;
-        margin-left: 0.25em;
-    }
-    /* for pageContentMenu */
-    #md-page-menu {
-            position: static;
-    }
-    #md-page-menu a.active {
-        /* background-color: rgba(0, 0, 0, 0.01); */
-        font-weight: bold;
-        padding-left: 6px;
+.anchor-highlight {
+    font-size: 0.7em;
+    margin-left: 0.25em;
+}
+/* for pageContentMenu */
+#md-page-menu {
+    position: static;
+}
+#md-page-menu a.active {
+    /* background-color: rgba(0, 0, 0, 0.01); */
+    font-weight: bold;
+    padding-left: 6px;
 
+}
+/*@media (min-width: 992px) {
+    #md-page-menu.affix {
+        position: fixed;
     }
-    @media (min-width: 992px) {
-        #md-page-menu.affix {
-            position: fixed;
-        }
+}*/
+@media (min-width: 768px) {
+    .md-float-left .col-sm-8, .md-float-right .col-sm-8 {
+        max-width: 66.67%;
     }
-    @media (min-width: 768px) {
-        .md-float-left .col-sm-8, .md-float-right .col-sm-8 {
-            max-width: 66.67%;
-        }
-        .md-float-left .col-sm-4, .md-float-right .col-sm-4  {
-            max-width: 33.33%;
-        }
-        .md-float-left .col-sm-2, .md-float-right .col-sm-2 {
-            max-width: 16.67%;
-        }
-
+    .md-float-left .col-sm-4, .md-float-right .col-sm-4  {
+        max-width: 33.33%;
     }
-    @media (max-width: 992px) {
-        a.forkmeongithub {
-            display: none;
-        }
-    }
-    @media (max-width: 768px) {
-        /* don't use floating for smaller screens */
-        .md-float-left .col-sm-8, .md-float-left .col-sm-4, .md-float-left .col-sm-2 {
-            width: 100%;
-            max-width: !important;
-            min-width: 100%;
-        }
-        .md-float-right .col-sm-8, .md-float-right .col-sm-4, .md-float-right .col-sm-2 {
-            width: 100%;
-            max-width: !important;
-            min-width: 100%;
-        }
+    .md-float-left .col-sm-2, .md-float-right .col-sm-2 {
+        max-width: 16.67%;
     }
 
-    .md-floatenv .md-text {
-        /* md-text is not of md-col-* but needs the spacing */
-        margin-left: 15px;
-        margin-right: 15px;
+}
+@media (max-width: 992px) {
+    a.forkmeongithub {
+        display: none;
     }
-
-    /* float images */
+}
+@media (max-width: 768px) {
+    /* don't use floating for smaller screens */
     .md-float-left .col-sm-8, .md-float-left .col-sm-4, .md-float-left .col-sm-2 {
-        width: auto;
+        width: 100%;
+        max-width: !important;
+        min-width: 100%;
     }
     .md-float-right .col-sm-8, .md-float-right .col-sm-4, .md-float-right .col-sm-2 {
-        float: right !important;
-        width: auto;
+        width: 100%;
+        max-width: !important;
+        min-width: 100%;
     }
-    #md-all .md-copyright-footer {
-        background-color: !important;
-        font-size: smaller;
-        padding: 1em;
-    }
+}
 
-    </style>
+.md-floatenv .md-text {
+    /* md-text is not of md-col-* but needs the spacing */
+    margin-left: 15px;
+    margin-right: 15px;
+}
+
+/* float images */
+.md-float-left .col-sm-8, .md-float-left .col-sm-4, .md-float-left .col-sm-2 {
+    width: auto;
+}
+.md-float-right .col-sm-8, .md-float-right .col-sm-4, .md-float-right .col-sm-2 {
+    float: right !important;
+    width: auto;
+}
+#md-all .md-copyright-footer {
+    background-color: !important;
+    font-size: smaller;
+    padding: 1em;
+}
+
+</style>
 <link href="http://fonts.googleapis.com/earlyaccess/nanumgothic.css" rel="stylesheet" type="text/css">
 <!-- START extlib/css/highlight.github.css -->
 <style id="style:extlib/css/highlight.github.css">pre code{display:block;padding:.5em;color:#333;background:#f8f8ff}pre .comment,pre .template_comment,pre .diff .header,pre .javadoc{color:#998;font-style:italic}pre .keyword,pre .css .rule .keyword,pre .winutils,pre .javascript .title,pre .nginx .title,pre .subst,pre .request,pre .status{color:#333;font-weight:bold}pre .number,pre .hexcolor,pre .ruby .constant{color:#099}pre .string,pre .tag .value,pre .phpdoc,pre .tex .formula{color:#d14}pre .title,pre .id{color:#900;font-weight:bold}pre .javascript .title,pre .lisp .title,pre .clojure .title,pre .subst{font-weight:normal}pre .class .title,pre .haskell .type,pre .vhdl .literal,pre .tex .command{color:#458;font-weight:bold}pre .tag,pre .tag .title,pre .rules .property,pre .django .tag .keyword{color:#000080;font-weight:normal}pre .attribute,pre .variable,pre .lisp .body{color:#008080}pre .regexp{color:#009926}pre .class{color:#458;font-weight:bold}pre .symbol,pre .ruby .symbol .string,pre .lisp .keyword,pre .tex .special,pre .prompt{color:#990073}pre .built_in,pre .lisp .title,pre .clojure .built_in{color:#0086b3}pre .preprocessor,pre .pi,pre .doctype,pre .shebang,pre .cdata{color:#999;font-weight:bold}pre .deletion{background:#fdd}pre .addition{background:#dfd}pre .diff .change{background:#0086b3}pre .chunk{color:#aaa}</style><!-- END extlib/css/highlight.github.css -->
