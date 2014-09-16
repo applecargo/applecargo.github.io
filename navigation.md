@@ -17,3 +17,14 @@
 
   * # useful assests
   * [fonts](fonts.md)
+
+[research]()
+
+  * # zine sprint
+  * [collab](zine-collab.md)
+
+[tips]()
+
+  * [wordpress](tips-wordpress.md)
+
+[about](about.md)

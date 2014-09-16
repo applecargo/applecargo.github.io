@@ -1,20 +1,8 @@
-# config.테스트요요2
 
-MDwiki
-======
+### <p align="center">agile D</p>
 
-Theme chooser
--------------
+#### <p align="center">managed D -> organized D</p>
 
-## See http://www.mdwiki.info/ for 테스트요요 documentation and details.
+#### <p align="center">poetic D -> concentrated D</p>
 
-<iframe src="//player.vimeo.com/video/74443178?title=0&amp;byline=0&amp;portrait=0" width="600" height="338" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
-
-### ![](http://placekitten.com/g/1200/300 "A 테스트요요")
-
-![](http://placekitten.com/g/550/450 "First of two kittens")
-![](http://placekitten.com/g/550/450 "Second of two kittens")
-
-![](http://placekitten.com/g/400/350)
-![](http://placekitten.com/g/400/350)
-![](http://placekitten.com/g/400/350)
+<p align="center">멋지거나, 아름답거나.</p>
