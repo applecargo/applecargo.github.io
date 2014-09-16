@@ -1,5 +1,3 @@
-[gimmick:themechooser](Choose theme)
-
 # config.테스트요요
 
 MDwiki
