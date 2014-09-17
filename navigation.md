@@ -11,20 +11,20 @@
 [develop]()
 
   * # agile web
-  * [mdwiki](dev-agile_web-mdwiki.md)
+  * [mdwiki](dev/agile_web-mdwiki.md)
 
 [design]()
 
   * # useful assests
-  * [fonts](fonts.md)
+  * [fonts](design/fonts.md)
 
 [research]()
 
   * # zine sprint
-  * [collab](zine-collab.md)
+  * [collab](research/zine-collab.md)
 
 [tips]()
 
-  * [wordpress](tips-wordpress.md)
+  * [wordpress](tips/wordpress.md)
 
 [about](about.md)
