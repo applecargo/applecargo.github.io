@@ -13,16 +13,20 @@
 
 - - - -
 
-<span style="color:red">
-urgent matters</span>
+<span style="color:tomato; background-color:black">
+simple matters</span>
 
 > * guy, 무선공유기, 생파사진up
 > * 우인씨, 케이스 만들어주기 (방산시장)
+> * sign6 답메일 쓰기
+> * 전기세 공지 / 사장님 면담 & 계약서 재작성
+
+<span style="color:red">
+urgent/important matters</span>
+
 > * DISCO-TECH(unmakelab) - 주제. 내용+구체적내용(plan)
 > * 웹사이트 (또는 trello 사용?) - (내 웹사이트) - 할일들.. tag 잡아서 운영 evernote?
 > * 로봇공방 - 웍숍 10/4 - 구체적 계획
-> * sign6 답메일 쓰기
-> * 전기세 공지 / 사장님 면담 & 계약서 재작성
 
 <span style="color:yellow; background-color:black">
 personal matters
