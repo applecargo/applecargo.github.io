@@ -22,6 +22,7 @@ urgent matters</span>
 > * 웹사이트 (또는 trello 사용?) - (내 웹사이트) - 할일들.. tag 잡아서 운영 evernote?
 > * 로봇공방 - 웍숍 10/4 - 구체적 계획
 > * sign6 답메일 쓰기
+> * 전기세 공지 / 사장님 면담 & 계약서 재작성
 
 <span style="color:yellow; background-color:black">
 personal matters
