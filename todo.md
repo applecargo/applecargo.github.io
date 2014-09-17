@@ -27,6 +27,7 @@ urgent/important matters</span>
 > * DISCO-TECH(unmakelab) - 주제. 내용+구체적내용(plan)
 > * 웹사이트 (또는 trello 사용?) - (내 웹사이트) - 할일들.. tag 잡아서 운영 evernote?
 > * 로봇공방 - 웍숍 10/4 - 구체적 계획
+> * 웹사이트 (Dianaband) 정리 - 1)selling platform 2)research blog 쓰기
 
 <span style="color:yellow; background-color:black">
 personal matters
@@ -53,7 +54,6 @@ additional matters & notes
 </span>
 
 > * SECO, 사장님 뵙기 / 그래픽 디자인
-> * 웹사이트 (Dianaband) 정리 - 1)selling platform 2)research blog 쓰기
 > * collaboration with Hoonida Kim
 > * 집단적 사건, 사건을 만들기...
 > * 마이크 조명 판매
