@@ -22,9 +22,12 @@
 
   * # zine sprint
   * [collab](research/zine-collab.md)
+  - - - -
+  * [droidparty](research/droidparty.md)
 
-[tips]()
+[tips & notes]()
 
   * [wordpress](tips/wordpress.md)
+  * [favorites](tips/favorites.md)
 
 [about](about.md)

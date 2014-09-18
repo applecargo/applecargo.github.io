@@ -1,4 +1,3 @@
-
 ### <p align="center">agile D</p>
 
 #### <p align="center">managed D -> organized D</p>
