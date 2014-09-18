@@ -80,3 +80,33 @@ gui bending / touch bending
 
 지난 번에 이어서, 오늘은 gui / touch bending을 테스트해보면서.. 1번의 의미에대해서도 생각해본다.
 
+-
+
+MobMuPlat
+
+<iframe src="//player.vimeo.com/video/85295522?title=0&amp;byline=0&amp;portrait=0" width="600" height="338" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+
+-
+
+이걸 해볼까 한다..
+
+-
+
+일단.. 뭐가 목표일까..
+
+-
+
+어제 처럼 회의하는데, 메모를 안하고 보이스 레코딩을 하는 짓은 하면 안된다.. 내용이 녹음이 됐건 안됐건.. 상관없이..
+그걸 뭐 다시 듣고 있는다고 특별히 무슨 얘기가 더 잘 정리될 것 같지도 않고..
+반드시 메모지를 꺼내던가해서.. 가져오던가해서.. 펜으로 메모를 할 일이다.
+
+-
+
+솔직히 뭘하면 의미가 있을지 생각하는 것도 좋다. 그치만.. 그건 앉아서 생각한다고 나올것도 아니고..
+좀더 대화를 통해서 나오게 될 어떤 것인것 같다.
+쉽게 볼일이 아니지.
+그러니깐, 좀더.. 손에 잡히는 실험을 하는 방향으로 진행하는 것이 맞다.
+
+-
+
+일단, 피아노부터 할까? 종이 피아노를 그대로 확장해보자.
