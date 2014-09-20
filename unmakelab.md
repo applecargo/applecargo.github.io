@@ -110,3 +110,13 @@ MobMuPlat
 -
 
 일단, 피아노부터 할까? 종이 피아노를 그대로 확장해보자.
+
+## working day (9/20)
+
+<https://github.com/Ridwy/MobMuPlat-Funhouse>
+
+![](data/funhouse1.png)
+
+![](data/funhouse-m.png)
+
+

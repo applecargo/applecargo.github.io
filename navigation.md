@@ -12,6 +12,7 @@
 
   * # agile web
   * [mdwiki](dev/agile_web-mdwiki.md)
+  * [mobmuplat](dev/mobmuplat.md)
 
 [design]()
 
@@ -29,5 +30,6 @@
 
   * [wordpress](tips/wordpress.md)
   * [favorites](tips/favorites.md)
-
+  * [pechakucha](notes/pechakucha.md)
+  
 [about](about.md)
