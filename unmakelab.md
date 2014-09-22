@@ -119,4 +119,63 @@ MobMuPlat
 
 ![](data/funhouse-m.png)
 
+mobmuplat editor의 바이너리 및 기타 필요한 자료들..
 
+> mobmuplat editor의 바이너리 버젼을 찾아서 온동네를 돌아다니고 거의 하루를 소비한것 같은데..
+> 이거뭐.. 그냥 메인 페이지에 있었다. <http://music.columbia.edu/~daniglesia/mobmuplat/MobMuPlatDistribution_1.61.zip>
+> 
+> 자세히 봐야 할 내용을 대충봐서 그런지.. 아님 뭔가.. 원저자가 좀 덜 친절하거나 소통 부재이던지.. 여튼..
+> 나는 이클립스를 깔아서. 소스코드를 자바 컴파일해서 잘돌아간다.. jar로 만들진 못하고 있긴하지만.. 내 꺼가 더 빠르고 잘되는 느낌임..
+> 여튼, 이런게 있으니 참고할 일이고... 그 보다도.. 이 패키지 안에.. 필요한 pd 파일들이 있기 때문에.. 반드시 가지고 있어야 하는 것은 맞다.
+
+## working day (9/22)
+
+오늘은 진짜로.. mobmuplat의 funhouse를 가지고.. 터치종이피아노를 테스트/개발 해야함.
+어제 성민씨가 꽤 재밌어했다.
+funhouse-ADSR의 ADSR이란.. attack decay sustain release 라던가.. 어택 커브의 상승/유지/하강/유지 의 시간을 조절해서.. envelope 쉐이핑하는 거라고 말했다. 맞는 얘기겠지?
+
+http://en.wikipedia.org/wiki/Synthesizer#ADSR_envelope
+
+<img src="http://upload.wikimedia.org/wikipedia/commons/e/ea/ADSR_parameter.svg" width=500>
+
+ㅇㅇ 잘보면.. 세번째 sustain은 레벨에 대한 파라미터고.. 나머진 시간적인 파라미터고..
+
+커패시티브 센싱을 에뮬레이트 하는 것에 대해서 좀 알아봄.
+원래는, 어떤걸 이용해서 화면에 붙일 지 찾아보다가.. (어떤 재료를 사야하는 걸까 등등.)
+새롭게 알게 된 사실이..
+
+[](http://www.youtube.com/watch?v=tGFZkrMoFo0)
+
+이걸 보면.. 터치 센싱을 GROUNDING으로 구현했다고 하는데..
+그래서 샤시 그라운드.. 즉, 장치 외부의 그라운드를 이용하거나 실제로 땅에 접촉시키라는 말이있다.
+<http://electronics.stackexchange.com/a/23039>
+```
+I haven't actually done this, but it seems the problem is the objects you are using are too small and don't have enough ambient capacitance. A human touching something adds capacitive coupling to the environment. Think of the size and surface area difference between a carrot and a carrot+human.
+
+You should be able to use something conductive that is covered by a thin insulating layer, then connect the conducive part to a conductive plate under the iPhone or to ground. In this case "conductive" only needs to be not a good insulator. As you found, even something like a carrot is conductive enough. Try connecting a ground clip to the other end of the carrot, or connect it to the chassis of your machine.
+```
+
+다음 링크도 뭔가 도움이 될수도 있겠다 싶어.. 남겨두고..
+
+<http://electronics.stackexchange.com/questions/60385/how-to-use-a-capacitive-touch-screen-without-a-human-hand>
+
+여튼, 그래서.. 이거다 싶어서 해본게..
+
+![](https://lh3.googleusercontent.com/-L50lhQB7IpU/VB_yZMrbC7I/AAAAAAAAAgk/vJgvO7a6mQo/s640/DSC02739.JPG)
+![](https://lh6.googleusercontent.com/-GT_AytIONa4/VB_yerigZmI/AAAAAAAAAhI/67_5GoJMX6s/s640/DSC02744.JPG)
+![](https://lh6.googleusercontent.com/-LeS1WSukceI/VB_yhUn1RJI/AAAAAAAAAhY/hmaKb05w1HA/s640/DSC02747.JPG)
+![](https://lh5.googleusercontent.com/-71Zm_cuO6h8/VB_yjAXVfLI/AAAAAAAAAhg/DRwHBCHf8yo/s640/DSC02748.JPG)
+![](https://lh3.googleusercontent.com/-luNBnYbbRrI/VB_ylfDWKMI/AAAAAAAAAho/3g9S3jgnLyI/s640/DSC02749.JPG)
+
+이렇게 만들어도보고.. (즉, 샤시 그라운드를 이용해서 손을 안대고, 터치하기.)
+
+![](https://lh6.googleusercontent.com/-VF1k_MVQRfs/VB_yngu8iEI/AAAAAAAAAhw/oc1Lv1x-Ojk/s640/DSC02750.JPG)
+![](https://lh3.googleusercontent.com/-FYrsfiB3lt0/VB_yoizRl7I/AAAAAAAAAiE/a9xHMft-LD0/s640/DSC02751.JPG)
+
+이렇게도 해봤다. (손으로 핸드폰을 만지지 않고 있으면서도, 만지고 있는 효과를 줄수 있지 않을까 해서..)
+
+영상..
+
+<iframe src="//player.vimeo.com/video/106800131?title=0&amp;byline=0&amp;portrait=0" width="600" height="338" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+
+되긴되는데..

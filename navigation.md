@@ -1,18 +1,18 @@
 # D
 
-[todo]()
+[todo](todo.md)
 
   * # todo
   * [todo](todo.md)
-  - - - -
-  * # unmakelab_track5
-  * [unmake](unmakelab.md)
 
 [develop]()
 
   * # agile web
   * [mdwiki](dev/agile_web-mdwiki.md)
   * [mobmuplat](dev/mobmuplat.md)
+  - - - -
+  * # unmakelab_track5
+  * [unmake](unmakelab.md)
 
 [design]()
 
@@ -26,10 +26,16 @@
   - - - -
   * [droidparty](research/droidparty.md)
 
-[tips & notes]()
+[notes & tips]()
 
-  * [wordpress](tips/wordpress.md)
+  * # notes
   * [favorites](tips/favorites.md)
   * [pechakucha](notes/pechakucha.md)
-  
+  - - - -
+  * # tips
+  * [wordpress](tips/wordpress.md)
+  * [imagemagick](tips/imagemagick.md)
+  * [apache](tips/apache.md)
+  * [ecad](tips/electronic-cad.md)
+
 [about](about.md)
