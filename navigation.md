@@ -31,6 +31,7 @@
   * # notes
   * [favorites](tips/favorites.md)
   * [pechakucha](notes/pechakucha.md)
+  * [agile](notes/agile.md)
   - - - -
   * # tips
   * [wordpress](tips/wordpress.md)

@@ -16,18 +16,17 @@
 <span style="color:tomato; background-color:black">
 simple matters</span>
 
-> * guy, 무선공유기, 생파사진up
+> * guy, 무선공유기
 > * 우인씨, 케이스 만들어주기 (방산시장)
-> * sign6 답메일 쓰기
 > * 전기세 공지 / 사장님 면담 & 계약서 재작성
-> * <https://www.daelimmuseum.org/project/project_notice_view.do>
+> * 대림미술관 프로젝트 공모 10월 6일까지. <https://www.daelimmuseum.org/project/project_notice_view.do>
 
 <span style="color:red">
 urgent/important matters</span>
 
-> * SECO, 화요일 미팅 / 사장님 뵙기 / 그래픽 디자인
+> * SECO, 사장님 뵙기 / 그래픽 디자인 / 10월 13일 이후로 일정.
 > * DISCO-TECH(unmakelab) - 주제. 내용+구체적내용(plan)
-> * 웹사이트 (또는 trello 사용?) - (내 웹사이트) - 할일들.. tag 잡아서 운영 evernote?
+> * 웹사이트 - 할일들.. tag 잡아서 운영 evernote?
 > * 로봇공방 - 웍숍 10/4 - 구체적 계획
 > * 웹사이트 (Dianaband) 정리 - 1)selling platform 2)research blog 쓰기
 
@@ -49,7 +48,6 @@ personal matters
 > * zine sprint 작업하기
 > * 담배갑. 5개피 들어가는 거. 3D 프린트 해보기.
 > * 태양열 전지 레귤레이터 회로 알아보기
-> * iphone 사진 복원
 
 <span style="color:blue">
 additional matters & notes
