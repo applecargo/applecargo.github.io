@@ -37,5 +37,6 @@
   * [imagemagick](tips/imagemagick.md)
   * [apache](tips/apache.md)
   * [ecad](tips/electronic-cad.md)
+  * [video](tips/video.md)
 
 [about](about.md)

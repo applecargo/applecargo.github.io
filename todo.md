@@ -20,6 +20,7 @@ simple matters</span>
 > * 우인씨, 케이스 만들어주기 (방산시장)
 > * sign6 답메일 쓰기
 > * 전기세 공지 / 사장님 면담 & 계약서 재작성
+> * <https://www.daelimmuseum.org/project/project_notice_view.do>
 
 <span style="color:red">
 urgent/important matters</span>

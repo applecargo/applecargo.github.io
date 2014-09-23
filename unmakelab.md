@@ -178,4 +178,88 @@ You should be able to use something conductive that is covered by a thin insulat
 
 <iframe src="//player.vimeo.com/video/106800131?title=0&amp;byline=0&amp;portrait=0" width="600" height="338" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
 
-되긴되는데..
+되긴되는데.. 그래도.. 터치패드를 벗어나면 오감지가 나게 되는 문제는 해결이 안된다.
+
+어떻게 하는게 좋을지... 내일 또 생각해보자..
+
+## working day (9/23)
+
+이 영상, 넣었으면 좋겠다.
+
+[](http://www.youtube.com/watch?v=NuPolrd9yuo)
+
+1분 8초 쯤 부터.. 시작해서...
+
+Professional Jen! writing emails. the C drive. the D drive...
+
+-
+
+벗어날 때 오감지 나는 부분을 해결해보기 위해서.. 가늘게 넘어가도록 하고, 그 밖에 손가락 터치 모양을 흉내내는 패드.
+정확한 터치 위치 등을 잡아봤다.
+
+![](data/DSC02753.JPG)
+![](data/DSC02756.JPG)
+![](data/DSC02757.JPG)
+![](data/DSC02759.JPG)
+![](data/DSC02760.JPG)
+![](data/DSC02775.JPG)
+![](data/DSC02777.JPG)
+![](data/DSC02778.JPG)
+![](data/DSC02779.JPG)
+![](data/DSC02783.JPG)
+![](data/DSC02784.JPG)
+
+저항치는 300-400 옴정도였고, 센싱은 나아지긴했는데.. 여전히 확실하게 잡히지 않는다.
+옆에서 새어나오는 **GND '기운'**은 잡아지는 것 같긴 하다.
+폰의 뒷면을 나머지 한손으로 터치해주면, 확실히 좋아지나..
+그것이 꼭 내 몸을 통해서 회로를 이루는 것은 아닌 것 같고.
+다른 사람이 후면터치를 해줘도 거의 유사한 효과를 갖는다.
+단순 노이즈 감쇄 효과인가?
+
+```
+(이후 작업한 것, 사진..)
+```
+
+표면 접촉을 개선하고, 건반을 누를때 옆에 건반과의 간섭문제가 있어서..
+이를 해결하기 위해 손으로 누르는 건반의 사이사이를 넓히고.
+페인팅도 곱게해보았다. 결과는 잘 안됐다.
+
+이상하게도-혹은, 재미있게도- 단일 건반은 잘 안되는데, **동시에 여러개의 건반을 누르면**, 갑자기 작동이 된다.
+뭔가 일정한 입력치 이상이 되어야 터치가 된것으로 인식되는 구조가 숨어있는 것 같다.
+곱게 바르다보니, 저항치가 낮아졌는데, 800-1000 옴정도가 되었다.
+따라서, 단순히 저항치만 높아지면 되는 것이 아닐까 생각하게 됨.
+희망적.
+
+```
+(작업한 것 사진..)
+```
+
+그런데, 아까 잘됐던 300-400옴 짜리가 다시 해보니 잘안되더라.. 되던게 안되니 열받음.
+접촉면이 곱지 않아서인가? 생각하고, 고운 철솜으로 문질러서 판판하게 만들었다. 접촉면을 개선하기 위해서.
+하다보니, 연필가루처럼 온 종이가 더럽혀지더라, 그래서 지우개 질도 했다.
+결과는 뭐 약간은 개선된 것도 같긴한데, 아까처럼은 안된다.
+
+건조가 더 진행됐기 때문인가? 다시 미궁 속으로..
+
+-
+
+대체 어떻게 해야 휴먼터치로 올바로 인식되는 것일까?
+추측만으로 계속하고 있긴하지만, 뭔가 자료.. **'문건'**은 없는 걸까?
+
+-
+
+약간의 검색을 해보았다.
+몇가지 단서는.. 다음과 같다.
+
+1) 일단, 기기마다 위치 보정이 필요하다. 에르고노믹스를 고려해서 좌표의 쉬프트가 가정되어있음. <http://en.wikipedia.org/wiki/Touchscreen#Ergonomics_and_usage>
+
+2) 몇가지 구현 방법론의 차이도 있음. <http://en.wikipedia.org/wiki/Touchscreen#Capacitive>
+
+3) 프로파일이 잘 안찾아지면, 스타일러스 펜의 디자인 가이드라인을 참고해보는 것도 방법. <http://en.wikipedia.org/wiki/Stylus_(computing)>, <http://msdn.microsoft.com/en-us/library/windows/apps/hh465370.aspx>
+
+오늘은 여기까지다.
+
+~~젝일 모기들은 언제 없어지려는 걸까?~~
+
+-
+
