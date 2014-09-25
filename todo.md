@@ -20,6 +20,7 @@ simple matters</span>
 > * 우인씨, 케이스 만들어주기 (방산시장)
 > * 전기세 공지 / 사장님 면담 & 계약서 재작성
 > * 대림미술관 프로젝트 공모 10월 6일까지. <https://www.daelimmuseum.org/project/project_notice_view.do>
+> * remark 사용해서 프리젠테이션 만들어보기.
 
 <span style="color:red">
 urgent/important matters</span>

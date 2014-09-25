@@ -11,13 +11,18 @@
   * [mdwiki](dev/agile_web-mdwiki.md)
   * [mobmuplat](dev/mobmuplat.md)
   - - - -
-  * # unmakelab_track5
-  * [unmake](unmakelab.md)
+  * # web
+  * [js-assets](dev/js-assets.md)
+  - - - -
+  * # workshop/lecture
+  * [unmake](dev/unmakelab.md)
+  * [wow-rock](dev/wow-rock.md)
 
 [design]()
 
   * # useful assests
   * [fonts](design/fonts.md)
+  * [woodpiano](design/woodpiano.md)
 
 [research]()
 
@@ -29,15 +34,17 @@
 [notes & tips]()
 
   * # notes
-  * [favorites](tips/favorites.md)
+  * [favorites](notes/favorites.md)
   * [pechakucha](notes/pechakucha.md)
   * [agile](notes/agile.md)
+  * [scraps](notes/scraps.md)
   - - - -
   * # tips
   * [wordpress](tips/wordpress.md)
   * [imagemagick](tips/imagemagick.md)
   * [apache](tips/apache.md)
   * [ecad](tips/electronic-cad.md)
+  * [sketchup](tips/sketchup.md)
   * [video](tips/video.md)
 
 [about](about.md)
