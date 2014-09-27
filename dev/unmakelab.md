@@ -536,3 +536,120 @@ GUI의 버튼 크기도 넓찍하게 바꿨다. 옆에 버튼과의 간섭이 �
 저녁을 먹고, 나무에 실크 인쇄를 해서 진행해볼 것이다.
 
 -
+
+## working day (9/26)
+
+wiretouch 를 좀더 조사해봤는데..
+
+유용한 정보가 몇가지..
+
+<http://www.wiretouch.net/about.html>
+
+Georg Kaindl 이란 사람이 주축인데.. Touché 를 개발했다길래.. 디즈니리서치의 그것인가? 했는데 그건 아니고.
+
+touch tracking algorithm이었다.
+
+<http://gkaindl.com/software/touche>
+
+뭐 이것도 나름대로 좋다. 그리고 투쉐란 이름은 이분이 먼저 쓰기시작한게 아닌가 싶다. 2008년에 릴리즈한 거라서.. 뭐 중요하진 않지만.
+
+그리고 레이져를 이용한 멀티터치 스크린을 만들었다는데.. <https://vimeo.com/2135898> 이것도 흥미로운 프로젝트..
+
+레이져로 하면 뭐가 좋은걸까? 궁금.
+
+-
+
+그리고 lock-in amplifier란 것에 대해서 알게 되었는데.. 예전에 교수님이 말하던 PLL locked 의 개념이랑 비슷한 것 같다.
+
+요점은, 이것이 엄청나게 노이즈가 있는 상황에서도 신호를 잡아내고.
+
+EMI/ GROUND 노이즈를 배제하는 좋은 기능을 갖고 있다고 하는데..
+
+원리가 궁금해진다. 이런게 있으면, 잭의 테이블 같은 것도 굳이 무선을 이용하지 않아도 크게 개선될 수가 있을 것이다.
+
+<http://en.wikipedia.org/wiki/Lock-in_amplifier>
+
+<http://en.wikipedia.org/wiki/File:Lock-in_amplifier_experimental_setup.svg>
+
+이것은 wiretouch프로젝트에 사용되었다는 얘기를 듣고 알게되었으니.. 아래 링크에서 처럼 큰 장비로만 가능한것은 아니고, 소형 칩으로도 구현이 가능하다고 생각된다.
+아래 링크는 참고자료로서...
+
+<http://www.thinksrs.com/downloads/PDFs/Catalog/SR510530c.pdf>
+<http://www.tau.ac.il/~electro/pdf_files/computer/lock-in_basics_1.pdf>
+<http://www.thinksrs.com/downloads/PDFs/ApplicationNotes/AboutLIAs.pdf>
+
+나중에 더 조사해볼 일.. 이걸 할 줄 알면 다른 여러가지 아날로그 회로를 할 때 도움이 될 것 같다.
+나중에 wiretouch에서 회로도를 릴리즈 하면.. 구체적으로 어떻게 했는지도 알수 있을 것이다.
+
+-
+
+이제 오늘의 일과 시작인데..
+
+오늘 금요일이어서 청계천/용산에 갈수 있는 마지막 날이다보니..
+
+광섬유가 가능한지 알아봐야 할 것 같아.. 이제 부턴 광섬유 조사.
+
+-
+
+광섬유를 살수는 없었고 대신 광케이블을 얻어왔다.
+그리고, 저녁시간에는 원정이랑 실크스크린으로 나무/OHP film/종이/고무재질 판 등에 이미지를 찍어보았다.
+
+광섬유는 플라스틱으로 된것 같고..
+광케이블은 유리로 되어있는 것 같다.
+<http://word.tta.or.kr/terms/termsView.jsp?gubun=1&terms_num=24195>
+<http://en.wikipedia.org/wiki/Plastic_optical_fiber>
+<http://tip.daum.net/question/61786649>
+
+광섬유 구매처.
+<http://thelight.kr/goods/list.php?category=009>
+<http://www.twestech.com/product/list.php?group_idx=6>
+
+웨이브가이드라고도 하고... 라이트 튜브라고도 한다고 하고..
+<http://en.wikipedia.org/wiki/Waveguide_(optics)>
+<http://en.wikipedia.org/wiki/Light_tube>
+<http://en.wikipedia.org/wiki/Optical_fiber#Principle_of_operation>
+<http://www.howstuffworks.com/fiber-optic.htm/printable>
+
+## working day (9/27)
+
+아침먹고 대충 점심때부터 슬슬 어제 만든 판들을 테스트해봤다.
+결과는 시원치는 않았다. 아주 잘되는 것도 아니고, 안되는 것도 아니고.. 쓸만하진 않은데.. 가능성이 안보이는 것도 아닌 .. 그런 애매한 지점.
+
+이런 애매한 것은 좀 지치고 싫증이 난다.
+
+계속 노력해야 할 것인지.. 이걸로 워크숍이라도 할 생각이라면 분명히 노력을 하던지 해서 더 잘되게 하던지.
+아님, 아얘 일찌감치 포기하고. 주제나 방법을 바꿔 나가야 한다.
+
+동묘에 가서 한바탕 놀고 와서. 결론은 그대로이다.
+좀더 주제나 뭘하고 싶은지 심화시켜야 한다는 .. touch bending 이라던가 GUI bending 이라는 것이나..
+둘다 flat하고 1차적이기도 하다.
+좀더 핵심을 붙잡으면서, 거추장 스러운 것들을 떨어버릴 수 있도록.
+뭔가를 붙잡으려고 노력해야 한다는 것은 그만큼 사상이나 내용이 flexible하지 못하기 때문이기도 하다.
+뭔가를 좀 얘기하기 위해서 그렇게 힘겹게 해야 하나.
+
+우리가 각자가 지치고 재미가 없고, 싫증을 느낀다면 더 이상 할 수는 없다.
+재미가 있어야 하지.. 다시 재미있게 만들어 나가던가.
+그만하거나, 더 좋은 것을 찾아보는 건 어떻겠는가.
+
+-
+
+9/16일에 discussion으로 부터 지금 이 diary는 시작이 되었는데, 그렇다면 대략 10일이 경과했다.
+지칠만도 하다.
+좀더 가볍고/ 적절하고/ 예리한 방향이 요구된다.
+
+-
+
+로봇공방 웍숍은 당장 담주말이기 때문에 1주일 남아있고.
+
+unmake는 그로부터 또 1주일 후이기 때문에.
+
+많은 것을 할 시간은 없다.
+
+전환이 필요한 것은 사실이지만, 분명히 유쾌하지만은 않은 상황이다.
+
+-
+
+일단 GUI bending은 어느정도 접어야 할 것 같기도 하다.
+
+-
+

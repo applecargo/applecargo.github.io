@@ -38,6 +38,7 @@
   * [pechakucha](notes/pechakucha.md)
   * [agile](notes/agile.md)
   * [scraps](notes/scraps.md)
+  * [city](notes/city.md)
   - - - -
   * # tips
   * [wordpress](tips/wordpress.md)
