@@ -47,5 +47,7 @@
   * [ecad](tips/electronic-cad.md)
   * [sketchup](tips/sketchup.md)
   * [video](tips/video.md)
+  * [subtitles](tips/subtitles.md)
+  * [webfonts](tips/webfonts.md)
 
 [about](about.md)
