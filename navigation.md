@@ -49,5 +49,6 @@
   * [video](tips/video.md)
   * [subtitles](tips/subtitles.md)
   * [webfonts](tips/webfonts.md)
+  * [github.pages](tips/github-pages.md)
 
 [about](about.md)
