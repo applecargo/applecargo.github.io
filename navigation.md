@@ -17,6 +17,8 @@
   * # workshop/lecture
   * [unmake](dev/unmakelab.md)
   * [wow-rock](dev/wow-rock.md)
+  * [unmake-ASIS](dev/unmakelab-seminar-ASISCLUB.md)
+  * [unmake-BYOP](dev/unmakelab-workshop-BYOP.md)
 
 [design]()
 
