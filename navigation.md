@@ -19,6 +19,7 @@
   * [wow-rock](dev/wow-rock.md)
   * [unmake-ASIS](dev/unmakelab-seminar-ASISCLUB.md)
   * [unmake-BYOP](dev/unmakelab-workshop-BYOP.md)
+  * [lecture4lecture](dev/lecture4lecture.md)
 
 [design]()
 
@@ -33,7 +34,7 @@
   - - - -
   * [droidparty](research/droidparty.md)
 
-[notes & tips]()
+[notes]()
 
   * # notes
   * [favorites](notes/favorites.md)
@@ -41,7 +42,9 @@
   * [agile](notes/agile.md)
   * [scraps](notes/scraps.md)
   * [city](notes/city.md)
-  - - - -
+
+[tips]()
+
   * # tips
   * [wordpress](tips/wordpress.md)
   * [imagemagick](tips/imagemagick.md)
@@ -50,8 +53,9 @@
   * [sketchup](tips/sketchup.md)
   * [video](tips/video.md)
   * [subtitles](tips/subtitles.md)
-  * [webfonts](tips/webfonts.md)
+  * [web](tips/web.md)
   * [github.pages](tips/github-pages.md)
   * [ok-cashbag](tips/okcashbag.md)
+  * [*nix](tips/nix.md)
 
 [about](about.md)
