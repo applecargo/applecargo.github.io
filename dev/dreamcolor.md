@@ -262,6 +262,8 @@ XKTTSUEERCRR 에서는.
 
 아다푸트르에서 유사제품하나 사서 연습한번해보는 것도 좋을수 있겠네여..
 
+![](https://learn.adafruit.com/system/assets/assets/000/001/184/medium800/led_strips_lpd8806segment_t.jpg?1396769807)
+
 "They have a chip for each LED"
 
 맞네여. 칩한개씩..
