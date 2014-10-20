@@ -20,6 +20,12 @@
   * [unmake-ASIS](dev/unmakelab-seminar-ASISCLUB.md)
   * [unmake-BYOP](dev/unmakelab-workshop-BYOP.md)
   * [lecture4lecture](dev/lecture4lecture.md)
+  - - - -
+  * # hack-a-day
+  * [internet-fishing](dev/internet-fishing.md)
+  - - - -
+  * # proj.
+  * [dream-color](dev/dreamcolor.md)
 
 [design]()
 
@@ -46,6 +52,7 @@
 [tips]()
 
   * # tips
+  * [markdown](tips/markdown.md)
   * [wordpress](tips/wordpress.md)
   * [imagemagick](tips/imagemagick.md)
   * [apache](tips/apache.md)

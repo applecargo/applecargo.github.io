@@ -1,45 +1,28 @@
-[markdown syntax 배우기](http://dynalon.github.io/mdwiki/#!quickstart.md)
-[markdown_syntax_advanced](http://daringfireball.net/projects/markdown/syntax)
-
-*italic*
-**bold**
-~~strike-through~~
-
-<span style="color:tomato">COLOR(RED-alike)</span>
-<span style="color:orangered">COLOR(RED-alike)</span>
-<span style="color:maroon">COLOR(RED-alike)</span>
-<span style="color:crimson">COLOR(RED-alike)</span>
-<http://www.w3schools.com/html/html_colornames.asp>
-
-- - - -
-
 <span style="color:tomato; background-color:black">
 simple/urgent matters</span>
 
-> * AS-IS 담주 화요일에 함.. 준비준비!! / 공지도 공지도.
+> * 연구실, 10월 24일 시연 & 웍숍. 따라하기! 진행. / 해커톤? / 세미나 자료 주말까지 정리 & 공유.
+> * AS-IS 담주 화요일에 함.. 준비준비!! / 네트워크 및.. 모듈 추가.. 생각해보기.. 공지? 날짜 잡기.
 > * 대섭씨, 세록씨, 리나씨, 우리 모여서 맛있는거 먹기.. 송별회겸. 이번주에!!
 > * 우인씨, 다시 만들어주기
 > * 방산시장가서 상자 더 사보기, 도끼님이랑 같이.
-> * 전기세 공지 / 사장님 면담 & 계약서 재작성 10월 15일.
-> * SECO, 사장님 뵙기 / 그래픽 디자인
-> * 연구실, 10월 24일 시연 & 웍숍. 따라하기! 진행. / 해커톤?
-> * SECO, 피씨랑 카메라. 퀵 요청. / 세미나 자료 주말까지 정리 & 공유.
-> * 작업실 영업장 등록/ 사업자 등록 시 이득 체크.
+> * SECO, 사장님 뵙기 / 그래픽 디자인 / 윤석형이랑 스마트카톡 연계 게임 아이디어 이야기 나누기.
 > * 예비군 훈련.. 11월 초..
-> * 국립현대 - 10월 14일 미팅
-> * jack이랑 회의 - 10월 14일 밤?
-> * zine sprint 작업하기
 > * 민섭씨, 배너 얘기 대답해주기
 > * 커피사기.. 민섭씨한테 사거나, 개발자 커피를 사거나.. 별꼴에서 사거나..
 
 <span style="color:red">
 important matters</span>
 
+> * jack이랑 대화 진행 - half day response policy.
+> * 국립현대 - 스케칭.
 > * 웹사이트 - 정리
 > * 웹사이트 (Dianaband) 정리 - 1)selling platform 2)research blog 쓰기
 > * lecture4lecture
 > * 담배갑. 5개피 들어가는 거. 3D 프린트 해보기.
 > * 태양열 전지 레귤레이터 회로 알아보기
+> * 인터넷 낙시. 라즈베리파이+무선랜.
+> * fit, tits, -xy 리커버.
 
 <span style="color:yellow; background-color:black">
 personal matters
@@ -56,7 +39,7 @@ personal matters
 > * 사운드
 > * weather radio
 > * collaboration with Hoonida Kim
-> * 로스팅 수망 사기([gmarket](http://item2.gmarket.co.kr/Item/detailview/Item.aspx?goodscode=399929324&pos_class_cd=111111111&pos_class_kind=T&pos_shop_cd=SH&keyword_order=%A8%F9o%A2%ACA&keyword_seqno=5575515903&search_keyword=%A8%F9o%A2%ACA)) / 카메라 렌즈 사기.
+> * 카메라 렌즈 사기.
 
 <span style="color:blue">
 additional matters & notes
