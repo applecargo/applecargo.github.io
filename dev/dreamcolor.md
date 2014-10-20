@@ -250,7 +250,7 @@ XKTTSUEERCRR 에서는.
 
 <http://www.adafruit.com/blog/2010/12/15/tutorial-rgb-led-digital-pixels-tutorial-lpd6803/>
 
-![](data/rgbled.png)
+![](../data/rgbled.png)
 
 튜토리얼..
 
