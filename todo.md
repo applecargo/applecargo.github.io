@@ -1,28 +1,37 @@
 <span style="color:tomato; background-color:black">
 simple/urgent matters</span>
 
-> * 연구실, 10월 24일 시연 & 웍숍. 따라하기! 진행. / 해커톤? / 세미나 자료 주말까지 정리 & 공유.
-> * AS-IS 담주 화요일에 함.. 준비준비!! / 네트워크 및.. 모듈 추가.. 생각해보기.. 공지? 날짜 잡기.
-> * 대섭씨, 세록씨, 리나씨, 우리 모여서 맛있는거 먹기.. 송별회겸. 이번주에!!
-> * 우인씨, 다시 만들어주기
-> * 방산시장가서 상자 더 사보기, 도끼님이랑 같이.
-> * SECO, 사장님 뵙기 / 그래픽 디자인 / 윤석형이랑 스마트카톡 연계 게임 아이디어 이야기 나누기.
-> * 예비군 훈련.. 11월 초..
+1. jack patent
+2. 사장님 app idea
+3. HYU 로거
+4. mmca 작업
+5. 지혜씨, 고3 웍숍.
+6. as-is 웍숍. 계속 개발.
+7. git tips/chrome history도 정리해야 하고. --> 
+8. 하드 데이타도 언제나처럼.. 정리를 해야 하고..
+
+> * 연구실, 전수정. 할일 잡기. 이성구.
+> * AS-IS 담주로 잠정 연기.. 좀더 만들어보기!! / 네트워크 및.. 모듈 추가.. 생각해보기.. 그래도.. 날짜 잡기?
+> * SECO, 사장님 뵙기 / 몰입 cycle이 긴 몰입적 요소.. 생각해보기.
+> * 예비군 훈련.. 11월 7일.. (금요일)
 > * 민섭씨, 배너 얘기 대답해주기
-> * 커피사기.. 민섭씨한테 사거나, 개발자 커피를 사거나.. 별꼴에서 사거나..
+> * jack - half day response - patent 쪽.. 대답해주기.
+> * 마크다운/깃허브페이지/깃/리마크/서브라임에디터의 셋업 팁 또는 프로시져 정리하기.
+> * 에자일 웹으로 하는 지금 이거 데이타 많아지면서, 혼돈에 빠지고 있는 건지.. 전체적으로 조직화하기.. 위키 컨셉 재정립 필요.
 
 <span style="color:red">
 important matters</span>
 
-> * jack이랑 대화 진행 - half day response policy.
-> * 국립현대 - 스케칭.
-> * 웹사이트 - 정리
+> * 커피 볶기.
+> * 우인씨, 다시 만들어주기
+> * 방산시장가서 상자 더 사보기, 도끼님이랑 같이.
+> * 국립현대 - 스케치. / 퍼레이드
 > * 웹사이트 (Dianaband) 정리 - 1)selling platform 2)research blog 쓰기
-> * lecture4lecture
+> * lecture4lecture / performance4performance
 > * 담배갑. 5개피 들어가는 거. 3D 프린트 해보기.
 > * 태양열 전지 레귤레이터 회로 알아보기
-> * 인터넷 낙시. 라즈베리파이+무선랜.
 > * fit, tits, -xy 리커버.
+> * 인터넷 낙시. 라즈베리파이+무선랜.
 
 <span style="color:yellow; background-color:black">
 personal matters
@@ -34,7 +43,6 @@ personal matters
 > * art study - research - 공간으로 전개.
 > * media-tech study (of wonjung) - 사운드시계 / 옹달샘연주
 > * octopi - 3D printer
-> * 퍼레이드
 > * 음악/뮤직/노래/시/이야기/글/내러티브
 > * 사운드
 > * weather radio

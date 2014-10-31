@@ -3,6 +3,8 @@
 
 내용은 크리스마스 이벤트용 인터렉티브 LED 만들기
 
+![](../data/tree.jpg)
+
 [](https://www.youtube.com/watch?v=pOUCvNfAt5k)
 
 렌더링 처럼 사람들이 발판 밟으면 LED 라이트를 반짝~반짝~~
