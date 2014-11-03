@@ -617,3 +617,26 @@ The header text can contain inline formatting, such as emphasis (see Inline form
 
 계속 찜찜-- 하구먼.. &lt;font /&gt; 문제가 아닐 것 같기도 하다!! ㅡㅡ;;
 
+-
+
+######2014Nov03 14:01:12+0900
+
+중요한 버그가 있다..
+버그인것 같은데.. 이게 버그가 아니면 뭐람...
+
+github.pages에서 메일이 온다.
+
+```
+The page build failed with the following error:
+
+Page build failed. For more information, see https://help.github.com/articles/troubleshooting-github-pages-build-failures.
+
+If you have any questions please contact us at https://github.com/contact.
+```
+
+이건 뭐 죽이고 싶은 메일이다..
+
+원인은.. 마크다운에서 처음에 --- 를 넣으면 안되는 거였다.
+마크다운을 쓸때, 첫줄 첫문자로.. --- 를 넣으면 페이지 빌드가 안된다고 메일오고.. 푸쉬는 되도 업데이트는 안되더라..
+
+참고할것.
