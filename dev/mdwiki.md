@@ -457,7 +457,7 @@ grunt의 플러그인중에 하나인것 같은데.. 성능 프로파일을 돌�
 즉, 이 툴을 통해서 mdwiki를 시험하고 있는 경우엔, gimmicks를 로드 하지 않고 순수 mdwiki만 돌아가게 하겠다는 것이다.
 뭐, 뭔얘긴진 알겠다만.. 참.. 이런걸 그냥 막 쏟아내면.. 따라가기가 쉽진 않지...
 
-<font size=0.5em>2014Nov03 03:31:45+0900</font>
+######2014Nov03 03:31:45+0900
 
 -
 
@@ -523,7 +523,7 @@ Uncaught TypeError: Cannot read property 'toLowerCase' of undefined (index):2180
 
 이상 끝. 이제 좀 자자...
 
-<font size=0.5em>2014Nov03 04:29:20+0900</font>
+######2014Nov03 04:29:20+0900
 
 -
 
