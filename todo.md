@@ -9,8 +9,6 @@ simple/urgent matters</span>
 6. as-is 웍숍. 계속 개발.
 7. git tips/chrome history도 정리해야 하고. --> 
 8. 하드 데이타도 언제나처럼.. 정리를 해야 하고..
-9. dictunifier stardict 설치.. / gitx git setup?
-10. 리사익 보러가기. ~11/20.
 
 > * 연구실, 전수정. 할일 잡기. 이성구.
 > * AS-IS 담주로 잠정 연기.. 좀더 만들어보기!! / 네트워크 및.. 모듈 추가.. 생각해보기.. 그래도.. 날짜 잡기?

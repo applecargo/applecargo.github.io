@@ -8,8 +8,7 @@
 [develop]()
 
   * # agile web
-  * [agile_web-mdwiki](dev/agile_web-mdwiki.md)
-  * [mdwiki](dev/mdwiki.md)
+  * [mdwiki](dev/agile_web-mdwiki.md)
   * [mobmuplat](dev/mobmuplat.md)
   - - - -
   * # web
