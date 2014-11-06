@@ -301,7 +301,7 @@ absraction layer는.. 6가지.. 터칭이 되야 할 것 같다.
     * the system measures one combined resistance of anything and anybody that participates in the circuitry.
     * if there is interpersonal touch gesture changes between somebody who is building up the circuitry, the measured combined resistance changes.
     * the system have several methods invented to recognize which kind of gesture has been performed in the circuitry.
-    * we will cover how this touch gesture pattern recognition designed.
+    * we will cover how this touch gesture pattern recognition is designed.
 
   * categories of touch gesture patterns to be recognized
 
@@ -309,48 +309,55 @@ absraction layer는.. 6가지.. 터칭이 되야 할 것 같다.
     * repeatitive touches / non-repeatitive touches
     * intense touches / mild touches
     * entry / exit of gesture
-    * absoluted differentiation method for detecting repeatitiveness without a fixed threshold
+    * repeatitiveness in a non-repeatitive touches
 
   * no touches
 
     * first of all, even though there is no connection at all between these measuring electrodes, the measured value is not always equals to zero due to system noise.
     * so small portion of the dynamic range should be regarded as a meaningless range and rejected away.
     * after removing system noise, we want to classify if those touches are repetitive or non-repetitive.
+    * ![](../data/mergent1.png)
 
   * repeatitiveness
 
-    * the system has an internal counter to measure a time interval.
-    * at start, the signal is expected to be lower than noise threshold and this clears counter.
-    * if the signal goes higher than the noise threshold, the counter starts to count up for predefined counts.
+    * the system has many internal counters to measure a time interval.
+    * at start, the signal is expected to be lower than noise threshold and this clears out a counter.
+    * if the signal goes higher than the noise threshold, the counter starts to count up until it reaches predefined value.
     * while the counter is counting but not reaching the predefined maximum value, the gesture is considered as a repeatitive one.
-    * if the signal does not go below the noise threshold for predefined counts, the count will reach the maximum. and from that moment the gesture is considered as a non-repeatitive one.
+    * if the signal does not go below the noise threshold for predefined counts, the count will reach the predefined maximum value. and from that moment the gesture is considered as a non-repeatitive one.
     * if the signal goes below the noise threshold and does not increase again, the gesture is considered as no touches again and the counter will be cleared and stop.
     * if the signal goes below the noise threshold and then becomes higher then the noise threshold again, the counter will restart counting and again. while it is counting and not reaching the maximum, the gesture will be considered as a repeatitive one.
-    * in this manner, if the signal keep repeatitively goes below noise level and goes over noise level in the predefined time interval, the gesture recognition will stay to be repeatitive.
+    * in this manner, if the signal keep repeatitively goes below noise level and goes over noise level in the predefined time interval, the gesture recognition will change repeatitively between no touches and repeatitive touches. in the final stage, the system averages repeatitive decisions over certain time interval to get the repeatitiveness factor of the gesture.
     * after recognizing repeatitiveness, we want to classify further if those touches are intense or mild.
+    * ![](../data/mergent2.png)
 
   * intensity
 
     * intensity just directly comes out of the decision if the signal is over certain threshold or not.
     * if it is higher than the threshold, then it will be considered as a intense one. otherwise, it will be considered as a mild one.
     * putting this intensity decision and repeatitiveness decision together, the system can derive 4 different cases : mild repeatitive gesture (or tapping), intense repeatitive gesture (or padding), mild non-repeatitive gesture (or stroking) and intense non-repeatitve gesture (or holding).
+    * ![](../data/mergent3.png)
+    * ![](../data/mergent4.png)
 
   * entering and finishing of gesture
 
     * the system also detects entry and exit of gesture using another counter.
     * when the classification for current gesture updates to something else, use of edge detection algorithm will classify the entry and exit event of such gesture.
-    * a rising edge detection - 'was 0, now 1' - of the gesture classification will detect entry. (for example, grabbing)
-    * a falling edge detection - 'was 1, now 1' - of the gesture classification will detect exit.
+    * a rising edge detection - 'was 0, and now 1' - of the gesture classification will detect entry of that gesture. (for example, grabbing)
+    * a falling edge detection - 'was 1, and now 0' - of the gesture classification will detect exit of that gesture.
+    * ![](../data/mergent5.png)
 
   * the sense of repeatitiveness depends on the sense of the threshold
 
     * even though the system made once decision that the gesture is non-repeating, this only means that the signal is repeatedly crossing noise threshold.
     * of course, one can define other threshold to get another sense of repeatitiveness decision.
 
-  * absoluted differentiation method for detecting repeatitiveness without a threshold
+  * repeatitiveness in a non-repeatitive touches
 
+    * absoluted differentiation of the signal for detecting repeatitiveness without a fixed threshold
     * the system also differentiate the signal to detect repeatitiveness not against fixed threshold but as a general matter.
-    * the system counts collected counts of instant increase of absoluted differentiated signal that exceeds a certain threshold for certain time interval. this collected counts of viable instant increases do summarize the tendency of waving in the signal. so, applying a threshold to this collected counts timely, the system can recognize intensity waving aspect of the gesture. (for example, kneading)
+    * the system collects counts of instant increase of absoluted differentiated signal that exceeds a certain threshold for certain time interval. this collected counts of viable instant increases do summarize the tendency of waving in the signal. so, applying a threshold to this collected counts timely, the system can recognize intensity waving aspect of the gesture. (for example, kneading)
+    * ![](../data/mergent6.png)
 
 ---
 
