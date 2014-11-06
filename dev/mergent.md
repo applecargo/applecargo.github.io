@@ -299,7 +299,7 @@ absraction layer는.. 6가지.. 터칭이 되야 할 것 같다.
   * system construction
 
     * the system measures one combined resistance of anything and anybody that participates in the circuitry.
-    * if there is interpersonal touch gesture changes between somebody who is building up the circuitry, the combined resistance changes.
+    * if there is interpersonal touch gesture changes between somebody who is building up the circuitry, the measured combined resistance changes.
     * the system have several methods invented to recognize which kind of gesture has been performed in the circuitry.
     * we will cover how this touch gesture pattern recognition designed.
 
