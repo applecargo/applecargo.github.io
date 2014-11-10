@@ -361,3 +361,17 @@ absraction layer는.. 6가지.. 터칭이 되야 할 것 같다.
 
 ---
 
+seeedstudio pcb.. service.
+
+sample pcb order..
+
+---
+
+optocoupler 검증.
+
+optocoupler의 노랑색/초록색 케이블.. rpi용 케이블이 어디로 연결되는지 확인...
+
+사진을 보면, 조금 다르다 회로가.. 저항이 2개뿐. 저항은  330 & 10k 였다. 회로가 대체 뭐지? 좀 다른거 같다. -> 체크체크.
+
+---
+

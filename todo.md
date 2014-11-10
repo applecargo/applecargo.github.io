@@ -1,40 +1,33 @@
 <span style="color:tomato; background-color:black">
 simple/urgent matters</span>
 
-1. jack patent
-2. 사장님 app idea
-3. HYU 로거
-4. mmca 작업
-5. 지혜씨, 고3 웍숍.
-6. as-is 웍숍. 계속 개발.
-7. git tips/chrome history도 정리해야 하고. --> 
-8. 하드 데이타도 언제나처럼.. 정리를 해야 하고..
-9. dictunifier stardict 설치.. / gitx git setup?
-10. 리사익 보러가기. ~11/20.
-12. mac github client reinstall.. unstable..
+1. mmca 작업
+2. 지혜씨, 고3 웍숍.
+3. jack
+4. as-is 웍숍. 계속 개발.
+5. 사장님 app idea
+6. HYU 로거
+7. 하드 데이타도 언제나처럼.. 정리를 해야 하고..
+8. bluff 가져오기.
 
 > * 연구실, 전수정. 할일 잡기. 이성구.
 > * AS-IS 담주로 잠정 연기.. 좀더 만들어보기!! / 네트워크 및.. 모듈 추가.. 생각해보기.. 그래도.. 날짜 잡기?
 > * SECO, 사장님 뵙기 / 몰입 cycle이 긴 몰입적 요소.. 생각해보기.
-> * 예비군 훈련.. 11월 7일.. (금요일)
-> * 민섭씨, 배너 얘기 대답해주기
-> * jack - half day response - patent 쪽.. 대답해주기.
 > * 마크다운/깃허브페이지/깃/리마크/서브라임에디터의 셋업 팁 또는 프로시져 정리하기.
 > * 에자일 웹으로 하는 지금 이거 데이타 많아지면서, 혼돈에 빠지고 있는 건지.. 전체적으로 조직화하기.. 위키 컨셉 재정립 필요.
+> * 국립현대 - 스케치. / 퍼레이드
 
 <span style="color:red">
 important matters</span>
 
-> * 커피 볶기.
+> * 커피 '계속' 볶기.
 > * 우인씨, 다시 만들어주기
 > * 방산시장가서 상자 더 사보기, 도끼님이랑 같이.
-> * 국립현대 - 스케치. / 퍼레이드
 > * 웹사이트 (Dianaband) 정리 - 1)selling platform 2)research blog 쓰기
 > * lecture4lecture / performance4performance
 > * 담배갑. 5개피 들어가는 거. 3D 프린트 해보기.
 > * 태양열 전지 레귤레이터 회로 알아보기
 > * fit, tits, -xy 리커버.
-> * 인터넷 낙시. 라즈베리파이+무선랜.
 
 <span style="color:yellow; background-color:black">
 personal matters
