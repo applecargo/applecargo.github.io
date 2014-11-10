@@ -76,5 +76,6 @@
   * [git](tips/git.md)
   * [visualdiff](tips/visualdiff.md)
   * [manpage](tips/manpage.md)
+  * [brew](tips/brew.md)
 
 [about](about.md)

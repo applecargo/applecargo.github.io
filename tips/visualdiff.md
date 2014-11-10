@@ -11,4 +11,15 @@ kdiff3
 
 meld
 
-'brew install meld'
+for mac
+<http://brewformulas.org/Meld>
+just, 'brew install meld'
+
+<http://meldmerge.org/>
+
+pre-built binaries for windows
+
+<http://sourceforge.net/projects/meld-installer/files/?source=navbar>
+
+both are good enough.. let's see what is better having both.
+
