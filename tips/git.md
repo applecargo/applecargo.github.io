@@ -728,3 +728,15 @@ LOW-LEVEL COMMANDS (PLUMBING)
        commands that interrogate and compare objects, and commands that move
        objects and references between repositories.
 ```
+
+---
+
+######2014Nov11 03:41:19+0900
+
+아직 해보진 못했는데...
+
+gh-pages branch라는 걸 어떻게 써먹는지 알면 좋을 수도 있다.
+
+<https://help.github.com/articles/creating-project-pages-manually/>
+
+여기 참고...
