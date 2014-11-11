@@ -29,6 +29,7 @@
   * [dream-color](dev/dreamcolor.md)
   * [hyu-data-logger](dev/hyu-data-logger.md)
   * [mergent](dev/mergent.md)
+  * [zerolab](dev/zerolab.md)
 
 [design]()
 
