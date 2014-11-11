@@ -640,3 +640,37 @@ If you have any questions please contact us at https://github.com/contact.
 마크다운을 쓸때, 첫줄 첫문자로.. --- 를 넣으면 페이지 빌드가 안된다고 메일오고.. 푸쉬는 되도 업데이트는 안되더라..
 
 참고할것.
+
+---
+
+######2014Nov12 04:56:44+0900
+
+```
+        // files that we inline in the fat release (basically everything)
+        // ONLY PUT ALREADY MINIFIED FILES IN HERE!
+        externalJsFiles: [
+            'extlib/js/jquery-1.8.3.min.js',
+            'extlib/js/bootstrap-3.0.0.min.js',
+            'extlib/js/prism.js'
+        ],
+        //STRANGE or UNKNOWN prob.. - here we are using bootstrap-3.0.0's js code with 3.3.0's css..
+        //below is customized css.. -> later just bump bootstrap to 3.0.0 and kdiff3 again. to merge.. and patch.
+        //to clear out this unclarity.
+        externalCssFiles: [
+            'extlib/css/prism.css',
+            'extlib/css/bootstrap.min.css',
+            'extlib/css/bootstrap-theme.min.css'
+        ],
+
+```
+
+tools/mdwiki-0.6.x/Gruntfile.js 에서 그냥 후린게 하나 있는데.. 코멘트와 같이.. 
+
+**STRANGE or UNKNOWN prob.. - here we are using bootstrap-3.0.0's js code with 3.3.0's css.. / below is customized css.. -> later just bump bootstrap to 3.0.0 and kdiff3 again. to merge.. and patch.**
+
+적은대로 나중에 꼭 완성할것.
+
+'grunt release' 라고 치면된다.. README.md 참조..
+
+---
+
