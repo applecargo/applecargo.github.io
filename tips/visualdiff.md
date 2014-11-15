@@ -23,3 +23,21 @@ pre-built binaries for windows
 
 both are good enough.. let's see what is better having both.
 
+---
+
+######2014Nov15 15:52:45+0900
+
+써보니까..
+kdiff3가 더 좋은 것 같다..
+안정적이고.. 숏컷도 잘 되어있고...
+
+정착중..
+
+-
+
+한가지 새로운 개념이.. 
+merge의 개념인데.. 요걸 참고하자..
+
+<http://stackoverflow.com/questions/5246150/copy-single-difference-in-kdiff3>
+
+왼쪽 파일 내용 오른쪽 파일 내용 합치는 법이다.. 참고.

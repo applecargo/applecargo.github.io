@@ -26,3 +26,13 @@ favicon을 넣는 법..
 
 쩝.
 
+---
+
+######2014Nov15 15:54:19+0900
+
+js / css / html 섞여있는 코드의 beautifier는 요게 좋더라.
+
+속도도 빠르고..
+
+<http://jsbeautifier.org/>
+

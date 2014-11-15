@@ -43,6 +43,7 @@
   * [collab](research/zine-collab.md)
   - - - -
   * [droidparty](research/droidparty.md)
+  * [wiretouch](research/wiretouch.md)
 
 [notes]()
 

@@ -1,4 +1,70 @@
 
+######2014Nov15 15:04:19+0900
+
+음.. 일단..
+
+funnykit에서 부터 시작된, voice record / playback 키트와 그 칩에 대한 조사와..
+
+ISD계열 칩들의 현황 조사랑.. 가격조사한 링크들을 죄다 여다가 쏟아보자.
+
+<http://www.funnykit.co.kr/shop/goods/goods_list.php?&category=027002002>
+<http://www.funnykit.co.kr/shop/goods/goods_view.php?goodsno=14291&category=027002002>
+<http://www.funnykit.co.kr/shop/goods/goods_view.php?goodsno=19664&category=027002002>
+<http://www.funnykit.co.kr/shop/goods/goods_view.php?goodsno=20441&category=027002002>
+<http://www.funnykit.co.kr/shop/goods/goods_view.php?goodsno=13771&category=027002002>
+<http://www.dreamkit.co.kr/front/php/product.php?product_no=480&main_cate_no=26&display_group=2>
+<http://www.funnykit.co.kr/shop/goods/goods_view.php?goodsno=18681&category=027002002>
+
+여기까지.. 기본 라인업을 체크해봤는데.. 좀더 자료를 얻어볼려고 했더니.. 외국계 키트의 수입이란걸 알게됐다.
+VELLEMAN KIT - MK195
+
+<http://cpc.farnell.com/velleman-kit/mk195/kit-voice-recorder-playback/dp/HK01191>
+<http://www.farnell.com/datasheets/1728759.pdf>
+
+이쯤 되면, 이건 이들만의 보드가 아닌것이다.. 엘레파츠에 보니..
+
+<http://eleparts.co.kr/front/productlist_morning.php?code=022002007000&listnum=&sort=&block=&gotopage=>
+<http://eleparts.co.kr/EPXDJ8N3>
+
+이런식으로.. 많은 것들이 등록되어있기도 하다..
+
+그렇다면 칩을 구하면 해결되는 걸까? 예전과는 달리.. 커스텀 껌딱지 칩이 아니라.. 패키징이 공개되어있었다.. (이런 회사들은 일부러 껌딱지로도 판매하는 것 같더라.. die단위로도 판매하는 옵션이있었음.. 즉 그 때도 아마 같은 칩이였을 거 같다..)
+
+그러다가,
+아두이노 쉴드가 나왔다.!
+
+<http://www.open-electronics.org/a-voice-shield-for-arduino-give-voice-to-your-ideas/>
+이건 왜 찾아진건지 모르겠지만.. audio decoder가 들어있는 music shield란 것도 나왔다..
+<http://www.seeedstudio.com/wiki/Music_Shield_V2.0>
+
+여기 사용된 정확한 칩은, ISD1790PY 라는데..
+ISD1700 계열인데..
+이쪽 계열 칩은 SOIC여서.. 사용이 매우 핸디하다.
+(클래스 D 앰프가 내장되어있다.. 이게 쓸만한진 몰라도.. 뭐.. 나름 오케이 콤비 세트 메뉴..)
+
+<http://www2.nuvoton.com/SiteCollectionDocuments/enu/ProductAndSales/ProductLines/ConsumerLogicIC/ISD%20ChipCorder/ISD1700.pdf>
+
+-
+
+가격도 나쁘지 않다... 7천원 ~ 12천원..
+<https://www.eleparts.co.kr/front/productlist_morning.php?code=001006019000&listnum=&sort=&block=&gotopage=>
+
+젤 싼게.. 요건데.. <https://www.eleparts.co.kr/EPX36A3J>
+ISD1610BSY - 10초 1개 사운드. / 저장되고..
+<http://www.nuvoton.com/resource-files/EN_ISD1600B_Datasheet_Rev-1.22.pdf>
+
+17 계열은 여러개의 사운드인데.. 시간은 똑같다. 즉, 시간을 쪼개 쓸수 있는 기능이 있다는 것이지.
+1790은 17계열 90초 저장가능한 건데.. 요게 12천원가량된다.
+<https://www.eleparts.co.kr/EPX36A3L> : 1740
+
+-
+
+이정도고.. 이제 앞으로는.. 아까 그 쉴드 디자인이랑 데타시트 디자인 참고해서, 하나 만들고.. (주문하면 4-6일 이기 때문에 빨리 진행해야 한다.)
+제작 & 테스트..
+그리고, 앞에.. 정전센서 방식이나.. 저항식 방식. 스위치 방식별로.. 입력 회로부분을 설계/테스트 해야 한다.
+
+---
+
 ######2014Nov11 03:24:33+0900
 
 전시 아이디어가 필요해..
@@ -383,4 +449,8 @@ as is의 면죄부에 대해서 얘기해야 할까. 아니면, copy에 대해�
 그가, 특허를 그래서 좋다고 하는 것은 아니다. 특허에는 반대하는 입장이다. 파파넥은..
 
 -
+
+######2014Nov12 12:34:50+0900
+
+어제 사람들이 왔다갔다..
 

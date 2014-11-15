@@ -1,6 +1,7 @@
 <span style="color:tomato; background-color:black">
 simple/urgent matters</span>
 
+0. 다운로드 / https://dl.dropboxusercontent.com/u/13116960/2014-11-08_Baking.zip
 1. mmca 작업
 2. 지혜씨, 고3 웍숍.
 3. jack
