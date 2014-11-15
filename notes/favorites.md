@@ -47,3 +47,11 @@ jealous? me?
 ![](http://www.yuichirock.com/notori/notori_logo2.png)
 
 <http://www.yuichirock.com/notori/>
+
+# PVC Pipe Harp and Aeolian Gourd Harp
+
+<http://www.youtube.com/watch?v=p7Vx16uhuoc>
+
+# lernertandsander's "the sound of cos"
+
+<http://lernertandsander.com/index.php?/projects/the-sound-of-cos/>

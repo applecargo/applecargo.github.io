@@ -1,70 +1,4 @@
 
-######2014Nov15 15:04:19+0900
-
-음.. 일단..
-
-funnykit에서 부터 시작된, voice record / playback 키트와 그 칩에 대한 조사와..
-
-ISD계열 칩들의 현황 조사랑.. 가격조사한 링크들을 죄다 여다가 쏟아보자.
-
-<http://www.funnykit.co.kr/shop/goods/goods_list.php?&category=027002002>
-<http://www.funnykit.co.kr/shop/goods/goods_view.php?goodsno=14291&category=027002002>
-<http://www.funnykit.co.kr/shop/goods/goods_view.php?goodsno=19664&category=027002002>
-<http://www.funnykit.co.kr/shop/goods/goods_view.php?goodsno=20441&category=027002002>
-<http://www.funnykit.co.kr/shop/goods/goods_view.php?goodsno=13771&category=027002002>
-<http://www.dreamkit.co.kr/front/php/product.php?product_no=480&main_cate_no=26&display_group=2>
-<http://www.funnykit.co.kr/shop/goods/goods_view.php?goodsno=18681&category=027002002>
-
-여기까지.. 기본 라인업을 체크해봤는데.. 좀더 자료를 얻어볼려고 했더니.. 외국계 키트의 수입이란걸 알게됐다.
-VELLEMAN KIT - MK195
-
-<http://cpc.farnell.com/velleman-kit/mk195/kit-voice-recorder-playback/dp/HK01191>
-<http://www.farnell.com/datasheets/1728759.pdf>
-
-이쯤 되면, 이건 이들만의 보드가 아닌것이다.. 엘레파츠에 보니..
-
-<http://eleparts.co.kr/front/productlist_morning.php?code=022002007000&listnum=&sort=&block=&gotopage=>
-<http://eleparts.co.kr/EPXDJ8N3>
-
-이런식으로.. 많은 것들이 등록되어있기도 하다..
-
-그렇다면 칩을 구하면 해결되는 걸까? 예전과는 달리.. 커스텀 껌딱지 칩이 아니라.. 패키징이 공개되어있었다.. (이런 회사들은 일부러 껌딱지로도 판매하는 것 같더라.. die단위로도 판매하는 옵션이있었음.. 즉 그 때도 아마 같은 칩이였을 거 같다..)
-
-그러다가,
-아두이노 쉴드가 나왔다.!
-
-<http://www.open-electronics.org/a-voice-shield-for-arduino-give-voice-to-your-ideas/>
-이건 왜 찾아진건지 모르겠지만.. audio decoder가 들어있는 music shield란 것도 나왔다..
-<http://www.seeedstudio.com/wiki/Music_Shield_V2.0>
-
-여기 사용된 정확한 칩은, ISD1790PY 라는데..
-ISD1700 계열인데..
-이쪽 계열 칩은 SOIC여서.. 사용이 매우 핸디하다.
-(클래스 D 앰프가 내장되어있다.. 이게 쓸만한진 몰라도.. 뭐.. 나름 오케이 콤비 세트 메뉴..)
-
-<http://www2.nuvoton.com/SiteCollectionDocuments/enu/ProductAndSales/ProductLines/ConsumerLogicIC/ISD%20ChipCorder/ISD1700.pdf>
-
--
-
-가격도 나쁘지 않다... 7천원 ~ 12천원..
-<https://www.eleparts.co.kr/front/productlist_morning.php?code=001006019000&listnum=&sort=&block=&gotopage=>
-
-젤 싼게.. 요건데.. <https://www.eleparts.co.kr/EPX36A3J>
-ISD1610BSY - 10초 1개 사운드. / 저장되고..
-<http://www.nuvoton.com/resource-files/EN_ISD1600B_Datasheet_Rev-1.22.pdf>
-
-17 계열은 여러개의 사운드인데.. 시간은 똑같다. 즉, 시간을 쪼개 쓸수 있는 기능이 있다는 것이지.
-1790은 17계열 90초 저장가능한 건데.. 요게 12천원가량된다.
-<https://www.eleparts.co.kr/EPX36A3L> : 1740
-
--
-
-이정도고.. 이제 앞으로는.. 아까 그 쉴드 디자인이랑 데타시트 디자인 참고해서, 하나 만들고.. (주문하면 4-6일 이기 때문에 빨리 진행해야 한다.)
-제작 & 테스트..
-그리고, 앞에.. 정전센서 방식이나.. 저항식 방식. 스위치 방식별로.. 입력 회로부분을 설계/테스트 해야 한다.
-
----
-
 ######2014Nov11 03:24:33+0900
 
 전시 아이디어가 필요해..
@@ -448,9 +382,956 @@ as is의 면죄부에 대해서 얘기해야 할까. 아니면, copy에 대해�
 
 그가, 특허를 그래서 좋다고 하는 것은 아니다. 특허에는 반대하는 입장이다. 파파넥은..
 
+---
+
+######2014Nov15 15:04:19+0900
+
+음.. 일단..
+
+funnykit에서 부터 시작된, voice record / playback 키트와 그 칩에 대한 조사와..
+
+ISD계열 칩들의 현황 조사랑.. 가격조사한 링크들을 죄다 여다가 쏟아보자.
+
+<http://www.funnykit.co.kr/shop/goods/goods_list.php?&category=027002002>
+<http://www.funnykit.co.kr/shop/goods/goods_view.php?goodsno=14291&category=027002002>
+<http://www.funnykit.co.kr/shop/goods/goods_view.php?goodsno=19664&category=027002002>
+<http://www.funnykit.co.kr/shop/goods/goods_view.php?goodsno=20441&category=027002002>
+<http://www.funnykit.co.kr/shop/goods/goods_view.php?goodsno=13771&category=027002002>
+<http://www.dreamkit.co.kr/front/php/product.php?product_no=480&main_cate_no=26&display_group=2>
+<http://www.funnykit.co.kr/shop/goods/goods_view.php?goodsno=18681&category=027002002>
+
+여기까지.. 기본 라인업을 체크해봤는데.. 좀더 자료를 얻어볼려고 했더니.. 외국계 키트의 수입이란걸 알게됐다.
+VELLEMAN KIT - MK195
+
+<http://cpc.farnell.com/velleman-kit/mk195/kit-voice-recorder-playback/dp/HK01191>
+<http://www.farnell.com/datasheets/1728759.pdf>
+
+이쯤 되면, 이건 이들만의 보드가 아닌것이다.. 엘레파츠에 보니..
+
+<http://eleparts.co.kr/front/productlist_morning.php?code=022002007000&listnum=&sort=&block=&gotopage=>
+<http://eleparts.co.kr/EPXDJ8N3>
+
+이런식으로.. 많은 것들이 등록되어있기도 하다..
+
+그렇다면 칩을 구하면 해결되는 걸까? 예전과는 달리.. 커스텀 껌딱지 칩이 아니라.. 패키징이 공개되어있었다.. (이런 회사들은 일부러 껌딱지로도 판매하는 것 같더라.. die단위로도 판매하는 옵션이있었음.. 즉 그 때도 아마 같은 칩이였을 거 같다..)
+
+그러다가,
+아두이노 쉴드가 나왔다.!
+
+<http://www.open-electronics.org/a-voice-shield-for-arduino-give-voice-to-your-ideas/>
+이건 왜 찾아진건지 모르겠지만.. audio decoder가 들어있는 music shield란 것도 나왔다..
+<http://www.seeedstudio.com/wiki/Music_Shield_V2.0>
+
+여기 사용된 정확한 칩은, ISD1790PY 라는데..
+ISD1700 계열인데..
+이쪽 계열 칩은 SOIC여서.. 사용이 매우 핸디하다.
+(클래스 D 앰프가 내장되어있다.. 이게 쓸만한진 몰라도.. 뭐.. 나름 오케이 콤비 세트 메뉴..)
+
+<http://www2.nuvoton.com/SiteCollectionDocuments/enu/ProductAndSales/ProductLines/ConsumerLogicIC/ISD%20ChipCorder/ISD1700.pdf>
+
 -
 
-######2014Nov12 12:34:50+0900
+가격도 나쁘지 않다... 7천원 ~ 12천원..
+<https://www.eleparts.co.kr/front/productlist_morning.php?code=001006019000&listnum=&sort=&block=&gotopage=>
 
-어제 사람들이 왔다갔다..
+젤 싼게.. 요건데.. <https://www.eleparts.co.kr/EPX36A3J>
+ISD1610BSY - 10초 1개 사운드. / 저장되고..
+<http://www.nuvoton.com/resource-files/EN_ISD1600B_Datasheet_Rev-1.22.pdf>
+
+17 계열은 여러개의 사운드인데.. 시간은 똑같다. 즉, 시간을 쪼개 쓸수 있는 기능이 있다는 것이지.
+1790은 17계열 90초 저장가능한 건데.. 요게 12천원가량된다.
+<https://www.eleparts.co.kr/EPX36A3L> : 1740
+
+-
+
+이정도고.. 이제 앞으로는.. 아까 그 쉴드 디자인이랑 데타시트 디자인 참고해서, 하나 만들고.. (주문하면 4-6일 이기 때문에 빨리 진행해야 한다.)
+제작 & 테스트..
+그리고, 앞에.. 정전센서 방식이나.. 저항식 방식. 스위치 방식별로.. 입력 회로부분을 설계/테스트 해야 한다.
+
+---
+
+---
+
+######2014Nov15 18:46:22+0900
+
+음. 좋아. 이제 시작이다.
+
+이번 주말, 즉 오늘이랑 내일까지 내가 해야 할 일은 2가지이다.
+
+1) 제로랩 관련, 사운드 모듈 부분을 보드 설계 & 테스트. 하고.. 맡기기. / 구체적인 모듈화 디자인 뽑아보기. 스케치업등으로 하면 더욱 좋겠다.
+
+2) 앱 관련, 고3웍숍. 프로그래밍 전혀 없이. 할 수 있게 할 것. / 녹음기 앱도 개선해야 하고, 센서 앱도 몇가지 조절 도 필요할 수 있고.. 여튼, 이부분은 좀더 구체적인 계획이 필요하다. 얘들한테 어떻게 접근해야 잘 받아들여지겠는지. 말이다.
+계획은 좀 해야한다고 볼수도 있다.
+
+---
+
+######2014Nov15 19:09:15+0900
+
+먼저, 제로랩 일을 해보자.
+
+아 그리고, 날짜를 위에서 부터 적는 일은 하지 말자. notes의 경우만 제외하고.. 나머지들은 시작부터 끝까지 보는게 좋다.
+
+-
+
+모듈에 대한 디자인은 크게 2가지인 것 같다.
+
+* 첫째로, 보이스 레코딩 & 플레잉 칩 (이것은 앰프와 마이크를 포함한다) / 전원부 설계도 되어야 한다. 각 스위치를 어떻게 작동시킬지도.. 관심가져야 한다.
+* 둘째는, 이를 바탕으로, 플레이 스타트 & 플레이 스탑 (혹은 파우즈)를 어떻게 작동할지. 그에 따라서, 3가지 방향 중에서, 가장 쉽다고 생각되는... 스위칭 / 저항식 / 정전식 중에서 가장 쉽다고 생각되는, 스위칭 식의 경우에 어떻게 인터페이스를 할지.. 뽑고.
+* 셋째는, 저항식의 경우
+* 넷째는, 정전식의 경우를 각각 해본다.
+
+이중 마지막 넷째 경우에 대해서, 가지고 있는 칩으로 테스트 회로를 구성해본다.
+
+-
+
+그럼 제일 먼저, ISD칩을 가지고 설계를 해보자.
+
+---
+
+######2014Nov15 23:18:49+0900
+
+헉.. 한 4시간정도를 허비한건가? 심하다..
+
+후\*\*님 회로도 받고서.. 라인인 노이즈 문제를 파느라.. 시간을 꽤 많이 썼다..
+
+이것 저것.. 알아본 것들이 많지만..
+
+뭐 일단은 여기 대화를 기록하자면..
+
+-
+
+안녕하세요, 후\*\*님!!
+7:43pm
+넵
+7:45pm
+아 후\*\*님.. 실례지만.. ㅜㅜ 동희씨한테 들었는데요..
+녹음/재생 칩을 전시때 쓰신적이있다고 해서.
+그라운드가 잘 잡혀있는 칩을 찾아서 사용하셨다고 들었는데..
+7:46pm
+넹
+그라운드가잘잡히는지는 ㅋㅋ
+7:46pm
+지금 쓰려는게 ISD계열인데.. 잡음문제가 해결이 잘 안된다고 해서..
+어떤 칩을 사용하셨었는지.. 좀 여쭤볼려구.. ㅡㅡ
+좀 알려주실수있으세용 ㅜㅜ
+7:47pm
+저도 녹음시 잡음 생겨서  ㅠㅠ마이크는 괜찮은데 라인이. ㅠㅠ
+1600
+인가
+잠시만요
+7:47pm
+동희씨 경험도 그렇고, 제 경험도 그렇고. 사실.. ISD가.. 잡음이.. 있는 건 사실이거든요.. / 넵~~
+7:51pm
+<http://eleparts.co.kr/EPX36A47>
+이거요
+7:51pm
+아 이거구나..
+이것두.. ISD계열인데....
+7:51pm
+모쓰시는데요
+7:52pm
+저도 이거 쓸까하는데용... 240 초까진 아니구.. 그냥.. 90 정도..
+90초나.. 16초 정도루여..
+어떻게 하셨길래 잡음없이 만드신건가요!!! @,.@
+7:52pm
+저도 더 손봐야하는데.. 2기본전인건 2년전 해서 가물가물
+7:52pm
+아..
+7:53pm
+다시공부해봐요..
+같이
+ㅋ
+7:53pm
+혹시 회로도 좀 공유해주실 수 있으세용 ㅜㅜ
+7:53pm
+아
+7:53pm
+그럼 제가 좀 공부해서 개선할 수있을지도 ㅜㅜ
+원치 않으시면 주저말고 사양하셔도 되고여.
+7:53pm
+저는 오픈소스로하는편은 아니지만.. 보내드릴께요..
+두호씨니깐. ㅋㅋ
+7:55pm
+아 네. 이것 참 죄송하네요..
+그럼 일단 스스로 먼저 해보겠습니다.
+7:55pm
+죄송은 무슨
+내가 죄송
+7:56pm
+제가 만들어서. 문제 되는 걸 여쭤보거나 상의하면서 ...
+7:56pm
+까묵어서 저도 물어물어해서 그러치않아도 공부해야함..
+7:56pm
+저는 오픈소스로 하고 싶어서요... 사실은..
+7:56pm
+이거때문에 한 4년은 공생하느듯 ㅋㅋ
+고생
+7:56pm
+후\*\*님이 주시면, 은연중에 오픈소스에 들어가게 될까봐.. 죄송.. ㅡㅡ
+7:57pm
+그러세요..
+뭐
+7:58pm
+ㅜㅜ.. 넵... 여튼, 같은 ISD계열 칩으로 잡음 없이 성공하셨다는 사실만으로도 큰 도움이 되는데요..
+일단 제가 좀 해보고.. 발견하는 점을 상의드리면 좋을 거 같아용.
+7:58pm
+메일알려주세요
+7:59pm
+pilotedeguerre@gmail.com
+입니닷.
+7:59pm
+스키메틱 파일로 드릴께요.
+7:59pm
+네. 그럼 혹시 오픈소스화하게 되면 후\*\*님 크레딧을 넣도록하겠습니다.
+부끄럽네여.. 와가마마..
+8:00pm
+ㅋㅋ
+지금보넸음
+8:00pm
+넵.. 감사합니닷..
+8:00pm
+저도 많이도움받아하건데요뭘
+이번 전시에 사용한 거에요..
+8:01pm
+아 그렇군요..
+8:01pm
+라인녹음 마이크녹음도가능한것
+음.. 단 제 메인작업에 주로사용하는거라..
+8:01pm
+후\*\*님이랑 저희랑 하는 일이 종종 겹치는 것 같아요 흐흐.....
+항상 한걸음 먼저가시지만...
+네.
+8:01pm
+아니에요..
+그냥 하는거
+바보같아서 좀 어렵게가죠뭐
+8:02pm
+옆에서 얻어배우는 것들이 많습니다.. 모찌도 그렇고..
+좀더 잘해서 도움이 되도록 노력할께요.
+8:02pm
+모찌좀 공부해야하는데.. 영  시간이..
+8:03pm
+여튼, 메인 작업에 사용하시는 것이니.. 공개하고 싶어지면, 꼭 허가 요청 드릴께요.
+8:03pm
+이거 라인 으로 재생할때는 상관없는데. 라인으로 녹음하면 음질이 떨어져서 그거 잡아야하는데, 다음달까지.. 그게걱정임
+아니에요. 오픈소스 하세요. ㅋ
+8:04pm
+음.. 그런 문제가 있으시군요...
+네.. 한번 저도 생각해보겠습니다.
+8:04pm
+하지만 한국에서 오픈소스의미가.. 참
+아참아직 미정이지만  참고로 이걸로 판매용 키트작업할지도
+8:05pm
+음.. 네.. 네.. 그렇군요.. 조심스럽네요..
+8:05pm
+ㅋㅋ
+그런 애기는 나중에 하시고 작업에 이용하세요..
+8:06pm
+후\*\*님의 키트가 나온다니, 기대 완전.. 기대.
+8:06pm
+참고로 부품은 smd에요
+8:06pm
+네.
+8:06pm
+다는아니궁
+8:06pm
+음.. 네. 알겠습니닷.
+감사합니다. 아무튼....
+이게 저도 갑자기 전시 일정이 잡혀서..
+8:07pm
+정인씨라하는건가?
+8:07pm
+좀 무리한 부탁 드리게된것 같아요.
+8:07pm
+정인씨
+8:07pm
+음.. 누구죠? 아마 아닐껄요..
+디자인 전시에요.
+printing studio show?
+갑자기 결정되서..
+종이 회로를.. 제작하는 프린터와 같이..
+모듈화된 사운드 장치들을 전시해서 사람들이 만든회로를 가지고 이것저것 만들어볼 수 있게 할려고요.
+작고, 비싸지 않고, 다량으로 만들어낼수있는  / 녹음/재생 모듈들이 필요해요.
+zerolab 이랑 같이해요.
+2주후에? ㅡㅡ;
+촉박;
+8:10pm
+헉
+제가 공부가되겠ㅇ어ㅛ..
+8:11pm
+전시가 갑자기 결정되서 이모양이죠 ㅜㅜ
+8:11pm
+종이 회로관심이..
+8:11pm
+연말 돈 쓰기인지. 뭔지....
+아 네.. 잘 되면 좋겠어용.. 뭔가 도움이 될 수 있게.. 누구에게든.
+8:11pm
+개인적으로는 한국에서 오픈소스는 항상조심
+상술적인 기업들이 이용달할수도
+8:12pm
+흐흐. 그러게요.. 제가 좀 무른 것 같긴해요.. (아마이.)
+8:12pm
+이용당할수도
+서로에 대한 예의만 있다면 오픈소스도 괜찮은데..
+아직 한국은 아닌듯
+8:13pm
+오픈소스 전체가 예의에 대한 얘기니깐요..
+음.. 그렇군요..
+하긴 뭐 비트스눕에서 조차.. 한국얘들 씨드 안한다고 / (저도 그렇고 ㅎㅎ)
+이미 세계적으로 악명 높은.. sink의 나라.
+저라도 노력해야지.. 생각은 하고 있지만 서도...
+8:14pm
+아마 제가한것도 이것저것 참고해엇요..
+8:14pm
+어렵긴한것 같으네여..
+8:15pm
+100%자력은아니에요
+아무든 힘내세욧
+8:15pm
+네.. / 감사합니닷.
+아자자~~
+그럼 좋은 밤 되세욧.
+8:15pm
+제가 회로를 좀더 잘알면 좋은데 죄송
+8:16pm
+헉.. 그럴리가요.. 도움주셔서 감사하죠.
+8:16pm
+조각전공자의 한계
+8:16pm
+저도 뭐. 아날로그 쪽은 무뇌한이라서ㅡㅡ 암튼, 열심히해보겠습니다.
+8:17pm
+저도 을지로 가서 자문구할까생각중..
+8:18pm
+라인인이라면.. 컴이나 전자악기에서 바로 레코딩하시려는 거죠?
+8:18pm
+넹
+8:19pm
+마이크 쪽은 잘 되신다면... 라인인 입력 쪽의 뭔가 매칭 문제이거나.. 음원자체의 노이즈 일 것 같은데..
+8:19pm
+라인으로 실시간 재생은 잘됨
+8:19pm
+이게 잘되면, 정말 전천후 모듈이 되겠네요.
+8:19pm
+녹음이문제 넹
+사실 2010년부터 ㅜㅜ
+아!!
+8:20pm
+음.. 뭔가 아이디어 있으면 다 말씀드릴께요.. 좀 보면서...
+8:21pm
+비슷한 모델을 보고 따한거 ㅋㅋ
+이게생각해보니. ㅋㅋ
+8:21pm
+아. 라인인으로 받는 모델이있었나요?
+어떤 키트?
+8:21pm
+<http://www2.nuvoton.com/NuvotonMOSS/Community/ProductInfo.aspx?tp_GUID=6755b5cf-489b-46ef-9444-aed2d24e48d3>
+라인인은 없을걸요
+8:22pm
+커패시터류는 필름캡으로 하신건가요?
+8:22pm
+넹
+8:22pm
+넴..
+9:23pm
+이거였군여.. <http://store.qkits.com/moreinfo.cfm/QK188.pdf>
+아마도 참고하셨던 회로가...
+9:28pm
+아맞다맞다.. ㅌㅌ
+가물,..
+9:28pm
+이것저것 찾아보는데, 사용하신 회로와 일치하는건 이게 유일해서... 그냥 반가와서여..
+흐흐.
+9:29pm
+제가 한건 피치랑 볼륨  앰프가장착됨.. ㅋㅋ
+9:30pm
+아직.. 이렇다하게 이거다 싶은걸 못찾고 있지만..
+이런저런 것들 찾아보고 있어욤. 뭔가 도움될 것이 나오면 알려드리께여.
+여튼, 좋은 칩인거 같네여..
+9:31pm
+넹  엠피쓰리 정도 음질은됨
+그런데 라인으로하면…
+참고로 자체앰프도있어서 앰프없이도 되지만 출력을 좋게하려구 . 저는 따로 사용하고있어요..
+아니 추가
+9:37pm
+라인 인 시 음질이 어떤 느낌인가요?
+9:37pm
+라디오같은느낌
+그때 공연때 들으셨죵
+9:38pm
+아.. 아 그거요..
+깨끗하게 안되는 거군요..
+9:38pm
+그냥 그느낌도 좋은뎅..쨍한느낌도 좋아서요
+9:38pm
+그런걸..lo-fi
+라고 부르는건가요?
+9:38pm
+로우패스
+9:38pm
+로우패스..
+넹..
+9:38pm
+그문제가?
+9:39pm
+그런 음질의 소리를 말할때..
+9:39pm
+아마 단순한 문제일수도
+9:39pm
+로우파이 라고 하는 건가... 해서요.
+9:39pm
+그럴지도
+9:39pm
+하이파이 로우파이 하는 거, 혹시 아닌가해서요..
+넹..
+그러게요.. 그게 찾아봐도..
+9:39pm
+내일저녁이나 모래 해봐야겠어요
+9:39pm
+대부분의 경우. 칩과 칩을 연결할때.
+즉, ISD 칩들을 서로서로 연결시킬때
+anain 핀을 쓰는데.. 조금 헷갈리게도
+1700 에선 anain을 auxin으로 쓰고. 있는 느낌이에죠.
+9:40pm
+anain?
+9:40pm
+다른 자료에 보면, auxin이 따로 있는 것 가틍ㄴ데..
+핀 이름이요..
+9:40pm
+아
+9:40pm
+암튼..
+9:40pm
+auxin은 아닌뎅
+ㅋ
+아는뎅
+9:41pm
+auxin 핀이 없던데요. 1700 에는.
+좀 옛날꺼라.. 뭔가 좀 다른 느낌..
+9:42pm
+auxd
+라고 있느뎅
+aud
+라고 써있을듯
+9:43pm
+그건 출력아닌가요?
+뭔가 그..
+뭐래더라..
+플레이버튼 누르고 다음 버튼 누르고 할때.
+삑삑 거리는 효과음이
+그쪽으로 나오는 거라던데.
+원하면 쓰고 아님 냅뚸라. 식이던데여..
+9:44pm
+잉 그쪽으로 오디오출력인뎅
+9:44pm
+
+9:44pm
+모 저도 그냥 슥슥 읽은거라서..
+여기 회로 보면.. 여기서는 그냥 anain에 다가..
+캡 2개만 연결하고 끝내는데..
+9:45pm
+제가 한 회로보세욧 ㅋ
+9:45pm
+이렇게는 해보셨어요?
+9:45pm
+참고로 보내신것도
+그러고
+그렇게 해고 나오는데
+저는  외부앰프연결하고 디지털로 피치조절 해야해서요
+다른애깈ㅋ
+캡두개로 않해봤나..
+로우패스로 한것뎅
+9:49pm
+그러게요..aud는 말씀하신게 맞네요. 제가 뭔가 혼돈하는 것 같아요..
+어디서 읽었는지 못찾고 있음. ;;
+아무튼, 출력은 aud로 되는게 맞네여..
+9:50pm
+아날로그로 그냥 출력할거면
+sp- +로하면되구요
+9:50pm
+<http://media.digikey.com/pdf/Data%20Sheets/Nuvoton%20PDFs/ISD-COB1700.pdf>
+media.digikey.com
+media.digikey.com
+9:51pm
+이게 그 쪽에서 만든 개발보드인데..
+이걸가지고.. 어떤친구가.. line-in을 해봤다는데..
+<http://users.rcn.com/ted.johnson/isd.htm>
+이런식으로 했나봐여.. 별로 믿음직스럽진 않긴하지만... 이렇게 간단하게 하면 어떤지 궁금...
+별다른 얘긴 없더라구여. 내용은 다른 얘기들이고...
+9:52pm
+으으~~ 월요일날 해볼까요? ㅋㅋ
+제가 일단 해볼깨ㅔ요
+내일저녁쯤
+이건  그냥 ani에연결
+9:53pm
+네네.. 전 칩도 없고.. 뭐.. 그래서.. 해볼 수도 없고.. 그냥 뭔가 좀 도움될 내용이 있으려나, 사전조사도 좀 할겸 찾아본거라서..
+9:53pm
+조금씩생각나는데 이놈 디지털과 아날로그나 별도로
+9:54pm
+해결될지 어떨진 모르겠지만. 그냥 인상이 그래여...
+뭔가 더 이거다 싶은게 있으면 말씀드리고 싶은 욕망이 있는데.. 잘 모르겠네영...
+9:54pm
+그렇게 어려운 문제는아닐뗀데
+9:54pm
+의외로 이걸로 작업하는 사람들이 많지는 않으네여....
+9:55pm
+감사해요.. 일단 저도 동시에 이것저것해서 ㅋㅋ 다시봐아햐는데 계기됨..
+비싸서?
+ㅋㅋ
+음질은좋음
+일단 제가해보고 나중에 시간맞추어서 같이보죠..
+지금 집이라 보드가없서욧
+9:58pm
+이게.. 아까 드린 자료 보시면.. line-in의 그라운드를 vssa 즉, 아날로그 그라운드에 연결하라고 되어있는데... 뭐 당연한가긴 하지만...
+9:58pm
+아아 갑자기 막하고싶당.
+9:58pm
+그렇게 표시된게.. 요 제조사 개발보드에서 특이한 점이라서... 말씀드림..
+넵..
+9:59pm
+아닌
+가요?
+다시보
+10:03pm
+아 아니라기보단... 제가 보는 회로도에서는.. 특별히 구분되어있지 않아서...
+10:03pm
+아!!
+10:03pm
+어차피.. 아날로그 그라운드니...
+10:03pm
+구분안했다
+10:03pm
+디지털 그라운드니.. 이건..
+보드레이아웃에서..
+따로 하고..
+0옴 저항이나 비드로 연결하는 거라고.
+좀전에 동희씨가 말해줬거든여.
+10:03pm
+그런데.. 그러다면 다른소리도 안좋아야하는뎅
+네네
+따른건 그리했는뎅.
+10:04pm
+그러게여.. 동희씨도 사실 그거 해서 크게 효과본적이 별로 없다는 저의 말에 동의하셨어여..
+그냥 말씀드려본거에여...
+따른게 보이는게 없어서 ㅡㅡ;
+하지만, 역시 찜찜하긴하져.. ㅡㅡ
+안하고 있으면.... 쩝..
+10:05pm
+음
+10:06pm
+이친구는 linein을 마이크로 받고 있던데.. 쓰는 회로는 비슷하네여..
+<http://wiki.edwindertien.nl/doku.php?id=modules:isd5116>
+<http://wiki.edwindertien.nl/lib/exe/detail.php?id=modules%3Aisd5116&media=modules:isd5116circuit.jpg>
+그냥 정리 삼아서 주요내용 메세지로 찍어놓고 있습니다..
+10:09pm
+이놈도 그라운드는 따로안하듯
+라인입력은없구
+라인입력말고는 문제없는뎅.
+일단 캡한번하고 로우패스한다고 한것같은데.. 다시 조정해봐야할듯
+10:11pm
+이 문서가 제대로 문서더라구여.. 데이타시트 긴게 있고 짧은게 있고..... file:///Users/doohoyi/Downloads/EN_ISD1700_Design_Guide_Rev2.1.pdf
+어라.. 주소가 틀렸네;;
+10:12pm
+ㅋ
+10:12pm
+<http://www.nuvoton.com/hq/products/isd-voice-ics/isd-chipcorder-family/User-Guide/?__locale=en&resourcePage=Y&category=&pageIndex=3>
+여기서 누르면 바로 다운이 되더라구여..
+유저가이드..
+10:12pm
+ㅇㅣ건 다른칩?
+10:12pm
+아니다.. 디자인 가이드....
+1700 design guide 여..
+아니여 같은건데여..
+그냥 상세하더라고여 설명이...
+엘레파츠에 있는 데타시트보다..
+10:13pm
+15c인데요?
+아니다
+ㅋㅋ
+ㅋㅋ 막조금씩생각남 이거보고했어요
+10:15pm
+<http://read.pudn.com/downloads112/doc/project/467932/apin12-eng.pdf>
+아 네 역시 .. / 이것도 뭔가 설계 가이드라는데..
+여기서 뭔가 전체적으로 설명해주는데..
+10:16pm
+영어다
+10:16pm
+여기서는 anain/out 과 auxin/out이 따로 따로 있는 걸로 되어있는데..  그래서 제가 좀 혼돈..
+걍 바로 검색/ anain
+예시 회로도 보면..
+10:16pm
+이건 2500
+10:16pm
+아 그래요?
+ㅡㅡ;;
+10:17pm
+다른모델
+10:17pm
+ㅇㅇ
+그렇구낭..
+흐흐;;
+line-in을 마이크 로 받아보는 거랑..
+캡만 쓴느 회로로 해보는 거랑.
+두가지 해볼 수 있겠는데.. 뭔가 딱 맞는 질문/답변 같은건 찾아지지 않네여.
+아쉬비 ....
+10:19pm
+마이크로 라인받으라구요?
+10:19pm
+네.
+10:19pm
+음
+10:19pm
+마이크라인으로 받아서 녹음하는 방법..
+10:19pm
+ㅐ보죠 ㅋ
+해\
+10:19pm
+아까 <http://wiki.edwindertien.nl/lib/exe/detail.php?id=modules%3Aisd5116&media=modules:isd5116circuit.jpg>
+네.. 뭐.. 그냥 아이디어니깐여..
+10:20pm
+어 그러네
+이놈은 그래했네
+10:20pm
+네.. 얘는 뭐.. 전화의 어떤 소리를 이용한다나 뭐라나.. 뭐 지가 전화를 받나? 뭐 그런 건가봐여.. 자세히 봐야겠지만...
+10:20pm
+내일일단 마이크는 해보고 말씀드릴께요..
+10:21pm
+넵~~
+10:22pm
+덕분에 공부다시함
+감사
+10:22pm
+네 도움되길 바랬는데.. 별로 못된것 같으네여.. ㅡㅡ;;
+10:22pm
+도움됬어여..
+10:23pm
+아무튼 저도 이거 계속 만지작 거릴테니.. 계속 도움드릴 기회만 엿보겠습니다.
+10:23pm
+시간때문에 이보드는 내가하고도 거의 2년전에  한거 그대로 사용하고있엉서.. ㅋ
+저도 용
+저도 도움이됬길
+10:28pm
+아 물론이죠. 큰 도움이 되고 있습니다~
+11:07pm
+아 참 그리고.. 아까 여기서.. <http://www.open-electronics.org/a-voice-shield-for-arduino-give-voice-to-your-ideas/>
+<http://www.open-electronics.org/wp-content/uploads/2013/01/ISD_Programmer.jpg>
+요런걸 봤는데... 녹음을 안하고.. 웨이브 파일 같은거를.. 바로 칩에 업로드 하는 방법도 있더라구여.
+이렇게 하면 음질은 일단 보장될 수도 있고... 라이브 퍼포먼스의 경우라면야.. 얘기는 다르지만.
+11:13pm
+dld
+잉
+11:13pm
+윈도우가 있으시면 해보세욤.. 전 전시장에서 녹음이 돼야해서.....
+11:14pm
+이칩에 녹음집접?
+11:14pm
+걍 파일 업로드 하는 식으로...
+11:14pm
+전시장에서 녹음 제가 설계한걸로 잘됨
+11:14pm
+어떻게 하는지 자세힌 안나와서..
+넵.
+11:15pm
+그때도 다되는데. 안쓰거라. ㅋ
+다른 보드설계하면서 같이 보니. 머리가 . ㅋㅋ
+11:15pm
+아 네;;
+암튼, 지나가는 행인이었습니다;
+11:15pm
+전시할때 불러주세요
+11:15pm
+네;;
+잘되야 할텐데;
+11:16pm
+잘될거에요..
+
+---
+
+######2014Nov15 23:29:13+0900
+
+아 이젠 진짜 시간 허비하면 안된다.
+
+여튼, 그렇구 그렇구 해서, 회로도를 받긴했다..
+
+뭐 당장 이게 있어봐야 뭐가 되는 것도 아니다. 그냥 전략만 짜면 되는 거지..
+
+아까 쓴거 다시 가져온다.
+
+-
+
+모듈에 대한 디자인은 크게 2가지인 것 같다.
+
+* 첫째로, 보이스 레코딩 & 플레잉 칩 (이것은 앰프와 마이크를 포함한다) / 전원부 설계도 되어야 한다. 각 스위치를 어떻게 작동시킬지도.. 관심가져야 한다.
+* 둘째는, 이를 바탕으로, 플레이 스타트 & 플레이 스탑 (혹은 파우즈)를 어떻게 작동할지. 그에 따라서, 3가지 방향 중에서, 가장 쉽다고 생각되는... 스위칭 / 저항식 / 정전식 중에서 가장 쉽다고 생각되는, 스위칭 식의 경우에 어떻게 인터페이스를 할지.. 뽑고.
+* 셋째는, 저항식의 경우
+* 넷째는, 정전식의 경우를 각각 해본다.
+
+이중 마지막 넷째 경우에 대해서, 가지고 있는 칩으로 테스트 회로를 구성해본다.
+
+-
+
+음.. 670mA까지 출력 나온다고 한다.
+class D amp 말이다.
+
+보다 고 출력을 원하면 만들어서 달면된다..
+
+-
+
+캡은 다 필름 캡을 써야 한다.
+그라운드 설계는 주어진 자료를 잘 보고 해야한다. 뭔가 요상하다.
+<http://www.cyrom.org/datasheets/apin11.pdf>
+<http://read.pudn.com/downloads112/doc/project/467932/apin12-eng.pdf>
+뭔가 아날로그 오디오 회로를 카파 없이 처리하고, 노이지한 부분들을 카파로 감싸는 식으로 한거 같은데.. 제대로 한번 해봐야 할듯하다.
+동희씨나 후**님 도움이 필요하다..
+
+-
+
+일단은.. 회로도를 그려보자.
+
+-
+
+노노.. 첫째 부터 순서대로..
+
+```
+보이스 레코딩 & 플레잉 칩 (이것은 앰프와 마이크를 포함한다) / 전원부 설계도 되어야 한다. 각 스위치를 어떻게 작동시킬지도.. 관심가져야 한다.
+```
+
+-
+
+자, 일단.. 우리는 지금 '칩이 없다!'.. 이게 중요해.. 없어.. 테스트 못해... 그럼 걍.. 데타시트로 공부하는데..
+뭐 테스트를 못하면, 확정할 수 있는 것도 없고....
+후니다님의 회로도를 참고는 하겠는데... 역시.. 뭐...
+그렇지 뭐...
+그라운드 설계에 대한 잔소리 같은 문서는 꽤 봤고....
+후니다님이나 동희씨의 이야기도 충분히 들었고....
+스위치가 어떻게 작동이 되는지. / 요거 좀 알아봐야 될건데.. 특별히... 플레이 / 스탑.
+요것만 하고 넘어가면 될 듯.
+
+-
+
+음.. 일단 voice shield의 라이브러리 코드를 봤다.. 여러가지 가능한 것 같다.
+플레이 / 스톰 자유자재로 가능 할 것 같다.
+
+버튼으로는 어떻게 되는지 보자.
+
+-
+
+```
+8.2.2 Playback Operation
+Two playback modes can be executed by PLAY , which is internally debounced.
+
+a) Edge-trigger mode: Pulsing PLAY Low once initiates a playback operation of the current 
+message. Playback automatically stops at the end of the message. Pulsing PLAY again 
+will re-play the message. During playback, the LED flashes and goes Off when the 
+playback completes. Pulsing PLAY to Low again during playback stops the playback 
+operation. Under these circumstances, the playback pointer remains at the start of the 
+played message after the operation is completed.
+
+b) Looping Playback mode: As PLAY is held Low constantly, the device plays all messages
+sequentially from the current message to its previous message and loops the playback 
+action. During the entire playback process, the LED flashes non-stop. Meanwhile, the 
+looping playback mechanism is implemented in the following sequence: start playback from 
+current message; as playback is over, perform a forward operation; start playback of new 
+message; once playback completes, perform another forward action; start playback of new 
+message, …..and so on. This looping pattern continues until PLAY is released. As PLAY
+is released, device will continue to playback the current message until completion. When 
+playback stops, the playback pointer is set at the start of the halted message.
+If no SE1 and SE2 are programmed, after playing a message, except the last one, device 
+flashes LED once with blinking period TLS1 due to forward action. As after the last message, 
+device flashes LED twice with blinking period TLS2. 
+If both SE1 and SE2 are programmed, after playing a message, except the last one, device 
+plays SE1 and flashes LED simultaneously due to forward action. Then device keeps on 
+the playback of new message. Alternatively, after playing the last message, device plays 
+SE2 and flashes LED simultaneously due to forward action. Then device maintains the
+playback of the first message. The LED blinking period of SE1 and SE2 are determined by 
+the recorded durations of SE1 and SE2, respectively.
+Triggering PLAY during a record, erase, or forward operation is an illegal operation and will be 
+ignored.
+
+```
+
+음. 그러니까.. 한번 눌렀다가 떼면..
+플레이가 시작되고. 플레이중에 다시 누르면, 멈추고. 그 상태로 다시 누르면, 다시 처음부터 플레이가 된다.
+오래 누르고 있으면, 누르고 있는 동안 계속해서 플레이가 된다. 다음다음 메세지로 진행.. 띄고나면, 그 순간 플레이중인거 까지 플레이.
+
+-
+
+이렇다는데...
+두가지 방향중에 하나를 골라야 한다..
+
+-
+
+spi로 제어할 건지.. 아니면.. 버튼으로 할 건지..
+atmega328p는 3-4천원정도이다. 크리스탈만 달면 쓸 수 있을 테니까..
+레귤레이터 회로 약간 달아주고..
+그러면.. 쓸수는 있겠지.. 다운로드용으로 ftdi 케이블 하나 사고..
+그럼 된다..
+
+-
+
+일단, 스위치식으로 하는 경우에는...
+play 핀을 로우로 하면 된다. 즉, 슈미트 트리거가 있어야 할 것이고...
+무빙에버리지가 필요한데.. 이게 ... 음..
+어떨지 모르겠네..
+이걸 칩으로 구현하려면.. 기본적인 스위치는 쉽게 할 수가 있는데..
+지금 처럼.. 스위치 회로가 종이회로인 경우에는.. 저항도 크고.. 좀 알 수 없는 요소가 나올 것 같아서..
+음..
+
+-
+
+그렇긴한데.. 어차피.. 지금도 arduino의 디지털 입력을 그대로 쓰고 있기 때문에 기본적인 ttl 포트 입력을 쓰면 되지 않을까.
+즉, 특별한 칩이 없어도 된다. 걍 ttl로 하면 됨.
+--> 요거, 종이회로 + rc charging(for debouncing) + ttl(schmitt trigger)로 엘이디 켜고 끄는 걸로 테스트 해볼것.
+
+-
+
+저항식의 경우에는...
+역시 마찬가지로...
+풀업이 22megohm이나 되겠지만..
+음.. 여기에는.. moving average가 들어가는 걸로 알고 있다.
+마키마키.
+그렇지만, 역시 디지털 리드로만 하고 있고.. 0 / 1 두개의 값사이에서 무빙에버리지를 하는 거라고 보면 된다.
+뭐 횟수의 차이인 거지.
+문제는 요 간단해 보이는 무빙에버리지를 어떻게 회로로 구현하느냐인데..
+결국은.. 커패시터 충방전회로를 이용하면되는 것이다..
+기본적인 디바운스 회로의 구성을 따른다.
+rc로 하는게 제일 좋을 것 같다.
+이전에 잭 스위치를 작업했던 자료를 참고해보는게 좋겠다.
+즉, 적당한 rc 조합으로 무빙에버리지를 할 수 있다.
+그건 그렇고...
+쓰레시홀드에 히스테리시스가 필요한데..
+여기엔 컴패레터가 들어가야해.. 오피앰프?
+아니면... 슈미트 트리거를 또 쓰면되는데... 요거 레벨을 조정할 수 있어야할 것 같다..
+즉, 지금까지 구성은..
+종이회로 + rc charging + ttl(schmitt trigger) 요런식...
+근데..r은 조절이 쉬운데.. c는 조절이 어려운 상황에서. 얻을 수 있는 rc가 제약이 있을 것이고..
+r을 맘대로 조절하면.. 그것도 문제다.. 회로가 저항이 높아서... 어떨지......
+하여튼, 1번 경우랑 비슷하긴 한데.. 해봐야 느낌 올거 같다.
+
+종이회로 + rc charging(for debouncing/moving average) + ttl(schmitt trigger)
+
+-
+
+정전식 1layer의 경우는.. 음 같은건데..
+c가 하나 있고...
+555타이머가 웨이브를 쏴주고.
+이걸 넣어서.. 충방전을 잰다는 거지..
+
+종이회로 + 555timer + rc charging(for debouncing/moving average) + ttl(schmitt trigger)
+
+-
+
+쩝.. 만약에.. 아트메가를 쓰면. 뭔가 편해지려나?
+과정들이 소프트웨어가 될 수는 있겠지만..
+그만큼 더 복잡해 지는 걸 수도 있지..
+무빙에버리지 등의 경우에.. 디지탈 무빙에버리지랑 rc는 그 질이 좀 다를 것이다..
+잘되면 대박이지만, 잘 안되면, 아날로그 회로의 미궁에 빠지게 되기 쉽다..
+쩝. 그러니... 얼른 해보고, 되는데까지 해보는게 좋겠다.
+
+######2014Nov16 01:36:51+0900
+
+-
+
+오케이.. 일단 디바운스회로를 다시 찾아보자..
+
+잭의 에버노트로 고고.
+
+<http://www.icecap.se/Freebies_uk.html>
+
+요게 전에 참고 했던 그 회로이다.. 이중에
+
+![](http://www.icecap.se/Sublevel/Brytaren.gif)
+
+요거..
+
+일단, 디바운싱 메카니즘에 대해서 명확하게 이해해야 하는데, 이거에 시간좀 걸렸다.
+
+결국, tau에 대한 이야기인데.. rc circuit의.. rc network의 특성..
+
+<http://en.wikipedia.org/wiki/RC_circuit>
+natural respose란 부분 참고..
+그냥 커패시터가 charge되는데.. 저항을 통해서 차지되는 과정의 특성이다.
+저항이 크면 전류양이 작아지고, 캡이크면, 전류양이 같을 때, 전압 상승이 느려진다.
+고로, 둘다 크면 오래걸린다.
+여튼, 요점은 전압. 이 아니고, '전류', 철저히, 전류관점에서 이해해야 한다.
+그리고, 캡은, 일종의 순간적인 배터리라고 생각하면, 어렵지 않게 이해가 된다.
+
+<http://www.all-electric.com/schematic/debounce.htm>
+요 링크에서 보면, 여러가지 ttl과 cmos의 특수상황을 비롯해서.. 다양한 내용이 깊이있게 설명이 되어있다.
+내가 보기엔 그래프가 잘못된 것 같은데.. 스위치를 누르면 바로 숏트가 되서 이론적으로는 ideal step이 나와야 하는데, 그림에선 그렇게 표현이 안되어있다.
+계속 자신을 믿지 못하고 다른 레퍼런스를 찾다가 대략 다음 링크 정도에서 포기하고, 그냥 자신을 믿어보기로 했다.
+
+<http://blog.mark-stevens.co.uk/2014/02/clocks-reset-signals-switch-debouncing/>
+여기 보면, 스위치에 저항이 함께 들어있는 경우를 보여주면서, reset회로에서는 아예 저항조차 없어서..
+그래프가 얼마나 스텝에 가깝게 올라서는지에 대한 관찰을 이야기해주는데..
+뭐 이런식으로 실험적으로 내 생각을 확인하면 될 것 같고, 일단은 이 글을 기준으로 내 생각이 맞다. 즉, 저항이 없는 스위치에 의한 커패시터의 아이디얼 방전은 0초만에 이뤄진다고 이해하도록 한다. 물론 실제 상황에서는 저항이 0인 경우가 없으므로, 일반적으로 저항이 있는 상태로 이해하는 것이 옳을 것이다.
+
+![](http://blog.mark-stevens.co.uk/wp-content/uploads/2014/02/MSP430LaunchpadDebounceCircuit.jpg)
+
+위에 두가지 혹은 세가지의 debouncing 구성들이 나와있는데.. 지금의 종이 피아노의 구성이나 makey makey의 구성. 즉, 풀업으로 잡아주고, 스위치 ON 시 그라운드가 되거나.. 인체를 통해서 virtual GND되는 형태로 봤을때, 맞는 회로의 모양은
+마지막 이미지에 가깝다.
+여기서 실제로, 종이회로에 상당한 저항이 있는 것을 고려하면,
+구현은 마지막 그림처럼하더라고, 효과적으로는 스위치 옆에 저항이 하나 수k 가 있다고 보면 된다.
+즉, 순간적인 charging 은 이뤄지지 않을 가능성이 높다..
+
+-
+
+충전하는 capacitor의 크기는 조절하기가 어려운 편이기 때문에..
+중간중간 연결하는 저항들을 조절해서 맞춰나가야 할 가능성이 높다.
+
+-
+
+커패시터들이 기본적으로 moving average 기능을 한다고 봐야 하고, 그렇게 되도록 만들어야 하고, 그렇게 만들 수 있다고 가정한다면.. 어렵지 않게 구현될 수 있다고 예상해볼 수 있다.
+
+---
+
+1 layer 정전식 구현 예이다.
+
+<http://www.seekic.com/circuit_diagram/Control_Circuit/Touch_Sensor_Switch_Circuit_with_555_timer.html>
+
+요거 괜찮을 꺼 같기도 하다. 해보자.. 이건 웨이브폼을 안쓰고 그냥 한다..
+
+저항이랑 / 캡을 조절해서, 다시 스위치가 available 해지는 시간을 정할 수 가 있다.
+
+뒷부분의 다이오드들은 무시해도 될거 같다. 어차피 3번 output핀은 high/low를 왔다갔다 하게 되어있으니까.
+
+그냥 tr하나 물려서 스위칭 하면 된다.
+
+너무 빠르면, 계속 해서 바운스 할 껀데 이때는 일반적인 디바운스 회로를 쓰면된다.
+
+그나저나, 이렇게 한다고 해도.. 감도를 조절할 수가 없다는 문제는 어떡해야 하나..
+
+감도가 너무 높으면 어떻게 하지? 중간에 저항을 하나 삽입하면 되는 걸수도..
+
+감도가 너무 낮으면? 잘 안되면? 터치가...
+
+그럴일이 없을꺼라고 예상은 되지만.. 회로가 5k도 안된다면.. comparator인 opamp의 인풋임피던스는 수 메가 옴이 될 거니까..
+
+모를일이다.. 경험이 많이 없어서..
+
+그렇게 되면 문제지.
+
+555timer의 이해. : <http://www.electronics-tutorials.ws/waveforms/555_timer.html>
+
+ps. 인스트럭터블즈에나오는 bare conductive를 활용하는 예시에서도 보면 비슷하게 하고 있는 걸 볼 수 있는데..
+
+<http://www.instructables.com/id/Making-a-Touch-Sensitive-OnOff-Circuit-with-Bare-/?ALLSTEPS>
+
+3M 옴을 풀업으로 달았다는 점.. charging 회로가 없어서, off 또한, 별도의 스위치로 해야 한다는 점 등이 좀 다르긴한데..
+
+작동 과정은 비슷하다. 적어도 초기에 셋되는 과정은 동일. 일종의 검증된 예시라고 보면 되겠다.
+
+pps. 이 사람 튜토리얼 꽤 볼만하다.. 555의 astable 모드에대해선 설명한다더니만 아무리 따라가봐도 없다.. 그건 좀 별로...
+<http://www.electronics-tutorials.ws/waveforms/generators.html>
+schmitt 트리거 만으로. 웨이브를 만드는 이건 좀 볼만.
+
+astable 555 에 대한 설명은 대충.. 요거 참고.
+555 Timer as Astable Multivibrator
+<http://www.electronicshub.org/understanding-555-timer/>
+
+ppps. 좀 복잡하긴 한데 요것도 아이디어가 좀 참고 되는 거 중 하나..
+<http://www.electroniccircuitsdesign.com/555-timer-circuits/capacitive-touch-sensor-using-555-timer-circuit.html>
+몬가 실제적이다..
+
+######2014Nov16 04:30:05+0900
 
