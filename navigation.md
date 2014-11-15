@@ -44,6 +44,7 @@
   - - - -
   * [droidparty](research/droidparty.md)
   * [wiretouch](research/wiretouch.md)
+  * [capacitive-touch](research/capacitive-touch.md)
 
 [notes]()
 
