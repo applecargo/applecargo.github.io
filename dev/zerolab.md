@@ -1394,6 +1394,8 @@ ppps. 좀 복잡하긴 한데 요것도 아이디어가 좀 참고 되는 거 �
 
 여튼, 0.2-0.3 초 정도.. 딜레이 감은 있지만, 작동은 그럭저럭 됐다.
 
+<iframe src="//player.vimeo.com/video/111962946?title=0&amp;byline=0&amp;portrait=0" width="500" height="281" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+
 어렵지 않게 통과.
 
 ps. 아마.. 223도 너무 큰거 아닌가 싶다.. 0.2-3 초 딜레이는 그냥.. 일반스위치로 해도 있는 딜레이어서.. 단순히 캡을 더 낮추면 어떨까 싶다.
