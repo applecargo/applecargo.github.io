@@ -1361,15 +1361,15 @@ ppps. 좀 복잡하긴 한데 요것도 아이디어가 좀 참고 되는 거 �
 
 지금 영상 비메오에 올려놓고 기다리고 있음.
 
-<img src="../data/DSC03457.jpg">
+<img src="../data/DSC03457.JPG">
 
-<img src="../data/DSC03459.jpg">
+<img src="../data/DSC03459.JPG">
 
-<img src="../data/DSC03460.jpg">
+<img src="../data/DSC03460.JPG">
 
-<img src="../data/DSC03463.jpg">
+<img src="../data/DSC03463.JPG">
 
-<img src="../data/DSC03464.jpg">
+<img src="../data/DSC03464.JPG">
 
 <iframe src="//player.vimeo.com/video/111962292?title=0&amp;byline=0&amp;portrait=0" width="500" height="281" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
 
