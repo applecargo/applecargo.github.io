@@ -11,26 +11,26 @@
 오늘의 요리. 즉흥 요리.. 폭탄 믹스.
 ```
 
-<img src="../data/DSC03482.jpg">
-<img src="../data/DSC03483.jpg">
-<img src="../data/DSC03484.jpg">
-<img src="../data/DSC03485.jpg">
-<img src="../data/DSC03486.jpg">
-<img src="../data/DSC03487.jpg">
-<img src="../data/DSC03488.jpg">
-<img src="../data/DSC03489.jpg">
-<img src="../data/DSC03490.jpg">
-<img src="../data/DSC03493.jpg">
-<img src="../data/DSC03495.jpg">
-<img src="../data/DSC03496.jpg">
-<img src="../data/DSC03497.jpg">
-<img src="../data/DSC03498.jpg">
-<img src="../data/DSC03499.jpg">
-<img src="../data/DSC03500.jpg">
-<img src="../data/DSC03501.jpg">
-<img src="../data/DSC03502.jpg">
-<img src="../data/DSC03503.jpg">
-<img src="../data/DSC03510.jpg">
+<img src="../data/DSC03482.JPG">
+<img src="../data/DSC03483.JPG">
+<img src="../data/DSC03484.JPG">
+<img src="../data/DSC03485.JPG">
+<img src="../data/DSC03486.JPG">
+<img src="../data/DSC03487.JPG">
+<img src="../data/DSC03488.JPG">
+<img src="../data/DSC03489.JPG">
+<img src="../data/DSC03490.JPG">
+<img src="../data/DSC03493.JPG">
+<img src="../data/DSC03495.JPG">
+<img src="../data/DSC03496.JPG">
+<img src="../data/DSC03497.JPG">
+<img src="../data/DSC03498.JPG">
+<img src="../data/DSC03499.JPG">
+<img src="../data/DSC03500.JPG">
+<img src="../data/DSC03501.JPG">
+<img src="../data/DSC03502.JPG">
+<img src="../data/DSC03503.JPG">
+<img src="../data/DSC03510.JPG">
 
 ---
 
