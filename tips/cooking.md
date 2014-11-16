@@ -1,4 +1,39 @@
 
+######2014Nov17 02:27:36+0900
+
+즉흥 요리 / 오늘의 요리.
+
+고구마가 들어간게 특이하다..
+
+```
+오랜만에 요리요리..
+고추장치즈호박고구마마늘청양고추시금치올리브올리브기름버터____ 느끼________한 볶음밥! ㅋㅋ / 꽤 괜춘..
+오늘의 요리. 즉흥 요리.. 폭탄 믹스.
+```
+
+<img src="../data/DSC03482.jpg">
+<img src="../data/DSC03483.jpg">
+<img src="../data/DSC03484.jpg">
+<img src="../data/DSC03485.jpg">
+<img src="../data/DSC03486.jpg">
+<img src="../data/DSC03487.jpg">
+<img src="../data/DSC03488.jpg">
+<img src="../data/DSC03489.jpg">
+<img src="../data/DSC03490.jpg">
+<img src="../data/DSC03493.jpg">
+<img src="../data/DSC03495.jpg">
+<img src="../data/DSC03496.jpg">
+<img src="../data/DSC03497.jpg">
+<img src="../data/DSC03498.jpg">
+<img src="../data/DSC03499.jpg">
+<img src="../data/DSC03500.jpg">
+<img src="../data/DSC03501.jpg">
+<img src="../data/DSC03502.jpg">
+<img src="../data/DSC03503.jpg">
+<img src="../data/DSC03510.jpg">
+
+---
+
 ######2014Nov10 23:00:53+0900
 
 아욱국.
