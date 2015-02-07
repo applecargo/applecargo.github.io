@@ -2,83 +2,42 @@
 
 [todo](todo.md)
 
-  * # todo
-  * [todo](todo.md)
+[ongoing]()
 
-[develop]()
-
-  * # agile web
-  * [agile_web-mdwiki](dev/agile_web-mdwiki.md)
-  * [mdwiki](dev/mdwiki.md)
-  * [mobmuplat](dev/mobmuplat.md)
-  - - - -
-  * # web
-  * [js-assets](dev/js-assets.md)
-  - - - -
-  * # workshop/lecture
-  * [unmake](dev/unmakelab.md)
-  * [wow-rock](dev/wow-rock.md)
-  * [unmake-ASIS](dev/unmakelab-seminar-ASISCLUB.md)
-  * [unmake-BYOP](dev/unmakelab-workshop-BYOP.md)
-  * [lecture4lecture](dev/lecture4lecture.md)
-  - - - -
-  * # hack-a-day
-  * [internet-fishing](dev/internet-fishing.md)
+  * # show.
+  * [mmca](ongoing/mmca.md)
   - - - -
   * # proj.
-  * [dream-color](dev/dreamcolor.md)
-  * [hyu-data-logger](dev/hyu-data-logger.md)
-  * [mergent](dev/mergent.md)
-  * [zerolab](dev/zerolab.md)
+  * [PiTFT](ongoing/PiTFT.md)
+  * [seco-game](ongoing/seco-game.md)
+  * [hyu-data-logger](ongoing/hyu-data-logger.md)
+  * [mergent](ongoing/mergent.md)
+  * [ind-gain](ongoing/individual-gain.md)
 
-[design]()
+[pinned]()
 
-  * # useful assests
-  * [fonts](design/fonts.md)
-  * [woodpiano](design/woodpiano.md)
-
-[research]()
-
-  * # zine sprint
-  * [collab](research/zine-collab.md)
+  * # idea
+  * [city](pinned/city.md)
+  * [lecture4lecture](pinned/lecture4lecture.md)
   - - - -
-  * [droidparty](research/droidparty.md)
-  * [wiretouch](research/wiretouch.md)
-  * [capacitive-touch](research/capacitive-touch.md)
+  * # better life
+  * [cooking](pinned/cooking.md)
+  * [roasting](pinned/roasting.md)
+  * [movies](pinned/pins-movie.md)
+  * [music](pinned/pins-music.md)
+  - - - -
+  * # reminders for any reason
+  * [manpage](pinned/manpage.md)
+  * [sublime-setting](pinned/sublime-setting.md)
+  * [subtitles](pinned/subtitles.md)
+  * [video](pinned/video.md)
+  * [web](pinned/web.md)
+  * [custom-rom](pinned/android-custom-roms-for-galaxy-s2.md)
+  - - - -
+  * # interesting stuffs
+  * [pins](pinned/pins.md)
+  * [oldgames](pinned/pins-oldgames.md)
 
-[notes]()
-
-  * # notes
-  * [favorites](notes/favorites.md)
-  * [pechakucha](notes/pechakucha.md)
-  * [agile](notes/agile.md)
-  * [scraps](notes/scraps.md)
-  * [city](notes/city.md)
-
-[tips]()
-
-  * # tips
-  * [markdown](tips/markdown.md)
-  * [wordpress](tips/wordpress.md)
-  * [imagemagick](tips/imagemagick.md)
-  * [apache](tips/apache.md)
-  * [ecad](tips/electronic-cad.md)
-  * [sketchup](tips/sketchup.md)
-  * [video](tips/video.md)
-  * [subtitles](tips/subtitles.md)
-  * [web](tips/web.md)
-  * [github.pages](tips/github-pages.md)
-  * [ok-cashbag](tips/okcashbag.md)
-  * [*nix](tips/nix.md)
-  * [aimsak](tips/aimsak.md)
-  * [bindingglue](tips/bindingglue.md)
-  * [eagle-bom](tips/eagle-bom.md)
-  * [raspberry-pi](tips/raspberry-pi.md)
-  * [cooking](tips/cooking.md)
-  * [osx](tips/osx.md)
-  * [git](tips/git.md)
-  * [visualdiff](tips/visualdiff.md)
-  * [manpage](tips/manpage.md)
-  * [brew](tips/brew.md)
+[notes](notes.md)
 
 [about](about.md)

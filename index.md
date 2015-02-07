@@ -4,22 +4,8 @@
 
 -
 
-slip through--.
-이-케에에~
+A Programming Language for Games: Demo! (talk #3)
 
-망상
-현실/가상
-현재/미래(과거)
+<http://www.youtube.com/watch?v=UTqZNujQOlA>
 
-스리누케--.
-
-autopilot이 호시.
-
--
-
-[https://lh4.googleusercontent.com/-mCZpT-Jbw5Y/VBavFkyrjDI/AAAAAAAAAWI/7g4v2Za2F2I/s800/DSC02314.JPG](https://lh4.googleusercontent.com/-mCZpT-Jbw5Y/VBavFkyrjDI/AAAAAAAAAWI/7g4v2Za2F2I/s800/DSC02314.JPG)
-
-손에 잡히는 한줌.
-![노드랩](http://farm7.static.flickr.com/6054/6322101606_3ce7c11547.jpg)
-한줌 꺼리	.
-가진 게 없는 자의 자유로움.
+언어 만드는것(컴파일러 코딩)을  유트브로 스트리밍 하고 있네. 디버깅 하는거 관찰해봐야지.. (동희씨)

@@ -375,3 +375,196 @@ optocoupler의 노랑색/초록색 케이블.. rpi용 케이블이 어디로 연
 
 ---
 
+######2014Dec19 01:06:48+0900
+
+material test는 일단락 된것 같다. 월요일에 보낸다고 했고. 아마 1주일 가량 지나면 받을 것 같다.
+
+서둘러서. 보드를 맡기도록 한다. 곧 크리스마스니깐..
+
+보드를 맡기고. 클스마스 전에 받아야 한다. 2박3일이니까. 금욜 맡기면, 화요일 즉, 23일에 나온다. 시간 별로 없단 말이다.
+
+보드를 뜰려면, 다른 보드도 같이 뜨는게 좋은데..
+
+예를 들면, rec & play 보드. 아두이노를 이용하는 좀더 컴플렉스 rec & play 보드나..
+
+터치 센싱 보드.
+
+페이퍼 굿 보드.
+
+터치 + 모찌 보드..
+
+이런 것들을 생각해볼 수 있는데..
+
+이런 것들 뿐 아니라.. 파워보드의 버튼 바이패스하는 부분. 그리고, 센서 보드를 어떻게든, 밑으로 내려놓을 수 있게.. 즉, 뚜껑에 붙이지 말고..
+
+이렇게 할 수 있게 할 방법을 고안해야 한다.
+
+---
+
+오디오 카드는 어떤가.. 오디오 카드 없이도 문제 없이 작동이 되겠나? - 특히, B+의 경우.
+
+음.. 예를 들면.. 지금의 경우.. B+에서도 어쨌거나.. 오디오카드를 썼어야 했는데, Vpp가 작게 나와서.. 바로 써가지고는.. 출력이 딸린다.
+
+오케이. 그럼. 쓴다는 얘기다.
+
+한가지.. 지금 ewent 스피커가.. 시스템이 오프 되도 켜지는 문제가 있는데.. 그리 나이쓰한 경우가 아니다.
+
+**ewent 스피커를 별도의 일반 BT스피커로 쓰는 것은 비추. -> 어차피 나무로 케이싱 되면, 전파가 약해져서. EMI 제거를 위한 케이싱과 배 타적인 구성이 되기 때문에 비추천.**
+
+메인버튼 -> 메인 배터리 -> 파워 보드 : 셀전압 / 파워-인 라인 / 파워-아웃 라인
+
+파워 아웃 라인은 제어가 된다. 릴레이로.
+
+문제랄까... 지금 스피커의 문제점일 수도 있는 것이.. 전원이 항상 켜져있어서..
+
+시스템이 오프가 되어도, 스피커는 충전이 안되지만, (메인 파워 릴레이가 꺼짐.) 계속 켜져있어, 소모적이라는 것이다.
+
+... 뭐 일단.. 릴레이를 또 쓴다거나.. 트랜지스터 수준에서 해결하려고 해본다거나. 여러가지 가능성은 있겠지만, 일단은 스킵. 이거는 보드를 안떠도 해결가능할 수가 있다.. -> 만일을 위해서 보드에 릴레이를 하나더 넣을 수 있게 하고.. perf brd. 섹션을 조금 넣자.
+
+...
+
+---
+
+######2014Dec29 00:52:02+0900
+
+일단.... microSD 연장선을 aliexpress에서 구매했는데.. 좀 경솔했나?
+용산에 가보면 있을 수도 있었을텐데... 뭐 청구할 수 있는 돈이니까.. 그렇긴하다.
+
+microSD to USB 아답타는 용산에 coms 가서 직접 보고 구매하는 것이 좋을 것 같다.
+물건 1주일후 도착할 것 같다. UPS로 온다.
+
+---
+
+######2014Dec29 01:19:18+0900
+
+그밖에 뭐가 필요할까? .. B+도 구매해야 할 것 같은데.. 일단은 있는 걸로 가능할 것이고.. 가능하면 협약 후에.. mmca돈으로 구매하는 것도 좋은 생각인것 같다.
+
+오디오 카드는 3개 받았고. 스피커도 있다.
+
+BT는 3개가 있나? 잘 모르겠다. 필요하면 구매.. 이건 국내구매 급하지 않다.
+
+BT모듈은 3개가 있나? 역시 국내구매.
+
+arduino pro mini. 이건 미국 구매. 6개 있는지 확인하고.
+
+---
+
+######2014Dec29 01:51:06+0900
+
+system construction
+
+-
+
+arduino pro mini + BT module + lipo battery + lipo charger board (+ a housing case/PCB for all of this/revised circuit including 4n35 to control sensor brd. on/off)
+
+~
+
+rpi b+ + microSD-system (contains: satellite ccrma img + settings)
+
+@USB1 : microSD-usb-adaptor + microSD extension + microSD-data (contains: pd patch + sound files)
+
+@USB2 : UCA202 audio card + speaker
+
+@USB3 : BT dongle
+
+@P1 header - power source & control lines : arduino pro mini + power controller board (PCB+components) + control switch + battery pack (shaomi 5200mAh ?, instructable hackable direction..) + a hinge lever DPDT toggling switch + a lid(?)
+
+TODO : whole system setup check-out
+TODO : test of DPDT switch for sensor board charging. -> is it feasible activating this switch with lid open/close.. (when the cover is open switch clicks charging for sensor brd. also starts up..)
+
+---
+
+######2014Dec29 07:54:14+0900
+
+<http://www.aliexpress.com/item/55pcs-6-Pins-DPDT-Momentary-Power-Micro-Push-Button-Switches-7mmx7mm/2038218753.html>
+
+요런.. push button momentary switch DPDT를 이용해서, 뚜껑이 열렸을 때만 충전이 되게 할 수도 있다.
+
+<http://static2.tme.eu/products_pics/4/8/e/48e6328a802b323d0b14b31a10227588/38355.jpg>
+
+<http://img.weiku.com/waterpicture/2011/10/20/10/Low_force_Wire_Hinge_Lever_Micro_Switch_634592198435834164_3.jpg>
+
+요런 toggle switch를 2개 써서. 할 수도 있긴할 것이다..
+
+<http://thumbs2.ebaystatic.com/m/mw2lYz3EwdnNZGRuDmnEkxg/140.jpg>
+
+---
+
+######2014Dec29 10:54:25+0900
+
+배터리 팩을 사서 뜯어서 쓰는 거보다.. 걍 배터리를 사서, charger/booster를 붙여쓰는게 현명하지 않을까?
+
+이번엔 adafruit 꺼를 쓰는 것도 좋아보인다.
+
+<https://www.adafruit.com/products/280>
+
+이걸 쓰면 바로 셀 연결하고, 셀 전압 따고, 그러면 되는데.. 오토 파워 오프 기능이 없기 때문에. hard sleep 에 들어가게 arduino를 프로그램 해야 할 수가 있다.. 센서보드쪽에 충전기를 계속 따로 가져가야 할 거 같은데.. 그럴 경우에는.. 
+
+---
+
+
+
+전화기의 coupling transformer가 좋다고 한다. "telephone line coupling transformers
+
+<http://www.epanorama.net/documents/groundloop/audio_isolator_building.html>
+
+<http://www.epanorama.net/circuits/hybrid_classical.gif>
+
+<http://www.epanorama.net/circuits/teleinterface.html>
+
+-
+
+여튼, 트랜스포머/페러데이 케이지 등을 사용하는 ground noise reduction 방법은 그리 믿음직스럽지도 않고, 검증 시간도 많이 걸릴것 같으므로, 시도하지 않는다.
+
+<http://web.mit.edu/~jhawk/tmp/p/EST016_Ground_Loops_handout.pdf>
+
+<http://www.fullcompass.com/common/files/3254-XF1%20QSC%20specs.pdf>
+
+<http://www.jensen-transformers.com/transformers/direct-box/>
+
+<http://www.ti.com/lit/wp/snva571/snva571.pdf>
+
+<http://www.writenowcommunication.com/articles/item2.pdf>
+
+isolation transformer / faraday cage라고 한다.
+
+<http://en.wikipedia.org/wiki/Isolation_transformer>
+
+<http://en.wikipedia.org/wiki/Faraday_cage>
+
+<http://www.canadatransformers.com/faraday-shield/>
+
+---
+
+######2014Dec29 08:36:19+0900
+
+arduino mini pro 사기 - <https://www.sparkfun.com/products/11114>
+
+3.3 breakout downloader - <https://www.sparkfun.com/products/9873>
+
+뚜껑 열고 닫고 감지하는 스위치..DPDT 예시.. 추가. - <http://www.aliexpress.com/item/55pcs-6-Pins-DPDT-Momentary-Power-Micro-Push-Button-Switches-7mmx7mm/2038218753.html>
+
+---
+
+######2014Dec30 12:26:30+0900
+
+adafruit 에 주문했고.. 온단다.. 발송했단다.
+
+지금 arduino pro mini는 4개가 있는데.. 최대 6개까지 필요할 수가 있긴하다.
+
+일단 trinket을 받아서 해볼 생각이다.
+
+필요한 보드를 떠서 맡기는 게 필요하다.
+
+power board나 등등.. 떠서 맡기면 좋을 것 같다.
+
+---
+
+######2015Jan05 23:13:53+0900
+
+물건 다 도착했는데, 젠장 미국 포스트는 부과세가 10프로 붙어서 들어왔다. 전에는 안이랬었는데.. 뭔가 억울하넹. 쩝.
+
+암튼, 시간만 보내고 있으니깐, 기분 안좋다.
+
+일을 해야겠다.
+

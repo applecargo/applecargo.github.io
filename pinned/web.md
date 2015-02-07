@@ -36,3 +36,21 @@ js / css / html 섞여있는 코드의 beautifier는 요게 좋더라.
 
 <http://jsbeautifier.org/>
 
+---
+
+######2014Dec23 03:10:00+0900
+
+mdwiki는 class를 적용하는 기능을 지원을 안하다보니.. 불편한 것 같다.. remark에서는 class를 지정해서, 보기 좋게 사용할 수가 있는데 말이다..
+
+<http://stackoverflow.com/questions/975264/how-do-i-set-an-html-class-attribute-in-markdown>
+
+이걸보고 mdwiki사이트에 링크되어있는 예제들을 전부다 둘러봤는데. 단 한번도, class가 파싱될 수 있는 가능성의 여지라도 보이질 않는다.
+
+사람들이 추천하는 maruku나.. kramdown이란 것들을 관심가져볼만하다.
+
+<http://kramdown.gettalong.org/>
+
+<https://github.com/bhollis/maruku>
+
+---
+
