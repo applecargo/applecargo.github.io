@@ -17,7 +17,7 @@ jfet mixer를 따라 만들어봤는데, 결과가 상당히 좋다.
 
 실제로 제작된 현재의 결과는.. 실제 회로도와 조금 다르게..
 
-![](http://www.electroschematics.com/wp-content/uploads/2009/10/fet-mixer-circuit-diagram.gif)
+![](../data/fet-mixer-circuit-diagram.gif)
 
 이게 실제 회로도라면,
 
