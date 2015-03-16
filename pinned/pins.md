@@ -215,3 +215,29 @@ asus vivopc - 미니pc..
 
 ---
 
+ewent speaker's original manufacturers.. of china..
+
+<http://www.microstar-tech.com.hk/products_info.asp?pid=39#>
+<http://q-win.en.alibaba.com/product/704340521-209687199/Hamburger_Shape_Portable_mini_Bluetooth_speaker_with_CSR_solution_ADP_104BT_.html>
+"Shenzhen Micro Star Electronic Technology Co., Limited"
+<http://1127600.en.makepolo.com/products/Unique-design-bluetooth-mini-speaker-BQB-p65818550.html>
+<http://www.alibaba.com/product-detail/Portable-bluetooth-mini-speaker-with-CSR_727076899.html>
+<http://usb.brando.com/bluetooth-speaker-adp-104bt-_p03364c036d015.html>
+<http://q-win.en.alibaba.com/product/683236718-209687199/Good_look_and_best_voice_bluetooth_speaker_ADP_104BT.html>
+
+---
+
+a search for usable cable alternative for SPEAK OUT LOUD lamp's power cord.
+
+<http://www.alphasoundandlighting.com/Audio-Technica-Bulk-Microphone-Cable-with-Black-Rubber-Jacket-Per-FT.html>
+<http://www.prosounddepot.com/25-Microphone-Cable-XLR-to-XLRMicCable25-Prodview.html>
+<http://en.wikipedia.org/wiki/IEC_60320>
+<http://www.esfmap.com/item/B00OO5PA48/PSG-Tech-PT1410-Balanced-Patch>
+<http://www.amazon.com/SEISMIC-AUDIO-SAXLX-2-Female-Balanced/dp/B0050DDKYU> - nice color coded mic. cable..
+<http://www.klarkteknik.com/nicat5e-50m.php>
+<http://www.amazon.com/KIRLIN-CABLE-MP-280-25-BK-Microphone/dp/B00HZSQ8YM>
+<http://www.turck.us/Support/White_Papers_~_Tutorials/Choosing_cable_for_constantly_flexing_applications.htm>
+<http://global.rakuten.com/en/store/auc-treevillage/item/vctf075-4c/>
+
+---
+

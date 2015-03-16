@@ -27,6 +27,7 @@
   * [music](pinned/pins-music.md)
   - - - -
   * # reminders for any reason
+  * [jfet-mixer](pinned/jfet-mixer.md)
   * [manpage](pinned/manpage.md)
   * [sublime-setting](pinned/sublime-setting.md)
   * [subtitles](pinned/subtitles.md)
