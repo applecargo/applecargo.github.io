@@ -1,7 +1,7 @@
 
 ######2015Mar23 11:42:38+0900
 
-![](http://media-cache-ec0.pinimg.com/736x/e6/ab/00/e6ab006f974835abbe5b638bb8aa9244.jpg)
+![](../data/e6ab006f974835abbe5b638bb8aa9244.jpg)
 
 깃 세우기.
 
