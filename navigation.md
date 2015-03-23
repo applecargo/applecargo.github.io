@@ -14,6 +14,7 @@
   * [mergent](ongoing/mergent.md)
   * [ind-gain](ongoing/individual-gain.md)
   * [manual-cafe](ongoing/manual-cafe.md)
+  * [mc-git-workshop](ongoing/mc-git-workshop.md)
 
 [pinned]()
 
