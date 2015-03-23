@@ -13,6 +13,7 @@
   * [hyu-data-logger](ongoing/hyu-data-logger.md)
   * [mergent](ongoing/mergent.md)
   * [ind-gain](ongoing/individual-gain.md)
+  * [manual-cafe](ongoing/manual-cafe.md)
 
 [pinned]()
 
