@@ -7,15 +7,16 @@
   * # ongoing
   - - - -
   * [manual-cafe](ongoing/manual-cafe/manual-cafe.md)
-  * [mc-git-workshop](ongoing/mc-git-workshop/mc-git-workshop.md)
   * [mergent](ongoing/mergent/mergent.md)
   * [ind-gain](ongoing/individual-gain.md)
   * [mmca](ongoing/mmca/mmca.md)
+  * [odroid](ongoing/odroid/odroid.md)
   - - - -
   * # fun.
   * [3d-animation](ongoing/3d-animation.md)
   * [automata](ongoing/automata.md)
   * [PiTFT](ongoing/PiTFT.md)
+  * [jekyll-rpi](ongoing/jekyll-rpi/jekyll-rpi.md)
 
 [archive]()
 
@@ -47,6 +48,7 @@
   * [wiretouch](archive/wiretouch.md)
   * [woodpiano](archive/woodpiano.md)
   * [wow-rock](archive/wow-rock.md)
+  * [mc-git-workshop](archive/mc-git-workshop/mc-git-workshop.md)
 
 [pins]()
 

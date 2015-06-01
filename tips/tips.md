@@ -882,3 +882,106 @@ afterwards, just push with 'git push' is fine.
 <span style="color:crimson">COLOR(RED-alike)</span>
 <http://www.w3schools.com/html/html_colornames.asp>
 
+---
+
+######2015May31 22:26:36+0900
+
+**sublime text tip : folder search wih constaint of extension!**
+
+<http://stackoverflow.com/questions/17555791/sublime-text-2-find-in-folder-with-file-extension/17556064#17556064>
+
+```
+In case you'd like to search within .js files located within a directory, you can add an Include Filter in the search path:
+
+/project,*.js
+This will search for the text you've entered, limiting the scope to files within /project and it's sub-directories having the extension .js.
+```
+
+---
+
+######2015May31 22:32:38+0900
+
+**tip : linux. : How to chmod all directories except files (recursively)?**
+
+<http://superuser.com/questions/91935/how-to-chmod-all-directories-except-files-recursively/91938#91938>
+```
+find /path/to/base/dir -type d -print0 | xargs -0 chmod 755 
+find /path/to/base/dir -type f -print0 | xargs -0 chmod 644
+```
+
+---
+
+######2015May31 22:35:20+0900
+
+**tip : apache : Creating a symbolic link in Sites directory : FollowSymLink**
+
+<http://stackoverflow.com/questions/3775102/creating-a-symbolic-link-in-sites-directory>
+
+```
+That's a configurable Apache option. It appears that by default on Macs (and probably most installations) Apache is configured to not follow symbolic links. I'm guessing (as others mention above) that it's for security purposes.
+
+But it can be really convenient at times to enable following of symbolic links, particularly during development of certain kinds of apps. What you need to do is 1) change the Apache configuration to allow the following of symbolic links, and then 2) restart Apache.
+
+The configuration step is performed as follows:
+
+a) cd /etc/apache2 (this is where Apache's configuration files are by default on a Mac)
+
+b) you'll see a couple of directories here. One is called users
+
+c) cd users
+
+d) ls should reveal a .conf file with your login name (login.conf) I'm "marvo" so mine is named "marvo.conf"
+
+e) Edit this file (I use vi) -- but you have to do it using sudo:
+
+sudo vi marvo.conf
+f) You'll see something like
+
+<Directory "/Users/marvo/Sites/">
+    Options Indexes MultiViews 
+    AllowOverride None
+    Order allow,deny
+    Allow from all
+</Directory>
+g) Add the "FollowSymLinks" option so that the second line of that .conf file looks like:
+
+Options Indexes MultiViews FollowSymLinks
+(You can find other configuration options out there on the 'net. I found this page: http://httpd.apache.org/docs/2.0/mod/core.html#directory )
+
+h) Save the file.
+
+Now you have to restart Apache so that it picks up the configuration change. Googling around a bit, I found that this is most easily done from the command line with the following command:
+
+sudo /usr/sbin/apachectl restart
+(Found that at http://mcapewell.wordpress.com/2006/09/22/restart-apache-in-mac-os-x/ )
+
+Now that symbolic link should work just fine on your Sites pages.
+```
+
+---
+
+######2015May31 22:37:02+0900
+
+**How can I create a symbolic link in Terminal?**
+
+<http://apple.stackexchange.com/questions/115646/how-can-i-create-a-symbolic-link-in-terminal/115647#115647>
+
+```
+┌── ln(1) link, ln -- make links
+│   ┌── Create a symbolic link.
+│   │                         ┌── the path to the intended symlink
+│   │                         │   can use . or ~ or other relative paths
+│   │                   ┌─────┴────────┐
+ln -s /path/to/original /path/to/symlink
+      └───────┬───────┘
+              └── the path to the original file/folder
+                  can use . or ~ or other relative paths
+i.e.
+
+echo "baz" > foo
+ln -s foo bar  
+ls -al    bar  # bar -> foo
+cat       bar  # displays contents of foo: baz
+For more information about ln(1) see the man page.
+```
+

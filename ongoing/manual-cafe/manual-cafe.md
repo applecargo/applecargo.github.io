@@ -34,3 +34,21 @@ gogo manual cafe!!
 저희는 다른 공간과의 요일배타적인 요일 연대에도 열려있습니다. 이X카님이나 잇X인트랩 분들 관심가져주세요.
 
 그럼 내일 봐용 흐흐흐.
+
+---
+
+######2015May31 19:20:27+0900
+
+만능기판 보드 planning / research archive.
+
+<http://makezine.com/projects/how-to-professional-perfboards/> : How-To: Professional Perfboards
+
+DIYLC - DIY Layout Creator
+
+<http://www.thebackshed.com/Forum/forum_posts.asp?TID=3831>
+<https://code.google.com/p/diy-layout-creator/>
+<http://diy-fever.com/software/diylc/>
+<http://diy-fever.com/links/>
+
+---
+
