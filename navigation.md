@@ -8,15 +8,21 @@
   - - - -
   * [manual-cafe](ongoing/manual-cafe/manual-cafe.md)
   * [mergent](ongoing/mergent/mergent.md)
-  * [ind-gain](ongoing/individual-gain.md)
+  * [individual-gain](ongoing/individual-gain.md)
   * [mmca](ongoing/mmca/mmca.md)
   * [odroid](ongoing/odroid/odroid.md)
   - - - -
   * # fun.
   * [3d-animation](ongoing/3d-animation.md)
   * [automata](ongoing/automata.md)
-  * [PiTFT](ongoing/PiTFT.md)
   * [jekyll-rpi](ongoing/jekyll-rpi/jekyll-rpi.md)
+  * [kicad](ongoing/kicad/kicad.md)
+  * [learning-linux](ongoing/learning-linux/learning-linux.md)
+  * [bona-fide](ongoing/bona-fide.md)
+  * [image-flashlight](ongoing/image-flashlight.md)
+  * [mosquitos](ongoing/mosquitos.md)
+  * [PiTFT](ongoing/PiTFT.md)
+  * [zine-alliance](ongoing/zine-alliance.md)
 
 [archive]()
 
