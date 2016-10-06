@@ -25,28 +25,18 @@
 <body>
 <div class="reveal">
 <div class="slides">
-<section id="sec-title-slide"><p class="date">Created: 2016-10-06 Thu 20:16</p>
+<section id="sec-title-slide"><p class="date">Created: 2016-10-07 Fri 01:27</p>
 </section>
 <section id="table-of-contents">
 <div id="table-of-contents">
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#/slide-orgheadline1">1. 안녕하세요.</a></li>
-<li><a href="#/slide-orgheadline2">2. 저는요..</a></li>
-<li><a href="#/slide-orgheadline3">3. 지금은..</a></li>
-<li><a href="#/slide-orgheadline4">4. PUREDATA 소개</a></li>
-<li><a href="#/slide-orgheadline5">5. 실행</a></li>
-<li><a href="#/slide-orgheadline6">6. 시작</a></li>
-<li><a href="#/slide-orgheadline7">7. 계산의 순서</a></li>
-<li><a href="#/slide-orgheadline8">8. 퀴즈</a></li>
-<li><a href="#/slide-orgheadline9">9. 템포</a></li>
-<li><a href="#/slide-orgheadline10">10. 미디(MIDI)</a></li>
-<li><a href="#/slide-orgheadline11">11. PD에서 미디를 연주하기</a></li>
-<li><a href="#/slide-orgheadline12">12. 사운드 파일</a></li>
-<li><a href="#/slide-orgheadline13">13. 라이브러리 깔기</a></li>
-<li><a href="#/slide-orgheadline14">14. 비디오</a></li>
-<li><a href="#/slide-orgheadline15">15. 참고할 자료</a></li>
+<li><a href="#/slide-orgheadline1">1. Puredata 복습 숙제</a></li>
+<li><a href="#/slide-orgheadline2">2. Arduino</a></li>
+<li><a href="#/slide-orgheadline3">3. Teensy</a></li>
+<li><a href="#/slide-orgheadline4">4. digital</a></li>
+<li><a href="#/slide-orgheadline5">5. analog</a></li>
 </ul>
 </div>
 </div>
@@ -54,16 +44,75 @@
 
 <section>
 <section id="slide-orgheadline1">
-<h2 id="orgheadline1"><span class="section-number-2">1</span> 안녕하세요.</h2>
+<h2 id="orgheadline1"><span class="section-number-2">1</span> Puredata 복습 숙제</h2>
+<ul>
+<li>369 게임처럼 작동하는 패치를 만들어보세요.</li>
+<li>12짝!45짝!78짝! &#x2026;</li>
+<li>사운드 파일: <a href="http://applecargo.github.io/km-workshop-day2-org/clap.wav">http://applecargo.github.io/km-workshop-day2-org/clap.wav</a></li>
+
+</ul>
+
+</section>
+<section>
+<p>
+STEP 1
+</p>
+
+<p>
+metro로 작동하는 카운터를 만든다.
+</p>
+
+<ul>
+<li class="fragment appear">loadbang을 이용해서 카운터가 1부터 시작하게 만들 수 있다.</li>
+
+</ul>
+
+</section>
+<section>
+<p>
+STEP 2
+</p>
+
+<p>
+카운트가 3의 배수인 경우에 소리가 play되게 한다.
+</p>
+
+<ul>
+<li class="fragment appear">mod는 나누고 남은 나머지를 준다. '~의 배수'란 그 수로 나누면 0&#x2026;</li>
+<li class="fragment appear">== 은 '~과 같다'는 것에 대한 답을 숫자 1/0으로 준다.</li>
+<li class="fragment appear">select (줄여서 sel) 은 입력된 값이 리스트에 포함되어있을 때만 선택적으로 bang을 준다.</li>
+
+</ul>
+
+</section>
+<section>
+<p>
+STEP 3
+</p>
+
+<p>
+카운트가 3의 배수가 아닌 경우에 그 숫자가 프린트 되도록 한다.
+</p>
+
+<ul>
+<li class="fragment appear">!= 은 '~과 같지 않다'는 것에 대한 답을 숫자 1/0으로 준다.</li>
+<li class="fragment appear">spigot을 이용하면 메세지의 전달을 막았다가 보냈다가 가능.</li>
+<li class="fragment appear">trigger(줄여서 t)를 이용하면, 어떤 행동이 끝난 후에 다음 행동이 발생하도록 타이밍 조절 가능.</li>
+
+</ul>
 
 </section>
 </section>
 <section>
 <section id="slide-orgheadline2">
-<h2 id="orgheadline2"><span class="section-number-2">2</span> 저는요..</h2>
+<h2 id="orgheadline2"><span class="section-number-2">2</span> Arduino</h2>
 <ul>
-<li>공돌이 (전자/전기/컴퓨터/제어)</li>
-<li>회사원 (자동차부품)</li>
+<li><a href="http://arduino.cc/">http://arduino.cc/</a></li>
+<li><a href="https://www.adafruit.com/categories/171">https://www.adafruit.com/categories/171</a></li>
+<li><a href="https://www.sparkfun.com/categories/242">https://www.sparkfun.com/categories/242</a></li>
+
+<li>OSHW</li>
+<li>하드웨어 &amp; 소프트웨어</li>
 
 </ul>
 
@@ -71,10 +120,14 @@
 </section>
 <section>
 <section id="slide-orgheadline3">
-<h2 id="orgheadline3"><span class="section-number-2">3</span> 지금은..</h2>
+<h2 id="orgheadline3"><span class="section-number-2">3</span> Teensy</h2>
 <ul>
-<li>(미디어?)아티스트</li>
-<li>프리랜서 (자동차부품)</li>
+<li>고성능의 arduino. (아두이노 16MHz, 틴지 96MHz)</li>
+<li>3.x 는 ARM 칩 사용</li>
+<li>뭔가 기능이 엄청 많음. 터치 센싱.. 오디오출력.. 시계(RTC) 등등..</li>
+<li>기본 기능에도 충실.. digital/analog 입력핀 많은 편.</li>
+
+<li>주의! teensy는 일반적인 arduino와 달리, 입력 전압이 5V 이하!</li>
 
 </ul>
 
@@ -82,172 +135,23 @@
 </section>
 <section>
 <section id="slide-orgheadline4">
-<h2 id="orgheadline4"><span class="section-number-2">4</span> PUREDATA 소개</h2>
+<h2 id="orgheadline4"><span class="section-number-2">4</span> digital</h2>
 <ul>
-<li>PD는 프로그래밍 언어</li>
+<li>0 과 1. ON/OFF. PLAY/STOP. 남자/여자. 흑인/백인.</li>
+<li>이분법.</li>
 
-<li>다운로드</li>
+<li>입력 : 스위치.</li>
+<li>출력 : LED? 선풍기? 사운드.</li>
 
 </ul>
-
-<p>
-<a href="http://puredata.info/">http://puredata.info/</a>
-</p>
-
-<p>
-<a href="http://msp.ucsd.edu/software.html">http://msp.ucsd.edu/software.html</a>
-</p>
-
-<ul>
-<li>만든 사람: miller puckette</li>
-
-</ul>
-
-
-<div class="figure">
-<p><img src="https://blog.adafruit.com/wp-content/uploads/2013/02/MillerPuckette.png" alt="MillerPuckette.png" />
-</p>
-</div>
 
 </section>
 </section>
 <section>
 <section id="slide-orgheadline5">
-<h2 id="orgheadline5"><span class="section-number-2">5</span> 실행</h2>
+<h2 id="orgheadline5"><span class="section-number-2">5</span> analog</h2>
 <ul>
-<li>메뉴
-<ul>
-<li>ctrl(cmd) E =&gt; edit mode</li>
-<li>ctrl(cmd) 1 =&gt; object</li>
-<li>ctrl(cmd) 2 =&gt; message</li>
-<li>ctrl(cmd) 3 =&gt; number</li>
-<li>ctrl(cmd) shift B =&gt; bang</li>
-<li>ctrl(cmd) shift T =&gt; toggle</li>
-<li>array</li>
-
-</ul></li>
-
-</ul>
-
-</section>
-</section>
-<section>
-<section id="slide-orgheadline6">
-<h2 id="orgheadline6"><span class="section-number-2">6</span> 시작</h2>
-<ul>
-<li>"hi"</li>
-<li>bang, print =&gt; post window</li>
-<li>float, + =&gt; counter</li>
-<li>-, *, /, <code>=, !</code>, &gt;, &lt;, &gt;=, &lt;=</li>
-
-</ul>
-
-</section>
-</section>
-<section>
-<section id="slide-orgheadline7">
-<h2 id="orgheadline7"><span class="section-number-2">7</span> 계산의 순서</h2>
-<ul>
-<li>cold inlet/hot inlet</li>
-<li>trigger</li>
-
-</ul>
-
-</section>
-</section>
-<section>
-<section id="slide-orgheadline8">
-<h2 id="orgheadline8"><span class="section-number-2">8</span> 퀴즈</h2>
-<ul>
-<li>1부터 10까지의 합을 구하는 프로그램</li>
-<li>1부터 10까지의 곱을 구하는 프로그램</li>
-
-</ul>
-
-</section>
-</section>
-<section>
-<section id="slide-orgheadline9">
-<h2 id="orgheadline9"><span class="section-number-2">9</span> 템포</h2>
-<ul>
-<li>metro</li>
-
-</ul>
-
-</section>
-</section>
-<section>
-<section id="slide-orgheadline10">
-<h2 id="orgheadline10"><span class="section-number-2">10</span> 미디(MIDI)</h2>
-<ul>
-<li>MIDI 프로그램 깔기 =&gt; lmms =&gt; <a href="https://lmms.io/download/">https://lmms.io/download/</a></li>
-<li>soundfont =&gt; <a href="http://www.omegagmgs2.com/">http://www.omegagmgs2.com/</a></li>
-
-</ul>
-
-</section>
-</section>
-<section>
-<section id="slide-orgheadline11">
-<h2 id="orgheadline11"><span class="section-number-2">11</span> PD에서 미디를 연주하기</h2>
-<ul>
-<li>주파수와 note =&gt; <a href="http://www.phy.mtu.edu/~suits/notefreqs.html">http://www.phy.mtu.edu/~suits/notefreqs.html</a></li>
-<li>makenote</li>
-<li>noteout</li>
-<li>pgmout</li>
-
-</ul>
-
-</section>
-</section>
-<section>
-<section id="slide-orgheadline12">
-<h2 id="orgheadline12"><span class="section-number-2">12</span> 사운드 파일</h2>
-<ul>
-<li>지원 형식 =&gt; WAV/AIFF 파일</li>
-<li>사운드 파일 변환 =&gt; audacity <a href="http://www.audacityteam.org/">http://www.audacityteam.org/</a></li>
-<li>사운드 소스 구하기 =&gt; <a href="http://freesound.org/">http://freesound.org/</a></li>
-<li>녹음</li>
-<li>normalization (정규화)</li>
-
-</ul>
-
-</section>
-</section>
-<section>
-<section id="slide-orgheadline13">
-<h2 id="orgheadline13"><span class="section-number-2">13</span> 라이브러리 깔기</h2>
-<ul>
-<li>메뉴
-<ul>
-<li>Path</li>
-
-</ul></li>
-<li>사운드파일 플레이 라이브러리 다운로드 =&gt; <a href="https://github.com/applecargo/kmuniv-pd-workshop/archive/master.zip">https://github.com/applecargo/kmuniv-pd-workshop/archive/master.zip</a></li>
-<li>설치</li>
-<li>wav~</li>
-<li>wav2~</li>
-
-</ul>
-
-</section>
-</section>
-<section>
-<section id="slide-orgheadline14">
-<h2 id="orgheadline14"><span class="section-number-2">14</span> 비디오</h2>
-<ul>
-<li>라이브러리 gem =&gt; <a href="https://www.youtube.com/watch?v=XyS2M0mM5iA">https://www.youtube.com/watch?v=XyS2M0mM5iA</a></li>
-
-</ul>
-
-</section>
-</section>
-<section>
-<section id="slide-orgheadline15">
-<h2 id="orgheadline15"><span class="section-number-2">15</span> 참고할 자료</h2>
-<ul>
-<li>인강 (강추) =&gt; <a href="https://www.youtube.com/playlist?list=PL12DC9A161D8DC5DC">https://www.youtube.com/playlist?list=PL12DC9A161D8DC5DC</a></li>
-<li>floss 매뉴얼 =&gt; <a href="http://flossmanuals.net/PureData/">http://flossmanuals.net/PureData/</a></li>
+<li>회색.</li>
 
 </ul>
 </section>
