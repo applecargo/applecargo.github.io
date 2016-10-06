@@ -55,10 +55,24 @@
   - 뭔가 기능이 엄청 많음. 터치 센싱.. 오디오출력.. 시계(RTC) 등등..
   - 기본 기능에도 충실.. digital/analog 입력핀 많은 편.
 
-  - 주의! teensy는 일반적인 arduino와 달리, 입력 전압이 5V 이하!
+  - _주의! teensy는 arduino와 달리, 입력 전압이 5V 이하!_
+
+* 전기
+
+  - 전압 == 압력
+  - 전류 == 유량
+  - 저항 == 수도 굵기
+  - 에너지 == 에너지
+
+* 아두이노 해보기
+
+  - [[https://www.arduino.cc/en/Main/OldSoftwareReleases#previous]] : arduino 1.6.11
+  - [[https://www.pjrc.com/teensy/td_download.html]] : teensyduino
+  - [[https://learn.adafruit.com/adafruit-arduino-lesson-1-blink/overview]] : blink
 
 * digital
 
+  #+ATTR_REVEAL: :frag (appear)
   - 0 과 1. ON/OFF. PLAY/STOP. 남자/여자. 흑인/백인.
   - 이분법.
 
@@ -67,4 +81,79 @@
 
 * analog
 
-  - 회색. 
+  #+ATTR_REVEAL: :frag (appear)
+  - 회색. 온도. 습도. 고도.
+  - 100점 만점에 56점?
+
+  - 입력 : 전압 측정, 저항 측정, 가속도 측정
+  - 출력 : 모터 회전? 소리 내기?
+
+* Firmata
+
+  - International English
+  - 국제 통용어
+
+  #+REVEAL: split
+
+  #+BEGIN_SRC c
+// Supports as many analog inputs and analog PWM outputs as possible.
+// This example code is in the public domain.
+
+#include <Firmata.h>
+
+#define NUM_OF_TOUCHINPUTS 12
+
+byte touchPinIdx = 0;
+byte count = 0;
+
+int pins[NUM_OF_TOUCHINPUTS] = {0, 1, 15, 16, 17, 18, 19, 22, 23, 25, 32, 33}
+
+void analogWriteCallback(byte pin, int value) {;}
+
+void setup()
+{
+  Firmata.setFirmwareVersion(0, 1);
+  Firmata.attach(ANALOG_MESSAGE, analogWriteCallback);
+  Firmata.begin(57600);
+}
+
+void loop()
+{
+    count++;
+    touchPinIdx = count % NUM_OF_TOUCHINPUTS;
+    
+    Firmata.sendAnalog(analogPin, touchRead(pins[touchPinIdx]));
+}
+  #+END_SRC
+
+* setup / loop
+
+  - arduino의 시작점.
+
+* Puredata에 라이브러리 깔기
+
+  - Find externals... 이용하기
+  - OSX ==> darwin, WIN ==> windows
+  - externals 폴더 만들고 (뒤섞이지 않게) 그 안에 설치.
+  - 일반적으로 많이 쓰이는 것들.. zexy cyclone ggee creb
+  - Firmata 번역 관련.. pduino comport pdstring mapping
+  - PATH 설정.
+  - 라이브러리 로드.. zexy creb comport pdstring
+
+* Firmata 사용해보기.
+
+  - arduino
+  - arduino-gui
+
+* 납땜하기
+
+  - [[https://learn.adafruit.com/adafruit-guide-excellent-soldering/tools]]
+
+* scope.pd
+
+  - 그래프(graph!)
+
+* END
+
+  - 숙제는 forum에 업로드.
+  - solution은 다음주 중으로...?

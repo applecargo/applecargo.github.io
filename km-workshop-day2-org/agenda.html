@@ -25,7 +25,7 @@
 <body>
 <div class="reveal">
 <div class="slides">
-<section id="sec-title-slide"><p class="date">Created: 2016-10-07 Fri 01:27</p>
+<section id="sec-title-slide"><p class="date">Created: 2016-10-07 Fri 03:34</p>
 </section>
 <section id="table-of-contents">
 <div id="table-of-contents">
@@ -35,8 +35,17 @@
 <li><a href="#/slide-orgheadline1">1. Puredata 복습 숙제</a></li>
 <li><a href="#/slide-orgheadline2">2. Arduino</a></li>
 <li><a href="#/slide-orgheadline3">3. Teensy</a></li>
-<li><a href="#/slide-orgheadline4">4. digital</a></li>
-<li><a href="#/slide-orgheadline5">5. analog</a></li>
+<li><a href="#/slide-orgheadline4">4. 전기</a></li>
+<li><a href="#/slide-orgheadline5">5. 아두이노 해보기</a></li>
+<li><a href="#/slide-orgheadline6">6. digital</a></li>
+<li><a href="#/slide-orgheadline7">7. analog</a></li>
+<li><a href="#/slide-orgheadline8">8. Firmata</a></li>
+<li><a href="#/slide-orgheadline9">9. setup / loop</a></li>
+<li><a href="#/slide-orgheadline10">10. Puredata에 라이브러리 깔기</a></li>
+<li><a href="#/slide-orgheadline11">11. Firmata 사용해보기.</a></li>
+<li><a href="#/slide-orgheadline12">12. 납땜하기</a></li>
+<li><a href="#/slide-orgheadline13">13. scope.pd</a></li>
+<li><a href="#/slide-orgheadline14">14. END</a></li>
 </ul>
 </div>
 </div>
@@ -127,7 +136,7 @@ STEP 3
 <li>뭔가 기능이 엄청 많음. 터치 센싱.. 오디오출력.. 시계(RTC) 등등..</li>
 <li>기본 기능에도 충실.. digital/analog 입력핀 많은 편.</li>
 
-<li>주의! teensy는 일반적인 arduino와 달리, 입력 전압이 5V 이하!</li>
+<li><span class="underline">주의! teensy는 arduino와 달리, 입력 전압이 5V 이하!</span></li>
 
 </ul>
 
@@ -135,13 +144,12 @@ STEP 3
 </section>
 <section>
 <section id="slide-orgheadline4">
-<h2 id="orgheadline4"><span class="section-number-2">4</span> digital</h2>
+<h2 id="orgheadline4"><span class="section-number-2">4</span> 전기</h2>
 <ul>
-<li>0 과 1. ON/OFF. PLAY/STOP. 남자/여자. 흑인/백인.</li>
-<li>이분법.</li>
-
-<li>입력 : 스위치.</li>
-<li>출력 : LED? 선풍기? 사운드.</li>
+<li>전압 == 압력</li>
+<li>전류 == 유량</li>
+<li>저항 == 수도 굵기</li>
+<li>에너지 == 에너지</li>
 
 </ul>
 
@@ -149,9 +157,154 @@ STEP 3
 </section>
 <section>
 <section id="slide-orgheadline5">
-<h2 id="orgheadline5"><span class="section-number-2">5</span> analog</h2>
+<h2 id="orgheadline5"><span class="section-number-2">5</span> 아두이노 해보기</h2>
 <ul>
-<li>회색.</li>
+<li><a href="https://www.arduino.cc/en/Main/OldSoftwareReleases#previous">https://www.arduino.cc/en/Main/OldSoftwareReleases#previous</a> : arduino 1.6.11</li>
+<li><a href="https://www.pjrc.com/teensy/td_download.html">https://www.pjrc.com/teensy/td_download.html</a> : teensyduino</li>
+<li><a href="https://learn.adafruit.com/adafruit-arduino-lesson-1-blink/overview">https://learn.adafruit.com/adafruit-arduino-lesson-1-blink/overview</a> : blink</li>
+
+</ul>
+
+</section>
+</section>
+<section>
+<section id="slide-orgheadline6">
+<h2 id="orgheadline6"><span class="section-number-2">6</span> digital</h2>
+<ul>
+<li class="fragment appear">0 과 1. ON/OFF. PLAY/STOP. 남자/여자. 흑인/백인.</li>
+<li class="fragment appear">이분법.</li>
+
+<li class="fragment appear">입력 : 스위치.</li>
+<li class="fragment appear">출력 : LED? 선풍기? 사운드.</li>
+
+</ul>
+
+</section>
+</section>
+<section>
+<section id="slide-orgheadline7">
+<h2 id="orgheadline7"><span class="section-number-2">7</span> analog</h2>
+<ul>
+<li class="fragment appear">회색. 온도. 습도. 고도.</li>
+<li class="fragment appear">100점 만점에 56점?</li>
+
+<li class="fragment appear">입력 : 전압 측정, 저항 측정, 가속도 측정</li>
+<li class="fragment appear">출력 : 모터 회전? 소리 내기?</li>
+
+</ul>
+
+</section>
+</section>
+<section>
+<section id="slide-orgheadline8">
+<h2 id="orgheadline8"><span class="section-number-2">8</span> Firmata</h2>
+<ul>
+<li>International English</li>
+<li>국제 통용어</li>
+
+</ul>
+
+</section>
+<section>
+
+<div class="org-src-container">
+
+<pre  class="src src-c">// Supports as many analog inputs and analog PWM outputs as possible.
+// This example code is in the public domain.
+
+#include &lt;Firmata.h&gt;
+
+#define NUM_OF_TOUCHINPUTS 12
+
+byte touchPinIdx = 0;
+byte count = 0;
+
+int pins[NUM_OF_TOUCHINPUTS] = {0, 1, 15, 16, 17, 18, 19, 22, 23, 25, 32, 33}
+
+void analogWriteCallback(byte pin, int value) {;}
+
+void setup()
+{
+  Firmata.setFirmwareVersion(0, 1);
+  Firmata.attach(ANALOG_MESSAGE, analogWriteCallback);
+  Firmata.begin(57600);
+}
+
+void loop()
+{
+    count++;
+    touchPinIdx = count % NUM_OF_TOUCHINPUTS;
+
+    Firmata.sendAnalog(analogPin, touchRead(pins[touchPinIdx]));
+}
+</pre>
+</div>
+
+</section>
+</section>
+<section>
+<section id="slide-orgheadline9">
+<h2 id="orgheadline9"><span class="section-number-2">9</span> setup / loop</h2>
+<ul>
+<li>arduino의 시작점.</li>
+
+</ul>
+
+</section>
+</section>
+<section>
+<section id="slide-orgheadline10">
+<h2 id="orgheadline10"><span class="section-number-2">10</span> Puredata에 라이브러리 깔기</h2>
+<ul>
+<li>Find externals&#x2026; 이용하기</li>
+<li>OSX ==&gt; darwin, WIN ==&gt; windows</li>
+<li>externals 폴더 만들고 (뒤섞이지 않게) 그 안에 설치.</li>
+<li>일반적으로 많이 쓰이는 것들.. zexy cyclone ggee creb</li>
+<li>Firmata 번역 관련.. pduino comport pdstring mapping</li>
+<li>PATH 설정.</li>
+<li>라이브러리 로드.. zexy creb comport pdstring</li>
+
+</ul>
+
+</section>
+</section>
+<section>
+<section id="slide-orgheadline11">
+<h2 id="orgheadline11"><span class="section-number-2">11</span> Firmata 사용해보기.</h2>
+<ul>
+<li>arduino</li>
+<li>arduino-gui</li>
+
+</ul>
+
+</section>
+</section>
+<section>
+<section id="slide-orgheadline12">
+<h2 id="orgheadline12"><span class="section-number-2">12</span> 납땜하기</h2>
+<ul>
+<li><a href="https://learn.adafruit.com/adafruit-guide-excellent-soldering/tools">https://learn.adafruit.com/adafruit-guide-excellent-soldering/tools</a></li>
+
+</ul>
+
+</section>
+</section>
+<section>
+<section id="slide-orgheadline13">
+<h2 id="orgheadline13"><span class="section-number-2">13</span> scope.pd</h2>
+<ul>
+<li>그래프(graph!)</li>
+
+</ul>
+
+</section>
+</section>
+<section>
+<section id="slide-orgheadline14">
+<h2 id="orgheadline14"><span class="section-number-2">14</span> END</h2>
+<ul>
+<li>숙제는 forum에 업로드.</li>
+<li>solution은 다음주 중으로&#x2026;?</li>
 
 </ul>
 </section>
