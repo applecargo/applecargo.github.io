@@ -1,0 +1,88 @@
+#+REVEAL_ROOT: http://cdn.jsdelivr.net/reveal.js/3.0.0/
+#+REVEAL_MARGIN: 0.1
+#+REVEAL_MIN_SCALE: 0.5
+#+REVEAL_MAX_SCALE: 2.5
+#+REVEAL_TRANS: none
+#+REVEAL_THEME: beige
+
+* 안녕하세요.
+
+* 저는요..
+  - 공돌이 (전자/전기/컴퓨터/제어)
+  - 회사원 (자동차부품)
+
+* 지금은..
+  - (미디어?)아티스트
+  - 프리랜서 (자동차부품)
+
+* PUREDATA 소개
+  - PD는 프로그래밍 언어
+
+  - 다운로드
+
+  [[http://puredata.info]]
+
+  [[http://msp.ucsd.edu/software.html]]
+
+  - 만든 사람: miller puckette
+    
+  [[https://blog.adafruit.com/wp-content/uploads/2013/02/MillerPuckette.png]]
+
+* 실행
+  - 메뉴
+    - ctrl(cmd) E => edit mode
+    - ctrl(cmd) 1 => object
+    - ctrl(cmd) 2 => message
+    - ctrl(cmd) 3 => number
+    - ctrl(cmd) shift B => bang
+    - ctrl(cmd) shift T => toggle
+    - array
+
+* 시작
+  - "hi"
+  - bang, print => post window
+  - float, + => counter
+  - -, *, /, ==, !=, >, <, >=, <=
+
+* 계산의 순서
+  - cold inlet/hot inlet
+  - trigger
+
+* 퀴즈
+  - 1부터 10까지의 합을 구하는 프로그램
+  - 1부터 10까지의 곱을 구하는 프로그램
+
+* 템포
+  - metro
+
+* 미디(MIDI)
+  - MIDI 프로그램 깔기 => lmms => [[https://lmms.io/download/]]
+  - soundfont => [[http://www.omegagmgs2.com/]]
+
+* PD에서 미디를 연주하기
+  - 주파수와 note => [[http://www.phy.mtu.edu/~suits/notefreqs.html]]
+  - makenote
+  - noteout
+  - pgmout
+
+* 사운드 파일
+  - 지원 형식 => WAV/AIFF 파일
+  - 사운드 파일 변환 => audacity [[http://www.audacityteam.org/]]
+  - 사운드 소스 구하기 => [[http://freesound.org/]]
+  - 녹음
+  - normalization (정규화)
+
+* 라이브러리 깔기
+  - 메뉴
+    - Path
+  - 사운드파일 플레이 라이브러리 다운로드 => [[https://github.com/applecargo/kmuniv-pd-workshop/archive/master.zip]]
+  - 설치
+  - wav~
+  - wav2~
+    
+* 비디오
+  - 라이브러리 gem => [[https://www.youtube.com/watch?v=XyS2M0mM5iA]]
+
+* 참고할 자료
+  - 인강 (강추) => [[https://www.youtube.com/playlist?list=PL12DC9A161D8DC5DC]]
+  - floss 매뉴얼 => [[http://flossmanuals.net/PureData/]]
