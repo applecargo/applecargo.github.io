@@ -231,14 +231,17 @@ void loop()
 
   - [[https://learn.adafruit.com/adafruit-guide-excellent-soldering/tools]]
 
-  - 시간차 공격. 인두먼저. 납은 조금 있다.
-  - 적당한 시간동안 가열. count 3!
+  - 시간차 공격. 인두먼저. 납은 조금 있다가...
+  - 적당한 시간동안 가열. count 3! 얼음.... 땡!
 
 * scope.pd
 
+  - libraries 폴더
+  - [[http://applecargo.github.io/km-workshop-day2-org/scope.pd]]
   - 그래프(graph!)
+  - scope mary, scope doohoyi, scope whatever...
 
-* END
+* END / play-time.
 
   - 숙제는 forum에 업로드.
   - solution은 다음주 중으로...?
