@@ -25,7 +25,7 @@
   카운트가 3의 배수인 경우에 소리가 play되게 한다.
 
   #+ATTR_REVEAL: :frag (appear)
-  - mod는 나누고 남은 나머지를 준다. '~의 배수'란 그 수로 나누면 0...
+  - mod는 나누고 남은 나머지를 준다. '~의 배수'란 그 수로 나누면 나머지가 0...
   - == 은 '~과 같다'는 것에 대한 답을 숫자 1/0으로 준다.
   - select (줄여서 sel) 은 입력된 값이 리스트에 포함되어있을 때만 선택적으로 bang을 준다.
 
@@ -45,15 +45,15 @@
   - [[https://www.adafruit.com/categories/171]]
   - [[https://www.sparkfun.com/categories/242]]
 
-  - OSHW
+  - OSHW (Open Source HardWare)
   - 하드웨어 & 소프트웨어
 
 * Teensy
 
   - 고성능의 arduino. (아두이노 16MHz, 틴지 96MHz)
   - 3.x 는 ARM 칩 사용
-  - 뭔가 기능이 엄청 많음. 터치 센싱.. 오디오출력.. 시계(RTC) 등등..
-  - 기본 기능에도 충실.. digital/analog 입력핀 많은 편.
+  - 뭔가 기능이 엄청 많음. 터치 센싱.. 오디오출력(DAC).. 시계(RTC) 등등..
+  - 기본 기능에도 충실.. digital/analog 입출력(GPIO) 많은 편..
 
   - _주의! teensy는 arduino와 달리, 입력 전압이 5V 이하!_
 
@@ -64,16 +64,13 @@
   - 저항 == 수도 굵기
   - 에너지 == 에너지
 
-* 아두이노 해보기
-
-  - [[https://www.arduino.cc/en/Main/OldSoftwareReleases#previous]] : arduino 1.6.11
-  - [[https://www.pjrc.com/teensy/td_download.html]] : teensyduino
-  - [[https://learn.adafruit.com/adafruit-arduino-lesson-1-blink/overview]] : blink
-
 * digital
 
   #+ATTR_REVEAL: :frag (appear)
-  - 0 과 1. ON/OFF. PLAY/STOP. 남자/여자. 흑인/백인.
+  - 0 과 1.
+  - ON/OFF.
+  - PLAY/STOP.
+  - 남자/여자. 흑인/백인.
   - 이분법.
 
   - 입력 : 스위치.
@@ -82,20 +79,99 @@
 * analog
 
   #+ATTR_REVEAL: :frag (appear)
-  - 회색. 온도. 습도. 고도.
+  - 회색.
+  - 온도. 습도. 고도.
+  - 정도. how much.
+
   - 100점 만점에 56점?
+  - 1000000점 만점에 583789점..
 
   - 입력 : 전압 측정, 저항 측정, 가속도 측정
   - 출력 : 모터 회전? 소리 내기?
 
-* Firmata
+* 아두이노 해보기
 
-  - International English
-  - 국제 통용어
+  - [[https://www.arduino.cc/en/Main/OldSoftwareReleases#previous]] : arduino 1.6.11
+  - [[https://www.pjrc.com/teensy/td_download.html]] : teensyduino
+  - [[https://learn.adafruit.com/adafruit-arduino-lesson-1-blink/overview]] : blink
 
   #+REVEAL: split
 
-  #+BEGIN_SRC c
+  #+BEGIN_SRC cpp
+// blink
+void setup()
+{
+    pinMode(13, OUTPUT);
+}
+
+void loop()
+{
+    digitalWrite(13, HIGH);
+    delay(1000);
+    digitalWrite(13, LOW);
+    delay(1000);
+}
+  #+END_SRC
+
+  #+REVEAL: split
+
+  - void setup() 함수(function) --> [setup] Puredata의 Object 처럼. '무엇'을 받고, '무엇'을 내줌.
+  - void는 없음. / () 빈 괄호. 없음. puredata에서 inlet도 outlet도 없는 obj. 비슷.
+  - setup, loop
+  - pinMode - INPUT, OUTPUT, INPUT_PULLUP
+  - digitalRead, digitalWrite
+  - analogRead, analogWrite
+  - delay
+    
+  #+REVEAL: split
+
+  #+BEGIN_SRC cpp
+// blink + Serial monitoring
+int count = 0;
+
+void setup()
+{
+    Serial.begin(9600); // comm. speed (Baudrate) == 9600
+    Serial.println("app start");
+    pinMode(13, OUTPUT);
+    Serial.println("pinMode(13, OUTPUT); - done.");
+}
+
+void loop()
+{
+    count++;
+    Serial.print(count);
+
+    Serial.print(" .");
+    digitalWrite(13, HIGH);
+    delay(1000);
+
+    Serial.println("/");
+    digitalWrite(13, LOW);
+    delay(1000);
+}
+  #+END_SRC
+  
+  #+REVEAL: split
+  - Serial
+  - Serial.begin
+  - Serial.print
+  - Serial.println
+
+  - int count = 0; - 변(하는) 수
+  - Serial.print(0); vs Serial.print(count);
+  - Serial.print(count); vs Serial.print("count");
+  - data-type.. boolean int float double
+  - Find reference...
+
+* Firmata
+
+  - International English
+  - 국제 통용어, passport?
+
+  #+REVEAL: split
+
+  #+BEGIN_SRC cpp
 // Supports as many analog inputs and analog PWM outputs as possible.
 // This example code is in the public domain.
 
@@ -126,28 +202,37 @@ void loop()
 }
   #+END_SRC
 
-* setup / loop
-
-  - arduino의 시작점.
-
 * Puredata에 라이브러리 깔기
 
   - Find externals... 이용하기
   - OSX ==> darwin, WIN ==> windows
   - externals 폴더 만들고 (뒤섞이지 않게) 그 안에 설치.
   - 일반적으로 많이 쓰이는 것들.. zexy cyclone ggee creb
-  - Firmata 번역 관련.. pduino comport pdstring mapping
   - PATH 설정.
-  - 라이브러리 로드.. zexy creb comport pdstring
+  - 3가지 종류의 라이브러리.
+    - patch (no binary)
+    - individual library - cyclone
+    - bundled library - zexy creb
+  - bundled library loading.. zexy creb pdstring
 
-* Firmata 사용해보기.
+* Puredata에서 아두이노 연결하기 (Firmata)
+
+  [[https://github.com/reduzent/pduino.git]]
+  - 의존 라이브러리 : comport, pdstring
+  - bundled library loading.. pdstring
 
   - arduino
+  - devices, open, devicename, close
+  - route analog
+  - route 0
   - arduino-gui
 
 * 납땜하기
 
   - [[https://learn.adafruit.com/adafruit-guide-excellent-soldering/tools]]
+
+  - 시간차 공격. 인두먼저. 납은 조금 있다.
+  - 적당한 시간동안 가열. count 3!
 
 * scope.pd
 
@@ -157,3 +242,4 @@ void loop()
 
   - 숙제는 forum에 업로드.
   - solution은 다음주 중으로...?
+  - 고맙습니다.
