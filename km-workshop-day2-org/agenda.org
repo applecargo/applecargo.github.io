@@ -3,7 +3,8 @@
 #+REVEAL_MIN_SCALE: 0.5
 #+REVEAL_MAX_SCALE: 2.5
 #+REVEAL_TRANS: none
-#+REVEAL_THEME: beige
+#+REVEAL_THEME: night
+#+OPTIONS: ^:nil
 
 * Puredata 복습 숙제
 
