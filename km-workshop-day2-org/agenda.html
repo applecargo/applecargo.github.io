@@ -25,7 +25,7 @@
 <body>
 <div class="reveal">
 <div class="slides">
-<section id="sec-title-slide"><p class="date">Created: 2016-10-07 Fri 20:10</p>
+<section id="sec-title-slide"><p class="date">Created: 2016-10-08 Sat 14:30</p>
 </section>
 <section id="table-of-contents">
 <div id="table-of-contents">
@@ -298,17 +298,19 @@ void loop()
 
 <div class="org-src-container">
 
-<pre  class="src src-cpp">// Supports as many analog inputs and analog PWM outputs as possible.
+<pre  class="src src-cpp">// Firmata code for reading analog inputs.
+// Use EN_PULLUP switch to enable/disable pullups at once.
 // This example code is in the public domain.
 
 #include &lt;Firmata.h&gt;
 
-#define NUM_OF_TOUCHINPUTS 12
+#define NUM_OF_ANALOGINPUTS 6
+#define EN_PULLUP true
 
-byte touchPinIdx = 0;
+byte analogPinIdx = 0;
 byte count = 0;
 
-int pins[NUM_OF_TOUCHINPUTS] = {0, 1, 15, 16, 17, 18, 19, 22, 23, 25, 32, 33}
+int pins[NUM_OF_ANALOGINPUTS] = {14, 15, 16, 17, 18, 19};
 
 void analogWriteCallback(byte pin, int value) {;}
 
@@ -317,14 +319,33 @@ void setup()
   Firmata.setFirmwareVersion(0, 1);
   Firmata.attach(ANALOG_MESSAGE, analogWriteCallback);
   Firmata.begin(57600);
-}
 
-void loop()
+  if (EN_PULLUP == true)
+  {
+    for (int ii = 0; ii &lt; NUM_OF_ANALOGINPUTS; ii++)
+    {
+      pinMode(pins[ii], INPUT_PULLUP);
+    }
+  }
+}
+</pre>
+</div>
+<p>
+(continue..)
+</p>
+</section>
+<section>
+<p>
+(continue..)
+</p>
+<div class="org-src-container">
+
+<pre  class="src src-cpp">void loop()
 {
     count++;
-    touchPinIdx = count % NUM_OF_TOUCHINPUTS;
+    analogPinIdx = count % NUM_OF_ANALOGINPUTS;
 
-    Firmata.sendAnalog(analogPin, touchRead(pins[touchPinIdx]));
+    Firmata.sendAnalog(analogPinIdx, analogRead(pins[analogPinIdx]));
 }
 </pre>
 </div>
