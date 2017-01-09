@@ -1,79 +1,225 @@
-<!doctype html>
+<!DOCTYPE html>
 <html>
   <head>
     <meta charset="utf-8">
-    <title>PLAYER</title>
-    <script type="text/javascript" src="./Tone.min.js"></script>
-    <script type="text/javascript" src="./nexusUI.min.js"></script>
-    <script>
-     
-     /* tone.js */
-     
-     /* var player1 = new Tone.Player({
-      *   "url" : "./audio/cricket01.mp3",
-      *   "autostart" : false,
-      *   "loop" : false,
-      *   "retrigger" : true,
-      * }).toMaster();*/
-
-     /* "url" : "./audio/marimba-c5.mp3",*/
-     
-     var player1 = new Tone.Player({ "url" : "./audio/marimba-c5.mp3" }).toMaster();
-     var player2 = new Tone.Player({ "url" : "./audio/cricket01.mp3" }).toMaster();
-     var player3 = new Tone.Player({ "url" : "./audio/trk01/a.mp3" }).toMaster();
-     
-     /* nexusUI.js */
-     
-     nx.onload = function() {
-       
-       nx.colorize("accent", "#f00");
-       nx.colorize("border", "#0f0");
-       nx.colorize("fill", "#eee");
-
-       button1.on('press', function(data) {
-	 if(data === 1) // 0:release, 1:press
-	   {
-	     player1.start()
-	   }
-       })
-       
-       button2.on('press', function(data) {
-	 if(data === 1)
-	   {
-	     player2.start()
-	   }
-       })
-       
-       button3.on('press', function(data) {
-	 if(data === 1)
-	   {
-	     player3.start()
-	   }
-       })
-
-     }
-
-    </script>
-  </head>
-  <body style="background-color:#000">
-
-    <!-- <canvas nx="toggle" style="height:20px;width:20px"></canvas> -->
-    <canvas nx="button"></canvas>
-    <canvas nx="button"></canvas>
-    <canvas nx="button"></canvas>
-    <!-- <canvas nx="meter"></canvas>
-	 <canvas nx="select" choices="sine,saw,triangle" style="height:15px"></canvas> -->
-
-    <!-- Try other nexusUI elements.
-	 See nexusosc.com for more. -->
-
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css">
+    <script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+    <script src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+    <script type="text/javascript" src="./js/Tone.min.js"></script>
     <style>
-     .nx {
-       display:block;
-       float:left;
-       margin:0px 10px;
-     }
+     #Loading {
+       z-index: 100000;
+       position: absolute;
+       background-color: rgba(140, 140, 140, 0.5);
+       width: 100%;
+       /* height: calc(100% - 37.5px); */
+       height: 100%;
+       top: 37.5px;
+       left: 0px;
+       opacity: 1;
+       transition: opacity 0.4s; }
+     #Loading #Text {
+       color: white;
+       position: absolute;
+       text-align: center;
+       top: 50%;
+       left: 50%;
+       width: 300px;
+       margin-left: -150px;
+       height: 60px;
+       margin-top: -30px;
+       line-height: 60px;
+       font-size: 42px; }
+
+     #Loading.Loaded {
+       pointer-events: none;
+       opacity: 0; }
     </style>
-    
+  </head>
+  <body>
+
+    <!-- 시작 페이지 -->
+    <div data-role="page" id="page-s0">
+      <div data-role="header">
+	<h1>시작! 사운드 스케이프!</h1>
+      </div>
+      <div data-role="main" class="ui-content">
+	<p>좌석 번호를 골라주세요.</p>
+	<label for="slider-1">내 번호 (1~42) :</label>
+	<input type="range" name="slider-1" id="seatslider" value="" min="1" max="42">
+	<a href="#" onclick="reserveseat()">다음.</a>
+      </div>
+      <div data-role="footer">
+	<h1>예술가의 런치박스 - 다이애나밴드</h1>
+      </div>
+    </div>
+    <script>
+     var player1; // for session 1
+     var player2; // for session 2
+     var player3; // for session 3
+     var mysound; // for session 3
+     function reserveseat()
+     {
+       /* prepare track urls*/
+       var url1 = "./audio/phonecall-cricket/BYOPNEW-";
+       var url2 = "./audio/trk01/";
+       var url3 = "./audio/edelweiss/edelweiss-";
+       var url4 = "./audio/soundfiles/";
+       var seatNo = 0;
+       var seatNo_str = "";
+       
+       seatNo = Number($( "#seatslider" ).val());
+       /* ("0" + seatNo).slice(-2) : 00, 01, 02, ... style.. digits..*/
+       seatNo_str = ("0" + seatNo).slice(-2);
+       
+       player1 = new Tone.Player({ "url" : url1.concat(seatNo_str).concat(".mp3") }).toMaster();
+       player2 = new Tone.Player({ "url" : url2.concat(seatNo_str).concat(".mp3") }).toMaster();
+       player3 = new Tone.Player({ "url" : url3.concat(seatNo_str).concat(".mp3") }).toMaster();
+       mysound = new Tone.Player({ "url" : url4.concat(seatNo_str).concat(".mp3") }).toMaster();
+       
+       /* wait for file download to be done */
+       /* this.element.. is for scoping?*/
+       this.element = $('<div/>', {
+	 id: 'Loading',
+       }).appendTo('body');
+       this.text = $("<div>", {
+	 "id" : "Text",
+	 "text" : "Loading"
+       }).appendTo(this.element);
+       Tone.Buffer.on("load", function(){
+	 this.element.addClass("Loaded");
+       }.bind(this)); //-->resolve scoping issues.. : https://www.smashingmagazine.com/2014/01/understanding-javascript-function-prototype-bind/
+
+       /* then, move onto the session1 page */
+       /* $.mobile.changePage('#page-s1', {
+	*   transition : "slide"
+	* });*/
+       $.mobile.changePage('#page-s1');
+     }
+    </script>
+
+    <!-- 소리 세션 #1 페이지 -->
+    <div data-role="page" id="page-s1">
+      <div data-role="header">
+	<h1>첫번째 세션.</h1>
+      </div>
+      <div data-role="main" class="ui-content">
+	<span id="s1-message">준비하시고...</span>
+	<button id="s1-playstop-btn" onclick="s1_playstop_btn()">PLAY!</button>
+	<a href="#page-s2">다음.</a>
+      </div>
+      <div data-role="footer">
+	<h1>예술가의 런치박스 - 다이애나밴드</h1>
+      </div>
+    </div>
+    <script>
+     function s1_playstop_btn() {}
+
+     function s1_playstart() {
+       player1.start();
+       $("#s1-message").text("PLAYING...");
+       $("#s1-playstop-btn").text("STOP!");
+       s1_playstop_btn = s1_playstop;
+     }
+     function s1_playstop() {
+       player1.stop();
+       $("#s1-message").text("준비하시고...");
+       $("#s1-playstop-btn").text("PLAY!");
+       s1_playstop_btn = s1_playstart;
+     }
+     s1_playstop_btn = s1_playstart;
+     
+     /* NOTE : currently i don't know how to get triggered by play-done event..
+      * so, we won't implement that.. for now.*/
+    </script>
+
+    <!-- 소리 세션 #2 페이지 -->
+    <div data-role="page" id="page-s2">
+      <div data-role="header">
+	<h1>두번째 세션.</h1>
+      </div>
+      <div data-role="main" class="ui-content">
+	<span id="s2-message">준비하시고...</span>
+	<button id="s2-playstop-btn" onclick="s2_playstop_btn()">PLAY!</button>
+	<a href="#page-s3">다음.</a>
+      </div>
+      <div data-role="footer">
+	<h1>예술가의 런치박스 - 다이애나밴드</h1>
+      </div>
+    </div>
+    <script>
+     function s2_playstop_btn() {}
+
+     function s2_playstart() {
+       player2.start();
+       $("#s2-message").text("PLAYING...");
+       $("#s2-playstop-btn").text("STOP!");
+       s2_playstop_btn = s2_playstop;
+     }
+     function s2_playstop() {
+       player2.stop();
+       $("#s2-message").text("준비하시고...");
+       $("#s2-playstop-btn").text("PLAY!");
+       s2_playstop_btn = s2_playstart;
+     }
+     s2_playstop_btn = s2_playstart;
+     
+     /* NOTE : currently i don't know how to get triggered by play-done event..
+      * so, we won't implement that.. for now.*/
+    </script>
+
+    <!-- 소리 세션 #3 페이지 -->
+    <div data-role="page" id="page-s3">
+      <div data-role="header">
+	<h1>세번째 세션.</h1>
+      </div>
+      <div data-role="main" class="ui-content">
+	<div data-role="collapsibleset" data-theme="a" data-contenttheme="a">
+	  <div data-role="collapsible">
+	    <h3>합창</h3>
+	    <div>
+	      <span id="s3-message">준비하시고...</span>
+	      <button id="s3-playstop-btn" onclick="s3_playstop_btn()">PLAY!</button>
+	    </div>
+	  </div>
+	  <div data-role="collapsible">
+	    <h3>개인플레이..</h3>
+	    <div>
+	      <span id="s3-message">개인플레이하기...</span>
+	      <button id="s3-mysound-btn" onclick="s3_mysound_btn()">YAP!</button>
+	    </div>
+	  </div>
+	</div>
+	<span>끝. :)</span>
+      </div>
+      <div data-role="footer">
+	<h1>예술가의 런치박스 - 다이애나밴드</h1>
+      </div>
+    </div>
+    <script>
+     function s3_playstop_btn() {}
+
+     function s3_playstart() {
+       player3.start();
+       $("#s3-message").text("PLAYING...");
+       $("#s3-playstop-btn").text("STOP!");
+       s3_playstop_btn = s3_playstop;
+     }
+     function s3_playstop() {
+       player3.stop();
+       $("#s3-message").text("준비하시고...");
+       $("#s3-playstop-btn").text("PLAY!");
+       s3_playstop_btn = s3_playstart;
+     }
+     s3_playstop_btn = s3_playstart;
+     
+     function s3_mysound_btn() {
+       mysound.start();
+     }
+     /* NOTE : currently i don't know how to get triggered by play-done event..
+      * so, we won't implement that.. for now.*/
+    </script>
+
   </body>
 </html>
