@@ -7,6 +7,7 @@
     <script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
     <script src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
     <script type="text/javascript" src="./js/Tone.min.js"></script>
+    <script src="./js/socket.io.js"></script>
     <style>
      #Loading {
        z-index: 100000;
@@ -53,6 +54,13 @@
       <div data-role="footer">
 	<h1>예술가의 런치박스 - 다이애나밴드</h1>
       </div>
+      <label for="select-choice-0" class="select">Shipping method:</label>
+      <select name="select-choice-0" id="select-choice-0">
+	<option value="standard">Standard: 7 day</option>
+	<option value="rush">Rush: 3 days</option>
+	<option value="express">Express: next day</option>
+	<option value="overnight">Overnight</option>
+      </select>
     </div>
     <script>
      var player1; // for session 1
@@ -107,6 +115,7 @@
       <div data-role="main" class="ui-content">
 	<span id="s1-message">준비하시고...</span>
 	<button id="s1-playstop-btn" onclick="s1_playstop_btn()">PLAY!</button>
+	<button id="s1-playstop-msg-toggle" onclick="s1_playstop_msg_tgl()">PLAY-ALL!</button>
 	<a href="#page-s2">다음.</a>
       </div>
       <div data-role="footer">
@@ -114,8 +123,8 @@
       </div>
     </div>
     <script>
+     ////
      function s1_playstop_btn() {}
-
      function s1_playstart() {
        player1.start();
        $("#s1-message").text("PLAYING...");
@@ -129,9 +138,39 @@
        s1_playstop_btn = s1_playstart;
      }
      s1_playstop_btn = s1_playstart;
-     
-     /* NOTE : currently i don't know how to get triggered by play-done event..
-      * so, we won't implement that.. for now.*/
+
+     ////
+     //static ip node server..
+     var socket = io('http://192.168.10.17:3000');
+
+     //// send msg.
+     function s1_playstop_msg_tgl() {}
+     function s1_send_all_start_msg() {
+       socket.emit('msg-playstart', 1);
+       s1_playstop_msg_tgl = s1_send_all_stop_msg;
+     }
+     function s1_send_all_stop_msg() {
+       socket.emit('msg-playstop', 1);
+       s1_playstop_msg_tgl = s1_send_all_start_msg;
+     }
+     s1_playstop_msg_tgl = s1_send_all_start_msg;
+
+     //// react on msg.
+     socket.on('msg-playstart', function(msg){
+       /* $('#messages').append($('<li>').text(msg));*/
+       $("#s1-playstop-msg-toggle").text("STOP-ALL!");
+       s1_playstart();
+     });
+     socket.on('msg-playstop', function(msg){
+       /* $('#messages').append($('<li>').text(msg));*/
+       $("#s1-playstop-msg-toggle").text("PLAY-ALL!");
+       s1_playstop();
+     });
+
+     // [ - NOTE - ]
+     // currently i don't know how to get triggered by play-done event..
+     // so, we won't be bothered to implement that..
+
     </script>
 
     <!-- 소리 세션 #2 페이지 -->
