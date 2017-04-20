@@ -139,10 +139,6 @@
      }
      s1_playstop_btn = s1_playstart;
 
-     ////
-     //static ip node server..
-     var socket = io('http://ec2-52-78-239-112.ap-northeast-2.compute.amazonaws.com:3000');
-
      //// send msg.
      function s1_playstop_msg_tgl() {}
      function s1_send_all_start_msg() {
@@ -154,18 +150,6 @@
        s1_playstop_msg_tgl = s1_send_all_start_msg;
      }
      s1_playstop_msg_tgl = s1_send_all_start_msg;
-
-     //// react on msg.
-     socket.on('msg-playstart', function(msg){
-       /* $('#messages').append($('<li>').text(msg));*/
-       $("#s1-playstop-msg-toggle").text("STOP-ALL!");
-       s1_playstart();
-     });
-     socket.on('msg-playstop', function(msg){
-       /* $('#messages').append($('<li>').text(msg));*/
-       $("#s1-playstop-msg-toggle").text("PLAY-ALL!");
-       s1_playstop();
-     });
 
      // [ - NOTE - ]
      // currently i don't know how to get triggered by play-done event..
@@ -181,6 +165,7 @@
       <div data-role="main" class="ui-content">
 	<span id="s2-message">준비하시고...</span>
 	<button id="s2-playstop-btn" onclick="s2_playstop_btn()">PLAY!</button>
+	<button id="s2-playstop-msg-toggle" onclick="s2_playstop_msg_tgl()">PLAY-ALL!</button>
 	<a href="#page-s3">다음.</a>
       </div>
       <div data-role="footer">
@@ -204,6 +189,18 @@
      }
      s2_playstop_btn = s2_playstart;
      
+     //// send msg.
+     function s2_playstop_msg_tgl() {}
+     function s2_send_all_start_msg() {
+       socket.emit('msg-playstart', 2);
+       s2_playstop_msg_tgl = s2_send_all_stop_msg;
+     }
+     function s2_send_all_stop_msg() {
+       socket.emit('msg-playstop', 1);
+       s2_playstop_msg_tgl = s2_send_all_start_msg;
+     }
+     s2_playstop_msg_tgl = s2_send_all_start_msg;
+
      /* NOTE : currently i don't know how to get triggered by play-done event..
       * so, we won't implement that.. for now.*/
     </script>
@@ -220,6 +217,7 @@
 	    <div>
 	      <span id="s3-message">준비하시고...</span>
 	      <button id="s3-playstop-btn" onclick="s3_playstop_btn()">PLAY!</button>
+	      <button id="s3-playstop-msg-toggle" onclick="s3_playstop_msg_tgl()">PLAY-ALL!</button>
 	    </div>
 	  </div>
 	  <div data-role="collapsible">
@@ -256,8 +254,47 @@
      function s3_mysound_btn() {
        mysound.start();
      }
+
+     //// send msg.
+     function s3_playstop_msg_tgl() {}
+     function s3_send_all_start_msg() {
+       socket.emit('msg-playstart', 3);
+       s3_playstop_msg_tgl = s3_send_all_stop_msg;
+     }
+     function s3_send_all_stop_msg() {
+       socket.emit('msg-playstop', 3);
+       s3_playstop_msg_tgl = s3_send_all_start_msg;
+     }
+     s3_playstop_msg_tgl = s3_send_all_start_msg;
+
      /* NOTE : currently i don't know how to get triggered by play-done event..
       * so, we won't implement that.. for now.*/
+
+     ////
+     //static ip node server..
+     var socket = io('http://ec2-52-78-239-112.ap-northeast-2.compute.amazonaws.com:3000');
+
+     //// react on msg.
+     socket.on('msg-playstart', function(msg){
+       if (msg == 1) {
+	 $("#s1-playstop-msg-toggle").text("STOP-ALL!");
+	 s1_playstart();
+       }
+       else if (msg == 2) {
+	 $("#s2-playstop-msg-toggle").text("STOP-ALL!");
+	 s2_playstart();
+       }
+       else if (msg == 3) {
+	 $("#s3-playstop-msg-toggle").text("STOP-ALL!");
+	 s3_playstart();
+       }
+     });
+     socket.on('msg-playstop', function(msg){
+       /* $('#messages').append($('<li>').text(msg));*/
+       $("#s1-playstop-msg-toggle").text("PLAY-ALL!");
+       s1_playstop();
+     });
+     
     </script>
 
   </body>
