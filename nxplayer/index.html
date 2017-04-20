@@ -196,7 +196,7 @@
        s2_playstop_msg_tgl = s2_send_all_stop_msg;
      }
      function s2_send_all_stop_msg() {
-       socket.emit('msg-playstop', 1);
+       socket.emit('msg-playstop', 2);
        s2_playstop_msg_tgl = s2_send_all_start_msg;
      }
      s2_playstop_msg_tgl = s2_send_all_start_msg;
