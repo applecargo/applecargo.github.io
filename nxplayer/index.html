@@ -290,9 +290,18 @@
        }
      });
      socket.on('msg-playstop', function(msg){
-       /* $('#messages').append($('<li>').text(msg));*/
-       $("#s1-playstop-msg-toggle").text("PLAY-ALL!");
-       s1_playstop();
+       if (msg == 1) {
+	 $("#s1-playstop-msg-toggle").text("PLAY-ALL!");
+	 s1_playstop();
+       }
+       else if (msg == 2) {
+	 $("#s2-playstop-msg-toggle").text("PLAY-ALL!");
+	 s2_playstop();
+       }
+       else if (msg == 3) {
+	 $("#s3-playstop-msg-toggle").text("PLAY-ALL!");
+	 s3_playstop();
+       }
      });
      
     </script>
