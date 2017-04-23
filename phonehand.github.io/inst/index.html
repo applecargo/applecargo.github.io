@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- dependencies -->
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script type="text/javascript" src="/js/Tone.min.js"></script>
+    <script type="text/javascript" src="/bower_components/osc.js/dist/osc-browser.min.js"></script>
+    <link rel="stylesheet" href="https://unpkg.com/tachyons@4.7.0/css/tachyons.min.css"/>
+    <link rel="stylesheet" href="/css/stripe.css"/>
+    <!-- js code -->
+    <script type="text/javascript" src="/js/inst.js"></script>
+  </head>
+
+  <body class="bg-light-blue">
+
+    <!-- reserve seat page -->
+    <div id="resvseat" class="dt vh-100 w-100 absolute top-0 left-0 bg-light-blue">
+      <div class="dtc v-mid tc w-50 bg-yellow blue">
+	<h1 class="flex flex-column justify-center items-center f4 f3-ns">
+	  <div class="pv3 lh-copy w-70">
+	    바닥에 부착된 원을 하나 고른 후, 원 안에 서 주시고, 원의 번호를 입력해 주세요.
+	  </div>
+	</h1>
+      </div>
+      <div class="dtc v-mid tc w-50 bg-blue yellow">
+	<h1 class="f6 f3-ns">
+	  <form id="selseat">
+	    <input class="w-80 br-pill yellow bg-blue ba b--dashed b--yellow fw6 f3 f1-ns lh-copy tc mv2" type="text" name="seatNo" autofocus>
+	    <input class="w-80 br-pill yellow bg-dark-blue bn b fw6 f4 f2-ns pv2" type="submit" value="다-음!">
+	  </form>
+	</h1>
+      </div>
+    </div>
+    
+    <!-- loading -->
+    
+    <!-- hiden with inline style / will be shown by jquery -->
+    <div id="loading" class="dt vh-100 w-100 absolute top-0 left-0 animationStripes" style="display:none">
+      <div class="dtc v-mid tc white">
+	<h1 class="f3 f1-ns">
+	  Loading..........!?
+	  <div id="rollcnt"></div>
+	</h1>
+      </div>
+    </div>
+    
+    <!-- play session #1 -->
+    <!-- <div id="play1" class="vh-100 w-100 absolute top-0 left-0 bg-dark-blue" style="display:none">
+	 <div class="mw7 center min-h-100 h-auto flex flex-wrap flex-column justify-around items-center">
+	 <div class="h1 flex-auto"></div> --><!-- gap -->
+    <!-- <div class="h3 flex-auto"> -->
+	  <!-- Created with Inkscape (http://www.inkscape.org/) -->
+    <!-- <svg
+	 id="playbtn"
+	 width="86.934525mm"
+	 height="86.934525mm"
+	 viewBox="0 0 86.934525 86.934525">
+	 <g
+	 transform="translate(-61.532738,-105.03274)"
+	 style="display:inline">
+	 <circle
+	 id="path10"
+	 cx="105"
+	 cy="148.5"
+	 r="43.467262"
+	 style="stroke-width:0.26458332;fill:#00ffff;opacity:1" /> -->
+	      <!-- play mark -->
+    <!-- <path
+	 id="path4493"
+	 style="fill:#0000ff;opacity:1"
+	 d="m 88.000004,172.1046 -10e-7,-23.6046 10e-7,-23.6046 20.442186,11.8023 20.44219,11.8023 -20.44219,11.8023 z" /> -->
+	      <!-- pause mark -->
+    <!-- <rect
+	 id="rect8475"
+	 style="fill:#ffff00;opacity:1"
+	 width="9.8273773"
+	 height="47.209202"
+	 x="89.223961"
+	 y="124.70641" />
+	 <rect
+	 id="rect8475-3"
+	 style="display:inline;fill:#ffff00;opacity:1"
+	 width="9.8273773"
+	 height="47.209202"
+	 x="110.94866"
+	 y="125.08439" />
+	 </g>
+	 </svg>
+	 </div>
+	 <div class="h1 flex-auto"></div> --><!-- gap -->
+    <!-- </div>
+	 </div> -->
+    
+  </body>
+</html>
