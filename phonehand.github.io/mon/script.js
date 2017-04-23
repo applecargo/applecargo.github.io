@@ -1,30 +1,37 @@
-/* bug: user touches too fast. then, sth. breaks! --> utilize ready function (below)? */
-
-var g_oscMsg;
-
 $( document ).ready(function() {
 
     // connect server
-    var oscPort = new osc.WebSocketPort({
-	url: "ws://52.78.239.112:5100", // amazonaws ec2 node.js server
-	metadata: true
+    var socket = io('http://52.78.239.112:5300'); // amazonaws ec2 node.js server
+
+    // $('form').submit(function(){
+    //   socket.emit('chat message', $('#m').val());
+    //   $('#m').val('');
+    //   return false;
+    // });
+
+    socket.on('seatstat', function(data){
+    	for (var i = 0; i < data.seatstat.length; i++) {
+    	    $(".seats:nth(" + i + ")").prop("checked", data.seatstat[i]);
+    	}
     });
-
-    oscPort.open();
-
-    oscPort.on("message", function (oscMsg) {
-	if (oscMsg.address == "/rollcnt") $("#conmon-rollcnt").text(oscMsg.args[0].value); // dim led?
-
-	if (oscMsg.address == "/seats")
-	{
-	    // console.log(oscMsg.args[0].value);
-	    // console.log(oscMsg.args[1].value);
-	    // console.log(".seats:nth(" + oscMsg.args[0].value + ")");
-	    // console.log(oscMsg.args[1].value == 1)
-	    $(".seats:nth(" + oscMsg.args[0].value + ")").prop("checked", (oscMsg.args[1].value == 1));
-	}
-
+    
+    socket.on('rollcnt', function(data){
+	$("#rollcnt").text(data.rollcnt);
     });
+    
+    // io.on("message", function (msg) {
+    // 	io.emit('', $('#m').val());
+    // 	if (msg == "/rollcnt") $("#rollcnt").text(oscMsg.args[0].value);
+
+    // 	if (msg.address == "/seatstat")
+    // 	{
+    // 	    var seatstat = oscMag.args[0].value;
+	    
+    // 	    for (var i = 0; i < seatstat.length; i++) {
+    // 		$(".seats:nth(" + i + ")").prop("checked", seatstat[i]);
+    // 	    }
+    // 	}
+    // });
 
     // oscPort.
 });

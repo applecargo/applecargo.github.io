@@ -6,7 +6,7 @@
     <!-- dependencies -->
     <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
     <script type="text/javascript" src="js/Tone.min.js"></script>
-    <script type="text/javascript" src="bower_components/osc.js/dist/osc-browser.min.js"></script>
+    <script type="text/javascript" src="js/socket.io.js"></script>
     <link rel="stylesheet" href="https://unpkg.com/tachyons@4.7.0/css/tachyons.min.css"/>
     <link rel="stylesheet" href="css/loading-animation.css"/>
     <!-- js code -->
@@ -26,7 +26,7 @@
       </div>
       <div class="dtc v-mid tc w-50 bg-blue yellow">
 	<h1 class="f6 f3-ns">
-	  <form id="selseat">
+	  <form id="selseat" method="post">
 	    <input class="w-80 br-pill yellow bg-blue ba b--dashed b--yellow fw6 f3 f1-ns lh-copy tc mv2" type="text" name="seatNo" autofocus>
 	    <input class="w-80 br-pill yellow bg-dark-blue bn b fw6 f4 f2-ns pv2" type="submit" value="다-음!">
 	  </form>
@@ -41,7 +41,6 @@
       <div class="dtc v-mid tc white">
 	<h1 class="f3 f1-ns">
 	  Loading..........!?
-	  <div id="rollcnt"></div>
 	</h1>
       </div>
     </div>
@@ -49,8 +48,8 @@
     <!-- play session #1 -->
     <div id="play1" class="vh-100 w-100 absolute top-0 left-0 bg-dark-blue" style="display:none">
       <div class="mw7 center min-h-100 h-auto flex flex-wrap flex-column justify-around items-center">
-	<div class="h1 flex-auto"></div><!-- gap -->
-	<div class="h3 flex-auto">
+	<div class="h-20 flex-auto"></div><!-- gap -->
+	<div class="h-30 flex-auto">
 	  <!-- Created with Inkscape (http://www.inkscape.org/) -->
 	  <svg
 	      id="playbtn"
@@ -58,8 +57,8 @@
 	      height="86.934525mm"
 	      viewBox="0 0 86.934525 86.934525">
 	    <g
-transform="translate(-61.532738,-105.03274)"
-style="display:inline">
+		transform="translate(-61.532738,-105.03274)"
+		style="display:inline">
 	      <circle
 		  id="path10"
 		  cx="105"
@@ -89,7 +88,7 @@ style="display:inline">
 	    </g>
 	  </svg>
 	</div>
-	<div class="h1 flex-auto"></div> --><!-- gap -->
+	<div class="h-50 flex-auto"></div><!-- gap -->
       </div>
     </div>
     

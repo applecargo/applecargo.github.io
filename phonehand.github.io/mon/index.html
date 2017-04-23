@@ -4,10 +4,8 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://unpkg.com/tachyons@4.7.0/css/tachyons.min.css"/>
-    <!-- <link rel="stylesheet" href="css/stripe.css"/> -->
     <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-    <!-- <script type="text/javascript" src="js/Tone.min.js"></script> -->
-    <script type="text/javascript" src="bower_components/osc.js/dist/osc-browser.min.js"></script>
+    <script type="text/javascript" src="socket.io.js"></script>
     <script type="text/javascript" src="script.js"></script>
   </head>
   <body class="bg-light-blue">
@@ -16,50 +14,40 @@
     
     <div id="entry" class="dt vh-100 w-100 absolute top-0 left-0">
       <div class="f6 f3-ns dtc v-mid tc bg-hot-pink light-yellow">
+	<div>rolling count : <span id="rollcnt"></span></div>
 	<form>
-	  <input class="seats" type="checkbox">
-	  <input class="seats" type="checkbox">
-	  <input class="seats" type="checkbox">
-	  <input class="seats" type="checkbox">
-	  <input class="seats" type="checkbox">
-	  <input class="seats" type="checkbox">
-	  <input class="seats" type="checkbox">
-	  <input class="seats" type="checkbox">
-	  <input class="seats" type="checkbox">
-	  <input class="seats" type="checkbox">
-	  <input class="seats" type="checkbox">
-	  <input class="seats" type="checkbox">
-	  <input class="seats" type="checkbox">
-	  <input class="seats" type="checkbox">
-	  <input class="seats" type="checkbox">
-	  <input class="seats" type="checkbox">
-	  <input class="seats" type="checkbox">
-	  <input class="seats" type="checkbox">
-	  <input class="seats" type="checkbox">
-	  <input class="seats" type="checkbox">
-	  <input class="seats" type="checkbox">
-	  <input class="seats" type="checkbox">
-	  <input class="seats" type="checkbox">
-	  <input class="seats" type="checkbox">
-	  <input class="seats" type="checkbox">
-	  <input class="seats" type="checkbox">
-	  <input class="seats" type="checkbox">
-	  <input class="seats" type="checkbox">
-	  <input class="seats" type="checkbox">
-	  <input class="seats" type="checkbox">
+	  <input class="seats" type="checkbox">01
+	  <input class="seats" type="checkbox">02
+	  <input class="seats" type="checkbox">03<br/>
+	  <input class="seats" type="checkbox">04
+	  <input class="seats" type="checkbox">05
+	  <input class="seats" type="checkbox">06<br/>
+	  <input class="seats" type="checkbox">07
+	  <input class="seats" type="checkbox">08
+	  <input class="seats" type="checkbox">09<br/>
+	  <input class="seats" type="checkbox">10
+	  <input class="seats" type="checkbox">11
+	  <input class="seats" type="checkbox">12<br/>
+	  <input class="seats" type="checkbox">13
+	  <input class="seats" type="checkbox">14
+	  <input class="seats" type="checkbox">15<br/>
+	  <input class="seats" type="checkbox">16
+	  <input class="seats" type="checkbox">17
+	  <input class="seats" type="checkbox">18<br/>
+	  <input class="seats" type="checkbox">19
+	  <input class="seats" type="checkbox">20
+	  <input class="seats" type="checkbox">21<br/>
+	  <input class="seats" type="checkbox">22
+	  <input class="seats" type="checkbox">23
+	  <input class="seats" type="checkbox">24<br/>
+	  <input class="seats" type="checkbox">25
+	  <input class="seats" type="checkbox">26
+	  <input class="seats" type="checkbox">27<br/>
+	  <input class="seats" type="checkbox">28
+	  <input class="seats" type="checkbox">29
+	  <input class="seats" type="checkbox">30
 	</form>
       </div>
-      <div class="f6 f3-ns dtc v-mid tc w-50 bg-lightest-blue hot-pink">
-	<svg width="100" height="100" viewbox="0 0 100 100">
-	  <circle cx="50" cy="50" r="40" stroke="green" stroke-width="4" fill="yellow" />
-	  Sorry, your browser does not support inline SVG.
-	</svg>
-	<h2>
-	  Phone in hand MC
-	</h2>
-	<div id="conmon-rollcnt"></div>
-      </div>
     </div>
-
   </body>
 </html>

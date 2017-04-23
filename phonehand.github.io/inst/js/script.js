@@ -3,54 +3,33 @@
 $( document ).ready(function() {
 
     // connect server
-    var oscPort = new osc.WebSocketPort({
-    	url: "ws://52.78.239.112:5300", // amazonaws ec2 node.js server
-    	metadata: true
-    });
+    var socket = io('http://52.78.239.112:5100'); // amazon aws ec2 node.js server
 
-    oscPort.open();
-
-    oscPort.on("ready", function () {
-    	oscPort.on("message", function (oscMsg) {
-    	    if (oscMsg.address == "/rollcnt") $("#rollcnt").text(oscMsg.args[0].value); // dim led?
-    	});
-    });
-
-    // reserve seat page
-
+    //// select seat page
+    
     $("#selseat").submit(function(event) {
 	event.preventDefault(); // to stop refreshing.. (actual submit action)
 
-	// // var tid = setInterval(function () {
-	//     oscPort.send({
-	// 	address: "/occupy",
-	// 	args: [{ type: "f", value: 10 }]
-	//     });
-	// // }, 500);
-
-	// //if ok..
+	var seatval = $("#selseat input:first").val();
 	
-	//go to Loading page...
-	$("#resvseat").hide();
-	$("#loading").show();
-
-	//load data
-	reserveseat();
+	if (seatval >= 1 && seatval <= 30) {
+	    socket.emit('seatsel', $("#selseat input:first").val() - 1);
+ 	    $("#resvseat").hide();
+	    $("#loading").show();
+	    audioloader();
+	}
     });
 
-    // loading page
-    
-    var player1;
-    function reserveseat()
-    {
-    	player1 = new Tone.Player({ "url" : "./audio/01.mp3" }).toMaster();
-    	Tone.Buffer.on("load", function(){
+    //download audio data
+    function audioloader() {
+	player1 = new Tone.Player({ "url" : "./audio/01.mp3" }).toMaster();
+	Tone.Buffer.on("load", function(){
     	    $("#loading").fadeOut(500);
     	    $("#play1").fadeIn(500);
-    	}.bind(this));
-    	//-->resolve scoping issues.. : https://www.smashingmagazine.com/2014/01/understanding-javascript-function-prototype-bind/
+	}.bind(this));
+	//-->resolve scoping issues.. : https://www.smashingmagazine.com/2014/01/understanding-javascript-function-prototype-bind/
     }
-
+    
     // player session #1
 
     //initial state
@@ -79,6 +58,7 @@ $( document ).ready(function() {
     	var p1id = setInterval(function() {
     	    if(player1.state == "stopped") {
     		playstop1();
+		playing1 = 0;
     		clearInterval(p1id);
     	    }
     	}, 500);
