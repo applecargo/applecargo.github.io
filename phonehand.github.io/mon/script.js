@@ -50,11 +50,19 @@ $( document ).ready(function() {
     $('#act-next').click(function() {
 	socket.emit('act-next');
     });
+
+    //play-all for session #1
+    $('#stage1-playall').click(function () {
+	socket.emit('playall-start', 1);
+    });
+    $('#stage1-stopall').click(function () {
+	socket.emit('playall-stop', 1);
+    });
     
     //// server inter-action!
     
-    // var socket = io('http://52.78.239.112:5300'); // amazonaws ec2 node.js server
-    var socket = io('http://localhost:5300'); // localhost testing..
+    var socket = io('http://52.78.239.112:5300'); // amazonaws ec2 node.js server
+    // var socket = io('http://localhost:5300'); // localhost testing..
 
     //
     socket.on('connect', function() {

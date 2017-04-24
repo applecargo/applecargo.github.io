@@ -16,7 +16,7 @@
   <body class="bg-light-blue">
 
     <!-- reserve seat page -->
-    <div id="resvseat" class="dt vh-100 w-100 absolute top-0 left-0 bg-light-blue">
+    <div class="ui-page dt vh-100 w-100 absolute top-0 left-0 bg-light-blue">
       <div class="dtc v-mid tc w-50 bg-yellow blue">
 	<h1 class="flex flex-column justify-center items-center f4 f3-ns">
 	  <div class="pv3 lh-copy w-70">
@@ -37,7 +37,7 @@
     <!-- loading -->
     
     <!-- hiden with inline style / will be shown by jquery -->
-    <div id="loading" class="dt vh-100 w-100 absolute top-0 left-0 animationStripes" style="display:none">
+    <div class="ui-page dt vh-100 w-100 absolute top-0 left-0 animationStripes" style="display:none">
       <div class="dtc v-mid tc white">
 	<h1 class="f3 f1-ns">
 	  Loading..........!?
@@ -45,52 +45,51 @@
       </div>
     </div>
     
-    <!-- play session #1 -->
-    <div id="play1" class="vh-100 w-100 absolute top-0 left-0 bg-dark-blue" style="display:none">
+    <!-- page #1 - play session #1 -->
+    <div class="ui-page vh-100 w-100 absolute top-0 left-0 bg-dark-blue" style="display:none">
       <div class="mw7 center min-h-100 h-auto flex flex-wrap flex-column justify-around items-center">
 	<div class="h-20 flex-auto"></div><!-- gap -->
 	<div class="h-30 flex-auto">
-	  <!-- Created with Inkscape (http://www.inkscape.org/) -->
-	  <svg
-	      id="playbtn"
-	      width="86.934525mm"
-	      height="86.934525mm"
-	      viewBox="0 0 86.934525 86.934525">
-	    <g
-		transform="translate(-61.532738,-105.03274)"
-		style="display:inline">
-	      <circle
-		  id="path10"
-		  cx="105"
-		  cy="148.5"
-		  r="43.467262"
-		  style="stroke-width:0.26458332;fill:#00ffff;opacity:1" />
-	      <!-- play mark -->
-	      <path
-		  id="path4493"
-		  style="fill:#0000ff;opacity:1"
-		  d="m 88.000004,172.1046 -10e-7,-23.6046 10e-7,-23.6046 20.442186,11.8023 20.44219,11.8023 -20.44219,11.8023 z" />
-	      <!-- pause mark -->
-	      <rect
-		  id="rect8475"
-		  style="fill:#ffff00;opacity:1"
-		  width="9.8273773"
-		  height="47.209202"
-		  x="89.223961"
-		  y="124.70641" />
-	      <rect
-		  id="rect8475-3"
-		  style="display:inline;fill:#ffff00;opacity:1"
-		  width="9.8273773"
-		  height="47.209202"
-		  x="110.94866"
-		  y="125.08439" />
+	  <!-- playbtn >> -- Created with Inkscape (http://www.inkscape.org/) -->
+	  <svg id="playbtn1" class="ui-playbtn" width="86.934525mm" height="86.934525mm" viewBox="0 0 86.934525 86.934525">
+	    <g transform="translate(-61.532738,-105.03274)" style="display:inline">
+	      <circle cx="105" cy="148.5" r="43.467262" style="stroke-width:0.26458332;fill:#00ffff;opacity:1" />
+	      <path class="play" style="fill:#0000ff;opacity:1" d="m 88.000004,172.1046 -10e-7,-23.6046 10e-7,-23.6046 20.442186,11.8023 20.44219,11.8023 -20.44219,11.8023 z" />
+	      <rect class="stop" style="fill:#ffff00;opacity:1" width="9.8273773" height="47.209202" x="89.223961" y="124.70641" />
+	      <rect class="stop" style="display:inline;fill:#ffff00;opacity:1" width="9.8273773" height="47.209202" x="110.94866" y="125.08439" />
 	    </g>
 	  </svg>
+	  <!-- << playbtn -->
+	</div>
+	<div class="h-10 flex-auto">
+	  <div id="pagechg1to2" class="ui-btn dib br-100 w3 h3 bg-blue ba bw2 b--black"></div>
+	</div>
+	<div class="h-40 flex-auto"></div><!-- gap -->
+      </div>
+    </div>
+
+    <!-- page 2 -->
+    <div class="ui-page vh-100 w-100 absolute top-0 left-0 bg-dark-green" style="display:none">
+      <div class="mw7 center min-h-100 h-auto flex flex-wrap flex-column justify-around items-center">
+	<div class="h-20 flex-auto"></div><!-- gap -->
+	<div class="h-30 flex-auto">
+	  <!-- playbtn >> -- Created with Inkscape (http://www.inkscape.org/) -->
+	  <svg id="playbtn2" class="ui-playbtn" width="86.934525mm" height="86.934525mm" viewBox="0 0 86.934525 86.934525">
+	    <g transform="translate(-61.532738,-105.03274)" style="display:inline">
+	      <circle cx="105" cy="148.5" r="43.467262" style="stroke-width:0.26458332;fill:#00ffff;opacity:1" />
+	      <path class="play" style="fill:#00ff00;opacity:1" d="m 88.000004,172.1046 -10e-7,-23.6046 10e-7,-23.6046 20.442186,11.8023 20.44219,11.8023 -20.44219,11.8023 z" />
+	      <rect class="stop" style="fill:#ff00ff;opacity:1" width="9.8273773" height="47.209202" x="89.223961" y="124.70641" />
+	      <rect class="stop" style="display:inline;fill:#ff00ff;opacity:1" width="9.8273773" height="47.209202" x="110.94866" y="125.08439" />
+	    </g>
+	  </svg>
+	  <!-- << playbtn -->
+	</div>
+	<div class="h-10 flex-auto">
+	  <div id="pagechg2to1" class="ui-btn dib br-100 w3 h3 bg-blue ba bw2 b--black"></div>
 	</div>
 	<div class="h-50 flex-auto"></div><!-- gap -->
       </div>
     </div>
-    
+      
   </body>
 </html>
