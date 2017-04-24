@@ -13,14 +13,16 @@
     <script type="text/javascript" src="js/script.js"></script>
   </head>
 
-  <body class="bg-light-blue">
+  <body class="bg-light-blue min-h-100 h-auto">
 
+    <!-- [[[NOTE]]] you might want to use 'handle-bar'.. to eliminate repeating htmls.. later.. for today, let's bear with it. -->
+    
     <!-- reserve seat page -->
     <div class="ui-page dt vh-100 w-100 absolute top-0 left-0 bg-light-blue">
       <div class="dtc v-mid tc w-50 bg-yellow blue">
 	<h1 class="flex flex-column justify-center items-center f4 f3-ns">
 	  <div class="pv3 lh-copy w-70">
-	    바닥에 부착된 원을 하나 고른 후, 원 안에 서 주시고, 원의 번호를 입력해 주세요.
+	    바닥에 부착된 원을 하나 고른 후, 원 안에 서 주시고, 원의 번호를 입력해 주세요. (--> 그림으로?)
 	  </div>
 	</h1>
       </div>
@@ -47,49 +49,84 @@
     
     <!-- page #1 - play session #1 -->
     <div class="ui-page vh-100 w-100 absolute top-0 left-0 bg-dark-blue" style="display:none">
-      <div class="mw7 center min-h-100 h-auto flex flex-wrap flex-column justify-around items-center">
-	<div class="h-20 flex-auto"></div><!-- gap -->
-	<div class="h-30 flex-auto">
-	  <!-- playbtn >> -- Created with Inkscape (http://www.inkscape.org/) -->
-	  <svg id="playbtn1" class="ui-playbtn" width="86.934525mm" height="86.934525mm" viewBox="0 0 86.934525 86.934525">
-	    <g transform="translate(-61.532738,-105.03274)" style="display:inline">
-	      <circle cx="105" cy="148.5" r="43.467262" style="stroke-width:0.26458332;fill:#00ffff;opacity:1" />
-	      <path class="play" style="fill:#0000ff;opacity:1" d="m 88.000004,172.1046 -10e-7,-23.6046 10e-7,-23.6046 20.442186,11.8023 20.44219,11.8023 -20.44219,11.8023 z" />
-	      <rect class="stop" style="fill:#ffff00;opacity:1" width="9.8273773" height="47.209202" x="89.223961" y="124.70641" />
-	      <rect class="stop" style="display:inline;fill:#ffff00;opacity:1" width="9.8273773" height="47.209202" x="110.94866" y="125.08439" />
-	    </g>
-	  </svg>
-	  <!-- << playbtn -->
+      <div class="cf w-100 top-0">
+	<div class="pagination fl w-100 top-0 pb5">
+	  <div class="pagechgto1 fl w-third h3 fw6 f3 bg-dark-blue bw2 b--black br yellow dt"><div class="dtc w-100 tc v-mid">1</div></div>
+	  <div class="pagechgto2 fl w-third h3 fw6 f3 bg-dark-green bw2 b--black br bb yellow dt"><div class="dtc w-100 tc v-mid">2</div></div>
+	  <div class="pagechgto3 fl w-third h3 fw6 f3 bg-purple bw2 b--black bb yellow dt"><div class="dtc w-100 tc v-mid">3</div></div>
 	</div>
-	<div class="h-10 flex-auto">
-	  <div id="pagechg1to2" class="ui-btn dib br-100 w3 h3 bg-blue ba bw2 b--black"></div>
+	<div class="fl w-100">
+	  <div class="tc">
+	    <div class="dib w-70 w-20-ns">
+	      <!-- playbtn >> -- Created with Inkscape (http://www.inkscape.org/) -->
+	      <svg id="playbtn1" class="ui-playbtn w-100 h-auto" width="86.934525" height="86.934525" viewBox="0 0 86.934525 86.934525">
+		<g transform="translate(-61.532738,-105.03274)" style="display:inline">
+		  <circle cx="105" cy="148.5" r="43.467262" style="stroke-width:0.26458332;fill:#00ffff;opacity:1" />
+		  <path class="play" style="fill:#0000ff;opacity:1" d="m 88.000004,172.1046 -10e-7,-23.6046 10e-7,-23.6046 20.442186,11.8023 20.44219,11.8023 -20.44219,11.8023 z" />
+		  <rect class="stop" style="fill:#ffff00;opacity:1" width="9.8273773" height="47.209202" x="89.223961" y="124.70641" />
+		  <rect class="stop" style="display:inline;fill:#ffff00;opacity:1" width="9.8273773" height="47.209202" x="110.94866" y="125.08439" />
+		</g>
+	      </svg>
+	      <!-- << playbtn -->
+	    </div>
+	  </div>
 	</div>
-	<div class="h-40 flex-auto"></div><!-- gap -->
       </div>
     </div>
 
     <!-- page 2 -->
     <div class="ui-page vh-100 w-100 absolute top-0 left-0 bg-dark-green" style="display:none">
-      <div class="mw7 center min-h-100 h-auto flex flex-wrap flex-column justify-around items-center">
-	<div class="h-20 flex-auto"></div><!-- gap -->
-	<div class="h-30 flex-auto">
-	  <!-- playbtn >> -- Created with Inkscape (http://www.inkscape.org/) -->
-	  <svg id="playbtn2" class="ui-playbtn" width="86.934525mm" height="86.934525mm" viewBox="0 0 86.934525 86.934525">
-	    <g transform="translate(-61.532738,-105.03274)" style="display:inline">
-	      <circle cx="105" cy="148.5" r="43.467262" style="stroke-width:0.26458332;fill:#00ffff;opacity:1" />
-	      <path class="play" style="fill:#00ff00;opacity:1" d="m 88.000004,172.1046 -10e-7,-23.6046 10e-7,-23.6046 20.442186,11.8023 20.44219,11.8023 -20.44219,11.8023 z" />
-	      <rect class="stop" style="fill:#ff00ff;opacity:1" width="9.8273773" height="47.209202" x="89.223961" y="124.70641" />
-	      <rect class="stop" style="display:inline;fill:#ff00ff;opacity:1" width="9.8273773" height="47.209202" x="110.94866" y="125.08439" />
-	    </g>
-	  </svg>
-	  <!-- << playbtn -->
+      <div class="cf w-100 top-0">
+	<div class="pagination fl w-100 top-0 pb5">
+	  <div class="pagechgto1 fl w-third h3 fw6 f3 bg-dark-blue bw2 b--black br bb yellow dt"><div class="dtc w-100 tc v-mid">1</div></div>
+	  <div class="pagechgto2 fl w-third h3 fw6 f3 bg-dark-green bw2 b--black br yellow dt"><div class="dtc w-100 tc v-mid">2</div></div>
+	  <div class="pagechgto3 fl w-third h3 fw6 f3 bg-purple bw2 b--black bb yellow dt"><div class="dtc w-100 tc v-mid">3</div></div>
 	</div>
-	<div class="h-10 flex-auto">
-	  <div id="pagechg2to1" class="ui-btn dib br-100 w3 h3 bg-blue ba bw2 b--black"></div>
+	<div class="fl w-100">
+	  <div class="tc">
+	    <div class="dib w-70 w-20-ns">
+	      <!-- playbtn >> -- Created with Inkscape (http://www.inkscape.org/) -->
+	      <svg id="playbtn2" class="ui-playbtn w-100 h-auto" width="86.934525" height="86.934525" viewBox="0 0 86.934525 86.934525">
+		<g transform="translate(-61.532738,-105.03274)" style="display:inline">
+		  <circle cx="105" cy="148.5" r="43.467262" style="stroke-width:0.26458332;fill:#00ffff;opacity:1" />
+		  <path class="play" style="fill:#00ff00;opacity:1" d="m 88.000004,172.1046 -10e-7,-23.6046 10e-7,-23.6046 20.442186,11.8023 20.44219,11.8023 -20.44219,11.8023 z" />
+		  <rect class="stop" style="fill:#ff00ff;opacity:1" width="9.8273773" height="47.209202" x="89.223961" y="124.70641" />
+		  <rect class="stop" style="display:inline;fill:#ff00ff;opacity:1" width="9.8273773" height="47.209202" x="110.94866" y="125.08439" />
+		</g>
+	      </svg>
+	      <!-- << playbtn -->
+	    </div>
+	  </div>
 	</div>
-	<div class="h-50 flex-auto"></div><!-- gap -->
       </div>
     </div>
-      
+    
+    <!-- page 3 -->
+    <div class="ui-page vh-100 w-100 absolute top-0 left-0 bg-purple" style="display:none">
+      <div class="cf w-100 top-0">
+	<div class="pagination fl w-100 top-0 pb5">
+	  <div class="pagechgto1 fl w-third h3 fw6 f3 bg-dark-blue bw2 b--black br bb yellow dt"><div class="dtc w-100 tc v-mid">1</div></div>
+	  <div class="pagechgto2 fl w-third h3 fw6 f3 bg-dark-green bw2 b--black br bb yellow dt"><div class="dtc w-100 tc v-mid">2</div></div>
+	  <div class="pagechgto3 fl w-third h3 fw6 f3 bg-purple bw2 b--black yellow dt"><div class="dtc w-100 tc v-mid">3</div></div>
+	</div>
+	<div class="fl w-100">
+	  <div class="tc">
+	    <div class="dib w-70 w-20-ns">
+	      <!-- playbtn >> -- Created with Inkscape (http://www.inkscape.org/) -->
+	      <svg id="playbtn3" class="ui-playbtn w-100 h-auto" width="86.934525" height="86.934525" viewBox="0 0 86.934525 86.934525">
+		<g transform="translate(-61.532738,-105.03274)" style="display:inline">
+		  <circle cx="105" cy="148.5" r="43.467262" style="stroke-width:0.26458332;fill:#a463f2;opacity:1" />
+		  <path class="play" style="fill:#ff6300;opacity:1" d="m 88.000004,172.1046 -10e-7,-23.6046 10e-7,-23.6046 20.442186,11.8023 20.44219,11.8023 -20.44219,11.8023 z" />
+		  <rect class="stop" style="fill:#ffb700;opacity:1" width="9.8273773" height="47.209202" x="89.223961" y="124.70641" />
+		  <rect class="stop" style="display:inline;fill:#ffb700;opacity:1" width="9.8273773" height="47.209202" x="110.94866" y="125.08439" />
+		</g>
+	      </svg>
+	      <!-- << playbtn -->
+	    </div>
+	  </div>
+	</div>
+      </div>
+    </div>
+    
   </body>
 </html>

@@ -43,12 +43,9 @@ $( document ).ready(function() {
 	}
     });
 
-    //control server's action stage
-    $('#act-prev').click(function() {
-	socket.emit('act-prev');
-    });
-    $('#act-next').click(function() {
-	socket.emit('act-next');
+    //control server's action stage (will eventually change monitor's action stage mark, too)
+    $('.act-tgl').click(function() {
+	socket.emit('pagechg', $(this).val());
     });
 
     //play-all for session #1
@@ -57,6 +54,22 @@ $( document ).ready(function() {
     });
     $('#stage1-stopall').click(function () {
 	socket.emit('playall-stop', 1);
+    });
+    
+    //play-all for session #2
+    $('#stage2-playall').click(function () {
+	socket.emit('playall-start', 2);
+    });
+    $('#stage2-stopall').click(function () {
+	socket.emit('playall-stop', 2);
+    });
+    
+    //play-all for session #3
+    $('#stage3-playall').click(function () {
+	socket.emit('playall-start', 3);
+    });
+    $('#stage3-stopall').click(function () {
+	socket.emit('playall-stop', 3);
     });
     
     //// server inter-action!

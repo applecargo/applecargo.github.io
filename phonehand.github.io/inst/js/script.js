@@ -11,6 +11,12 @@ $( document ).ready(function() {
 	}.bind(this), 300);
     });
     // $('.ui-btn').click();
+
+    //[[[NOTE]]]
+    //IMPLEMENTATION of following.. 'playbtn' for interactive inline SVG element is very interesting..
+    //BUT.. jquery dropped support for 'changeData' event.. so we cannot further make things better..
+    //SO.. just bear with it. (and bear with 'network triggering' case below.. no way to trigger more nicely!!)
+    //MAYBE.. will be better way to do this.. NOT using(relying on) jquery!
     
     //UI - playbtn (an interactive jquery controlled inline SVG button)
     $('.ui-playbtn').click(function() {
@@ -39,8 +45,8 @@ $( document ).ready(function() {
     $('.ui-playbtn .play').show();
     $('.ui-playbtn .stop').hide();
     // $('.ui-playbtn').data('play_fn', function() { console.log('play_fn'); }); // utillize callback functions!!
-    // $('.ui-playbtn').data('stop_fn', function() { console.log('play_fn'); }); // utillize callback functions!!
-    // $('.ui-playbtn').data('done_fn', function() { console.log('play_fn'); }); // utillize callback functions!!
+    // $('.ui-playbtn').data('stop_fn', function() { console.log('stop_fn'); }); // utillize callback functions!!
+    // $('.ui-playbtn').data('done_fn', function() { console.log('done_fn'); }); // utillize callback functions!!
     
     //UI - tgl
     $('.ui-tgl').change(function() {
@@ -89,6 +95,11 @@ $( document ).ready(function() {
 	}
     });
 
+    //
+    socket.on('sing-note', function(note) {
+	console.log(note);
+    });
+
     //download audio data
     var clap; // clap all, clap!
     var player1; // for session 1
@@ -124,27 +135,44 @@ $( document ).ready(function() {
 	clap.start();
     });
     
+    //pagination
+    $('.pagechgto1').click(function() {	changePage(pages['session1']); });
+    $('.pagechgto2').click(function() {	changePage(pages['session2']); });
+    $('.pagechgto3').click(function() {	changePage(pages['session3']); });
+    
+    //pagination (by network msg)
+    socket.on('pagechg', function(msg) {
+	switch(msg) {
+	case '0':
+	    changePage(pages['session1']);
+	    break;
+	case '1':
+	    changePage(pages['session2']);
+	    break;
+	case '2':
+	    changePage(pages['session3']);
+	    break;
+	default:
+	    ;
+	}
+    });
+
     // player session #1
     $('#playbtn1').data('play_fn', function() { player1.start(); });
     $('#playbtn1').data('stop_fn', function() { player1.stop(); });
     $('#playbtn1').data('done_fn', function() {	return (player1.state == "stopped"); });
-
-    //
-    $('#pagechg1to2').click(function() {
-	changePage(pages['session2']);
-    });
 
     // player session #2
     $('#playbtn2').data('play_fn', function() { player2.start(); });
     $('#playbtn2').data('stop_fn', function() { player2.stop(); });
     $('#playbtn2').data('done_fn', function() {	return (player2.state == "stopped"); });
     
-    //
-    $('#pagechg2to1').click(function() {
-	changePage(pages['session1']);
-    });
+    // player session #3
+    $('#playbtn3').data('play_fn', function() { player3.start(); });
+    $('#playbtn3').data('stop_fn', function() { player3.stop(); });
+    $('#playbtn3').data('done_fn', function() { return (player3.state == "stopped"); });
 
-    // network-driven playall/stopall
+    // network-driven playall/stopall (UGLY, but let's bear with it. move on! next time!!)
     socket.on('playall-start', function(msg) {
 	switch(msg) {
 	case 1:
@@ -158,6 +186,12 @@ $( document ).ready(function() {
 		$('#playbtn2').click(); //stop
 	    }
 	    $('#playbtn2').click(); //start again
+	    break;
+	case 3:
+	    if ($('#playbtn3').data('done_fn')() == false) {
+		$('#playbtn3').click(); //stop
+	    }
+	    $('#playbtn3').click(); //start again
 	    break;
 	default:
 	    ;
@@ -173,6 +207,11 @@ $( document ).ready(function() {
 	case 2:
 	    if ($('#playbtn2').data('done_fn')() == false) {
 		player2.stop();
+	    }
+	    break;
+	case 3:
+	    if ($('#playbtn3').data('done_fn')() == false) {
+		player3.stop();
 	    }
 	    break;
 	default:
