@@ -12,41 +12,94 @@
 
     <!-- entry page -->
     
-    <div id="entry" class="dt vh-100 w-100 absolute top-0 left-0">
-      <div class="f6 f3-ns dtc v-mid tc bg-hot-pink light-yellow">
-	<div>rolling count : <span id="rollcnt"></span></div>
-	<form>
-	  <input class="seats" type="checkbox">01
-	  <input class="seats" type="checkbox">02
-	  <input class="seats" type="checkbox">03<br/>
-	  <input class="seats" type="checkbox">04
-	  <input class="seats" type="checkbox">05
-	  <input class="seats" type="checkbox">06<br/>
-	  <input class="seats" type="checkbox">07
-	  <input class="seats" type="checkbox">08
-	  <input class="seats" type="checkbox">09<br/>
-	  <input class="seats" type="checkbox">10
-	  <input class="seats" type="checkbox">11
-	  <input class="seats" type="checkbox">12<br/>
-	  <input class="seats" type="checkbox">13
-	  <input class="seats" type="checkbox">14
-	  <input class="seats" type="checkbox">15<br/>
-	  <input class="seats" type="checkbox">16
-	  <input class="seats" type="checkbox">17
-	  <input class="seats" type="checkbox">18<br/>
-	  <input class="seats" type="checkbox">19
-	  <input class="seats" type="checkbox">20
-	  <input class="seats" type="checkbox">21<br/>
-	  <input class="seats" type="checkbox">22
-	  <input class="seats" type="checkbox">23
-	  <input class="seats" type="checkbox">24<br/>
-	  <input class="seats" type="checkbox">25
-	  <input class="seats" type="checkbox">26
-	  <input class="seats" type="checkbox">27<br/>
-	  <input class="seats" type="checkbox">28
-	  <input class="seats" type="checkbox">29
-	  <input class="seats" type="checkbox">30
-	</form>
+    <div class="vh-100 w-100 absolute top-0 left-0">
+      <div class="flex flex-row justify-around items-center">
+	<div class="bg-yellow">
+	  <div class="flex flex-column justify-center items-center">
+	    <div class="tc">
+	      action stage
+	    </div>
+	    <div>
+	      <div class="flex flex-row justify-center items-center">
+		<div>stage #1 (prepare)</div>
+		<input type="checkbox" class="act-tgl ui-tgl input-reset dib br-100 w3 h3 bg-green ba bw2 b--black" />
+	      </div>
+	    </div>
+	    <div>
+	      <div class="flex flex-row justify-center items-center">
+		<div>stage #2 (prepare)</div>
+		<input type="checkbox" class="act-tgl ui-tgl input-reset dib br-100 w3 h3 bg-green ba bw2 b--black" />
+	      </div>
+	    </div>
+	    <div>
+	      <div class="flex flex-row justify-center items-center">
+		<div>stage #3 (prepare)</div>
+		<input type="checkbox" class="act-tgl ui-tgl input-reset dib br-100 w3 h3 bg-green ba bw2 b--black" />
+	      </div>
+	    </div>
+	    <div>
+	      <div class="flex flex-row justify-center items-center">
+		<div>stage #4 (prepare)</div>
+		<input type="checkbox" class="act-tgl ui-tgl input-reset dib br-100 w3 h3 bg-green ba bw2 b--black" />
+	      </div>
+	    </div>
+	    <div>
+	      <div class="flex flex-row justify-center items-center">
+		<div>stage #5 (prepare)</div>
+		<input type="checkbox" class="act-tgl ui-tgl input-reset dib br-100 w3 h3 bg-green ba bw2 b--black" />
+	      </div>
+	    </div>
+	    <div>
+	      <div class="flex flex-row justify-center items-center">
+		<input type="checkbox" id="act-prev" class="ui-btn input-reset dib br-100 w3 h3 bg-blue ba bw2 b--black" />
+		<div><== prev (chg. stage) next ==></div>
+		<input type="checkbox" id="act-next" class="ui-btn input-reset dib br-100 w3 h3 bg-blue ba bw2 b--black" />
+	      </div>
+	    </div>
+	  </div>
+	</div>
+	<div class="flex flex-column justify-center items-center bg-hot-pink light-yellow f6 f3-ns">
+	  <div>rolling count : <span id="rollcnt"></span></div>
+	  <div>
+	    <div class="flex flex-row justify-center items-center">
+	      <div>clap!! ==> (on/off)</div>
+	      <input id="clap-tgl" type="checkbox" class="ui-tgl dib input-reset br-100 w3 h3 bg-green ba bw2 b--black">
+	      <div id="clap-all" class="ui-btn dib br-100 w3 h3 bg-blue ba bw2 b--black"></div>
+	    </div>
+	  </div>
+	  <form>
+	    <input class="seats" type="checkbox">01
+	    <input class="seats" type="checkbox">02
+	    <input class="seats" type="checkbox">03<br/>
+	    <input class="seats" type="checkbox">04
+	    <input class="seats" type="checkbox">05
+	    <input class="seats" type="checkbox">06<br/>
+	    <input class="seats" type="checkbox">07
+	    <input class="seats" type="checkbox">08
+	    <input class="seats" type="checkbox">09<br/>
+	    <input class="seats" type="checkbox">10
+	    <input class="seats" type="checkbox">11
+	    <input class="seats" type="checkbox">12<br/>
+	    <input class="seats" type="checkbox">13
+	    <input class="seats" type="checkbox">14
+	    <input class="seats" type="checkbox">15<br/>
+	    <input class="seats" type="checkbox">16
+	    <input class="seats" type="checkbox">17
+	    <input class="seats" type="checkbox">18<br/>
+	    <input class="seats" type="checkbox">19
+	    <input class="seats" type="checkbox">20
+	    <input class="seats" type="checkbox">21<br/>
+	    <input class="seats" type="checkbox">22
+	    <input class="seats" type="checkbox">23
+	    <input class="seats" type="checkbox">24<br/>
+	    <input class="seats" type="checkbox">25
+	    <input class="seats" type="checkbox">26
+	    <input class="seats" type="checkbox">27<br/>
+	    <input class="seats" type="checkbox">28
+	    <input class="seats" type="checkbox">29
+	    <input class="seats" type="checkbox">30
+	  </form>
+	</div>
       </div>
     </div>
   </body>

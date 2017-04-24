@@ -1,9 +1,8 @@
-/* bug: user touches too fast. then, sth. breaks! --> utilize ready function (below)? */
-
 $( document ).ready(function() {
 
     // connect server
-    var socket = io('http://52.78.239.112:5100'); // amazon aws ec2 node.js server
+    // var socket = io('http://52.78.239.112:5100'); // amazon aws ec2 node.js server
+    var socket = io('http://localhost:5100'); // localhost testing server
 
     //// select seat page
     
@@ -22,13 +21,20 @@ $( document ).ready(function() {
 
     //download audio data
     function audioloader() {
-	player1 = new Tone.Player({ "url" : "./audio/01.mp3" }).toMaster();
+	clap = new Tone.Player({ "url" : "audio/clap.wav" }).toMaster();
+	player1 = new Tone.Player({ "url" : "audio/01.mp3" }).toMaster();
 	Tone.Buffer.on("load", function(){
     	    $("#loading").fadeOut(500);
     	    $("#play1").fadeIn(500);
 	}.bind(this));
 	//-->resolve scoping issues.. : https://www.smashingmagazine.com/2014/01/understanding-javascript-function-prototype-bind/
     }
+
+    //announcemnt audio
+    socket.on('clap', function() {
+	// console.log('clap');
+	clap.start();
+    });
     
     // player session #1
 
