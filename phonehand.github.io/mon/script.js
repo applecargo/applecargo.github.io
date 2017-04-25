@@ -31,6 +31,12 @@ $( document ).ready(function() {
 	socket.emit('clap-all');
     });
 
+    //instant 54321 all!
+    $('#54321-all').click(function() {
+	console.log('54321-all');
+	socket.emit('54321-all');
+    });
+
     //periodic clap all-s
     $('#clap-tgl').click(function () {
 	if ($(this).prop('checked') == true) {
