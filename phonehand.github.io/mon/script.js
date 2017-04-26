@@ -83,13 +83,13 @@ $( document ).ready(function() {
     });
     
     //play-all for session #3 (brassband)
-    $('#stage3-playall').click(function () {
+    $('#brassband-all').click(function () {
 	// socket.emit('playall-start', 3);
 	socket.emit('brassband-all');
     });
-    $('#stage3-stopall').click(function () {
+    $('#brassband-stop-all').click(function () {
 	// socket.emit('playall-stop', 3);
-	socket.emit('brassband-all-stop');
+	socket.emit('brassband-stop-all');
     });
     
     //// server inter-action!
