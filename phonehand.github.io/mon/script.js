@@ -43,10 +43,16 @@ $( document ).ready(function() {
 	socket.emit('intro-all');
     });
 
-    //instant intro all!
+    //brassband all!
     $('#brassband-all').click(function() {
 	console.log('brassband-all');
 	socket.emit('brassband-all');
+    });
+
+    //brassband-stop all!
+    $('#brassband-stop-all').click(function() {
+	console.log('brassband-stop-all');
+	socket.emit('brassband-stop-all');
     });
 
     //periodic clap all-s
@@ -80,16 +86,6 @@ $( document ).ready(function() {
     });
     $('#stage2-stopall').click(function () {
 	socket.emit('playall-stop', 2);
-    });
-    
-    //play-all for session #3 (brassband)
-    $('#brassband-all').click(function () {
-	// socket.emit('playall-start', 3);
-	socket.emit('brassband-all');
-    });
-    $('#brassband-stop-all').click(function () {
-	// socket.emit('playall-stop', 3);
-	socket.emit('brassband-stop-all');
     });
     
     //// server inter-action!
