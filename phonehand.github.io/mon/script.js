@@ -37,6 +37,18 @@ $( document ).ready(function() {
 	socket.emit('54321-all');
     });
 
+    //instant intro all!
+    $('#intro-all').click(function() {
+	console.log('intro-all');
+	socket.emit('intro-all');
+    });
+
+    //instant intro all!
+    $('#brassband-all').click(function() {
+	console.log('brassband-all');
+	socket.emit('brassband-all');
+    });
+
     //periodic clap all-s
     $('#clap-tgl').click(function () {
 	if ($(this).prop('checked') == true) {

@@ -91,7 +91,7 @@ $( document ).ready(function() {
 	if (seatval >= 1 && seatval <= 30) {
 	    socket.emit('seatsel', $("#selseat input:first").val() - 1);
 	    changePage(pages['loading']);
-	    audioloader(seatval);
+	    audioloader(seatval-1);
 	}
     });
 
@@ -101,9 +101,13 @@ $( document ).ready(function() {
     var counting; // counting, 5-4-3-2-1-(!)
     var player1; // for session 1
     var player2; // for session 2
-    var player3; // for session 3
+    var voices; // for session 3
+    var brassband; // for session 3
+    var intro; // for session 2-->3
     var mysound; // for session 3
     function audioloader(seatNo) {
+
+	console.log(seatNo);
 
 	//seatNo to string..
 	var seatNo_str = ("0" + seatNo).slice(-2); // ("0" + seatNo).slice(-2) : 00, 01, 02, ... style.. digits..
@@ -122,7 +126,13 @@ $( document ).ready(function() {
 	console.log(url2);
 	player2 = new Tone.Player({ "url" : url2 }).toMaster();
 	
-	//session #3 - 'who am i?' mapping.
+	//intro (session #2 --> session #3)
+	var urli = "audio/intro/" + seatNo_str + ".mp3";
+	console.log(urli);
+	player_intro = new Tone.Player({ "url" : urli }).toMaster();
+	
+	//session #3 - 'who am i?' mapping. --> (re)-shuffle? use the code at the end of this file!
+	//seat number always start from '0' (programmatically..)
 	var s3_seatpos = ["voice7", "brass", "flute",
 			  "voice4", "voice5", "voice2",
 			  "voice4", "tuba", "voice5",
@@ -139,20 +149,20 @@ $( document ).ready(function() {
 	switch(s3_seatpos[seatNo][0]){
 	case 'b': //load brass!
 	    var url3 = "audio/edelweiss/brass.mp3";
-	    player3 = new Tone.Player({ "url" : url3 }).toMaster();
+	    brassband = new Tone.Player({ "url" : url3 }).toMaster();
 	    break;
 	case 'f': //load flute!
 	    var url3 = "audio/edelweiss/flute.mp3";
-	    player3 = new Tone.Player({ "url" : url3 }).toMaster();
+	    brassband = new Tone.Player({ "url" : url3 }).toMaster();
 	    break;
 	case 't': //load tuba!
 	    var url3 = "audio/edelweiss/tuba.mp3";
-	    player3 = new Tone.Player({ "url" : url3 }).toMaster();
+	    brassband = new Tone.Player({ "url" : url3 }).toMaster();
 	    break;
 	case 'v': //load voices.. manymany...
 	    sounder_type = 'notes';
 	    var url3 = "audio/edelweiss/" + s3_seatpos[seatNo][5] + "/";
-	    player3 = new Tone.MultiPlayer(
+	    voices = new Tone.MultiPlayer(
 		[
 		    url3.concat("do.mp3"),
 		    url3.concat("re.mp3"),
@@ -192,6 +202,14 @@ $( document ).ready(function() {
 	console.log('54321');
 	counting.start();
     });
+    socket.on('intro', function() {
+	console.log('intro');
+	intro.start();
+    });
+    socket.on('brassband', function() {
+	console.log('brassband');
+	brassband.start();
+    });
     
     //pagination
     $('.pagechgto1').click(function() {	changePage(pages['session1']); });
@@ -225,10 +243,10 @@ $( document ).ready(function() {
     $('#playbtn2').data('stop_fn', function() { player2.stop(); });
     $('#playbtn2').data('done_fn', function() {	return (player2.state == "stopped"); });
     
-    // player session #3
-    $('#playbtn3').data('play_fn', function() { player3.start(); });
-    $('#playbtn3').data('stop_fn', function() { player3.stop(); });
-    $('#playbtn3').data('done_fn', function() { return (player3.state == "stopped"); });
+    // player session #3 - mysound
+    $('#playbtn3').data('play_fn', function() { mysound.start(); });
+    $('#playbtn3').data('stop_fn', function() { mysound.stop(); });
+    $('#playbtn3').data('done_fn', function() { return (mysound.state == "stopped"); });
     
     //sing-note (only for 'notes' people.
     socket.on('sing-note', function(note) {
@@ -236,34 +254,34 @@ $( document ).ready(function() {
 	if (sounder_type == 'notes') {
 	    switch(note) {
 	    case '/C4':
-		player3.start(0);
+		voices.start(0);
 		break;
 	    case '/D4':
-		player3.start(1);
+		voices.start(1);
 		break;
 	    case '/E4':
-		player3.start(2);
+		voices.start(2);
 		break;
 	    case '/F4':
-		player3.start(3);
+		voices.start(3);
 		break;
 	    case '/G4':
-		player3.start(4);
+		voices.start(4);
 		break;
 	    case '/A4':
-		player3.start(5);
+		voices.start(5);
 		break;
 	    case '/B4':
-		player3.start(6);
+		voices.start(6);
 		break;
 	    case '/C5':
-		player3.start(7);
+		voices.start(7);
 		break;
 	    case '/D5':
-		player3.start(8);
+		voices.start(8);
 		break;
 	    case '/E5':
-		player3.start(9);
+		voices.start(9);
 		break;
 	    default:
 		;
