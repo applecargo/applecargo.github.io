@@ -65,7 +65,8 @@ $( document ).ready(function() {
 	'loading': 1,
 	'session1': 2,
 	'session2': 3,
-	'session3': 4
+	'session3': 4,
+	'info': 5
     };
 
     //UI - page arbitrator
@@ -188,7 +189,8 @@ $( document ).ready(function() {
 
 	//wait......
 	Tone.Buffer.on("load", function(){
-	    changePage(pages['session1']);
+	    // changePage(pages['session1']);
+	    changePage(pages['info']);
 	}.bind(this));
 	//-->resolve scoping issues.. : https://www.smashingmagazine.com/2014/01/understanding-javascript-function-prototype-bind/
     }
@@ -231,6 +233,14 @@ $( document ).ready(function() {
 	default:
 	    ;
 	}
+    });
+
+    //// sound test page
+    $('#soundtest').click(function() {
+	clap.start();
+    });
+    $('#soundtest-next').click(function() {
+	changePage(pages['session1']);
     });
 
     // player session #1
