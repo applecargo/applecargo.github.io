@@ -212,6 +212,10 @@ $( document ).ready(function() {
 	console.log('brassband');
 	brassband.start();
     });
+    socket.on('brassband-stop', function() {
+	console.log('brassband-stop');
+	brassband.stop();
+    });
     
     //pagination
     $('.pagechgto1').click(function() {	changePage(pages['session1']); });

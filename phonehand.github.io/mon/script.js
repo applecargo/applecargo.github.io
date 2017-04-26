@@ -82,12 +82,14 @@ $( document ).ready(function() {
 	socket.emit('playall-stop', 2);
     });
     
-    //play-all for session #3
+    //play-all for session #3 (brassband)
     $('#stage3-playall').click(function () {
-	socket.emit('playall-start', 3);
+	// socket.emit('playall-start', 3);
+	socket.emit('brassband-all');
     });
     $('#stage3-stopall').click(function () {
-	socket.emit('playall-stop', 3);
+	// socket.emit('playall-stop', 3);
+	socket.emit('brassband-all-stop');
     });
     
     //// server inter-action!
