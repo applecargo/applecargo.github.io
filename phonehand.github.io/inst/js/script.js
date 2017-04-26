@@ -91,7 +91,7 @@ $( document ).ready(function() {
 	if (seatval >= 1 && seatval <= 30) {
 	    socket.emit('seatsel', $("#selseat input:first").val() - 1);
 	    changePage(pages['loading']);
-	    audioloader(seatval-1);
+	    audioloader(seatval);
 	}
     });
 
@@ -129,10 +129,10 @@ $( document ).ready(function() {
 	//intro (session #2 --> session #3)
 	var urli = "audio/intro/" + seatNo_str + ".mp3";
 	console.log(urli);
-	player_intro = new Tone.Player({ "url" : urli }).toMaster();
+	intro = new Tone.Player({ "url" : urli }).toMaster();
 	
 	//session #3 - 'who am i?' mapping. --> (re)-shuffle? use the code at the end of this file!
-	//seat number always start from '0' (programmatically..)
+	
 	var s3_seatpos = ["voice7", "brass", "flute",
 			  "voice4", "voice5", "voice2",
 			  "voice4", "tuba", "voice5",
@@ -146,7 +146,7 @@ $( document ).ready(function() {
 
 	//
 	sounder_type = 'playstop';
-	switch(s3_seatpos[seatNo][0]){
+	switch(s3_seatpos[seatNo-1][0]){ //seat number (1-30) --> index (0-29)
 	case 'b': //load brass!
 	    var url3 = "audio/edelweiss/brass.mp3";
 	    brassband = new Tone.Player({ "url" : url3 }).toMaster();
@@ -161,7 +161,7 @@ $( document ).ready(function() {
 	    break;
 	case 'v': //load voices.. manymany...
 	    sounder_type = 'notes';
-	    var url3 = "audio/edelweiss/" + s3_seatpos[seatNo][5] + "/";
+	    var url3 = "audio/edelweiss/" + s3_seatpos[seatNo-1][5] + "/"; //seat number (1-30) --> index (0-29)
 	    voices = new Tone.MultiPlayer(
 		[
 		    url3.concat("do.mp3"),
