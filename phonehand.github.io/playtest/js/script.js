@@ -56,7 +56,7 @@ $( document ).ready(function() {
 
 	//// howler player
 	var howler_player = new Howl({
-	    src: [ url3 ]
+	    src: [ url3 ], html5: true
 	});
 	
     // }
