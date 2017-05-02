@@ -135,11 +135,11 @@ $( document ).ready(function() {
             if (stat.sched_start < Date.now() && Date.now() < stat.sched_stop) {
                 sounds.seek((Date.now() - stat.sched_start)/1000, sounds_list['gymsession']); //in seconds
                 sounds.play(sounds_list['gymsession']);
-                setTimeout(function() { sounds.stop(sounds_list['gymsession']]); }, stat.sched_stop - Date.now()); // schedule stop
+                setTimeout(function() { sounds.stop(sounds_list['gymsession']); }, stat.sched_stop - Date.now()); // schedule stop
             }
             else if (stat.sched_start > Date.now()) {
-                setTimeout(function() { sounds.play(sounds_list['gymsession']]); }, stat.sched_start - Date.now()); // schedule start.
-                setTimeout(function() { sounds.stop(sounds_list['gymsession']]); }, stat.sched_stop - Date.now()); // schedule stop.
+                setTimeout(function() { sounds.play(sounds_list['gymsession']); }, stat.sched_start - Date.now()); // schedule start.
+                setTimeout(function() { sounds.stop(sounds_list['gymsession']); }, stat.sched_stop - Date.now()); // schedule stop.
             }
         }
         else if (stat.prog == 'brass') { // brass sounds
