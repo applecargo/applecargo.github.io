@@ -92,28 +92,24 @@ $( document ).ready(function() {
     });
     
     //audio loading...
-    var sounds_list = {
-        'clap':0,
-        'gymsession':1,
-        'brass':2
-    };
-    
-    var sounds = new Howl({
-        src: [
-            "audio/clap.wav",
-            "audio/gymsession.mp3",
-            "audio/brass.mp3"
-        ],
-        html5: true });
+    var clap = new Howl({ src: "audio/clap.wav", html5: true });
+    var gymsession = new Howl({ src: "audio/gymsession.mp3", html5: true });
+    var brass = new Howl({ src: "audio/brass.mp3", html5: true });
 
     //sndcheck audio
     $('#clap').click(function() {
-        sounds.play(sounds_list['clap']);
+        clap.play();
+
+        //let's unlock all sounds..
+        gymsession.play();
+        gymsession.stop();
+        brass.play();
+        brass.stop();
     });
     
     //netcheck audio
     socket.on('clap', function() {
-        sounds.play(sounds_list['clap']);
+        clap.play();
     });
 
     //update system status
@@ -133,24 +129,24 @@ $( document ).ready(function() {
 
         if (stat.prog == 'gymsession') { //schedule actions
             if (stat.sched_start < Date.now() && Date.now() < stat.sched_stop) {
-                sounds.seek((Date.now() - stat.sched_start)/1000, sounds_list['gymsession']); //in seconds
-                sounds.play(sounds_list['gymsession']);
-                setTimeout(function() { sounds.stop(sounds_list['gymsession']); }, stat.sched_stop - Date.now()); // schedule stop
+                gymsession.seek((Date.now() - stat.sched_start)/1000); //in seconds
+                gymsession.play();
+                setTimeout(function() { gymsession.stop(); }, stat.sched_stop - Date.now()); // schedule stop
             }
             else if (stat.sched_start > Date.now()) {
-                setTimeout(function() { sounds.play(sounds_list['gymsession']); }, stat.sched_start - Date.now()); // schedule start.
-                setTimeout(function() { sounds.stop(sounds_list['gymsession']); }, stat.sched_stop - Date.now()); // schedule stop.
+                setTimeout(function() { gymsession.play(); }, stat.sched_start - Date.now()); // schedule start.
+                setTimeout(function() { gymsession.stop(); }, stat.sched_stop - Date.now()); // schedule stop.
             }
         }
         else if (stat.prog == 'brass') { // brass sounds
             if (stat.sched_start < Date.now() && Date.now() < stat.sched_stop) {
-                sounds.seek((Date.now() - stat.sched_start)/1000,sounds_list['brass']); //in seconds
-                sounds.play(sounds_list['brass']);
-                setTimeout(function() { sounds.stop(sounds_list['brass']); }, stat.sched_stop - Date.now()); // schedule stop
+                brass.seek((Date.now() - stat.sched_start)/1000); //in seconds
+                brass.play();
+                setTimeout(function() { brass.stop(); }, stat.sched_stop - Date.now()); // schedule stop
             }
             else if (stat.sched_start > Date.now()) {
-                setTimeout(function() { sounds.play(sounds_list['brass']); }, stat.sched_start - Date.now()); // schedule start.
-                setTimeout(function() { sounds.stop(sounds_list['brass']); }, stat.sched_stop - Date.now()); // schedule stop.
+                setTimeout(function() { brass.play(); }, stat.sched_start - Date.now()); // schedule start.
+                setTimeout(function() { brass.stop(); }, stat.sched_stop - Date.now()); // schedule stop.
             }
         }
 	else if (stat.prog == 'wait') { // wait & emergency stop
@@ -158,8 +154,8 @@ $( document ).ready(function() {
 	    //but if needed, you might want to forse stop all sounds here.. (for TESTING session, for example)
 	    
 	    //just stop every sounds!!
-	    sounds.stop(sounds_list['gymsession']);
-	    sounds.stop(sounds_list['brass']);
+	    gymsession.stop();
+	    brass.stop();
 	}
 
 	//update UI
