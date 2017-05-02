@@ -46,7 +46,7 @@ $( document ).ready(function() {
     });
 
     //you can bang twice!!
-    $('#schedtest').click(function() {
+    $('#flowers').click(function() {
 	//post a schedule
 	var startdelay = 5000; // in ms
 	var sound_duration = 25000; //in ms
@@ -55,7 +55,7 @@ $( document ).ready(function() {
 	var sched_stop = (Date.now()+startdelay+sound_duration);
 	
 	socket.emit('schedule', {
-	    'prog':'brass',
+	    'prog':'flowers',
 	    'sched_start':sched_start,
 	    'sched_stop':sched_stop
 	});
