@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- dependencies -->
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <!-- <script type="text/javascript" src="js/Tone.min.js"></script> -->
+    <script type="text/javascript" src="js/socket.io.js"></script>
+    <script type="text/javascript" src="js/howler.min.js"></script>
+    <link rel="stylesheet" href="https://unpkg.com/tachyons@4.7.0/css/tachyons.min.css"/>
+    <!-- <link rel="stylesheet" href="css/loading-animation.css"/> -->
+    <link rel="stylesheet" href="css/colors.css">
+    <!-- js code -->
+    <script type="text/javascript" src="js/script.js"></script>
+  </head>
+
+  <body class="bg-light-blue min-h-100 h-auto">
+
+    <!-- full page layout -->
+    <div class="vh-100 w-100 absolute top-0 left-0 bg-dark-green">
+      <div class="cf w-100 top-0">
+
+	<!-- top sticky system status header -->
+	<div class="dt w-100 top-0 bg-dark-green pt4">
+	  <div class="w-60 dtc v-mid yellow">
+	    <p class="tc b" id="pagestat">
+	      환영합니다 - Welcome!
+	    </p>
+	  </div>
+	  <div class="w-40 dtc v-mid bg-near-black yellow">
+	    <div class="fl w-70 tr pr3">네트워크<br>연결 상태</div>
+	    <div class="fl w-30">
+	      <input type="checkbox" class="ui-tgl input-reset dib br-100 w2 h2 bg-near-black ba bw2 b--gold" id="netstat" value="0"/>
+	    </div>
+	  </div>
+	</div>
+	
+	<!-- welcome page -->
+	<div class="ui-page fl w-100 bg-yellow" id="page-welcome">
+	  <div class="fl w-100 pt3">
+	    <div class="tc">
+	      <div class="dib w-70">
+		<img src="imgs/phonehand.png" />
+	      </div>
+	    </div>
+	  </div>
+	  <div class="fl w-100">
+	    <div class="fl w-100 tc pv3 lh-copy f3 fw6 black">
+	      안산순례길<br>Camino de Ansan
+	    </div>
+	  </div>
+	  <div class="fl w-100 bg-lime pv2" id="go-numbersel">
+	    <div class="tc">
+	      <div class="ui-btn dib w-10">
+		<svg class="fill-navy" width="100%" height="100%" viewBox="0 0 2048 2048" xmlns="http://www.w3.org/2000/svg">
+		  <path d="M1541 1024q0-27-18-45l-91-91-362-362q-18-18-45-18t-45 18l-91 91q-18 18-18 45t18 45l189 189h-502q-26 0-45 19t-19 45v128q0 26 19 45t45 19h502l-189 189q-19 19-19 45t19 45l91 91q18 18 45 18t45-18l362-362 91-91q18-18 18-45zm251 0q0 209-103 385.5t-279.5 279.5-385.5 103-385.5-103-279.5-279.5-103-385.5 103-385.5 279.5-279.5 385.5-103 385.5 103 279.5 279.5 103 385.5z"/>
+		</svg>
+	      </div>
+	    </div>
+	  </div>
+	</div>
+
+	<!-- number selection page -->
+	<div class="ui-page fl w-100 bg-yellow" id="page-numbersel" style="display:none">
+	  <div class="fl w-100">
+	    <div class="fl w-100 tc pv3 lh-copy f3 fw6 black">
+	      당신이 원하는 사운드 세트의 번호를 골라 주세요. (1-30)
+	    </div>
+	  </div>
+	  <div class="fl w-100 bg-orange pv2">
+	    <input id="selseat" class="w-80 br-pill yellow bg-blue ba b--dashed b--yellow fw6 f3 f1-ns lh-copy tc mv2" type="text" name="seatNo" autofocus>
+	  </div>
+	  <div class="fl w-100 bg-lime pv2" id="go-sndcheck">
+	    <div class="tc">
+	      <div class="ui-btn dib w-10">
+		<svg class="fill-navy" width="100%" height="100%" viewBox="0 0 2048 2048" xmlns="http://www.w3.org/2000/svg">
+		  <path d="M1541 1024q0-27-18-45l-91-91-362-362q-18-18-45-18t-45 18l-91 91q-18 18-18 45t18 45l189 189h-502q-26 0-45 19t-19 45v128q0 26 19 45t45 19h502l-189 189q-19 19-19 45t19 45l91 91q18 18 45 18t45-18l362-362 91-91q18-18 18-45zm251 0q0 209-103 385.5t-279.5 279.5-385.5 103-385.5-103-279.5-279.5-103-385.5 103-385.5 279.5-279.5 385.5-103 385.5 103 279.5 279.5 103 385.5z"/>
+		</svg>
+	      </div>
+	    </div>
+	  </div>
+	</div>
+	
+	<!-- sound output check page -->
+	<div class="ui-page fl w-100 bg-near-black" id="page-sndcheck" style="display:none">
+	  <div class="fl w-100 center ph4">
+	    <div class="fl w-100">
+	      <div class="tc pv3 lh-copy f3 fw6 yellow">
+		진동 모드 해제 후, 스피커 시스템 연결 후, 볼륨을 최대로 조정해 주세요.
+	      </div>
+	    </div>
+	    <div class="fl w-100">
+	      <div class="tc pv3 lh-copy f3 fw6 red">
+		반드시, 아래 버튼을 눌러, 다음 버튼을 눌러, 사운드 출력 여부를 확인해주세요.
+	      </div>
+	    </div>
+	    <div class="fl w-100">
+	      <div class="tc">
+		<div class="dib w-50">
+		  <div id="clap" class="ui-btn dib br-100 w3 h3 bg-blue ba bw2 b--black"></div>
+		</div>
+	      </div>
+	    </div>
+	  </div>
+	  <div class="fl w-100 bg-lime pv2" id="go-netcheck">
+	    <div class="tc">
+	      <div class="ui-btn dib w-10">
+		<svg class="fill-navy" width="100%" height="100%" viewBox="0 0 2048 2048" xmlns="http://www.w3.org/2000/svg">
+		  <path d="M1541 1024q0-27-18-45l-91-91-362-362q-18-18-45-18t-45 18l-91 91q-18 18-18 45t18 45l189 189h-502q-26 0-45 19t-19 45v128q0 26 19 45t45 19h502l-189 189q-19 19-19 45t19 45l91 91q18 18 45 18t45-18l362-362 91-91q18-18 18-45zm251 0q0 209-103 385.5t-279.5 279.5-385.5 103-385.5-103-279.5-279.5-103-385.5 103-385.5 279.5-279.5 385.5-103 385.5 103 279.5 279.5 103 385.5z"/>
+		</svg>
+	      </div>
+	    </div>
+	  </div>
+	</div>
+
+	<!-- network check page -->
+	<div class="ui-page fl w-100 bg-dark-pink" id="page-netcheck" style="display:none">
+	  <div class="fl w-100 center ph4">
+	    <div class="fl w-100">
+	      <div class="tc pv3 lh-copy f3 fw6 light-green">
+		우측 위, '네트워크 연결 상태'의 불이 지속적으로 깜빡이는지 확인.
+	      </div>
+	    </div>
+	    <div class="fl w-100">
+	      <div class="tc pv3 lh-copy f3 fw6 light-green">
+		3초 이상 깜빡이지 않는 경우. 네트웤 연결 확인.<br>
+		WIFI 및 3G, LTE 등 접속 여부 확인.
+	      </div>
+	    </div>
+	  </div>
+	  <div class="fl w-100 bg-lime pv2" id="go-sounder">
+	    <div class="tc">
+	      <div class="ui-btn dib w-10">
+		<svg class="fill-navy" width="100%" height="100%" viewBox="0 0 2048 2048" xmlns="http://www.w3.org/2000/svg">
+		  <path d="M1541 1024q0-27-18-45l-91-91-362-362q-18-18-45-18t-45 18l-91 91q-18 18-18 45t18 45l189 189h-502q-26 0-45 19t-19 45v128q0 26 19 45t45 19h502l-189 189q-19 19-19 45t19 45l91 91q18 18 45 18t45-18l362-362 91-91q18-18 18-45zm251 0q0 209-103 385.5t-279.5 279.5-385.5 103-385.5-103-279.5-279.5-103-385.5 103-385.5 279.5-279.5 385.5-103 385.5 103 279.5 279.5 103 385.5z"/>
+		</svg>
+	      </div>
+	    </div>
+	  </div>
+	</div>
+
+	<!-- sounder page -->
+	<div class="ui-page fl w-100 bg-lime" id="page-sounder" style="display:none">
+	  <div class="fl w-100 center">
+	    <div class="fl w-100">
+	      <div class="tc pv2 f4 fw6 bg-black yellow">
+		현재 프로그램
+	      </div>
+	    </div>
+	    <div class="fl w-100">
+	      <div class="tc pv2 lh-copy f3 fw6 bg-yellow black" id="program">
+		국민 체조
+	      </div>
+	    </div>
+	    <div class="fl w-100">
+	      <div class="tc pv2 f4 fw6 bg-black yellow">
+		남은 시간
+	      </div>
+	    </div>
+	    <div class="fl w-100">
+	      <div class="tc pv3 lh-copy f3 fw6 bg-dark-blue light-green" id="playtime">
+		-04:51
+	      </div>
+	    </div>
+	  </div>
+	</div>
+	
+	<!-- perforamce page : smartphone chorus -->
+	
+      </div><!-- full page end -->
+    </div>
+    
+  </body>
+</html>

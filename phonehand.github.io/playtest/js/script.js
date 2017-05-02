@@ -100,9 +100,10 @@ $( document ).ready(function() {
     $('#playbtn1').data('play_fn', function() { tonejs_player.start(); }); // utillize callback functions!!
     $('#playbtn1').data('stop_fn', function() { tonejs_player.stop(); }); // utillize callback functions!!
     $('#playbtn1').data('done_fn', function() {	return (tonejs_player.state == "stopped"); });
-    
-    $('#playbtn2').data('play_fn', function() { howler_player.play(); }); // utillize callback functions!!
-    $('#playbtn2').data('stop_fn', function() { howler_player.stop(); }); // utillize callback functions!!
-    $('#playbtn2').data('done_fn', function() {	return howler_player.playing(); });
+
+    var howl_id;
+    $('#playbtn2').data('play_fn', function() { howl_id = howler_player.play(); }); // utillize callback functions!!
+    $('#playbtn2').data('stop_fn', function() { howler_player.stop(howl_id); }); // utillize callback functions!!
+    $('#playbtn2').data('done_fn', function() {	return (howler_player.playing(howl_id) == false); });
     
 });
