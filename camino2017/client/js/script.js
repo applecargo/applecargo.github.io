@@ -108,12 +108,12 @@ $( document ).ready(function() {
 
     //sndcheck audio
     $('#clap').click(function() {
-        sounds[0].play();
+        sounds.play(sounds_list['clap']);
     });
     
     //netcheck audio
     socket.on('clap', function() {
-        sounds[0].play();
+        sounds.play(sounds_list['clap']);
     });
 
     //update system status
