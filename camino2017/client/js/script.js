@@ -133,24 +133,24 @@ $( document ).ready(function() {
 
         if (stat.prog == 'gymsession') { //schedule actions
             if (stat.sched_start < Date.now() && Date.now() < stat.sched_stop) {
-                sounds[sounds_list['gymsession']].seek((Date.now() - stat.sched_start)/1000); //in seconds
-                sounds[sounds_list['gymsession']].play();
-                setTimeout(function() { sounds[sounds_list['gymsession']].stop(); }, stat.sched_stop - Date.now()); // schedule stop
+                sounds.seek((Date.now() - stat.sched_start)/1000, sounds_list['gymsession']); //in seconds
+                sounds.play(sounds_list['gymsession']);
+                setTimeout(function() { sounds.stop(sounds_list['gymsession']]); }, stat.sched_stop - Date.now()); // schedule stop
             }
             else if (stat.sched_start > Date.now()) {
-                setTimeout(function() { sounds[sounds_list['gymsession']].play(); }, stat.sched_start - Date.now()); // schedule start.
-                setTimeout(function() { sounds[sounds_list['gymsession']].stop(); }, stat.sched_stop - Date.now()); // schedule stop.
+                setTimeout(function() { sounds.play(sounds_list['gymsession']]); }, stat.sched_start - Date.now()); // schedule start.
+                setTimeout(function() { sounds.stop(sounds_list['gymsession']]); }, stat.sched_stop - Date.now()); // schedule stop.
             }
         }
         else if (stat.prog == 'brass') { // brass sounds
             if (stat.sched_start < Date.now() && Date.now() < stat.sched_stop) {
-                sounds[sounds_list['brass']].seek((Date.now() - stat.sched_start)/1000); //in seconds
-                sounds[sounds_list['brass']].play();
-                setTimeout(function() { sounds[sounds_list['brass']].stop(); }, stat.sched_stop - Date.now()); // schedule stop
+                sounds.seek((Date.now() - stat.sched_start)/1000,sounds_list['brass']]); //in seconds
+                sounds.play(sounds_list['brass']);
+                setTimeout(function() { sounds.stop([sounds_list['brass']); }, stat.sched_stop - Date.now()); // schedule stop
             }
             else if (stat.sched_start > Date.now()) {
-                setTimeout(function() { sounds[sounds_list['brass']].play(); }, stat.sched_start - Date.now()); // schedule start.
-                setTimeout(function() { sounds[sounds_list['brass']].stop(); }, stat.sched_stop - Date.now()); // schedule stop.
+                setTimeout(function() { sounds.play(sounds_list['brass']); }, stat.sched_start - Date.now()); // schedule start.
+                setTimeout(function() { sounds.stop(sounds_list['brass']); }, stat.sched_stop - Date.now()); // schedule stop.
             }
         }
 	else if (stat.prog == 'wait') { // wait & emergency stop
@@ -158,8 +158,8 @@ $( document ).ready(function() {
 	    //but if needed, you might want to forse stop all sounds here.. (for TESTING session, for example)
 	    
 	    //just stop every sounds!!
-	    sounds[sounds_list['gymsession']].stop();
-	    sounds[sounds_list['brass']].stop();
+	    sounds.stop(sounds_list['gymsession']);
+	    sounds.stop(sounds_list['brass']);
 	}
 
 	//update UI
