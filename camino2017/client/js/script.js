@@ -129,8 +129,8 @@ $( document ).ready(function() {
 
         if (stat.prog == 'gymsession') { //schedule actions
             if (stat.sched_start < Date.now() && Date.now() < stat.sched_stop) {
-                gymsession.seek((Date.now() - stat.sched_start)/1000); //in seconds
                 gymsession.play();
+                gymsession.seek((Date.now() - stat.sched_start)/1000); //in seconds
                 setTimeout(function() { gymsession.stop(); }, stat.sched_stop - Date.now()); // schedule stop
             }
             else if (stat.sched_start > Date.now()) {
@@ -140,8 +140,8 @@ $( document ).ready(function() {
         }
         else if (stat.prog == 'brass') { // brass sounds
             if (stat.sched_start < Date.now() && Date.now() < stat.sched_stop) {
-                brass.seek((Date.now() - stat.sched_start)/1000); //in seconds
                 brass.play();
+                brass.seek((Date.now() - stat.sched_start)/1000); //in seconds
                 setTimeout(function() { brass.stop(); }, stat.sched_stop - Date.now()); // schedule stop
             }
             else if (stat.sched_start > Date.now()) {
