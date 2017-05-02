@@ -144,7 +144,7 @@ $( document ).ready(function() {
         }
         else if (stat.prog == 'brass') { // brass sounds
             if (stat.sched_start < Date.now() && Date.now() < stat.sched_stop) {
-                sounds.seek((Date.now() - stat.sched_start)/1000,sounds_list['brass']]); //in seconds
+                sounds.seek((Date.now() - stat.sched_start)/1000,sounds_list['brass']); //in seconds
                 sounds.play(sounds_list['brass']);
                 setTimeout(function() { sounds.stop([sounds_list['brass']); }, stat.sched_stop - Date.now()); // schedule stop
             }
