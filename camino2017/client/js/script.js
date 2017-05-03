@@ -187,10 +187,6 @@ $( document ).ready(function() {
 	    unlock_sounds();
 	}
     });
-    $('#unlock').click(function() {
-        //let's unlock all sounds.. with single touch!
-	unlock_sounds();
-    });
     
     //netcheck audio
     socket.on('clap', function() {
@@ -249,6 +245,17 @@ $( document ).ready(function() {
 	}
 
     });
+    
+    $('#unlock').click(function() {
+        //let's unlock all sounds.. with single touch!
+	unlock_sounds(); // this will also stop all.
+
+	$('#program').text('-');
+
+	//query schedule!
+	socket.emit('query-schedule');
+    });
+    
 });
 	// console.log('server connected.');
 
