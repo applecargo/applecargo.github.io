@@ -36,30 +36,38 @@ $( document ).ready(function() {
 	socket.emit('clap-all');
     });
 
+    //instant 54321 all!
+    $('#54321-all').click(function() {
+	console.log('54321-all');
+	socket.emit('54321-all');
+    });
+
     //emergency stop! - when you want to cancel immediately.
     $('#stop-all').click(function() {
-	socket.emit('schedule', {
-	    'prog':'wait',
-	    'sched_start':0,
-	    'sched_stop':0
-	});
+	// socket.emit('schedule', {
+	//     'prog':'wait',
+	//     'sched_start':0,
+	//     'sched_stop':0
+	// });
+	socket.emit('schedule', { 'prog':'wait' });
     });
 
     //scheduling
     
     //you can bang twice!!
-    var startdelay_def = 3000; // in ms, default start delay time 3 sec.
+    // var startdelay_def = 3000; // in ms, default start delay time 3 sec.
 
     scheduler = function(prog_name) {
-	//post a schedule
-	var sched_start = ( Date.now() + startdelay_def );
-	var sched_stop = 0; // play once till the end
+	// //post a schedule
+	// var sched_start = ( Date.now() + startdelay_def );
+	// var sched_stop = 0; // play once till the end
 	
-	socket.emit('schedule', {
-	    'prog':prog_name,
-	    'sched_start':sched_start,
-	    'sched_stop':sched_stop
-	});
+	// socket.emit('schedule', {
+	//     'prog':prog_name,
+	//     'sched_start':sched_start,
+	//     'sched_stop':sched_stop
+	// });
+	socket.emit('schedule', { 'prog':prog_name });
     }
     
     $('#carhorn').click(function() { scheduler('carhorn'); });

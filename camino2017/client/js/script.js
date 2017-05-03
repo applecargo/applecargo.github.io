@@ -1,5 +1,3 @@
-var edel;
-
 $( document ).ready(function() {
     
     $('.ui-btn').click(function() {
@@ -65,7 +63,7 @@ $( document ).ready(function() {
     var url;
     //edelweiss band/voice proportion
     var edelweiss_mode = 'singer';
-    if (Math.random() < 0.3) { edelweiss_mode = 'band'; }
+    if (Math.random() < 0.4) { edelweiss_mode = 'band'; } // band is 40%
 
     if (edelweiss_mode == 'band') {
 	url = "audio/edelweiss/band@3/" + ("0" + Math.floor(Math.random()*3+1)).slice(-2) + ".mp3";
@@ -154,42 +152,9 @@ $( document ).ready(function() {
     url = "audio/bee@8/" + ("0" + Math.floor(Math.random()*8+1)).slice(-2) + ".mp3";
     var bee = new Howl({ src: url, html5: false });
 
-    //unlocking sounds
-    function unlock_sounds() {
-	unlck = function(snd) { snd.play();snd.stop(); };
-        unlck(clap);
-        unlck(count);
-        unlck(carhorn);
-        unlck(phone);
-        unlck(sea);
-        unlck(trk01);
-        unlck(watcher);
-	unlck(machine);
-	unlck(bee);
-	//intentionally removing if-clauses..
-	unlck(edelweiss_band);
-	for (var i = 0; i < 10; i++) {
-	    unlck(edelweiss_singer[i]);
-	}
-	// if (edelweiss_mode == 'band') { unlck(edelweiss_band); }
-	// else if (edelweiss_mode == 'singer') {
-	//     for (var i = 0; i < 10; i++) {
-	// 	unlck(edelweiss_singer[i]);
-	//     }
-	// }
-    }
-
-    //sndcheck audio && unlock audio action
-    var sound_unlocked = false;
-    $('#clap').click(function() {
-	//
+    //sndcheck audio
+    $('.ui-clap').click(function() {
         clap.play();
-	
-        //let's unlock all sounds.. with single touch!
-	if (sound_unlocked == false) {
-	    sound_unlocked = true;
-	    unlock_sounds();
-	}
     });
     
     //netcheck audio
@@ -199,23 +164,12 @@ $( document ).ready(function() {
     
     //update system status
     socket.on('schedule', function(stat) {
-        // console.log(stat);
-	resyncClock(stat.ctime); //re-syncronize clock
-	var now = getTimeNow(); //get server time
+        // // console.log(stat);
+	// resyncClock(stat.ctime); //re-syncronize clock
+	// var now = getTimeNow(); //get server time
 
 	//
-	scheduler = function(prog) {
-	    var stopat = (stat.sched_start + prog.duration()*1000);
-	    if (stat.sched_start < now && now < stopat) {
-                prog.play();
-                prog.seek((now - stat.sched_start)/1000); //in seconds
-                // setTimeout(function() { prog.stop() }, stopat - now); // schedule stop // disabled temporarily
-	    }
-	    else if (stat.sched_start > now) {
-                setTimeout(function() { prog.play(); }, stat.sched_start - now); // schedule start.
-                // setTimeout(function() { prog.stop() }, stopat - now); // schedule stop. // disabled temporarily
-	    }
-	};
+	scheduler = function(prog) { prog.play(); };
 	
 	//// manage programs
 	
@@ -255,63 +209,4 @@ $( document ).ready(function() {
 	}
 
     });
-    
-    $('#unlock').click(function() {
-	
-        //let's unlock all sounds.. with single touch!
-	unlock_sounds(); // this will also stop all.
-
-	//clear message box.
-	$('#program').text('-');
-	
-	//play some very short audio to remove notification area player!! ?????
-        clap.play();
-
-	//wait a bit and re-schedule
-	setTimeout(function() {
-	    //query schedule!
-	    socket.emit('query-schedule');
-	}, 100);
-    });
-    
 });
-	// console.log('server connected.');
-
-	    // console.log('server disconnected.');
-
-
-	    //you might want to stop all sounds here.......
-            //if we trust.. pre-existing schedules!! yeah... might be good....... but.. if not, we might want to stop all, conservatively.
-
-	//
-	// [[[ NOTE ]]]
-	//
-	// by default,
-	// socket.io client will try to re-connect 'infinity' number of times!
-	//
-
-	//
-	// disconnection occurs according to server's heartbeat ping/pong setup. normally, this is not real-time at all.
-	// ==> check how to tune the numbers. @ server code. now we using.. 1 sec ping/pong, 3 sec to give up.
-	// (http://stackoverflow.com/a/31787022)
-	//
-
-		//do nothing. we will just trust setTimeouts in charge of stopping sounds.
-		//but if needed, you might want to forse stop all sounds here.. (for TESTING session, for example)
-		
-
-        //
-        // protocol (node.js server --(uni-direction)--> clients) :
-        //
-        // example stat) 'prog' == gymsession. / 'sched_start' == clock time / 'sched_stop' == clock time
-        //
-        // 1) if prog != 'wait' ==> check time. if prog == 'wait', then do nothing. all 'prog' sounds will stop naturally, no worries.
-        // 2) if sched_start < Date.now() < sched_stop, then play and seek to right position with playertime value. and sched_stop!
-        //    if sched_start > Date.now(), then sched_start && sched_stop!
-        //    if Date.now() > sched_stop, then do nothing. we just lost the chance.
-        //
-
-	//DEBUG - time sync
-	// $('#program').text(JSON.stringify(stat.sched_start/1000));
-	// $('#program1').text(JSON.stringify(stat.sched_stop/1000));
-	// $('#playtime').text(JSON.stringify(now/1000));
