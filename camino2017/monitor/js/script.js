@@ -45,19 +45,29 @@ $( document ).ready(function() {
 	});
     });
 
+    //scheduling
+    
     //you can bang twice!!
-    $('#flowers').click(function() {
+    var startdelay_def = 3000; // in ms, default start delay time 3 sec.
+
+    scheduler = function(prog_name) {
 	//post a schedule
-	var startdelay = 5000; // in ms
-	var sound_duration = 25000; //in ms
-	//
-	var sched_start = (Date.now()+startdelay);
-	var sched_stop = (Date.now()+startdelay+sound_duration);
+	var sched_start = ( Date.now() + startdelay_def );
+	var sched_stop = 0; // play once till the end
 	
 	socket.emit('schedule', {
-	    'prog':'flowers',
+	    'prog':prog_name,
 	    'sched_start':sched_start,
 	    'sched_stop':sched_stop
 	});
-    });
+    }
+    
+    $('#carhorn').click(function() { scheduler('carhorn'); });
+    $('#phone').click(function() { scheduler('phone'); });
+    $('#sea').click(function() { scheduler('sea'); });
+    $('#trk01').click(function() { scheduler('trk01'); });
+    $('#watcher').click(function() { scheduler('watcher'); });
+    $('#machine').click(function() { scheduler('machine'); });
+    $('#bee').click(function() { scheduler('bee'); });
+    $('#edelweiss-band').click(function() { scheduler('edelweiss-band'); });
 });    

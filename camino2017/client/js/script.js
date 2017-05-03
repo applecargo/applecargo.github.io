@@ -1,3 +1,5 @@
+var edel;
+
 $( document ).ready(function() {
     
     $('.ui-btn').click(function() {
@@ -18,10 +20,9 @@ $( document ).ready(function() {
 
     var pages = {
         'page-welcome': 0,
-        'page-numbersel': 1,
-        'page-sndcheck': 2,
-        'page-netcheck': 3,
-        'page-sounder': 4
+        'page-sndcheck': 1,
+        'page-netcheck': 2,
+        'page-sounder': 3
     };
 
     var cur_page = 0;
@@ -31,10 +32,6 @@ $( document ).ready(function() {
         cur_page = page;
     }
 
-    $('#go-numbersel').click(function() {
-        changePage(pages['page-numbersel']);
-        $('#pagestat').text('번호 선택');
-    });
     $('#go-sndcheck').click(function() {
         changePage(pages['page-sndcheck']);
         $('#pagestat').text('사운드 체크');
@@ -65,14 +62,117 @@ $( document ).ready(function() {
     function getTimeNow() { return (Date.now()+clock_offset); }
 
     //audio data loading
-    var clap = new Howl({ src: "audio/clap.wav", html5: true });
-    var flowers = new Howl({ src: "audio/brass.mp3", html5: true });
+    var url;
+    //
+    url = "audio/clap.wav";
+    var clap = new Howl({ src: url, html5: true });
+    //
+    url = "audio/54321.mp3";
+    var count = new Howl({ src: url, html5: true });
+    //
+    url = "audio/car-horn@10/" + ("0" + Math.floor(Math.random()*10+1)).slice(-2) + ".mp3";
+    var carhorn = new Howl({ src: url, html5: true });
+    //
+    url = "audio/phonecall-cricket@30/" + ("0" + Math.floor(Math.random()*30+1)).slice(-2) + ".mp3";
+    var phone = new Howl({ src: url, html5: true });
+    //
+    url = "audio/sea@9/" + ("0" + Math.floor(Math.random()*9+1)).slice(-2) + ".mp3";
+    var sea = new Howl({ src: url, html5: true });
+    //
+    url = "audio/trk01@30/" + ("0" + Math.floor(Math.random()*30+1)).slice(-2) + ".mp3";
+    var trk01 = new Howl({ src: url, html5: true });
+    //
+    url = "audio/watcher@5/" + ("0" + Math.floor(Math.random()*5+1)).slice(-2) + ".mp3";
+    var watcher = new Howl({ src: url, html5: true });
+    //
+    url = "audio/machine@13/" + ("0" + Math.floor(Math.random()*13+1)).slice(-2) + ".mp3";
+    var machine = new Howl({ src: url, html5: true });
+    //
+    url = "audio/bee@8/" + ("0" + Math.floor(Math.random()*8+1)).slice(-2) + ".mp3";
+    var bee = new Howl({ src: url, html5: true });
+
+    //edelweiss band/voice proportion
+    var edelweiss_mode = 'singer';
+    if (Math.random() < 0.3) { edelweiss_mode = 'band'; }
+
+    //
+    if (edelweiss_mode == 'band') {
+	url = "audio/edelweiss/band@3/" + ("0" + Math.floor(Math.random()*3+1)).slice(-2) + ".mp3";
+	var edelweiss_band = new Howl({ src: url, html5: true });
+    }
+    else if (edelweiss_mode == 'singer') {
+	url = "audio/edelweiss/voice@9/" + Math.floor(Math.random()*9+1) + "/";
+	var edelweiss_singer = [
+	    new Howl({ src: url + "do.mp3", html5: true }),
+	    new Howl({ src: url + "re.mp3", html5: true }),
+	    new Howl({ src: url + "mi.mp3", html5: true }),
+	    new Howl({ src: url + "fa.mp3", html5: true }),
+	    new Howl({ src: url + "sol.mp3", html5: true }),
+	    new Howl({ src: url + "la.mp3", html5: true }),
+	    new Howl({ src: url + "si.mp3", html5: true }),
+	    new Howl({ src: url + "highdo.mp3", html5: true }),
+	    new Howl({ src: url + "highre.mp3", html5: true }),
+	    new Howl({ src: url + "highmi.mp3", html5: true })
+	];
+	
+	//sing-note (only for 'notes' people.
+	socket.on('sing-note', function(note) {
+	    console.log(note);
+	    switch(note) {
+	    case '/C4':
+		edelweiss_singer[0].play();
+		break;
+	    case '/D4':
+		edelweiss_singer[1].play();
+		break;
+	    case '/E4':
+		edelweiss_singer[2].play();
+		break;
+	    case '/F4':
+		edelweiss_singer[3].play();
+		break;
+	    case '/G4':
+		edelweiss_singer[4].play();
+		break;
+	    case '/A4':
+		edelweiss_singer[5].play();
+		break;
+	    case '/B4':
+		edelweiss_singer[6].play();
+		break;
+	    case '/C5':
+		edelweiss_singer[7].play();
+		break;
+	    case '/D5':
+		edelweiss_singer[8].play();
+		break;
+	    case '/E5':
+		edelweiss_singer[9].play();
+		break;
+	    default:
+		;
+	    }
+	});
+    }
 
     //unlocking sounds
     function unlock_sounds() {
 	unlck = function(snd) { snd.play();snd.stop(); };
         unlck(clap);
-        unlck(flowers);
+        unlck(count);
+        unlck(carhorn);
+        unlck(phone);
+        unlck(sea);
+        unlck(trk01);
+        unlck(watcher);
+	unlck(machine);
+	unlck(bee);
+	if (edelweiss_mode == 'band') { unlck(edelweiss_band); }
+	else if (edelweiss_mode == 'singer') {
+	    for (var i = 0; i < 10; i++) {
+		unlck(edelweiss_singer[i]);
+	    }
+	}
     }
 
     //sndcheck audio && unlock audio action
@@ -87,41 +187,69 @@ $( document ).ready(function() {
 	    unlock_sounds();
 	}
     });
+    $('#unlock').click(function() {
+        //let's unlock all sounds.. with single touch!
+	unlock_sounds();
+    });
     
     //netcheck audio
     socket.on('clap', function() {
 	clap.play();
     });
-
+    
     //update system status
     socket.on('schedule', function(stat) {
         // console.log(stat);
 	resyncClock(stat.ctime); //re-syncronize clock
 	var now = getTimeNow(); //get server time
 
-	//// manage programs
-	// program #1 : 썰매장 가는 길
-        if (stat.prog == 'flowers') {
-	    var stopat = (stat.sched_start + flowers.duration()*1000);
+	//
+	scheduler = function(prog) {
+	    var stopat = (stat.sched_start + prog.duration()*1000);
 	    if (stat.sched_start < now && now < stopat) {
-                flowers.play();
-                flowers.seek((now - stat.sched_start)/1000); //in seconds
-                setTimeout(function() { flowers.stop() }, stopat - now); // schedule stop
+                prog.play();
+                prog.seek((now - stat.sched_start)/1000); //in seconds
+                setTimeout(function() { prog.stop() }, stopat - now); // schedule stop
 	    }
 	    else if (stat.sched_start > now) {
-                setTimeout(function() { flowers.play(); }, stat.sched_start - now); // schedule start.
-                setTimeout(function() { flowers.stop() }, stopat - now); // schedule stop.
+                setTimeout(function() { prog.play(); }, stat.sched_start - now); // schedule start.
+                setTimeout(function() { prog.stop() }, stopat - now); // schedule stop.
 	    }
-        }
-	else if (stat.prog == 'wait') {
-	    //just stop every sounds!!
-	    flowers.stop();
-	}
+	};
+	
+	//// manage programs
+	
 	//
-	$('#program').text('썰매장 가는 길');
-    }
-	     });
-		   });
+        if (stat.prog == 'carhorn') { scheduler(carhorn); $('#program').text('경적'); }
+        if (stat.prog == 'phone')   { scheduler(phone); $('#program').text('전화'); }
+        if (stat.prog == 'sea')     { scheduler(sea); $('#program').text('바다'); }
+        if (stat.prog == 'trk01')   { scheduler(trk01); $('#program').text('track-01'); }
+        if (stat.prog == 'watcher') { scheduler(watcher); $('#program').text('관객'); }
+        if (stat.prog == 'machine') { scheduler(machine); $('#program').text('기계'); }
+        if (stat.prog == 'bee')     { scheduler(bee); $('#program').text('벌떼'); }
+	//
+        if (stat.prog == 'edelweiss-band') {
+	    $('#program').text('에델바이스');
+	    if (edelweiss_mode == 'band') { scheduler(edelweiss_band); }
+	}
+	
+	// stop all!!
+	else if (stat.prog == 'wait') {
+	    clap.stop();
+            count.stop();
+            carhorn.stop();
+            phone.stop();
+            sea.stop();
+            trk01.stop();
+            watcher.stop();
+	    machine.stop();
+	    bee.stop();
+	    if (edelweiss_mode == 'band') { edelweiss_band.stop(); }
+	    $('#program').text('-');
+	}
+
+    });
+});
 	// console.log('server connected.');
 
 	    // console.log('server disconnected.');
