@@ -63,39 +63,10 @@ $( document ).ready(function() {
 
     //audio data loading
     var url;
-    //
-    url = "audio/clap.wav";
-    var clap = new Howl({ src: url, html5: true });
-    //
-    url = "audio/54321.mp3";
-    var count = new Howl({ src: url, html5: true });
-    //
-    url = "audio/car-horn@10/" + ("0" + Math.floor(Math.random()*10+1)).slice(-2) + ".mp3";
-    var carhorn = new Howl({ src: url, html5: true });
-    //
-    url = "audio/phonecall-cricket@30/" + ("0" + Math.floor(Math.random()*30+1)).slice(-2) + ".mp3";
-    var phone = new Howl({ src: url, html5: true });
-    //
-    url = "audio/sea@9/" + ("0" + Math.floor(Math.random()*9+1)).slice(-2) + ".mp3";
-    var sea = new Howl({ src: url, html5: true });
-    //
-    url = "audio/trk01@30/" + ("0" + Math.floor(Math.random()*30+1)).slice(-2) + ".mp3";
-    var trk01 = new Howl({ src: url, html5: true });
-    //
-    url = "audio/watcher@5/" + ("0" + Math.floor(Math.random()*5+1)).slice(-2) + ".mp3";
-    var watcher = new Howl({ src: url, html5: true });
-    //
-    url = "audio/machine@13/" + ("0" + Math.floor(Math.random()*13+1)).slice(-2) + ".mp3";
-    var machine = new Howl({ src: url, html5: true });
-    //
-    url = "audio/bee@8/" + ("0" + Math.floor(Math.random()*8+1)).slice(-2) + ".mp3";
-    var bee = new Howl({ src: url, html5: true });
-
     //edelweiss band/voice proportion
     var edelweiss_mode = 'singer';
     if (Math.random() < 0.3) { edelweiss_mode = 'band'; }
 
-    //
     if (edelweiss_mode == 'band') {
 	url = "audio/edelweiss/band@3/" + ("0" + Math.floor(Math.random()*3+1)).slice(-2) + ".mp3";
 	var edelweiss_band = new Howl({ src: url, html5: true });
@@ -155,6 +126,34 @@ $( document ).ready(function() {
 	});
     }
 
+    //
+    url = "audio/clap.wav";
+    var clap = new Howl({ src: url, html5: true });
+    //
+    url = "audio/54321.mp3";
+    var count = new Howl({ src: url, html5: true });
+    //
+    url = "audio/car-horn@10/" + ("0" + Math.floor(Math.random()*10+1)).slice(-2) + ".mp3";
+    var carhorn = new Howl({ src: url, html5: true });
+    //
+    url = "audio/phonecall-cricket@30/" + ("0" + Math.floor(Math.random()*30+1)).slice(-2) + ".mp3";
+    var phone = new Howl({ src: url, html5: true });
+    //
+    url = "audio/sea@9/" + ("0" + Math.floor(Math.random()*9+1)).slice(-2) + ".mp3";
+    var sea = new Howl({ src: url, html5: true });
+    //
+    url = "audio/trk01@30/" + ("0" + Math.floor(Math.random()*30+1)).slice(-2) + ".mp3";
+    var trk01 = new Howl({ src: url, html5: true });
+    //
+    url = "audio/watcher@5/" + ("0" + Math.floor(Math.random()*5+1)).slice(-2) + ".mp3";
+    var watcher = new Howl({ src: url, html5: true });
+    //
+    url = "audio/machine@13/" + ("0" + Math.floor(Math.random()*13+1)).slice(-2) + ".mp3";
+    var machine = new Howl({ src: url, html5: true });
+    //
+    url = "audio/bee@8/" + ("0" + Math.floor(Math.random()*8+1)).slice(-2) + ".mp3";
+    var bee = new Howl({ src: url, html5: true });
+
     //unlocking sounds
     function unlock_sounds() {
 	unlck = function(snd) { snd.play();snd.stop(); };
@@ -167,17 +166,17 @@ $( document ).ready(function() {
         unlck(watcher);
 	unlck(machine);
 	unlck(bee);
+	//intentionally removing if-clauses..
+	unlck(edelweiss_band);
+	for (var i = 0; i < 10; i++) {
+	    unlck(edelweiss_singer[i]);
+	}
 	// if (edelweiss_mode == 'band') { unlck(edelweiss_band); }
 	// else if (edelweiss_mode == 'singer') {
 	//     for (var i = 0; i < 10; i++) {
 	// 	unlck(edelweiss_singer[i]);
 	//     }
 	// }
-	//intentionally removing if-clauses..
-	unlck(edelweiss_band);
-	for (var i = 0; i < 10; i++) {
-	    unlck(edelweiss_singer[i]);
-	}
     }
 
     //sndcheck audio && unlock audio action
@@ -210,11 +209,11 @@ $( document ).ready(function() {
 	    if (stat.sched_start < now && now < stopat) {
                 prog.play();
                 prog.seek((now - stat.sched_start)/1000); //in seconds
-                setTimeout(function() { prog.stop() }, stopat - now); // schedule stop
+                // setTimeout(function() { prog.stop() }, stopat - now); // schedule stop // disabled temporarily
 	    }
 	    else if (stat.sched_start > now) {
                 setTimeout(function() { prog.play(); }, stat.sched_start - now); // schedule start.
-                setTimeout(function() { prog.stop() }, stopat - now); // schedule stop.
+                // setTimeout(function() { prog.stop() }, stopat - now); // schedule stop. // disabled temporarily
 	    }
 	};
 	
@@ -251,7 +250,7 @@ $( document ).ready(function() {
             watcher.stop();
 	    machine.stop();
 	    bee.stop();
-	    if (edelweiss_mode == 'band') { edelweiss_band.stop(); }
+	    edelweiss_band.stop();
 	    $('#program').text('-');
 	}
 
