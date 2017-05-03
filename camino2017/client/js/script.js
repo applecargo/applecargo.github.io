@@ -131,26 +131,35 @@ $( document ).ready(function() {
     url = "audio/54321.mp3";
     var count = new Howl({ src: url, html5: false });
     //
+    url = "audio/bee@8/" + ("0" + Math.floor(Math.random()*8+1)).slice(-2) + ".mp3";
+    var bee = new Howl({ src: url, html5: false });
+    //
+    url = "audio/brassball@9/" + ("0" + Math.floor(Math.random()*9+1)).slice(-2) + ".mp3";
+    var brassball = new Howl({ src: url, html5: false });
+    //
     url = "audio/car-horn@10/" + ("0" + Math.floor(Math.random()*10+1)).slice(-2) + ".mp3";
     var carhorn = new Howl({ src: url, html5: false });
     //
-    url = "audio/phonecall-cricket@30/" + ("0" + Math.floor(Math.random()*30+1)).slice(-2) + ".mp3";
+    url = "audio/cricket@30/" + ("0" + Math.floor(Math.random()*30+1)).slice(-2) + ".mp3";
+    var cricket = new Howl({ src: url, html5: false });
+    //
+    url = "audio/machine@13/" + ("0" + Math.floor(Math.random()*13+1)).slice(-2) + ".mp3";
+    var machine = new Howl({ src: url, html5: false });
+    //
+    url = "audio/phone@10/" + ("0" + Math.floor(Math.random()*10+1)).slice(-2) + ".mp3";
     var phone = new Howl({ src: url, html5: false });
     //
     url = "audio/sea@9/" + ("0" + Math.floor(Math.random()*9+1)).slice(-2) + ".mp3";
     var sea = new Howl({ src: url, html5: false });
+    //
+    url = "audio/train@1/" + ("0" + Math.floor(Math.random()*1+1)).slice(-2) + ".mp3";
+    var train = new Howl({ src: url, html5: false });
     //
     url = "audio/trk01@30/" + ("0" + Math.floor(Math.random()*30+1)).slice(-2) + ".mp3";
     var trk01 = new Howl({ src: url, html5: false });
     //
     url = "audio/watcher@5/" + ("0" + Math.floor(Math.random()*5+1)).slice(-2) + ".mp3";
     var watcher = new Howl({ src: url, html5: false });
-    //
-    url = "audio/machine@13/" + ("0" + Math.floor(Math.random()*13+1)).slice(-2) + ".mp3";
-    var machine = new Howl({ src: url, html5: false });
-    //
-    url = "audio/bee@8/" + ("0" + Math.floor(Math.random()*8+1)).slice(-2) + ".mp3";
-    var bee = new Howl({ src: url, html5: false });
 
     //sndcheck audio
     $('.ui-clap').click(function() {
@@ -178,13 +187,16 @@ $( document ).ready(function() {
 	//// manage programs
 	
 	//
-        if (stat.prog == 'carhorn') { scheduler(carhorn); $('#program').text('경적'); }
-        if (stat.prog == 'phone')   { scheduler(phone); $('#program').text('전화'); }
-        if (stat.prog == 'sea')     { scheduler(sea); $('#program').text('바다'); }
-        if (stat.prog == 'trk01')   { scheduler(trk01); $('#program').text('track-01'); }
-        if (stat.prog == 'watcher') { scheduler(watcher); $('#program').text('관객'); }
-        if (stat.prog == 'machine') { scheduler(machine); $('#program').text('기계'); }
-        if (stat.prog == 'bee')     { scheduler(bee); $('#program').text('벌떼'); }
+        if (stat.prog == 'carhorn')   { scheduler(carhorn);   $('#program').text('경적'); }
+        if (stat.prog == 'phone')     { scheduler(phone);     $('#program').text('전화'); }
+        if (stat.prog == 'cricket')   { scheduler(cricket);   $('#program').text('귀뚜라미'); }
+        if (stat.prog == 'train')     { scheduler(train);     $('#program').text('기차'); }
+        if (stat.prog == 'brassball') { scheduler(brassball); $('#program').text('브라스와 공'); }
+        if (stat.prog == 'sea')       { scheduler(sea);       $('#program').text('바다'); }
+        if (stat.prog == 'trk01')     { scheduler(trk01);     $('#program').text('track-01'); }
+        if (stat.prog == 'watcher')   { scheduler(watcher);   $('#program').text('관객'); }
+        if (stat.prog == 'machine')   { scheduler(machine);   $('#program').text('기계'); }
+        if (stat.prog == 'bee')       { scheduler(bee);       $('#program').text('벌떼'); }
 	//
         if (stat.prog == 'edelweiss-band') {
 	    if (edelweiss_mode == 'band') {
@@ -199,10 +211,15 @@ $( document ).ready(function() {
 	
 	// stop all!!
 	else if (stat.prog == 'wait') {
+	    //
 	    clap.stop();
             count.stop();
+	    //
             carhorn.stop();
             phone.stop();
+            cricket.stop();
+            train.stop();
+            brassball.stop();
             sea.stop();
             trk01.stop();
             watcher.stop();

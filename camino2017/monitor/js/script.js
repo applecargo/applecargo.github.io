@@ -72,6 +72,9 @@ $( document ).ready(function() {
     
     $('#carhorn').click(function() { scheduler('carhorn'); });
     $('#phone').click(function() { scheduler('phone'); });
+    $('#cricket').click(function() { scheduler('cricket'); });
+    $('#train').click(function() { scheduler('train'); });
+    $('#brassball').click(function() { scheduler('brassball'); });
     $('#sea').click(function() { scheduler('sea'); });
     $('#trk01').click(function() { scheduler('trk01'); });
     $('#watcher').click(function() { scheduler('watcher'); });
