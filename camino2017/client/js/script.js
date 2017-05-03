@@ -167,11 +167,16 @@ $( document ).ready(function() {
         unlck(watcher);
 	unlck(machine);
 	unlck(bee);
-	if (edelweiss_mode == 'band') { unlck(edelweiss_band); }
-	else if (edelweiss_mode == 'singer') {
-	    for (var i = 0; i < 10; i++) {
-		unlck(edelweiss_singer[i]);
-	    }
+	// if (edelweiss_mode == 'band') { unlck(edelweiss_band); }
+	// else if (edelweiss_mode == 'singer') {
+	//     for (var i = 0; i < 10; i++) {
+	// 	unlck(edelweiss_singer[i]);
+	//     }
+	// }
+	//intentionally removing if-clauses..
+	unlck(edelweiss_band);
+	for (var i = 0; i < 10; i++) {
+	    unlck(edelweiss_singer[i]);
 	}
     }
 
@@ -230,6 +235,7 @@ $( document ).ready(function() {
 		$('#program').text('에델바이스-밴드');
 	    }
 	    else if (edelweiss_mode == 'singer') {
+		//singers are always active!
 		$('#program').text('에델바이스-싱어');
 	    }
 	}
