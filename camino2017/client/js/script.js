@@ -162,6 +162,10 @@ $( document ).ready(function() {
 	clap.play();
     });
     
+    socket.on('54321', function() {
+	count.play();
+    });
+    
     //update system status
     socket.on('schedule', function(stat) {
         // // console.log(stat);
