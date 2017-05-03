@@ -257,16 +257,21 @@ $( document ).ready(function() {
     });
     
     $('#unlock').click(function() {
-	//
-        clap.play();
 	
         //let's unlock all sounds.. with single touch!
 	unlock_sounds(); // this will also stop all.
 
+	//clear message box.
 	$('#program').text('-');
+	
+	//play some very short audio to remove notification area player!!
+        clap.play();
 
-	//query schedule!
-	socket.emit('query-schedule');
+	//wait a bit and re-schedule
+	setTimeout(function() {
+	    //query schedule!
+	    socket.emit('query-schedule');
+	}, 100);
     });
     
 });
