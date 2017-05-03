@@ -225,8 +225,13 @@ $( document ).ready(function() {
         if (stat.prog == 'bee')     { scheduler(bee); $('#program').text('벌떼'); }
 	//
         if (stat.prog == 'edelweiss-band') {
-	    $('#program').text('에델바이스');
-	    if (edelweiss_mode == 'band') { scheduler(edelweiss_band); }
+	    if (edelweiss_mode == 'band') {
+		scheduler(edelweiss_band);
+		$('#program').text('에델바이스-밴드');
+	    }
+	    else if (edelweiss_mode == 'singer') {
+		$('#program').text('에델바이스-싱어');
+	    }
 	}
 	
 	// stop all!!
