@@ -69,21 +69,21 @@ $( document ).ready(function() {
 
     if (edelweiss_mode == 'band') {
 	url = "audio/edelweiss/band@3/" + ("0" + Math.floor(Math.random()*3+1)).slice(-2) + ".mp3";
-	var edelweiss_band = new Howl({ src: url, html5: true });
+	var edelweiss_band = new Howl({ src: url, html5: false });
     }
     else if (edelweiss_mode == 'singer') {
 	url = "audio/edelweiss/voice@9/" + Math.floor(Math.random()*9+1) + "/";
 	var edelweiss_singer = [
-	    new Howl({ src: url + "do.mp3", html5: true }),
-	    new Howl({ src: url + "re.mp3", html5: true }),
-	    new Howl({ src: url + "mi.mp3", html5: true }),
-	    new Howl({ src: url + "fa.mp3", html5: true }),
-	    new Howl({ src: url + "sol.mp3", html5: true }),
-	    new Howl({ src: url + "la.mp3", html5: true }),
-	    new Howl({ src: url + "si.mp3", html5: true }),
-	    new Howl({ src: url + "highdo.mp3", html5: true }),
-	    new Howl({ src: url + "highre.mp3", html5: true }),
-	    new Howl({ src: url + "highmi.mp3", html5: true })
+	    new Howl({ src: url + "do.mp3", html5: false }),
+	    new Howl({ src: url + "re.mp3", html5: false }),
+	    new Howl({ src: url + "mi.mp3", html5: false }),
+	    new Howl({ src: url + "fa.mp3", html5: false }),
+	    new Howl({ src: url + "sol.mp3", html5: false }),
+	    new Howl({ src: url + "la.mp3", html5: false }),
+	    new Howl({ src: url + "si.mp3", html5: false }),
+	    new Howl({ src: url + "highdo.mp3", html5: false }),
+	    new Howl({ src: url + "highre.mp3", html5: false }),
+	    new Howl({ src: url + "highmi.mp3", html5: false })
 	];
 	
 	//sing-note (only for 'notes' people.
@@ -128,31 +128,31 @@ $( document ).ready(function() {
 
     //
     url = "audio/clap.wav";
-    var clap = new Howl({ src: url, html5: true });
+    var clap = new Howl({ src: url, html5: false });
     //
     url = "audio/54321.mp3";
-    var count = new Howl({ src: url, html5: true });
+    var count = new Howl({ src: url, html5: false });
     //
     url = "audio/car-horn@10/" + ("0" + Math.floor(Math.random()*10+1)).slice(-2) + ".mp3";
-    var carhorn = new Howl({ src: url, html5: true });
+    var carhorn = new Howl({ src: url, html5: false });
     //
     url = "audio/phonecall-cricket@30/" + ("0" + Math.floor(Math.random()*30+1)).slice(-2) + ".mp3";
-    var phone = new Howl({ src: url, html5: true });
+    var phone = new Howl({ src: url, html5: false });
     //
     url = "audio/sea@9/" + ("0" + Math.floor(Math.random()*9+1)).slice(-2) + ".mp3";
-    var sea = new Howl({ src: url, html5: true });
+    var sea = new Howl({ src: url, html5: false });
     //
     url = "audio/trk01@30/" + ("0" + Math.floor(Math.random()*30+1)).slice(-2) + ".mp3";
-    var trk01 = new Howl({ src: url, html5: true });
+    var trk01 = new Howl({ src: url, html5: false });
     //
     url = "audio/watcher@5/" + ("0" + Math.floor(Math.random()*5+1)).slice(-2) + ".mp3";
-    var watcher = new Howl({ src: url, html5: true });
+    var watcher = new Howl({ src: url, html5: false });
     //
     url = "audio/machine@13/" + ("0" + Math.floor(Math.random()*13+1)).slice(-2) + ".mp3";
-    var machine = new Howl({ src: url, html5: true });
+    var machine = new Howl({ src: url, html5: false });
     //
     url = "audio/bee@8/" + ("0" + Math.floor(Math.random()*8+1)).slice(-2) + ".mp3";
-    var bee = new Howl({ src: url, html5: true });
+    var bee = new Howl({ src: url, html5: false });
 
     //unlocking sounds
     function unlock_sounds() {
@@ -264,7 +264,7 @@ $( document ).ready(function() {
 	//clear message box.
 	$('#program').text('-');
 	
-	//play some very short audio to remove notification area player!!
+	//play some very short audio to remove notification area player!! ?????
         clap.play();
 
 	//wait a bit and re-schedule
