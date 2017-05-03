@@ -257,6 +257,9 @@ $( document ).ready(function() {
     });
     
     $('#unlock').click(function() {
+	//
+        clap.play();
+	
         //let's unlock all sounds.. with single touch!
 	unlock_sounds(); // this will also stop all.
 
