@@ -208,7 +208,9 @@ $( document ).ready(function() {
             watcher.stop();
 	    machine.stop();
 	    bee.stop();
-	    edelweiss_band.stop();
+            if (stat.prog == 'edelweiss-band') {
+		edelweiss_band.stop();
+	    }
 	    $('#program').text('-');
 	}
 
