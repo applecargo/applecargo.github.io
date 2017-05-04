@@ -161,20 +161,48 @@ $( document ).ready(function() {
     url = "audio/watcher@5/" + ("0" + Math.floor(Math.random()*5+1)).slice(-2) + ".mp3";
     var watcher = new Howl({ src: url, html5: false });
 
+    //announcements
+    url = "audio/clap.wav";         var clap         = new Howl({ src: url, html5: false });
+    url = "audio/54321.mp3";        var count        = new Howl({ src: url, html5: false });
+    url = "audio/10meg.mp3";        var meg10        = new Howl({ src: url, html5: false });
+    url = "audio/ansanintro.mp3";   var ansanintro   = new Howl({ src: url, html5: false });
+    url = "audio/citizenintro.mp3"; var citizenintro = new Howl({ src: url, html5: false });
+    url = "audio/clap.wav";         var clap         = new Howl({ src: url, html5: false });
+    url = "audio/enablespk.mp3";    var enablespk    = new Howl({ src: url, html5: false });
+    url = "audio/enablespk-w.mp3";  var enablespk_w  = new Howl({ src: url, html5: false });
+    url = "audio/maxvol-d.mp3";     var maxvol_d     = new Howl({ src: url, html5: false });
+    url = "audio/maxvol-w.mp3";     var maxvol_w     = new Howl({ src: url, html5: false });
+    url = "audio/playhelp.mp3";     var playhelp     = new Howl({ src: url, html5: false });
+    url = "audio/spkon.mp3";        var spkon        = new Howl({ src: url, html5: false });
+    url = "audio/spkon-slow.mp3";   var spkon_slow   = new Howl({ src: url, html5: false });
+    url = "audio/spkon-w.mp3";      var spkon_w      = new Howl({ src: url, html5: false });
+    url = "audio/trybutton-w.mp3";  var trybutton_w  = new Howl({ src: url, html5: false });
+    url = "audio/webpage2-w.mp3";   var webpage2_w   = new Howl({ src: url, html5: false });
+    url = "audio/webpage-w.mp3";    var webpage_w    = new Howl({ src: url, html5: false });
+
     //sndcheck audio
     $('.ui-clap').click(function() {
         clap.play();
     });
     
-    //netcheck audio
-    socket.on('clap', function() {
-	clap.play();
-    });
-    
-    socket.on('54321', function() {
-	count.play();
-    });
-    
+    //net msg.
+    socket.on('54321',        function() { count.play(); });
+    socket.on('10meg',        function() { meg10.play(); });
+    socket.on('ansanintro',   function() { ansanintro.play(); });
+    socket.on('citizenintro', function() { citizenintro.play(); });
+    socket.on('clap',         function() { clap.play(); });
+    socket.on('enablespk',    function() { enablespk.play(); });
+    socket.on('enablespk-w',  function() { enablespk_w.play(); });
+    socket.on('maxvol-d',     function() { maxvol_d.play(); });
+    socket.on('maxvol-w',     function() { maxvol_w.play(); });
+    socket.on('playhelp',     function() { playhelp.play(); });
+    socket.on('spkon',        function() { spkon.play(); });
+    socket.on('spkon-slow',   function() { spkon_slow.play(); });
+    socket.on('spkon-w',      function() { spkon_w.play(); });
+    socket.on('trybutton-w',  function() { trybutton_w.play(); });
+    socket.on('webpage2-w',   function() { webpage2_w.play(); });
+    socket.on('webpage-w',    function() { webpage_w.play(); });
+
     //update system status
     socket.on('schedule', function(stat) {
         // // console.log(stat);
@@ -211,9 +239,24 @@ $( document ).ready(function() {
 	
 	// stop all!!
 	else if (stat.prog == 'wait') {
-	    //
-	    clap.stop();
+            //announcements
             count.stop();
+            meg10.stop();
+            ansanintro.stop();
+            citizenintro.stop();
+            clap.stop();
+            enablespk.stop();
+            enablespk_w.stop();
+            maxvol_d.stop();
+            maxvol_w.stop();
+            stophelp.stop();
+            spkon.stop();
+            spkon_slow.stop();
+            spkon_w.stop();
+            trybutton_w.stop();
+            webpage2_w.stop();
+            webpage_w.stop();
+
 	    //
             carhorn.stop();
             phone.stop();

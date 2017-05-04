@@ -30,43 +30,49 @@ $( document ).ready(function() {
         socket.on('disconnect', function() { console.log('disconnected'); });
     });
     
-    //instant clap all!
-    $('#clap-all').click(function() {
-	console.log('clap-all');
-	socket.emit('clap-all');
-    });
+    //(on server) msg. routing..
+    // socket.on('54321-all',        function() { ioInst.emit('54321'); });
+    // socket.on('10meg-all',        function() { ioInst.emit('10meg'); });
+    // socket.on('ansanintro-all',   function() { ioInst.emit('ansanintro'); });
+    // socket.on('citizenintro-all', function() { ioInst.emit('citizenintro'); });
+    // socket.on('clap-all',         function() { ioInst.emit('clap'); });
+    // socket.on('enablespk-all',    function() { ioInst.emit('enablespk'); });
+    // socket.on('enablespk-w-all',  function() { ioInst.emit('enablespk-w'); });
+    // socket.on('maxvol-d-all',     function() { ioInst.emit('maxvol-d'); });
+    // socket.on('maxvol-w-all',     function() { ioInst.emit('maxvol-w'); });
+    // socket.on('playhelp-all',     function() { ioInst.emit('playhelp'); });
+    // socket.on('spkon-all',        function() { ioInst.emit('spkon'); });
+    // socket.on('spkon-slow-all',   function() { ioInst.emit('spkon-slow'); });
+    // socket.on('spkon-w-all',      function() { ioInst.emit('spkon-w'); });
+    // socket.on('trybutton-w-all',  function() { ioInst.emit('trybutton-w'); });
+    // socket.on('webpage2-w-all',   function() { ioInst.emit('webpage2-w'); });
+    // socket.on('webpage-w-all',    function() { ioInst.emit('webpage-w'); });
 
-    //instant 54321 all!
-    $('#54321-all').click(function() {
-	console.log('54321-all');
-	socket.emit('54321-all');
-    });
+    //instant clap all! (announcements)
+    $('#54321-all').click(function() { socket.emit('54321-all'); });
+    $('#10meg-all').click(function() { socket.emit('10meg-all'); });
+    $('#ansanintro-all').click(function() { socket.emit('ansanintro-all'); });
+    $('#citizenintro-all').click(function() { socket.emit('citizenintro-all'); });
+    $('#clap-all').click(function() { socket.emit('clap-all'); });
+    $('#enablespk-all').click(function() { socket.emit('enablespk-all'); });
+    $('#enablespk-w-all').click(function() { socket.emit('enablespk-w-all'); });
+    $('#maxvol-d-all').click(function() { socket.emit('maxvol-d-all'); });
+    $('#maxvol-w-all').click(function() { socket.emit('maxvol-w-all'); });
+    $('#playhelp-all').click(function() { socket.emit('playhelp-all'); });
+    $('#spkon-all').click(function() { socket.emit('spkon-all'); });
+    $('#spkon-slow-all').click(function() { socket.emit('spkon-slow-all'); });
+    $('#spkon-w-all').click(function() { socket.emit('spkon-w-all'); });
+    $('#trybutton-w-all').click(function() { socket.emit('trybutton-w-all'); });
+    $('#webpage2-w-all').click(function() { socket.emit('webpage2-w-all'); });
+    $('#webpage-w-all').click(function() { socket.emit('webpage-w-all'); });
 
     //emergency stop! - when you want to cancel immediately.
     $('#stop-all').click(function() {
-	// socket.emit('schedule', {
-	//     'prog':'wait',
-	//     'sched_start':0,
-	//     'sched_stop':0
-	// });
 	socket.emit('schedule', { 'prog':'wait' });
     });
 
     //scheduling
-    
-    //you can bang twice!!
-    // var startdelay_def = 3000; // in ms, default start delay time 3 sec.
-
     scheduler = function(prog_name) {
-	// //post a schedule
-	// var sched_start = ( Date.now() + startdelay_def );
-	// var sched_stop = 0; // play once till the end
-	
-	// socket.emit('schedule', {
-	//     'prog':prog_name,
-	//     'sched_start':sched_start,
-	//     'sched_stop':sched_stop
-	// });
 	socket.emit('schedule', { 'prog':prog_name });
     }
     
