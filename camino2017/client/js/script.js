@@ -264,8 +264,6 @@ $( document ).ready(function() {
             trybutton_w.stop();
             webpage2_w.stop();
             webpage_w.stop();
-	    tuba.stop();
-	    bell.stop();
 
 	    //
             carhorn.stop();
@@ -278,6 +276,8 @@ $( document ).ready(function() {
             watcher.stop();
 	    machine.stop();
 	    bee.stop();
+	    tuba.stop();
+	    bell.stop();
 	    if (edelweiss_mode == 'band') {
 		edelweiss_band.stop();
 	    }
