@@ -257,7 +257,7 @@ $( document ).ready(function() {
             enablespk_w.stop();
             maxvol_d.stop();
             maxvol_w.stop();
-            stophelp.stop();
+            playhelp.stop();
             spkon.stop();
             spkon_slow.stop();
             spkon_w.stop();
