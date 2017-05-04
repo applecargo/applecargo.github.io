@@ -86,5 +86,7 @@ $( document ).ready(function() {
     $('#watcher').click(function() { scheduler('watcher'); });
     $('#machine').click(function() { scheduler('machine'); });
     $('#bee').click(function() { scheduler('bee'); });
+    $('#tuba').click(function() { scheduler('tuba'); });
+    $('#bell').click(function() { scheduler('bell'); });
     $('#edelweiss-band').click(function() { scheduler('edelweiss-band'); });
 });    

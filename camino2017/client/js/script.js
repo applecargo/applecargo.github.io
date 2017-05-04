@@ -160,6 +160,12 @@ $( document ).ready(function() {
     //
     url = "audio/watcher@5/" + ("0" + Math.floor(Math.random()*5+1)).slice(-2) + ".mp3";
     var watcher = new Howl({ src: url, html5: false });
+    //
+    url = "audio/tuba@7/" + ("0" + Math.floor(Math.random()*7+1)).slice(-2) + ".mp3";
+    var tuba = new Howl({ src: url, html5: false });
+    //
+    url = "audio/bell@3/" + ("0" + Math.floor(Math.random()*3+1)).slice(-2) + ".mp3";
+    var bell = new Howl({ src: url, html5: false });
 
     //announcements
     url = "audio/clap.wav";         var clap         = new Howl({ src: url, html5: false });
@@ -225,6 +231,8 @@ $( document ).ready(function() {
         if (stat.prog == 'watcher')   { scheduler(watcher);   $('#program').text('관객'); }
         if (stat.prog == 'machine')   { scheduler(machine);   $('#program').text('기계'); }
         if (stat.prog == 'bee')       { scheduler(bee);       $('#program').text('벌떼'); }
+        if (stat.prog == 'tuba')      { scheduler(tuba);      $('#program').text('투바'); }
+        if (stat.prog == 'bell')      { scheduler(bell);      $('#program').text('종'); }
 	//
         if (stat.prog == 'edelweiss-band') {
 	    if (edelweiss_mode == 'band') {
@@ -256,6 +264,8 @@ $( document ).ready(function() {
             trybutton_w.stop();
             webpage2_w.stop();
             webpage_w.stop();
+	    tuba.stop();
+	    bell.stop();
 
 	    //
             carhorn.stop();
