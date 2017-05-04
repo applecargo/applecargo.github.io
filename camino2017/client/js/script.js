@@ -149,7 +149,7 @@ $( document ).ready(function() {
     url = "audio/phone@10/" + ("0" + Math.floor(Math.random()*10+1)).slice(-2) + ".mp3";
     var phone = new Howl({ src: url, html5: false });
     //
-    url = "audio/sea@9/" + ("0" + Math.floor(Math.random()*9+1)).slice(-2) + ".mp3";
+    url = "audio/sea@15/" + ("0" + Math.floor(Math.random()*15+1)).slice(-2) + ".mp3";
     var sea = new Howl({ src: url, html5: false });
     //
     url = "audio/train@1/" + ("0" + Math.floor(Math.random()*1+1)).slice(-2) + ".mp3";
