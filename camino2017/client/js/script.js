@@ -1,3 +1,5 @@
+var phmix;
+
 $( document ).ready(function() {
     
     $('.ui-btn').click(function() {
@@ -70,7 +72,7 @@ $( document ).ready(function() {
 	var edelweiss_band = new Howl({ src: url, html5: false });
     }
     else if (edelweiss_mode == 'singer') {
-	url = "audio/edelweiss/voice@9/" + Math.floor(Math.random()*9+1) + "/";
+	url = "audio/edelweiss/voice@10/" + Math.floor(Math.random()*10+1) + "/";
 	var edelweiss_singer = [
 	    new Howl({ src: url + "do.mp3", html5: false }),
 	    new Howl({ src: url + "re.mp3", html5: false }),
@@ -137,8 +139,11 @@ $( document ).ready(function() {
     url = "audio/brassball@9/" + ("0" + Math.floor(Math.random()*9+1)).slice(-2) + ".mp3";
     var brassball = new Howl({ src: url, html5: false });
     //
-    url = "audio/car-horn@10/" + ("0" + Math.floor(Math.random()*10+1)).slice(-2) + ".mp3";
+    url = "audio/carhorn@10/" + ("0" + Math.floor(Math.random()*10+1)).slice(-2) + ".mp3";
     var carhorn = new Howl({ src: url, html5: false });
+    //
+    url = "audio/carhorn-mix@10/" + ("0" + Math.floor(Math.random()*10+1)).slice(-2) + ".mp3";
+    var carhornmix = new Howl({ src: url, html5: false });
     //
     url = "audio/cricket@30/" + ("0" + Math.floor(Math.random()*30+1)).slice(-2) + ".mp3";
     var cricket = new Howl({ src: url, html5: false });
@@ -148,6 +153,10 @@ $( document ).ready(function() {
     //
     url = "audio/phone@10/" + ("0" + Math.floor(Math.random()*10+1)).slice(-2) + ".mp3";
     var phone = new Howl({ src: url, html5: false });
+    //
+    url = "audio/phone-mix@3/" + ("0" + Math.floor(Math.random()*3+1)).slice(-2) + ".mp3";
+    var phonemix = new Howl({ src: url, html5: false });
+    phmix = phonemix;
     //
     url = "audio/sea@15/" + ("0" + Math.floor(Math.random()*15+1)).slice(-2) + ".mp3";
     var sea = new Howl({ src: url, html5: false });
@@ -211,7 +220,7 @@ $( document ).ready(function() {
 
     //update system status
     socket.on('schedule', function(stat) {
-        // // console.log(stat);
+        console.log(stat.prog);
 	// resyncClock(stat.ctime); //re-syncronize clock
 	// var now = getTimeNow(); //get server time
 
@@ -221,18 +230,20 @@ $( document ).ready(function() {
 	//// manage programs
 	
 	//
-        if (stat.prog == 'carhorn')   { scheduler(carhorn);   $('#program').text('경적'); }
-        if (stat.prog == 'phone')     { scheduler(phone);     $('#program').text('전화'); }
-        if (stat.prog == 'cricket')   { scheduler(cricket);   $('#program').text('귀뚜라미'); }
-        if (stat.prog == 'train')     { scheduler(train);     $('#program').text('기차'); }
-        if (stat.prog == 'brassball') { scheduler(brassball); $('#program').text('브라스와 공'); }
-        if (stat.prog == 'sea')       { scheduler(sea);       $('#program').text('바다'); }
-        if (stat.prog == 'trk01')     { scheduler(trk01);     $('#program').text('track-01'); }
-        if (stat.prog == 'watcher')   { scheduler(watcher);   $('#program').text('관객'); }
-        if (stat.prog == 'machine')   { scheduler(machine);   $('#program').text('기계'); }
-        if (stat.prog == 'bee')       { scheduler(bee);       $('#program').text('벌떼'); }
-        if (stat.prog == 'tuba')      { scheduler(tuba);      $('#program').text('투바'); }
-        if (stat.prog == 'bell')      { scheduler(bell);      $('#program').text('종'); }
+        if (stat.prog == 'carhorn')     { scheduler(carhorn);    $('#program').text('경적'); }
+        if (stat.prog == 'carhorn-mix') { scheduler(carhornmix); $('#program').text('경적Mix'); }
+        if (stat.prog == 'phone')       { scheduler(phone);      $('#program').text('전화'); }
+        if (stat.prog == 'phone-mix')   { scheduler(phonemix);   $('#program').text('전화Mix'); }
+        if (stat.prog == 'cricket')     { scheduler(cricket);    $('#program').text('귀뚜라미'); }
+        if (stat.prog == 'train')       { scheduler(train);      $('#program').text('기차'); }
+        if (stat.prog == 'brassball')   { scheduler(brassball);  $('#program').text('브라스와 공'); }
+        if (stat.prog == 'sea')         { scheduler(sea);        $('#program').text('바다'); }
+        if (stat.prog == 'trk01')       { scheduler(trk01);      $('#program').text('track-01'); }
+        if (stat.prog == 'watcher')     { scheduler(watcher);    $('#program').text('관객'); }
+        if (stat.prog == 'machine')     { scheduler(machine);    $('#program').text('기계'); }
+        if (stat.prog == 'bee')         { scheduler(bee);        $('#program').text('벌떼'); }
+        if (stat.prog == 'tuba')        { scheduler(tuba);       $('#program').text('투바'); }
+        if (stat.prog == 'bell')        { scheduler(bell);       $('#program').text('종'); }
 	//
         if (stat.prog == 'edelweiss-band') {
 	    if (edelweiss_mode == 'band') {
@@ -267,7 +278,9 @@ $( document ).ready(function() {
 
 	    //
             carhorn.stop();
+            carhornmix.stop();
             phone.stop();
+            phonemix.stop();
             cricket.stop();
             train.stop();
             brassball.stop();

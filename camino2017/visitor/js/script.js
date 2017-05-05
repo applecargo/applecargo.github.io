@@ -31,7 +31,7 @@ $( document ).ready(function() {
         var edelweiss_band = new Howl({ src: url, html5: false });
     }
     else if (edelweiss_mode == 'singer') {
-        url = "audio/edelweiss/voice@9/" + Math.floor(Math.random()*9+1) + "/";
+        url = "audio/edelweiss/voice@10/" + Math.floor(Math.random()*10+1) + "/";
         var edelweiss_singer = [
             new Howl({ src: url + "do.mp3", html5: false }),
             new Howl({ src: url + "re.mp3", html5: false }),
@@ -85,7 +85,7 @@ $( document ).ready(function() {
         });
     }
 
-    url = "audio/edelweiss/individual@11/" + ("0" + Math.floor(Math.random()*11+1)).slice(-2) + ".mp3";
+    url = "audio/edelweiss/individual@12/" + ("0" + Math.floor(Math.random()*12+1)).slice(-2) + ".mp3";
     var indi = new Howl({ src: url, html5: false });
 
     //announcements

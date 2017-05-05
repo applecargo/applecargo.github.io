@@ -14,221 +14,250 @@
   <body class="bg-light-blue min-h-100 h-auto">
     
     <!-- full page layout -->
-    <div class="vh-100 w-100 absolute top-0 left-0 bg-dark-green">
+    <div class="vh-100 w-100 absolute top-0 left-0 bg-navy">
       <div class="cf w-100 top-0">
 
-	<!-- monitoring page -->
-	<div class="ui-page fl w-100 bg-yellow" id="page-monitor">
-	  <div class="fl w-100">
-	    <div class="fl w-100 tc pv3 lh-copy f3 fw6 black">
-	      안산순례길<br>Camino de Ansan<br>(CONTROLLER)
-	    </div>
-	  </div>
+	<!-- pagination -->
+	<div class="pagination fl w-100 top-0 pt5">
+	  <div id="pagechgto-guide1" class="fl w-third h3 fw6 f3 bg-blue bw2 b--black ba yellow dt"><div class="dtc w-100 tc v-mid">guide1</div></div>
+	  <div id="pagechgto-guide2" class="fl w-third h3 fw6 f3 bg-blue bw2 b--black ba yellow dt"><div class="dtc w-100 tc v-mid">guide2</div></div>
+	  <div id="pagechgto-guide3" class="fl w-third h3 fw6 f3 bg-blue bw2 b--black ba yellow dt"><div class="dtc w-100 tc v-mid">guide3</div></div>
+	  <div id="pagechgto-sess1" class="fl w-third h3 fw6 f3 bg-blue bw2 b--black ba yellow dt"><div class="dtc w-100 tc v-mid">sess1</div></div>
+	  <div id="pagechgto-sess2" class="fl w-third h3 fw6 f3 bg-blue bw2 b--black ba yellow dt"><div class="dtc w-100 tc v-mid">sess2</div></div>
+	  <div id="pagechgto-sess3" class="fl w-third h3 fw6 f3 bg-blue bw2 b--black ba yellow dt"><div class="dtc w-100 tc v-mid">sess3</div></div>
+	</div>
+	
+	<!-- guide1 page -->
+	<div class="ui-page fl w-100 bg-yellow">
 	  <!-- stop all -->
-	  <div class="fl w-100"><div class="tc"><div class="dib w-50">stop-all
-	  </div><div class="dib w-50">
-	    <div id="stop-all" class="ui-btn dib br-100 w3 h3 bg-blue ba bw2 b--black"></div></div></div>
+	  <div class="fl w-100"><div class="dt center tc w-100"><div class="dtc v-mid f3 w-40">스톱
+	  </div><div class="dib w-40">
+	    <div class="stop-all ui-btn dib br-100 w3 h3 bg-blue ba bw2 b--black"></div></div></div>
 	  </div>
 	  <!-- announcements -->
-	  <div class="fl w-100"><div class="tc"><div class="dib w-50">54321-all
-	  </div><div class="dib w-50">
-	    <div id="54321-all" class="ui-btn dib br-100 w3 h3 bg-blue ba bw2 b--black"></div></div></div>
+	  <div class="fl w-100"><div class="dt center tc w-100"><div class="dtc v-mid f3 w-40">박수
+	  </div><div class="dib w-40">
+	    <div class="clap-all ui-btn dib br-100 w3 h3 bg-blue ba bw2 b--black"></div></div></div>
 	  </div>
-	  <div class="fl w-100"><div class="tc"><div class="dib w-50">10meg-all
-	  </div><div class="dib w-50">
-	    <div id="10meg-all" class="ui-btn dib br-100 w3 h3 bg-blue ba bw2 b--black"></div></div></div>
+	  <div class="fl w-100"><div class="dt center tc w-100"><div class="dtc v-mid f3 w-40">시티즌시작
+	  </div><div class="dib w-40">
+	    <div class="citizenintro-all ui-btn dib br-100 w3 h3 bg-blue ba bw2 b--black"></div></div></div>
 	  </div>
-	  <div class="fl w-100"><div class="tc"><div class="dib w-50">ansanintro-all
-	  </div><div class="dib w-50">
-	    <div id="ansanintro-all" class="ui-btn dib br-100 w3 h3 bg-blue ba bw2 b--black"></div></div></div>
+	  <div class="fl w-100"><div class="dt center tc w-100"><div class="dtc v-mid f3 w-40">진동해제S
+	  </div><div class="dib w-40">
+	    <div class="enablespk-all ui-btn dib br-100 w3 h3 bg-blue ba bw2 b--black"></div></div></div>
 	  </div>
-	  <div class="fl w-100"><div class="tc"><div class="dib w-50">citizenintro-all
-	  </div><div class="dib w-50">
-	    <div id="citizenintro-all" class="ui-btn dib br-100 w3 h3 bg-blue ba bw2 b--black"></div></div></div>
+	  <div class="fl w-100"><div class="dt center tc w-100"><div class="dtc v-mid f3 w-40">진동해제L
+	  </div><div class="dib w-40">
+	    <div class="enablespk-w-all ui-btn dib br-100 w3 h3 bg-blue ba bw2 b--black"></div></div></div>
 	  </div>
-	  <div class="fl w-100"><div class="tc"><div class="dib w-50">clap-all
-	  </div><div class="dib w-50">
-	    <div id="clap-all" class="ui-btn dib br-100 w3 h3 bg-blue ba bw2 b--black"></div></div></div>
+	  <div class="fl w-100"><div class="dt center tc w-100"><div class="dtc v-mid f3 w-40">볼륨S
+	  </div><div class="dib w-40">
+	    <div class="maxvol-d-all ui-btn dib br-100 w3 h3 bg-blue ba bw2 b--black"></div></div></div>
 	  </div>
-	  <div class="fl w-100"><div class="tc"><div class="dib w-50">enablespk-all
-	  </div><div class="dib w-50">
-	    <div id="enablespk-all" class="ui-btn dib br-100 w3 h3 bg-blue ba bw2 b--black"></div></div></div>
+	  <div class="fl w-100"><div class="dt center tc w-100"><div class="dtc v-mid f3 w-40">볼륨L
+	  </div><div class="dib w-40">
+	    <div class="maxvol-w-all ui-btn dib br-100 w3 h3 bg-blue ba bw2 b--black"></div></div></div>
 	  </div>
-	  <div class="fl w-100"><div class="tc"><div class="dib w-50">enablespk-w-all
-	  </div><div class="dib w-50">
-	    <div id="enablespk-w-all" class="ui-btn dib br-100 w3 h3 bg-blue ba bw2 b--black"></div></div></div>
+	  <div class="fl w-100"><div class="dt center tc w-100"><div class="dtc v-mid f3 w-40">54321
+	  </div><div class="dib w-40">
+	    <div class="54321-all ui-btn dib br-100 w3 h3 bg-blue ba bw2 b--black"></div></div></div>
 	  </div>
-	  <div class="fl w-100"><div class="tc"><div class="dib w-50">maxvol-d-all
-	  </div><div class="dib w-50">
-	    <div id="maxvol-d-all" class="ui-btn dib br-100 w3 h3 bg-blue ba bw2 b--black"></div></div></div>
+	</div>
+	
+	<!-- sess1 page -->
+	<div class="ui-page fl w-100 bg-black white b" style="display:none">
+	  <div class="fl w-100"><div class="dt center tc w-100"><div class="dtc v-mid f3 w-40">phone
+	  </div><div class="dib w-40">
+	    <div class="phone ui-btn dib br-100 w3 h3 bg-blue ba bw2 b--black"></div></div></div>
 	  </div>
-	  <div class="fl w-100"><div class="tc"><div class="dib w-50">maxvol-w-all
-	  </div><div class="dib w-50">
-	    <div id="maxvol-w-all" class="ui-btn dib br-100 w3 h3 bg-blue ba bw2 b--black"></div></div></div>
+	  <div class="fl w-100"><div class="dt center tc w-100"><div class="dtc v-mid f3 w-40">phone-mix
+	  </div><div class="dib w-40">
+	    <div class="phone-mix ui-btn dib br-100 w3 h3 bg-blue ba bw2 b--black"></div></div></div>
 	  </div>
-	  <div class="fl w-100"><div class="tc"><div class="dib w-50">playhelp-all
-	  </div><div class="dib w-50">
-	    <div id="playhelp-all" class="ui-btn dib br-100 w3 h3 bg-blue ba bw2 b--black"></div></div></div>
+	  <div class="fl w-100"><div class="dt center tc w-100"><div class="dtc v-mid f3 w-40">bell
+	  </div><div class="dib w-40">
+	    <div class="bell ui-btn dib br-100 w3 h3 bg-blue ba bw2 b--black"></div></div></div>
 	  </div>
-	  <div class="fl w-100"><div class="tc"><div class="dib w-50">spkon-all
-	  </div><div class="dib w-50">
-	    <div id="spkon-all" class="ui-btn dib br-100 w3 h3 bg-blue ba bw2 b--black"></div></div></div>
+	  <div class="fl w-100"><div class="dt center tc w-100"><div class="dtc v-mid f3 w-40">(bee)
+	  </div><div class="dib w-40">
+	    <div class="bee ui-btn dib br-100 w3 h3 bg-blue ba bw2 b--black"></div></div></div>
 	  </div>
-	  <div class="fl w-100"><div class="tc"><div class="dib w-50">spkon-slow-all
-	  </div><div class="dib w-50">
-	    <div id="spkon-slow-all" class="ui-btn dib br-100 w3 h3 bg-blue ba bw2 b--black"></div></div></div>
+	  <div class="fl w-100"><div class="dt center tc w-100"><div class="dtc v-mid f3 w-40">train
+	  </div><div class="dib w-40">
+	    <div class="train ui-btn dib br-100 w3 h3 bg-blue ba bw2 b--black"></div></div></div>
 	  </div>
-	  <div class="fl w-100"><div class="tc"><div class="dib w-50">spkon-w-all
-	  </div><div class="dib w-50">
-	    <div id="spkon-w-all" class="ui-btn dib br-100 w3 h3 bg-blue ba bw2 b--black"></div></div></div>
+	  <div class="fl w-100"><div class="dt center tc w-100"><div class="dtc v-mid f3 w-40">cricket
+	  </div><div class="dib w-40">
+	    <div class="cricket ui-btn dib br-100 w3 h3 bg-blue ba bw2 b--black"></div></div></div>
 	  </div>
-	  <div class="fl w-100"><div class="tc"><div class="dib w-50">trybutton-w-all
-	  </div><div class="dib w-50">
-	    <div id="trybutton-w-all" class="ui-btn dib br-100 w3 h3 bg-blue ba bw2 b--black"></div></div></div>
+	  <div class="fl w-100"><div class="dt center tc w-100"><div class="dtc v-mid f3 w-40">watcher
+	  </div><div class="dib w-40">
+	    <div class="watcher ui-btn dib br-100 w3 h3 bg-blue ba bw2 b--black"></div></div></div>
 	  </div>
-	  <div class="fl w-100"><div class="tc"><div class="dib w-50">webpage2-w-all
-	  </div><div class="dib w-50">
-	    <div id="webpage2-w-all" class="ui-btn dib br-100 w3 h3 bg-blue ba bw2 b--black"></div></div></div>
+	  <div class="fl w-100"><div class="dt center tc w-100"><div class="dtc v-mid f3 w-40">carhorn-mix
+	  </div><div class="dib w-40">
+	    <div class="carhorn-mix ui-btn dib br-100 w3 h3 bg-blue ba bw2 b--black"></div></div></div>
 	  </div>
-	  <div class="fl w-100"><div class="tc"><div class="dib w-50">webpage-w-all
-	  </div><div class="dib w-50">
-	    <div id="webpage-w-all" class="ui-btn dib br-100 w3 h3 bg-blue ba bw2 b--black"></div></div></div>
+	  <div class="fl w-100"><div class="dt center tc w-100"><div class="dtc v-mid f3 w-40">carhorn
+	  </div><div class="dib w-40">
+	    <div class="carhorn ui-btn dib br-100 w3 h3 bg-blue ba bw2 b--black"></div></div></div>
 	  </div>
-	  <!-- announcements end -->
-	  <div class="fl w-100">
-	    <div class="tc">
-	      <div class="dib w-50">
-		carhorn
-	      </div>
-	      <div class="dib w-50">
-		<div id="carhorn" class="ui-btn dib br-100 w2 h2 bg-blue ba bw2 b--black"></div>
-	      </div>
-	    </div>
+	</div>
+	
+	<!-- guide2 page -->
+	<div class="ui-page fl w-100 bg-light-green" style="display:none">
+	  <!-- stop all -->
+	  <div class="fl w-100"><div class="dt center tc w-100"><div class="dtc v-mid f3 w-40">스톱
+	  </div><div class="dib w-40">
+	    <div class="stop-all ui-btn dib br-100 w3 h3 bg-blue ba bw2 b--black"></div></div></div>
 	  </div>
-	  <div class="fl w-100">
-	    <div class="tc">
-	      <div class="dib w-50">
-		phone
-	      </div>
-	      <div class="dib w-50">
-		<div id="phone" class="ui-btn dib br-100 w2 h2 bg-blue ba bw2 b--black"></div>
-	      </div>
-	    </div>
+	  <!-- announcements -->
+	  <div class="fl w-100"><div class="dt center tc w-100"><div class="dtc v-mid f3 w-40">박수
+	  </div><div class="dib w-40">
+	    <div class="clap-all ui-btn dib br-100 w3 h3 bg-blue ba bw2 b--black"></div></div></div>
 	  </div>
-	  <div class="fl w-100">
-	    <div class="tc">
-	      <div class="dib w-50">
-		cricket
-	      </div>
-	      <div class="dib w-50">
-		<div id="cricket" class="ui-btn dib br-100 w2 h2 bg-blue ba bw2 b--black"></div>
-	      </div>
-	    </div>
+	  <div class="fl w-100"><div class="dt center tc w-100"><div class="dtc v-mid f3 w-40">시티즌시작
+	  </div><div class="dib w-40">
+	    <div class="citizenintro-all ui-btn dib br-100 w3 h3 bg-blue ba bw2 b--black"></div></div></div>
 	  </div>
-	  <div class="fl w-100">
-	    <div class="tc">
-	      <div class="dib w-50">
-		train
-	      </div>
-	      <div class="dib w-50">
-		<div id="train" class="ui-btn dib br-100 w2 h2 bg-blue ba bw2 b--black"></div>
-	      </div>
-	    </div>
+	  <div class="fl w-100"><div class="dt center tc w-100"><div class="dtc v-mid f3 w-40">진동해제S
+	  </div><div class="dib w-40">
+	    <div class="enablespk-all ui-btn dib br-100 w3 h3 bg-blue ba bw2 b--black"></div></div></div>
 	  </div>
-	  <div class="fl w-100">
-	    <div class="tc">
-	      <div class="dib w-50">
-		sea
-	      </div>
-	      <div class="dib w-50">
-		<div id="sea" class="ui-btn dib br-100 w2 h2 bg-blue ba bw2 b--black"></div>
-	      </div>
-	    </div>
+	  <div class="fl w-100"><div class="dt center tc w-100"><div class="dtc v-mid f3 w-40">진동해제L
+	  </div><div class="dib w-40">
+	    <div class="enablespk-w-all ui-btn dib br-100 w3 h3 bg-blue ba bw2 b--black"></div></div></div>
 	  </div>
-	  <div class="fl w-100">
-	    <div class="tc">
-	      <div class="dib w-50">
-		brassball
-	      </div>
-	      <div class="dib w-50">
-		<div id="brassball" class="ui-btn dib br-100 w2 h2 bg-blue ba bw2 b--black"></div>
-	      </div>
-	    </div>
+	  <div class="fl w-100"><div class="dt center tc w-100"><div class="dtc v-mid f3 w-40">볼륨S
+	  </div><div class="dib w-40">
+	    <div class="maxvol-d-all ui-btn dib br-100 w3 h3 bg-blue ba bw2 b--black"></div></div></div>
 	  </div>
-	  <div class="fl w-100">
-	    <div class="tc">
-	      <div class="dib w-50">
-		trk01
-	      </div>
-	      <div class="dib w-50">
-		<div id="trk01" class="ui-btn dib br-100 w2 h2 bg-blue ba bw2 b--black"></div>
-	      </div>
-	    </div>
+	  <div class="fl w-100"><div class="dt center tc w-100"><div class="dtc v-mid f3 w-40">볼륨L
+	  </div><div class="dib w-40">
+	    <div class="maxvol-w-all ui-btn dib br-100 w3 h3 bg-blue ba bw2 b--black"></div></div></div>
 	  </div>
-	  <div class="fl w-100">
-	    <div class="tc">
-	      <div class="dib w-50">
-		watcher
-	      </div>
-	      <div class="dib w-50">
-		<div id="watcher" class="ui-btn dib br-100 w2 h2 bg-blue ba bw2 b--black"></div>
-	      </div>
-	    </div>
+	  <div class="fl w-100"><div class="dt center tc w-100"><div class="dtc v-mid f3 w-40">54321
+	  </div><div class="dib w-40">
+	    <div class="54321-all ui-btn dib br-100 w3 h3 bg-blue ba bw2 b--black"></div></div></div>
 	  </div>
-	  <div class="fl w-100">
-	    <div class="tc">
-	      <div class="dib w-50">
-		machine
-	      </div>
-	      <div class="dib w-50">
-		<div id="machine" class="ui-btn dib br-100 w2 h2 bg-blue ba bw2 b--black"></div>
-	      </div>
-	    </div>
+	</div>
+	
+	<!-- sess2 page -->
+	<div class="ui-page fl w-100 bg-dark-blue white b" style="display:none">
+	  <div class="fl w-100"><div class="dt center tc w-100"><div class="dtc v-mid f3 w-40">brassball
+	  </div><div class="dib w-40">
+	    <div class="brassball ui-btn dib br-100 w3 h3 bg-blue ba bw2 b--black"></div></div></div>
 	  </div>
-	  <div class="fl w-100">
-	    <div class="tc">
-	      <div class="dib w-50">
-		bee
-	      </div>
-	      <div class="dib w-50">
-		<div id="bee" class="ui-btn dib br-100 w2 h2 bg-blue ba bw2 b--black"></div>
-	      </div>
-	    </div>
+	  <div class="fl w-100"><div class="dt center tc w-100"><div class="dtc v-mid f3 w-40">tuba
+	  </div><div class="dib w-40">
+	    <div class="tuba ui-btn dib br-100 w3 h3 bg-blue ba bw2 b--black"></div></div></div>
 	  </div>
-	  <div class="fl w-100">
-	    <div class="tc">
-	      <div class="dib w-50">
-		tuba
-	      </div>
-	      <div class="dib w-50">
-		<div id="tuba" class="ui-btn dib br-100 w2 h2 bg-blue ba bw2 b--black"></div>
-	      </div>
-	    </div>
+	  <div class="fl w-100"><div class="dt center tc w-100"><div class="dtc v-mid f3 w-40">trk01
+	  </div><div class="dib w-40">
+	    <div class="trk01 ui-btn dib br-100 w3 h3 bg-blue ba bw2 b--black"></div></div></div>
 	  </div>
-	  <div class="fl w-100">
-	    <div class="tc">
-	      <div class="dib w-50">
-		bell
-	      </div>
-	      <div class="dib w-50">
-		<div id="bell" class="ui-btn dib br-100 w2 h2 bg-blue ba bw2 b--black"></div>
-	      </div>
-	    </div>
+	  <div class="fl w-100"><div class="dt center tc w-100"><div class="dtc v-mid f3 w-40">phone
+	  </div><div class="dib w-40">
+	    <div class="phone ui-btn dib br-100 w3 h3 bg-blue ba bw2 b--black"></div></div></div>
 	  </div>
-	  <div class="fl w-100">
-	    <div class="tc">
-	      <div class="dib w-50">
-		edelweiss-band
-	      </div>
-	      <div class="dib w-50">
-		<div id="edelweiss-band" class="ui-btn dib br-100 w2 h2 bg-blue ba bw2 b--black"></div>
-	      </div>
-	    </div>
+	  <div class="fl w-100"><div class="dt center tc w-100"><div class="dtc v-mid f3 w-40">cricket
+	  </div><div class="dib w-40">
+	    <div class="cricket ui-btn dib br-100 w3 h3 bg-blue ba bw2 b--black"></div></div></div>
+	  </div>
+	  <div class="fl w-100"><div class="dt center tc w-100"><div class="dtc v-mid f3 w-40">bell
+	  </div><div class="dib w-40">
+	    <div class="bell ui-btn dib br-100 w3 h3 bg-blue ba bw2 b--black"></div></div></div>
+	  </div>
+	  <div class="fl w-100"><div class="dt center tc w-100"><div class="dtc v-mid f3 w-40">sea
+	  </div><div class="dib w-40">
+	    <div class="sea ui-btn dib br-100 w3 h3 bg-blue ba bw2 b--black"></div></div></div>
+	  </div>
+	  <div class="fl w-100"><div class="dt center tc w-100"><div class="dtc v-mid f3 w-40">train
+	  </div><div class="dib w-40">
+	    <div class="train ui-btn dib br-100 w3 h3 bg-blue ba bw2 b--black"></div></div></div>
+	  </div>
+	  <div class="fl w-100"><div class="dt center tc w-100"><div class="dtc v-mid f3 w-40">machine
+	  </div><div class="dib w-40">
+	    <div class="machine ui-btn dib br-100 w3 h3 bg-blue ba bw2 b--black"></div></div></div>
+	  </div>
+	  <div class="fl w-100"><div class="dt center tc w-100"><div class="dtc v-mid f3 w-40">bee
+	  </div><div class="dib w-40">
+	    <div class="bee ui-btn dib br-100 w3 h3 bg-blue ba bw2 b--black"></div></div></div>
+	  </div>
+	  <div class="fl w-100"><div class="dt center tc w-100"><div class="dtc v-mid f3 w-40">carhorn
+	  </div><div class="dib w-40">
+	    <div class="carhorn ui-btn dib br-100 w3 h3 bg-blue ba bw2 b--black"></div></div></div>
+	  </div>
+	</div>
+	
+	<!-- guide3 page -->
+	<div class="ui-page fl w-100 bg-light-pink" style="display:none">
+	  <!-- stop all -->
+	  <div class="fl w-100"><div class="dt center tc w-100"><div class="dtc v-mid f3 w-40">스톱
+	  </div><div class="dib w-40">
+	    <div class="stop-all ui-btn dib br-100 w3 h3 bg-blue ba bw2 b--black"></div></div></div>
+	  </div>
+	  <!-- announcements -->
+	  <div class="fl w-100"><div class="dt center tc w-100"><div class="dtc v-mid f3 w-40">박수
+	  </div><div class="dib w-40">
+	    <div class="clap-all ui-btn dib br-100 w3 h3 bg-blue ba bw2 b--black"></div></div></div>
+	  </div>
+	  <div class="fl w-100"><div class="dt center tc w-100"><div class="dtc v-mid f3 w-40">시티즌시작
+	  </div><div class="dib w-40">
+	    <div class="citizenintro-all ui-btn dib br-100 w3 h3 bg-blue ba bw2 b--black"></div></div></div>
+	  </div>
+	  <div class="fl w-100"><div class="dt center tc w-100"><div class="dtc v-mid f3 w-40">화면열기
+	  </div><div class="dib w-40">
+	    <div class="webpage2-w-all ui-btn dib br-100 w3 h3 bg-blue ba bw2 b--black"></div></div></div>
+	  </div>
+	  <div class="fl w-100"><div class="dt center tc w-100"><div class="dtc v-mid f3 w-40">진동해제S
+	  </div><div class="dib w-40">
+	    <div class="enablespk-all ui-btn dib br-100 w3 h3 bg-blue ba bw2 b--black"></div></div></div>
+	  </div>
+	  <div class="fl w-100"><div class="dt center tc w-100"><div class="dtc v-mid f3 w-40">진동해제L
+	  </div><div class="dib w-40">
+	    <div class="enablespk-w-all ui-btn dib br-100 w3 h3 bg-blue ba bw2 b--black"></div></div></div>
+	  </div>
+	  <div class="fl w-100"><div class="dt center tc w-100"><div class="dtc v-mid f3 w-40">볼륨S
+	  </div><div class="dib w-40">
+	    <div class="maxvol-d-all ui-btn dib br-100 w3 h3 bg-blue ba bw2 b--black"></div></div></div>
+	  </div>
+	  <div class="fl w-100"><div class="dt center tc w-100"><div class="dtc v-mid f3 w-40">볼륨L
+	  </div><div class="dib w-40">
+	    <div class="maxvol-w-all ui-btn dib br-100 w3 h3 bg-blue ba bw2 b--black"></div></div></div>
+	  </div>
+	  <div class="fl w-100"><div class="dt center tc w-100"><div class="dtc v-mid f3 w-40">현장페이지
+	  </div><div class="dib w-40">
+	    <div class="webpage-w-all ui-btn dib br-100 w3 h3 bg-blue ba bw2 b--black"></div></div></div>
+	  </div>
+	  <div class="fl w-100"><div class="dt center tc w-100"><div class="dtc v-mid f3 w-40">10메가
+	  </div><div class="dib w-40">
+	    <div class="10meg-all ui-btn dib br-100 w3 h3 bg-blue ba bw2 b--black"></div></div></div>
+	  </div>
+	  <div class="fl w-100"><div class="dt center tc w-100"><div class="dtc v-mid f3 w-40">버튼연습
+	  </div><div class="dib w-40">
+	    <div class="trybutton-w-all ui-btn dib br-100 w3 h3 bg-blue ba bw2 b--black"></div></div></div>
+	  </div>
+	  <div class="fl w-100"><div class="dt center tc w-100"><div class="dtc v-mid f3 w-40">연주부탁
+	  </div><div class="dib w-40">
+	    <div class="playhelp-all ui-btn dib br-100 w3 h3 bg-blue ba bw2 b--black"></div></div></div>
+	  </div>
+	  <div class="fl w-100"><div class="dt center tc w-100"><div class="dtc v-mid f3 w-40">순례재시작
+	  </div><div class="dib w-40">
+	    <div class="ansanintro-all ui-btn dib br-100 w3 h3 bg-blue ba bw2 b--black"></div></div></div>
+	  </div>
+	</div>
+	
+	<!-- sess3 page -->
+	<div class="ui-page fl w-100 bg-lime black b" style="display:none">
+	  <div class="fl w-100"><div class="dt center tc w-100"><div class="dtc v-mid f3 w-40">edelweiss-band
+	  </div><div class="dib w-40">
+	    <div class="edelweiss-band ui-btn dib br-100 w3 h3 bg-blue ba bw2 b--black"></div></div></div>
 	  </div>
 	</div>
 	
       </div>
     </div>
-    
   </body>
 </html>

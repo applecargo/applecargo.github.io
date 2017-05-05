@@ -22,6 +22,31 @@ $( document ).ready(function() {
     });
     // $('.ui-btn').click();
 
+    //pages set-list
+    var pages = {
+	'guide1': 0,
+	'sess1': 1,
+	'guide2': 2,
+	'sess2': 3,
+	'guide3': 4,
+	'sess3': 5
+    };
+
+    //UI - page arbitrator
+    var cur_page = 0;
+    function changePage(page) {
+	$('.ui-page:nth(' + cur_page + ')').hide();
+	$('.ui-page:nth(' + page + ')').show();
+	cur_page = page;
+    }
+
+    $('#pagechgto-guide1').click(function() { changePage(pages['guide1']); });
+    $('#pagechgto-sess1' ).click(function() { changePage(pages['sess1']); });
+    $('#pagechgto-guide2').click(function() { changePage(pages['guide2']); });
+    $('#pagechgto-sess2' ).click(function() { changePage(pages['sess2']); });
+    $('#pagechgto-guide3').click(function() { changePage(pages['guide3']); });
+    $('#pagechgto-sess3' ).click(function() { changePage(pages['sess3']); });
+
     // connect server
     var socket = io('http://52.78.239.112:5700'); // amazon aws ec2 node.js server
 
@@ -49,25 +74,25 @@ $( document ).ready(function() {
     // socket.on('webpage-w-all',    function() { ioInst.emit('webpage-w'); });
 
     //instant clap all! (announcements)
-    $('#54321-all').click(function() { socket.emit('54321-all'); });
-    $('#10meg-all').click(function() { socket.emit('10meg-all'); });
-    $('#ansanintro-all').click(function() { socket.emit('ansanintro-all'); });
-    $('#citizenintro-all').click(function() { socket.emit('citizenintro-all'); });
-    $('#clap-all').click(function() { socket.emit('clap-all'); });
-    $('#enablespk-all').click(function() { socket.emit('enablespk-all'); });
-    $('#enablespk-w-all').click(function() { socket.emit('enablespk-w-all'); });
-    $('#maxvol-d-all').click(function() { socket.emit('maxvol-d-all'); });
-    $('#maxvol-w-all').click(function() { socket.emit('maxvol-w-all'); });
-    $('#playhelp-all').click(function() { socket.emit('playhelp-all'); });
-    $('#spkon-all').click(function() { socket.emit('spkon-all'); });
-    $('#spkon-slow-all').click(function() { socket.emit('spkon-slow-all'); });
-    $('#spkon-w-all').click(function() { socket.emit('spkon-w-all'); });
-    $('#trybutton-w-all').click(function() { socket.emit('trybutton-w-all'); });
-    $('#webpage2-w-all').click(function() { socket.emit('webpage2-w-all'); });
-    $('#webpage-w-all').click(function() { socket.emit('webpage-w-all'); });
+    $('.54321-all').click(function() { socket.emit('54321-all'); });
+    $('.10meg-all').click(function() { socket.emit('10meg-all'); });
+    $('.ansanintro-all').click(function() { socket.emit('ansanintro-all'); });
+    $('.citizenintro-all').click(function() { socket.emit('citizenintro-all'); });
+    $('.clap-all').click(function() { socket.emit('clap-all'); });
+    $('.enablespk-all').click(function() { socket.emit('enablespk-all'); });
+    $('.enablespk-w-all').click(function() { socket.emit('enablespk-w-all'); });
+    $('.maxvol-d-all').click(function() { socket.emit('maxvol-d-all'); });
+    $('.maxvol-w-all').click(function() { socket.emit('maxvol-w-all'); });
+    $('.playhelp-all').click(function() { socket.emit('playhelp-all'); });
+    $('.spkon-all').click(function() { socket.emit('spkon-all'); });
+    $('.spkon-slow-all').click(function() { socket.emit('spkon-slow-all'); });
+    $('.spkon-w-all').click(function() { socket.emit('spkon-w-all'); });
+    $('.trybutton-w-all').click(function() { socket.emit('trybutton-w-all'); });
+    $('.webpage2-w-all').click(function() { socket.emit('webpage2-w-all'); });
+    $('.webpage-w-all').click(function() { socket.emit('webpage-w-all'); });
 
     //emergency stop! - when you want to cancel immediately.
-    $('#stop-all').click(function() {
+    $('.stop-all').click(function() {
 	socket.emit('schedule', { 'prog':'wait' });
     });
 
@@ -76,17 +101,21 @@ $( document ).ready(function() {
 	socket.emit('schedule', { 'prog':prog_name });
     }
     
-    $('#carhorn').click(function() { scheduler('carhorn'); });
-    $('#phone').click(function() { scheduler('phone'); });
-    $('#cricket').click(function() { scheduler('cricket'); });
-    $('#train').click(function() { scheduler('train'); });
-    $('#brassball').click(function() { scheduler('brassball'); });
-    $('#sea').click(function() { scheduler('sea'); });
-    $('#trk01').click(function() { scheduler('trk01'); });
-    $('#watcher').click(function() { scheduler('watcher'); });
-    $('#machine').click(function() { scheduler('machine'); });
-    $('#bee').click(function() { scheduler('bee'); });
-    $('#tuba').click(function() { scheduler('tuba'); });
-    $('#bell').click(function() { scheduler('bell'); });
-    $('#edelweiss-band').click(function() { scheduler('edelweiss-band'); });
-});    
+    $('.carhorn').click(function() { scheduler('carhorn'); });
+    $('.phone').click(function() { scheduler('phone'); });
+    $('.cricket').click(function() { scheduler('cricket'); });
+    $('.train').click(function() { scheduler('train'); });
+    $('.brassball').click(function() { scheduler('brassball'); });
+    $('.sea').click(function() { scheduler('sea'); });
+    $('.trk01').click(function() { scheduler('trk01'); });
+    $('.watcher').click(function() { scheduler('watcher'); });
+    $('.machine').click(function() { scheduler('machine'); });
+    $('.bee').click(function() { scheduler('bee'); });
+    $('.tuba').click(function() { scheduler('tuba'); });
+    $('.bell').click(function() { scheduler('bell'); });
+    $('.edelweiss-band').click(function() { scheduler('edelweiss-band'); });
+    
+    $('.phone-mix').click(function() { scheduler('phone-mix'); });
+    $('.carhorn-mix').click(function() { scheduler('carhorn-mix'); });
+
+});
