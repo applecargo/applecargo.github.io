@@ -302,12 +302,16 @@ $( document ).ready(function() {
         if (stat.prog == 'edelweiss-band') {
 	    if (edelweiss_mode == 'band') {
 		scheduler(edelweiss_band);
-		$('#program').text('에델바이스-밴드');
+		// $('#program').text('에델바이스-밴드');
 	    }
 	    else if (edelweiss_mode == 'singer') {
 		//singers are always active!
-		$('#program').text('에델바이스-싱어');
+		// $('#program').text('에델바이스-싱어');
 	    }
+	}
+        if (stat.prog == 'edelweiss-indi') {
+	    $('#playsound').show();
+	    $('#program').text('에델바이스');
 	}
 	
 	// stop all!!
@@ -348,8 +352,32 @@ $( document ).ready(function() {
 	    if (edelweiss_mode == 'band') {
 		edelweiss_band.stop();
 	    }
+	    //
+	    $('#playsound').hide();
+	    //
 	    $('#program').text('-');
 	}
-
     });
+
+    var indi_timeout;
+    $('#playbtn').click(function() {
+        if (indi.state == "started") {
+            indi.stop();
+            clearInterval(indi_timeout);
+        }
+        indi.start();
+        $(this).find('.play').hide();
+        $(this).find('.stop').show();
+        indi_timeout = setInterval(function() {
+            if (indi.state == "stopped") {
+                $(this).find('.stop').hide();
+                $(this).find('.play').show();
+                clearInterval(indi_timeout);
+                console.log(2);
+            }
+        }.bind(this), 500);
+    });
+    $('#playbtn .play').show();
+    $('#playbtn .stop').hide();
+
 });

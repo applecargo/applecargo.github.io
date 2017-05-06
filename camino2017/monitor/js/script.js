@@ -155,6 +155,7 @@ $( document ).ready(function() {
     $('.tuba').click(function() { scheduler('tuba'); });
     $('.bell').click(function() { scheduler('bell'); });
     $('.edelweiss-band').click(function() { scheduler('edelweiss-band'); });
+    $('.edelweiss-indi').click(function() { scheduler('edelweiss-indi'); });
     
     $('.phone-mix').click(function() { scheduler('phone-mix'); });
     $('.carhorn-mix').click(function() { scheduler('carhorn-mix'); });
