@@ -106,7 +106,8 @@ $( document ).ready(function() {
     //people play
     var indi;
     //edelweiss band/voice proportion
-    var edelweiss_mode = 'singer'; if (Math.random() < 0.4) { edelweiss_mode = 'band'; } // band is 40%
+    // var edelweiss_mode = 'singer'; if (Math.random() < 0.4) { edelweiss_mode = 'band'; } // band is 40%
+    var edelweiss_mode = 'singer';
     var edelweiss_band;
     var edelweiss_singer;
     function audioloader() {
