@@ -1,5 +1,3 @@
-var phmix;
-
 $( document ).ready(function() {
     
     $('.ui-btn').click(function() {
@@ -20,9 +18,10 @@ $( document ).ready(function() {
 
     var pages = {
         'page-welcome': 0,
-        'page-sndcheck': 1,
-        'page-netcheck': 2,
-        'page-sounder': 3
+        'page-loading': 1,
+        'page-sndcheck': 2,
+        'page-netcheck': 3,
+        'page-sounder': 4
     };
 
     var cur_page = 0;
@@ -44,6 +43,15 @@ $( document ).ready(function() {
         changePage(pages['page-sounder']);
         $('#pagestat').text('사운드 켐페인');
     });
+    var pagechanger = setTimeout(function() {
+	$('#go-loading').click();
+    }, 5000);
+    $('#go-loading').click(function() {
+        changePage(pages['page-loading']);
+	audioloader();
+	clearTimeout(pagechanger);
+        $('#pagestat').text('다운로드 중');
+    });
 
     var socket = io('http://52.78.239.112:5500');
 
@@ -61,64 +69,179 @@ $( document ).ready(function() {
     function resyncClock(ctime) { clock_offset = ctime - Date.now(); }
     function getTimeNow() { return (Date.now()+clock_offset); }
 
-    //audio data loading
-    var url;
+    //// audio data loading
+    
+    //announcements
+    var clap;
+    var count;
+    var meg10;
+    var ansanintro;
+    var citizenintro;
+    var enablespk;
+    var enablespk_w;
+    var maxvol_d;
+    var maxvol_w;
+    var playhelp;
+    var spkon;
+    var spkon_slow;
+    var spkon_w;
+    var trybutton_w;
+    var webpage2_w;
+    var webpage_w;
+    // sounds
+    var bee;
+    var brassball;
+    var carhorn;
+    var carhornmix;
+    var cricket;
+    var machine;
+    var phone;
+    var phonemix;
+    var sea;
+    var train;
+    var trk01;
+    var watcher;
+    var tuba;
+    var bell;
+    //people play
+    var indi;
     //edelweiss band/voice proportion
-    var edelweiss_mode = 'singer';
-    if (Math.random() < 0.4) { edelweiss_mode = 'band'; } // band is 40%
+    var edelweiss_mode = 'singer'; if (Math.random() < 0.4) { edelweiss_mode = 'band'; } // band is 40%
+    var edelweiss_band;
+    var edelweiss_singer;
+    function audioloader() {
+	var url;
 
-    if (edelweiss_mode == 'band') {
-	url = "audio/edelweiss/band@3/" + ("0" + Math.floor(Math.random()*3+1)).slice(-2) + ".mp3";
-	var edelweiss_band = new Howl({ src: url, html5: false });
+	if (edelweiss_mode == 'band') {
+	    url = "audio/edelweiss/band@3/" + ("0" + Math.floor(Math.random()*3+1)).slice(-2) + ".mp3";
+	    edelweiss_band = new Tone.Player({ "url" : url }).toMaster();
+	}
+	else if (edelweiss_mode == 'singer') {
+	    url = "audio/edelweiss/voice@10/" + Math.floor(Math.random()*10+1) + "/";
+	    edelweiss_singer = new Tone.MultiPlayer(
+		[
+		    url.concat("do.mp3"),
+		    url.concat("re.mp3"),
+		    url.concat("mi.mp3"),
+		    url.concat("fa.mp3"),
+		    url.concat("sol.mp3"),
+		    url.concat("la.mp3"),
+		    url.concat("si.mp3"),
+		    url.concat("highdo.mp3"),
+		    url.concat("highre.mp3"),
+		    url.concat("highmi.mp3")
+		]
+	    ).toMaster();
+	}
+	//
+	url = "audio/edelweiss/individual@12/" + ("0" + Math.floor(Math.random()*12+1)).slice(-2) + ".mp3";
+	indi = new Tone.Player({ "url" : url }).toMaster();
+
+	//
+	url = "audio/bee@8/" + ("0" + Math.floor(Math.random()*8+1)).slice(-2) + ".mp3";
+	bee = new Tone.Player({ "url" : url }).toMaster();
+	//
+	url = "audio/brassball@9/" + ("0" + Math.floor(Math.random()*9+1)).slice(-2) + ".mp3";
+	brassball = new Tone.Player({ "url" : url }).toMaster();
+	//
+	url = "audio/carhorn@10/" + ("0" + Math.floor(Math.random()*10+1)).slice(-2) + ".mp3";
+	carhorn = new Tone.Player({ "url" : url }).toMaster();
+	//
+	url = "audio/carhorn-mix@10/" + ("0" + Math.floor(Math.random()*10+1)).slice(-2) + ".mp3";
+	carhornmix = new Tone.Player({ "url" : url }).toMaster();
+	//
+	url = "audio/cricket@30/" + ("0" + Math.floor(Math.random()*30+1)).slice(-2) + ".mp3";
+	cricket = new Tone.Player({ "url" : url }).toMaster();
+	//
+	url = "audio/machine@13/" + ("0" + Math.floor(Math.random()*13+1)).slice(-2) + ".mp3";
+	machine = new Tone.Player({ "url" : url }).toMaster();
+	//
+	url = "audio/phone@10/" + ("0" + Math.floor(Math.random()*10+1)).slice(-2) + ".mp3";
+	phone = new Tone.Player({ "url" : url }).toMaster();
+	//
+	url = "audio/phone-mix@3/" + ("0" + Math.floor(Math.random()*3+1)).slice(-2) + ".mp3";
+	phonemix = new Tone.Player({ "url" : url }).toMaster();
+	//
+	url = "audio/sea@14/" + ("0" + Math.floor(Math.random()*14+1)).slice(-2) + ".mp3";
+	sea = new Tone.Player({ "url" : url }).toMaster();
+	//
+	url = "audio/train@1/" + ("0" + Math.floor(Math.random()*1+1)).slice(-2) + ".mp3";
+	train = new Tone.Player({ "url" : url }).toMaster();
+	//
+	url = "audio/trk01@30/" + ("0" + Math.floor(Math.random()*30+1)).slice(-2) + ".mp3";
+	trk01 = new Tone.Player({ "url" : url }).toMaster();
+	//
+	url = "audio/watcher@2/" + ("0" + Math.floor(Math.random()*2+1)).slice(-2) + ".mp3";
+	watcher = new Tone.Player({ "url" : url }).toMaster();
+	//
+	url = "audio/tuba@7/" + ("0" + Math.floor(Math.random()*7+1)).slice(-2) + ".mp3";
+	tuba = new Tone.Player({ "url" : url }).toMaster();
+	//
+	url = "audio/bell@3/" + ("0" + Math.floor(Math.random()*3+1)).slice(-2) + ".mp3";
+	bell = new Tone.Player({ "url" : url }).toMaster();
+
+	//announcements
+	url = "audio/clap.wav";         clap         = new Tone.Player({ "url" : url }).toMaster();
+	url = "audio/54321.mp3";        count        = new Tone.Player({ "url" : url }).toMaster();
+	url = "audio/10meg.mp3";        meg10        = new Tone.Player({ "url" : url }).toMaster();
+	url = "audio/ansanintro.mp3";   ansanintro   = new Tone.Player({ "url" : url }).toMaster();
+	url = "audio/citizenintro.mp3"; citizenintro = new Tone.Player({ "url" : url }).toMaster();
+	url = "audio/enablespk.mp3";    enablespk    = new Tone.Player({ "url" : url }).toMaster();
+	url = "audio/enablespk-w.mp3";  enablespk_w  = new Tone.Player({ "url" : url }).toMaster();
+	url = "audio/maxvol-d.mp3";     maxvol_d     = new Tone.Player({ "url" : url }).toMaster();
+	url = "audio/maxvol-w.mp3";     maxvol_w     = new Tone.Player({ "url" : url }).toMaster();
+	url = "audio/playhelp.mp3";     playhelp     = new Tone.Player({ "url" : url }).toMaster();
+	url = "audio/spkon.mp3";        spkon        = new Tone.Player({ "url" : url }).toMaster();
+	url = "audio/spkon-slow.mp3";   spkon_slow   = new Tone.Player({ "url" : url }).toMaster();
+	url = "audio/spkon-w.mp3";      spkon_w      = new Tone.Player({ "url" : url }).toMaster();
+	url = "audio/trybutton-w.mp3";  trybutton_w  = new Tone.Player({ "url" : url }).toMaster();
+	url = "audio/webpage2-w.mp3";   webpage2_w   = new Tone.Player({ "url" : url }).toMaster();
+	url = "audio/webpage-w.mp3";    webpage_w    = new Tone.Player({ "url" : url }).toMaster();
+
+	console.log('start');
+	//wait......
+	Tone.Buffer.on("load", function(){
+	    console.log('done');
+            changePage(pages['page-sndcheck']);
+            $('#pagestat').text('사운드 체크');
+	}.bind(this));
+	//-->resolve scoping issues.. : https://www.smashingmagazine.com/2014/01/understanding-javascript-function-prototype-bind/
     }
-    else if (edelweiss_mode == 'singer') {
-	url = "audio/edelweiss/voice@10/" + Math.floor(Math.random()*10+1) + "/";
-	var edelweiss_singer = [
-	    new Howl({ src: url + "do.mp3", html5: false }),
-	    new Howl({ src: url + "re.mp3", html5: false }),
-	    new Howl({ src: url + "mi.mp3", html5: false }),
-	    new Howl({ src: url + "fa.mp3", html5: false }),
-	    new Howl({ src: url + "sol.mp3", html5: false }),
-	    new Howl({ src: url + "la.mp3", html5: false }),
-	    new Howl({ src: url + "si.mp3", html5: false }),
-	    new Howl({ src: url + "highdo.mp3", html5: false }),
-	    new Howl({ src: url + "highre.mp3", html5: false }),
-	    new Howl({ src: url + "highmi.mp3", html5: false })
-	];
-	
+
+    if (edelweiss_mode == 'singer') {
 	//sing-note (only for 'notes' people.
 	socket.on('sing-note', function(note) {
 	    console.log(note);
 	    switch(note) {
 	    case '/C4':
-		edelweiss_singer[0].play();
+		edelweiss_singer.start(0);
 		break;
 	    case '/D4':
-		edelweiss_singer[1].play();
+		edelweiss_singer.start(1);
 		break;
 	    case '/E4':
-		edelweiss_singer[2].play();
+		edelweiss_singer.start(2);
 		break;
 	    case '/F4':
-		edelweiss_singer[3].play();
+		edelweiss_singer.start(3);
 		break;
 	    case '/G4':
-		edelweiss_singer[4].play();
+		edelweiss_singer.start(4);
 		break;
 	    case '/A4':
-		edelweiss_singer[5].play();
+		edelweiss_singer.start(5);
 		break;
 	    case '/B4':
-		edelweiss_singer[6].play();
+		edelweiss_singer.start(6);
 		break;
 	    case '/C5':
-		edelweiss_singer[7].play();
+		edelweiss_singer.start(7);
 		break;
 	    case '/D5':
-		edelweiss_singer[8].play();
+		edelweiss_singer.start(8);
 		break;
 	    case '/E5':
-		edelweiss_singer[9].play();
+		edelweiss_singer.start(9);
 		break;
 	    default:
 		;
@@ -126,97 +249,28 @@ $( document ).ready(function() {
 	});
     }
 
-    //
-    url = "audio/clap.wav";
-    var clap = new Howl({ src: url, html5: false });
-    //
-    url = "audio/54321.mp3";
-    var count = new Howl({ src: url, html5: false });
-    //
-    url = "audio/bee@8/" + ("0" + Math.floor(Math.random()*8+1)).slice(-2) + ".mp3";
-    var bee = new Howl({ src: url, html5: false });
-    //
-    url = "audio/brassball@9/" + ("0" + Math.floor(Math.random()*9+1)).slice(-2) + ".mp3";
-    var brassball = new Howl({ src: url, html5: false });
-    //
-    url = "audio/carhorn@10/" + ("0" + Math.floor(Math.random()*10+1)).slice(-2) + ".mp3";
-    var carhorn = new Howl({ src: url, html5: false });
-    //
-    url = "audio/carhorn-mix@10/" + ("0" + Math.floor(Math.random()*10+1)).slice(-2) + ".mp3";
-    var carhornmix = new Howl({ src: url, html5: false });
-    //
-    url = "audio/cricket@30/" + ("0" + Math.floor(Math.random()*30+1)).slice(-2) + ".mp3";
-    var cricket = new Howl({ src: url, html5: false });
-    //
-    url = "audio/machine@13/" + ("0" + Math.floor(Math.random()*13+1)).slice(-2) + ".mp3";
-    var machine = new Howl({ src: url, html5: false });
-    //
-    url = "audio/phone@10/" + ("0" + Math.floor(Math.random()*10+1)).slice(-2) + ".mp3";
-    var phone = new Howl({ src: url, html5: false });
-    //
-    url = "audio/phone-mix@3/" + ("0" + Math.floor(Math.random()*3+1)).slice(-2) + ".mp3";
-    var phonemix = new Howl({ src: url, html5: false });
-    phmix = phonemix;
-    //
-    url = "audio/sea@15/" + ("0" + Math.floor(Math.random()*15+1)).slice(-2) + ".mp3";
-    var sea = new Howl({ src: url, html5: false });
-    //
-    url = "audio/train@1/" + ("0" + Math.floor(Math.random()*1+1)).slice(-2) + ".mp3";
-    var train = new Howl({ src: url, html5: false });
-    //
-    url = "audio/trk01@30/" + ("0" + Math.floor(Math.random()*30+1)).slice(-2) + ".mp3";
-    var trk01 = new Howl({ src: url, html5: false });
-    //
-    url = "audio/watcher@5/" + ("0" + Math.floor(Math.random()*5+1)).slice(-2) + ".mp3";
-    var watcher = new Howl({ src: url, html5: false });
-    //
-    url = "audio/tuba@7/" + ("0" + Math.floor(Math.random()*7+1)).slice(-2) + ".mp3";
-    var tuba = new Howl({ src: url, html5: false });
-    //
-    url = "audio/bell@3/" + ("0" + Math.floor(Math.random()*3+1)).slice(-2) + ".mp3";
-    var bell = new Howl({ src: url, html5: false });
-
-    //announcements
-    url = "audio/clap.wav";         var clap         = new Howl({ src: url, html5: false });
-    url = "audio/54321.mp3";        var count        = new Howl({ src: url, html5: false });
-    url = "audio/10meg.mp3";        var meg10        = new Howl({ src: url, html5: false });
-    url = "audio/ansanintro.mp3";   var ansanintro   = new Howl({ src: url, html5: false });
-    url = "audio/citizenintro.mp3"; var citizenintro = new Howl({ src: url, html5: false });
-    url = "audio/clap.wav";         var clap         = new Howl({ src: url, html5: false });
-    url = "audio/enablespk.mp3";    var enablespk    = new Howl({ src: url, html5: false });
-    url = "audio/enablespk-w.mp3";  var enablespk_w  = new Howl({ src: url, html5: false });
-    url = "audio/maxvol-d.mp3";     var maxvol_d     = new Howl({ src: url, html5: false });
-    url = "audio/maxvol-w.mp3";     var maxvol_w     = new Howl({ src: url, html5: false });
-    url = "audio/playhelp.mp3";     var playhelp     = new Howl({ src: url, html5: false });
-    url = "audio/spkon.mp3";        var spkon        = new Howl({ src: url, html5: false });
-    url = "audio/spkon-slow.mp3";   var spkon_slow   = new Howl({ src: url, html5: false });
-    url = "audio/spkon-w.mp3";      var spkon_w      = new Howl({ src: url, html5: false });
-    url = "audio/trybutton-w.mp3";  var trybutton_w  = new Howl({ src: url, html5: false });
-    url = "audio/webpage2-w.mp3";   var webpage2_w   = new Howl({ src: url, html5: false });
-    url = "audio/webpage-w.mp3";    var webpage_w    = new Howl({ src: url, html5: false });
-
     //sndcheck audio
     $('.ui-clap').click(function() {
-        clap.play();
+        clap.start();
     });
     
     //net msg.
-    socket.on('54321',        function() { count.play(); });
-    socket.on('10meg',        function() { meg10.play(); });
-    socket.on('ansanintro',   function() { ansanintro.play(); });
-    socket.on('citizenintro', function() { citizenintro.play(); });
-    socket.on('clap',         function() { clap.play(); });
-    socket.on('enablespk',    function() { enablespk.play(); });
-    socket.on('enablespk-w',  function() { enablespk_w.play(); });
-    socket.on('maxvol-d',     function() { maxvol_d.play(); });
-    socket.on('maxvol-w',     function() { maxvol_w.play(); });
-    socket.on('playhelp',     function() { playhelp.play(); });
-    socket.on('spkon',        function() { spkon.play(); });
-    socket.on('spkon-slow',   function() { spkon_slow.play(); });
-    socket.on('spkon-w',      function() { spkon_w.play(); });
-    socket.on('trybutton-w',  function() { trybutton_w.play(); });
-    socket.on('webpage2-w',   function() { webpage2_w.play(); });
-    socket.on('webpage-w',    function() { webpage_w.play(); });
+    socket.on('54321',        function() { count.start(); });
+    socket.on('10meg',        function() { meg10.start(); });
+    socket.on('ansanintro',   function() { ansanintro.start(); });
+    socket.on('citizenintro', function() { citizenintro.start(); });
+    socket.on('clap',         function() { clap.start(); });
+    socket.on('enablespk',    function() { enablespk.start(); });
+    socket.on('enablespk-w',  function() { enablespk_w.start(); });
+    socket.on('maxvol-d',     function() { maxvol_d.start(); });
+    socket.on('maxvol-w',     function() { maxvol_w.start(); });
+    socket.on('playhelp',     function() { playhelp.start(); });
+    socket.on('spkon',        function() { spkon.start(); });
+    socket.on('spkon-slow',   function() { spkon_slow.start(); });
+    socket.on('spkon-w',      function() { spkon_w.start(); });
+    socket.on('trybutton-w',  function() { trybutton_w.start(); });
+    socket.on('webpage2-w',   function() { webpage2_w.start(); });
+    socket.on('webpage-w',    function() { webpage_w.start(); });
 
     //update system status
     socket.on('schedule', function(stat) {
@@ -225,7 +279,7 @@ $( document ).ready(function() {
 	// var now = getTimeNow(); //get server time
 
 	//
-	scheduler = function(prog) { prog.play(); };
+	scheduler = function(prog) { prog.start(); };
 	
 	//// manage programs
 	

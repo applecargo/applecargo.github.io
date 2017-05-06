@@ -5,12 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- dependencies -->
     <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-    <!-- <script type="text/javascript" src="js/Tone.min.js"></script> -->
+    <script type="text/javascript" src="js/Tone.min.js"></script>
     <script type="text/javascript" src="js/socket.io.js"></script>
-    <script type="text/javascript" src="js/howler.min.js"></script>
+    <!-- <script type="text/javascript" src="js/howler.min.js"></script> -->
     <link rel="stylesheet" href="https://unpkg.com/tachyons@4.7.0/css/tachyons.min.css"/>
     <!-- <link rel="stylesheet" href="css/loading-animation.css"/> -->
     <link rel="stylesheet" href="css/colors.css">
+    <link rel="stylesheet" href="css/loading-animation.css"/>
     <!-- js code -->
     <script type="text/javascript" src="js/script.js"></script>
   </head>
@@ -50,7 +51,7 @@
 	      안산순례길<br>Camino de Ansan
 	    </div>
 	  </div>
-	  <div class="fl w-100 bg-lime pv2" id="go-sndcheck">
+	  <div class="fl w-100 bg-lime pv2" id="go-loading">
 	    <div class="tc">
 	      <div class="ui-btn dib w-10">
 		<svg class="fill-navy" width="100%" height="100%" viewBox="0 0 2048 2048" xmlns="http://www.w3.org/2000/svg">
@@ -58,6 +59,16 @@
 		</svg>
 	      </div>
 	    </div>
+	  </div>
+	</div>
+	
+	<!-- loading -->
+	<!-- <div class="ui-page fl w-100 bg-yellow" id="page-loading"> -->
+	<div class="ui-page dt vh-100 w-100 absolute top-0 left-0 animationStripes" id="page-loading" style="display:none">
+	  <div class="dtc v-mid tc white">
+	    <h1 class="f3 f1-ns">
+	      Loading..........!?
+	    </h1>
 	  </div>
 	</div>
 	

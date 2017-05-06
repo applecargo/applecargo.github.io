@@ -78,7 +78,40 @@ $( document ).ready(function() {
     $('.10meg-all').click(function() { socket.emit('10meg-all'); });
     $('.ansanintro-all').click(function() { socket.emit('ansanintro-all'); });
     $('.citizenintro-all').click(function() { socket.emit('citizenintro-all'); });
-    $('.clap-all').click(function() { socket.emit('clap-all'); });
+    var citizenonoff = 0;
+    var citizen;
+    $('.citizenintro-all-start').click(function() {
+	if (citizenonoff == 0) {
+	    citizenonoff = 1;
+	    socket.emit('citizenintro-all');
+	    citizen = setInterval(function() {
+		socket.emit('citizenintro-all');
+	    }, 10000);
+	}
+    });
+    $('.citizenintro-all-stop').click(function() {
+	if (citizenonoff == 1) {
+	    citizenonoff = 0;
+	    clearInterval(citizen);
+	}
+    });
+    var clapping = 0;
+    var clapper;
+    $('.clap-all-start').click(function() {
+	if (clapping == 0) {
+	    clapping = 1;
+	    socket.emit('clap-all');
+	    clapper = setInterval(function() {
+		socket.emit('clap-all');
+	    }, 2000);
+	}
+    });
+    $('.clap-all-stop').click(function() {
+	if (clapping == 1) {
+	    clapping = 0;
+	    clearInterval(clapper);
+	}
+    });
     $('.enablespk-all').click(function() { socket.emit('enablespk-all'); });
     $('.enablespk-w-all').click(function() { socket.emit('enablespk-w-all'); });
     $('.maxvol-d-all').click(function() { socket.emit('maxvol-d-all'); });
@@ -94,6 +127,14 @@ $( document ).ready(function() {
     //emergency stop! - when you want to cancel immediately.
     $('.stop-all').click(function() {
 	socket.emit('schedule', { 'prog':'wait' });
+	if (clapping == 1) {
+	    clapping = 0;
+	    clearInterval(clapper);
+	}
+	if (citizenonoff == 1) {
+	    citizenonoff = 0;
+	    clearInterval(citizen);
+	}
     });
 
     //scheduling
