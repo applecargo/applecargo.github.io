@@ -41,7 +41,7 @@ $( document ).ready(function() {
     });
     $('#go-sounder').click(function() {
         changePage(pages['page-sounder']);
-        $('#pagestat').text('사운드 켐페인');
+        $('#pagestat').text('사운드 캠페인');
     });
     var pagechanger = setTimeout(function() {
 	$('#go-loading').click();
