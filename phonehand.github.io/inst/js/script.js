@@ -44,7 +44,8 @@ $( document ).ready(function() {
     //------------------------------------------------------------------------------------------------------------------------------//
 
     // connect server
-    var socket = io('http://52.78.239.112:5100'); // amazon aws ec2 node.js server
+    // var socket = io('http://52.78.239.112:5100'); // amazon aws ec2 node.js server
+    var socket = io('http://13.124.127.189:5100'); // amazon aws ec2 node.js server
     // var socket = io('http://localhost:5100'); // localhost testing server
 
     //// select seat page

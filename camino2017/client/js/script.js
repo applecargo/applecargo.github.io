@@ -53,7 +53,8 @@ $( document ).ready(function() {
         $('#pagestat').text('다운로드 중');
     });
 
-    var socket = io('http://52.78.239.112:5500');
+    // var socket = io('http://52.78.239.112:5500');
+    var socket = io('http://13.124.127.189:5500');
 
     socket.on('connect', function() {
 

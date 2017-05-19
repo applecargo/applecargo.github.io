@@ -48,7 +48,8 @@ $( document ).ready(function() {
     $('#pagechgto-sess3' ).click(function() { changePage(pages['sess3']); });
 
     // connect server
-    var socket = io('http://52.78.239.112:5700'); // amazon aws ec2 node.js server
+    // var socket = io('http://52.78.239.112:5700'); // amazon aws ec2 node.js server
+    var socket = io('http://13.124.127.189:5700'); // amazon aws ec2 node.js server
 
     socket.on('connect', function() {
 	console.log('connected');

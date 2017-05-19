@@ -90,8 +90,8 @@ $( document ).ready(function() {
     
     //// server inter-action!
     
-    var socket = io('http://52.78.239.112:5300'); // amazonaws ec2 node.js server
-    // var socket = io('http://localhost:5300'); // localhost testing..
+    // var socket = io('http://52.78.239.112:5300'); // amazonaws ec2 node.js server
+    var socket = io('http://13.124.127.189:5300'); // amazonaws ec2 node.js server
 
     //
     socket.on('connect', function() {
