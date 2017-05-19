@@ -23,6 +23,42 @@ $( document ).ready(function() {
     });
     // $('.ui-tgl:nth(0)').prop('checked', true).change(); //don't forget to trigger evt, 'change'.
     
+    //[[[NOTE]]]
+    //IMPLEMENTATION of following.. 'playbtn' for interactive inline SVG element is very interesting..
+    //BUT.. jquery dropped support for 'changeData' event.. so we cannot further make things better..
+    //SO.. just bear with it. (and bear with 'network triggering' case below.. no way to trigger more nicely!!)
+    //MAYBE.. will be better way to do this.. NOT using(relying on) jquery!
+    
+    //UI - playbtn (an interactive jquery controlled inline SVG button)
+    $('.ui-playbtn').click(function() {
+	if ($(this).data('state') == 'stopped') {
+	    $(this).data('state', 'playing');
+	    $(this).find('.play').hide();
+	    $(this).find('.stop').show();
+	    $(this).data('play_fn')();
+	    //check player's state
+	    var p1id = setInterval(function() {
+    		if($(this).data('done_fn')() == true) {
+		    $(this).data('state', 'stopped');
+		    $(this).find('.play').show();
+		    $(this).find('.stop').hide();
+    		    clearInterval(p1id);
+    		}
+	    }.bind(this), 500);
+	} else 	if ($(this).data('state') == 'playing') {
+	    $(this).data('state', 'stopped');
+	    $(this).find('.play').show();
+	    $(this).find('.stop').hide();
+	    $(this).data('stop_fn')();
+	}
+    });
+    $('.ui-playbtn').data('state', 'stopped');
+    $('.ui-playbtn .play').show();
+    $('.ui-playbtn .stop').hide();
+    // $('.ui-playbtn').data('play_fn', function() { console.log('play_fn'); }); // utillize callback functions!!
+    // $('.ui-playbtn').data('stop_fn', function() { console.log('stop_fn'); }); // utillize callback functions!!
+    // $('.ui-playbtn').data('done_fn', function() { console.log('done_fn'); }); // utillize callback functions!!
+    
     //pages set-list
     var pages = {
 	'reserve': 0,
