@@ -7,6 +7,13 @@ $( document ).ready(function() {
         }.bind(this), 300);
     });
     
+    $('.ui-btn-piano-white').click(function() {
+        $(this).removeClass('fill-white').addClass('fill-yellow');
+        setTimeout(function() {
+            $(this).removeClass('fill-yellow').addClass('fill-white');
+        }.bind(this), 300);
+    });
+    
     $('.ui-tgl').change(function() {
 	if ($(this).prop('checked') == true) {
 	    $(this).removeClass('bg-near-black').addClass('bg-white');
@@ -19,9 +26,9 @@ $( document ).ready(function() {
     var pages = {
         'page-welcome': 0,
         'page-loading': 1,
-        'page-sndcheck': 2,
-        'page-netcheck': 3,
-        'page-sounder': 4
+        'page-checklist': 2,
+        'page-launchpad': 3,
+        'page-piano': 4
     };
 
     var cur_page = 0;
@@ -31,26 +38,22 @@ $( document ).ready(function() {
         cur_page = page;
     }
 
-    $('#go-sndcheck').click(function() {
-        changePage(pages['page-sndcheck']);
-        $('#pagestat').text('사운드 체크');
+    $('.go-checklist').click(function() {
+        changePage(pages['page-checklist']);
     });
-    $('#go-netcheck').click(function() {
-        changePage(pages['page-netcheck']);
-        $('#pagestat').text('네트워크 체크');
+    $('.go-launchpad').click(function() {
+        changePage(pages['page-launchpad']);
     });
-    $('#go-sounder').click(function() {
-        changePage(pages['page-sounder']);
-        $('#pagestat').text('사운드 캠페인');
+    $('.go-piano').click(function() {
+        changePage(pages['page-piano']);
     });
     var pagechanger = setTimeout(function() {
 	$('#go-loading').click();
     }, 5000);
-    $('#go-loading').click(function() {
+    $('.go-loading').click(function() {
         changePage(pages['page-loading']);
 	audioloader();
 	clearTimeout(pagechanger);
-        $('#pagestat').text('다운로드 중');
     });
 
     // var socket = io('http://52.78.239.112:5500');
@@ -204,52 +207,99 @@ $( document ).ready(function() {
 	//wait......
 	Tone.Buffer.on("load", function(){
 	    console.log('done');
-            changePage(pages['page-sndcheck']);
-            $('#pagestat').text('사운드 체크');
+            changePage(pages['page-checklist']);
 	}.bind(this));
 	//-->resolve scoping issues.. : https://www.smashingmagazine.com/2014/01/understanding-javascript-function-prototype-bind/
     }
 
-    if (edelweiss_mode == 'singer') {
-	//sing-note (only for 'notes' people.
-	socket.on('sing-note', function(note) {
-	    console.log(note);
-	    switch(note) {
-	    case '/C4':
-		edelweiss_singer.start(0);
-		break;
-	    case '/D4':
-		edelweiss_singer.start(1);
-		break;
-	    case '/E4':
-		edelweiss_singer.start(2);
-		break;
-	    case '/F4':
-		edelweiss_singer.start(3);
-		break;
-	    case '/G4':
-		edelweiss_singer.start(4);
-		break;
-	    case '/A4':
-		edelweiss_singer.start(5);
-		break;
-	    case '/B4':
-		edelweiss_singer.start(6);
-		break;
-	    case '/C5':
-		edelweiss_singer.start(7);
-		break;
-	    case '/D5':
-		edelweiss_singer.start(8);
-		break;
-	    case '/E5':
-		edelweiss_singer.start(9);
-		break;
-	    default:
-		;
-	    }
-	});
-    }
+    //sing-note only me.
+    $('.piano-do').click(function() { edelweiss_singer.start(0); });
+    $('.piano-re').click(function() { edelweiss_singer.start(1); });
+    $('.piano-mi').click(function() { edelweiss_singer.start(2); });
+    $('.piano-fa').click(function() { edelweiss_singer.start(3); });
+    $('.piano-sol').click(function() { edelweiss_singer.start(4); });
+    $('.piano-la').click(function() { edelweiss_singer.start(5); });
+    $('.piano-si').click(function() { edelweiss_singer.start(6); });
+    $('.piano-highdo').click(function() { edelweiss_singer.start(7); });
+    $('.piano-highre').click(function() { edelweiss_singer.start(8); });
+    $('.piano-highmi').click(function() { edelweiss_singer.start(9); });
+
+    //sing-note from network
+    socket.on('sing-note', function(note) {
+	console.log(note);
+	switch(note) {
+	case '/C4':
+	    edelweiss_singer.start(0);
+	    break;
+	case '/D4':
+	    edelweiss_singer.start(1);
+	    break;
+	case '/E4':
+	    edelweiss_singer.start(2);
+	    break;
+	case '/F4':
+	    edelweiss_singer.start(3);
+	    break;
+	case '/G4':
+	    edelweiss_singer.start(4);
+	    break;
+	case '/A4':
+	    edelweiss_singer.start(5);
+	    break;
+	case '/B4':
+	    edelweiss_singer.start(6);
+	    break;
+	case '/C5':
+	    edelweiss_singer.start(7);
+	    break;
+	case '/D5':
+	    edelweiss_singer.start(8);
+	    break;
+	case '/E5':
+	    edelweiss_singer.start(9);
+	    break;
+	default:
+	    ;
+	}
+    });
+
+    socket.on('sing-note', function(note) {
+	console.log(note);
+	switch(note) {
+	case '/C4':
+	    edelweiss_singer.start(0);
+	    break;
+	case '/D4':
+	    edelweiss_singer.start(1);
+	    break;
+	case '/E4':
+	    edelweiss_singer.start(2);
+	    break;
+	case '/F4':
+	    edelweiss_singer.start(3);
+	    break;
+	case '/G4':
+	    edelweiss_singer.start(4);
+	    break;
+	case '/A4':
+	    edelweiss_singer.start(5);
+	    break;
+	case '/B4':
+	    edelweiss_singer.start(6);
+	    break;
+	case '/C5':
+	    edelweiss_singer.start(7);
+	    break;
+	case '/D5':
+	    edelweiss_singer.start(8);
+	    break;
+	case '/E5':
+	    edelweiss_singer.start(9);
+	    break;
+	default:
+	    ;
+	}
+    });
 
     //sndcheck audio
     $('.ui-clap').click(function() {
