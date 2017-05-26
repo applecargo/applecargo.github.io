@@ -32,7 +32,7 @@ $( document ).ready(function() {
         }.bind(this), 300);
     });
     $('.ui-btn-piano-white').addClass('fill-white');
-    
+
     $('.ui-tgl').change(function() {
 	if ($(this).prop('checked') == true) {
 	    $(this).removeClass('bg-near-black').addClass('bg-white');
@@ -42,6 +42,16 @@ $( document ).ready(function() {
 	}
     });
 
+    $('.ui-tgl-pianoforall').change(function() {
+    	if ($(this).prop('checked') == true) {
+    	    $(this).removeClass('bg-dark-green').addClass('bg-red');
+    	}
+    	else {
+    	    $(this).removeClass('bg-red').addClass('bg-dark-green');
+    	}
+    });
+    $('.ui-tgl-pianoforall').prop('checked', false).change();
+    
     ////paginations
     
     var pages = {
@@ -56,6 +66,10 @@ $( document ).ready(function() {
         $('.ui-page:nth(' + cur_page + ')').hide();
         $('.ui-page:nth(' + page + ')').show();
         cur_page = page;
+
+	// absolute positioned things show/hide
+	if (page == pages['page-piano']) { $('.ui-tgl-pianoforall').show(); }
+	else { $('.ui-tgl-pianoforall').hide(); }
     }
     $('.go-checklist').click(function() { changePage(pages['page-checklist']); });
     $('.go-launchpad').click(function() { changePage(pages['page-launchpad']); });
@@ -120,25 +134,6 @@ $( document ).ready(function() {
 	}, false);
     }
 
-    ////local sounds (ui-triggered)
-    
-    //sndcheck audio
-    $('.ui-clap').click(function() {
-        clap.start();
-    });
-    
-    //sing-note by me.
-    $('.piano-do').click(function() { singer.start(0); });
-    $('.piano-re').click(function() { singer.start(1); });
-    $('.piano-mi').click(function() { singer.start(2); });
-    $('.piano-fa').click(function() { singer.start(3); });
-    $('.piano-sol').click(function() { singer.start(4); });
-    $('.piano-la').click(function() { singer.start(5); });
-    $('.piano-si').click(function() { singer.start(6); });
-    $('.piano-highdo').click(function() { singer.start(7); });
-    $('.piano-highre').click(function() { singer.start(8); });
-    $('.piano-highmi').click(function() { singer.start(9); });
-
     ////----------------------------------------------------------------////
     
     ////connect to message server
@@ -150,6 +145,29 @@ $( document ).ready(function() {
     	    $('#netstat').prop('checked', false).change();
         });
     });
+
+    ////local sounds (ui-triggered)
+    
+    //sndcheck audio
+    $('.ui-clap').click(function() {
+        clap.start();
+    });
+    
+    //sing-note by me. or by all!
+    var sing_forall = false;
+    $('.ui-tgl-pianoforall').click(function() {
+	sing_forall = $(this).prop('checked');
+    });
+    $('.piano-do'    ).click(function() { singer.start(0); if (sing_forall == true) { socket.emit('sing-note', '/C4'); } } );
+    $('.piano-re'    ).click(function() { singer.start(1); if (sing_forall == true) { socket.emit('sing-note', '/D4'); } } );
+    $('.piano-mi'    ).click(function() { singer.start(2); if (sing_forall == true) { socket.emit('sing-note', '/E4'); } } );
+    $('.piano-fa'    ).click(function() { singer.start(3); if (sing_forall == true) { socket.emit('sing-note', '/F4'); } } );
+    $('.piano-sol'   ).click(function() { singer.start(4); if (sing_forall == true) { socket.emit('sing-note', '/G4'); } } );
+    $('.piano-la'    ).click(function() { singer.start(5); if (sing_forall == true) { socket.emit('sing-note', '/A4'); } } );
+    $('.piano-si'    ).click(function() { singer.start(6); if (sing_forall == true) { socket.emit('sing-note', '/B4'); } } );
+    $('.piano-highdo').click(function() { singer.start(7); if (sing_forall == true) { socket.emit('sing-note', '/C5'); } } );
+    $('.piano-highre').click(function() { singer.start(8); if (sing_forall == true) { socket.emit('sing-note', '/D5'); } } );
+    $('.piano-highmi').click(function() { singer.start(9); if (sing_forall == true) { socket.emit('sing-note', '/E5'); } } );
 
     ////sound swarm TX (message-triggering)
 
@@ -164,32 +182,32 @@ $( document ).ready(function() {
     //1 1 2 2 2 4 1 1 2 2 2 4 1 1 2 2 2 2 2 1 1 2 2 2 4 //rhythm
     //0 0 1 0 3 2 0 0 1 0 4 3 0 0 7 5 3 2 1 6 6 5 3 4 3 //melody
     var bday_timers = [];
-    $('.birthday-go').click(function() {
-	bday_timers.push(setTimeout(function() { socket.emit('sing-note', '/C4'); }, 0));
-	bday_timers.push(setTimeout(function() { socket.emit('sing-note', '/C4'); }, 500));
-	bday_timers.push(setTimeout(function() { socket.emit('sing-note', '/D4'); }, 1000));
-	bday_timers.push(setTimeout(function() { socket.emit('sing-note', '/C4'); }, 2000));
-	bday_timers.push(setTimeout(function() { socket.emit('sing-note', '/F4'); }, 3000));
-	bday_timers.push(setTimeout(function() { socket.emit('sing-note', '/E4'); }, 4000));
-	bday_timers.push(setTimeout(function() { socket.emit('sing-note', '/C4'); }, 6000));
-	bday_timers.push(setTimeout(function() { socket.emit('sing-note', '/C4'); }, 6500));
-	bday_timers.push(setTimeout(function() { socket.emit('sing-note', '/D4'); }, 7000));
-	bday_timers.push(setTimeout(function() { socket.emit('sing-note', '/C4'); }, 8000));
-	bday_timers.push(setTimeout(function() { socket.emit('sing-note', '/G4'); }, 9000));
-	bday_timers.push(setTimeout(function() { socket.emit('sing-note', '/F4'); }, 10000));
-	bday_timers.push(setTimeout(function() { socket.emit('sing-note', '/C4'); }, 12000));
-	bday_timers.push(setTimeout(function() { socket.emit('sing-note', '/C4'); }, 12500));
-	bday_timers.push(setTimeout(function() { socket.emit('sing-note', '/C5'); }, 13000));
-	bday_timers.push(setTimeout(function() { socket.emit('sing-note', '/A4'); }, 14000));
-	bday_timers.push(setTimeout(function() { socket.emit('sing-note', '/F4'); }, 15000));
-	bday_timers.push(setTimeout(function() { socket.emit('sing-note', '/E4'); }, 16000));
-	bday_timers.push(setTimeout(function() { socket.emit('sing-note', '/D4'); }, 17000));
-	bday_timers.push(setTimeout(function() { socket.emit('sing-note', '/B4'); }, 19000));
-	bday_timers.push(setTimeout(function() { socket.emit('sing-note', '/B4'); }, 19500));
-	bday_timers.push(setTimeout(function() { socket.emit('sing-note', '/A4'); }, 20000));
-	bday_timers.push(setTimeout(function() { socket.emit('sing-note', '/F4'); }, 21000));
-	bday_timers.push(setTimeout(function() { socket.emit('sing-note', '/G4'); }, 22000));
-	bday_timers.push(setTimeout(function() { socket.emit('sing-note', '/F4'); }, 23000));
+    $('.birthday-go').click(function() { //won't come back. (broadcast without myself)
+	bday_timers.push(setTimeout(function() { socket.emit('sing-note', '/C4'); singer.start(0); }, 0));
+	bday_timers.push(setTimeout(function() { socket.emit('sing-note', '/C4'); singer.start(0); }, 500));
+	bday_timers.push(setTimeout(function() { socket.emit('sing-note', '/D4'); singer.start(1); }, 1000));
+	bday_timers.push(setTimeout(function() { socket.emit('sing-note', '/C4'); singer.start(0); }, 2000));
+	bday_timers.push(setTimeout(function() { socket.emit('sing-note', '/F4'); singer.start(3); }, 3000));
+	bday_timers.push(setTimeout(function() { socket.emit('sing-note', '/E4'); singer.start(2); }, 4000));
+	bday_timers.push(setTimeout(function() { socket.emit('sing-note', '/C4'); singer.start(0); }, 6000));
+	bday_timers.push(setTimeout(function() { socket.emit('sing-note', '/C4'); singer.start(0); }, 6500));
+	bday_timers.push(setTimeout(function() { socket.emit('sing-note', '/D4'); singer.start(1); }, 7000));
+	bday_timers.push(setTimeout(function() { socket.emit('sing-note', '/C4'); singer.start(0); }, 8000));
+	bday_timers.push(setTimeout(function() { socket.emit('sing-note', '/G4'); singer.start(4); }, 9000));
+	bday_timers.push(setTimeout(function() { socket.emit('sing-note', '/F4'); singer.start(3); }, 10000));
+	bday_timers.push(setTimeout(function() { socket.emit('sing-note', '/C4'); singer.start(0); }, 12000));
+	bday_timers.push(setTimeout(function() { socket.emit('sing-note', '/C4'); singer.start(0); }, 12500));
+	bday_timers.push(setTimeout(function() { socket.emit('sing-note', '/C5'); singer.start(7); }, 13000));
+	bday_timers.push(setTimeout(function() { socket.emit('sing-note', '/A4'); singer.start(5); }, 14000));
+	bday_timers.push(setTimeout(function() { socket.emit('sing-note', '/F4'); singer.start(3); }, 15000));
+	bday_timers.push(setTimeout(function() { socket.emit('sing-note', '/E4'); singer.start(2); }, 16000));
+	bday_timers.push(setTimeout(function() { socket.emit('sing-note', '/D4'); singer.start(1); }, 17000));
+	bday_timers.push(setTimeout(function() { socket.emit('sing-note', '/B4'); singer.start(6); }, 19000));
+	bday_timers.push(setTimeout(function() { socket.emit('sing-note', '/B4'); singer.start(6); }, 19500));
+	bday_timers.push(setTimeout(function() { socket.emit('sing-note', '/A4'); singer.start(5); }, 20000));
+	bday_timers.push(setTimeout(function() { socket.emit('sing-note', '/F4'); singer.start(3); }, 21000));
+	bday_timers.push(setTimeout(function() { socket.emit('sing-note', '/G4'); singer.start(4); }, 22000));
+	bday_timers.push(setTimeout(function() { socket.emit('sing-note', '/F4'); singer.start(3); }, 23000));
     	//done! clear array.
     	bday_timers.push(setTimeout(function() { bday_timers = []; }, 25000));
     });
