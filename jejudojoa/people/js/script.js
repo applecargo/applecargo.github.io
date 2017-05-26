@@ -34,13 +34,13 @@ $( document ).ready(function() {
     });
     $('.ui-btn-animal').addClass('bg-green');
     
-    $('.ui-btn-yesno').click(function() {
+    $('.ui-btn-brass').click(function() {
         $(this).removeClass('bg-black').addClass('bg-yellow');
         setTimeout(function() {
             $(this).removeClass('bg-yellow').addClass('bg-black');
         }.bind(this), 300);
     });
-    $('.ui-btn-yesno').addClass('bg-black');
+    $('.ui-btn-brass').addClass('bg-black');
     
     $('.ui-btn-stop').click(function() {
         $(this).removeClass('bg-red').addClass('bg-yellow');
@@ -129,7 +129,7 @@ $( document ).ready(function() {
     var clap;
     var animal;
     var ball;
-    var yesno;
+    var brass;
     var phone;
     var stop;
     var singer;
@@ -166,9 +166,9 @@ $( document ).ready(function() {
 	url = "audio/animal@6/" + ("0" + Math.floor(Math.random()*6+1)).slice(-2) + ".mp3";
 	animal = new Tone.Player({ "url" : url }).toMaster();
 
-	//yesno
-	url = "audio/yesno@3/" + ("0" + Math.floor(Math.random()*3+1)).slice(-2) + ".mp3";
-	yesno = new Tone.Player({ "url" : url }).toMaster();
+	//brass
+	url = "audio/brass@7/" + ("0" + Math.floor(Math.random()*7+1)).slice(-2) + ".mp3";
+	brass = new Tone.Player({ "url" : url }).toMaster();
 
 	//phone
 	url = "audio/phone@1/" + ("0" + Math.floor(Math.random()*1+1)).slice(-2) + ".mp3";
@@ -253,10 +253,10 @@ $( document ).ready(function() {
 	socket.emit('sound', 'animal');
 	animal.start();
     });
-    $('.ui-btn-yesno').click(function() {
-	console.log('yesno-go');
-	socket.emit('sound', 'yesno');
-	yesno.start();
+    $('.ui-btn-brass').click(function() {
+	console.log('brass-go');
+	socket.emit('sound', 'brass');
+	brass.start();
     });
     $('.ui-btn-phone').click(function() {
 	console.log('phone-go');
@@ -271,7 +271,7 @@ $( document ).ready(function() {
 	clap.stop();
 	ball.stop();
 	animal.stop();
-	yesno.stop();
+	brass.stop();
 	phone.stop();
 	// & stop sequence, too.
 	bday_timers.forEach(function(item) { clearTimeout(item); });
@@ -340,7 +340,7 @@ $( document ).ready(function() {
 	case 'clap': clap.start(); break;
 	case 'ball': ball.start(); break;
 	case 'animal': animal.start(); break;
-	case 'yesno': yesno.start(); break;
+	case 'brass': brass.start(); break;
 	case 'phone': phone.start(); break;
 	case 'stop':
 	    stop.start();
@@ -348,7 +348,7 @@ $( document ).ready(function() {
 	    clap.stop();
 	    ball.stop();
 	    animal.stop();
-	    yesno.stop();
+	    brass.stop();
 	    phone.stop();
 	    // & stop sequence, too.
 	    bday_timers.forEach(function(item) { clearTimeout(item); });
