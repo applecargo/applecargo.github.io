@@ -1,19 +1,3 @@
-//birthday-go
-//time generator
-//1 1 2 2 2 4 1 1 2 2 2 4 1 1 2 2 2 2 4 1 1 2 2 2 4 //rhythm
-//0 0 1 0 3 2 0 0 1 0 4 3 0 0 7 5 3 2 1 6 6 5 3 4 3 //melody
-function bd_tgen() {
-    var bd_r = [1, 1, 2, 2, 2, 4, 1, 1, 2, 2, 2, 4, 1, 1, 2, 2, 2, 2, 4, 1, 1, 2, 2, 2, 4]; //rhythm
-    var bd_tscale = 500; //ms
-    var sum = 0;
-    
-    for (var i = 0; i < 25; i++) {
-	// console.log(bd_r[i]*bd_tscale);
-	console.log(sum);
-	sum = sum + bd_r[i]*bd_tscale;
-    }
-}
-
 $( document ).ready(function() {
 
     ////ui utilities
@@ -24,6 +8,63 @@ $( document ).ready(function() {
             $(this).removeClass('bg-yellow').addClass('bg-blue');
         }.bind(this), 300);
     });
+
+    //launchpad page...
+    $('.ui-btn-clap').click(function() {
+        $(this).removeClass('bg-blue').addClass('bg-yellow');
+        setTimeout(function() {
+            $(this).removeClass('bg-yellow').addClass('bg-blue');
+        }.bind(this), 300);
+    });
+    $('.ui-btn-clap').addClass('bg-blue');
+    
+    $('.ui-btn-ball').click(function() {
+        $(this).removeClass('bg-hot-pink').addClass('bg-yellow');
+        setTimeout(function() {
+            $(this).removeClass('bg-yellow').addClass('bg-hot-pink');
+        }.bind(this), 300);
+    });
+    $('.ui-btn-ball').addClass('bg-hot-pink');
+    
+    $('.ui-btn-animal').click(function() {
+        $(this).removeClass('bg-green').addClass('bg-yellow');
+        setTimeout(function() {
+            $(this).removeClass('bg-yellow').addClass('bg-green');
+        }.bind(this), 300);
+    });
+    $('.ui-btn-animal').addClass('bg-green');
+    
+    $('.ui-btn-yesno').click(function() {
+        $(this).removeClass('bg-black').addClass('bg-yellow');
+        setTimeout(function() {
+            $(this).removeClass('bg-yellow').addClass('bg-black');
+        }.bind(this), 300);
+    });
+    $('.ui-btn-yesno').addClass('bg-black');
+    
+    $('.ui-btn-stop').click(function() {
+        $(this).removeClass('bg-red').addClass('bg-yellow');
+        setTimeout(function() {
+            $(this).removeClass('bg-yellow').addClass('bg-red');
+        }.bind(this), 300);
+    });
+    $('.ui-btn-stop').addClass('bg-red');
+    
+    $('.ui-btn-phone').click(function() {
+        $(this).removeClass('bg-navy').addClass('bg-yellow');
+        setTimeout(function() {
+            $(this).removeClass('bg-yellow').addClass('bg-navy');
+        }.bind(this), 300);
+    });
+    $('.ui-btn-phone').addClass('bg-navy');
+    
+    $('.ui-btn-birthday').click(function() {
+        $(this).removeClass('bg-hot-pink').addClass('bg-white');
+        setTimeout(function() {
+            $(this).removeClass('bg-white').addClass('bg-hot-pink');
+        }.bind(this), 300);
+    });
+    $('.ui-btn-birthday').addClass('bg-hot-pink');
     
     $('.ui-btn-piano-white').click(function() {
         $(this).removeClass('fill-white').addClass('fill-yellow');
@@ -44,10 +85,10 @@ $( document ).ready(function() {
 
     $('.ui-tgl-pianoforall').change(function() {
     	if ($(this).prop('checked') == true) {
-    	    $(this).removeClass('bg-dark-green').addClass('bg-red');
+    	    $(this).removeClass('bg-navy').addClass('bg-yellow');
     	}
     	else {
-    	    $(this).removeClass('bg-red').addClass('bg-dark-green');
+    	    $(this).removeClass('bg-yellow').addClass('bg-navy');
     	}
     });
     $('.ui-tgl-pianoforall').prop('checked', false).change();
@@ -59,7 +100,8 @@ $( document ).ready(function() {
         'page-loading': 1,
         'page-checklist': 2,
         'page-launchpad': 3,
-        'page-piano': 4
+        'page-piano': 4,
+        'page-birthday': 5
     };
     var cur_page = 0;
     function changePage(page) {
@@ -74,6 +116,7 @@ $( document ).ready(function() {
     $('.go-checklist').click(function() { changePage(pages['page-checklist']); });
     $('.go-launchpad').click(function() { changePage(pages['page-launchpad']); });
     $('.go-piano').click(function() { changePage(pages['page-piano']); });
+    $('.go-birthday').click(function() { changePage(pages['page-birthday']); });
     var pagechanger = setTimeout(function() { $('#go-loading').click(); }, 5000);
     $('.go-loading').click(function() {
         changePage(pages['page-loading']);
@@ -84,7 +127,13 @@ $( document ).ready(function() {
     ////audio data loading
 
     var clap;
-    
+    var animal;
+    var ball;
+    var yesno;
+    var phone;
+    var stop;
+    var singer;
+
     function audioloader() {
 	var url;
 
@@ -105,12 +154,29 @@ $( document ).ready(function() {
 	    ]
 	).toMaster();
 
-	// //
-	// url = "audio/voices/individual@12/" + ("0" + Math.floor(Math.random()*12+1)).slice(-2) + ".mp3";
-	// indi = new Tone.Player({ "url" : url }).toMaster();
+	//clap
+	url = "audio/clap@2/" + ("0" + Math.floor(Math.random()*2+1)).slice(-2) + ".mp3";
+        clap = new Tone.Player({ "url" : url }).toMaster();
+	
+	//ball
+	url = "audio/ball@6/" + ("0" + Math.floor(Math.random()*6+1)).slice(-2) + ".mp3";
+	ball = new Tone.Player({ "url" : url }).toMaster();
 
-	//sounds
-	url = "audio/clap.wav";         clap         = new Tone.Player({ "url" : url }).toMaster();
+	//animal
+	url = "audio/animal@6/" + ("0" + Math.floor(Math.random()*6+1)).slice(-2) + ".mp3";
+	animal = new Tone.Player({ "url" : url }).toMaster();
+
+	//yesno
+	url = "audio/yesno@3/" + ("0" + Math.floor(Math.random()*3+1)).slice(-2) + ".mp3";
+	yesno = new Tone.Player({ "url" : url }).toMaster();
+
+	//phone
+	url = "audio/phone@1/" + ("0" + Math.floor(Math.random()*1+1)).slice(-2) + ".mp3";
+	phone = new Tone.Player({ "url" : url }).toMaster();
+
+	//stop
+	url = "audio/stop@1/" + ("0" + Math.floor(Math.random()*1+1)).slice(-2) + ".mp3";
+	stop = new Tone.Player({ "url" : url }).toMaster();
 
 	//buffering
 	console.log('buffering started');
@@ -172,17 +238,52 @@ $( document ).ready(function() {
     ////sound swarm TX (message-triggering)
 
     //launchpads
-    $('.clap-go').click(function() {
-	socket.emit('sound', 'clap'); //won't come back. (broadcast without myself)
-	clap.start(); // to re-activate sound outputs when needed!!
+    $('.ui-btn-clap').click(function() {
 	console.log('clap-go');
+	socket.emit('sound', 'clap');
+	clap.start();
+    });
+    $('.ui-btn-ball').click(function() {
+	console.log('ball-go');
+	socket.emit('sound', 'ball');
+	ball.start();
+    });
+    $('.ui-btn-animal').click(function() {
+	console.log('animal-go');
+	socket.emit('sound', 'animal');
+	animal.start();
+    });
+    $('.ui-btn-yesno').click(function() {
+	console.log('yesno-go');
+	socket.emit('sound', 'yesno');
+	yesno.start();
+    });
+    $('.ui-btn-phone').click(function() {
+	console.log('phone-go');
+	socket.emit('sound', 'phone');
+	phone.start();
+    });
+    $('.ui-btn-stop').click(function() {
+	console.log('stop-go');
+	socket.emit('sound', 'stop');
+	stop.start();
+	// & stop all sounds!
+	clap.stop();
+	ball.stop();
+	animal.stop();
+	yesno.stop();
+	phone.stop();
+	// & stop sequence, too.
+	bday_timers.forEach(function(item) { clearTimeout(item); });
+	singer.stopAll();
     });
     
     //birthday-go (network)
     //1 1 2 2 2 4 1 1 2 2 2 4 1 1 2 2 2 2 2 1 1 2 2 2 4 //rhythm
     //0 0 1 0 3 2 0 0 1 0 4 3 0 0 7 5 3 2 1 6 6 5 3 4 3 //melody
     var bday_timers = [];
-    $('.birthday-go').click(function() { //won't come back. (broadcast without myself)
+    $('.birthday-go').click(function() {
+	console.log('birthday-go');
 	bday_timers.push(setTimeout(function() { socket.emit('sing-note', '/C4'); singer.start(0); }, 0));
 	bday_timers.push(setTimeout(function() { socket.emit('sing-note', '/C4'); singer.start(0); }, 500));
 	bday_timers.push(setTimeout(function() { socket.emit('sing-note', '/D4'); singer.start(1); }, 1000));
@@ -237,45 +338,53 @@ $( document ).ready(function() {
     socket.on('sound', function(msg) {
 	switch(msg) {
 	case 'clap': clap.start(); break;
-	// case 'clap': clap.start(); break;
+	case 'ball': ball.start(); break;
+	case 'animal': animal.start(); break;
+	case 'yesno': yesno.start(); break;
+	case 'phone': phone.start(); break;
+	case 'stop':
+	    stop.start();
+	    // & stop all sounds!
+	    clap.stop();
+	    ball.stop();
+	    animal.stop();
+	    yesno.stop();
+	    phone.stop();
+	    // & stop sequence, too.
+	    bday_timers.forEach(function(item) { clearTimeout(item); });
+	    singer.stopAll();
+	    break;
 	default:
 	    ;
 	}
     });
 });
 
-
-// //birthday-go (local)
-// //1 1 2 2 2 4 1 1 2 2 2 4 1 1 2 2 2 2 2 1 1 2 2 2 4 //rhythm
+// //birthday-go
+// //time generator
+// //1 1 2 2 2 4 1 1 2 2 2 4 1 1 2 2 2 2 4 1 1 2 2 2 4 //rhythm
 // //0 0 1 0 3 2 0 0 1 0 4 3 0 0 7 5 3 2 1 6 6 5 3 4 3 //melody
-// var bday_timers = [];
-// $('.birthday-go').click(function() {
-// 	bday_timers.push(setTimeout(function() { singer.start(0); }, 0));
-// 	bday_timers.push(setTimeout(function() { singer.start(0); }, 500));
-// 	bday_timers.push(setTimeout(function() { singer.start(1); }, 1000));
-// 	bday_timers.push(setTimeout(function() { singer.start(0); }, 2000));
-// 	bday_timers.push(setTimeout(function() { singer.start(3); }, 3000));
-// 	bday_timers.push(setTimeout(function() { singer.start(2); }, 4000));
-// 	bday_timers.push(setTimeout(function() { singer.start(0); }, 6000));
-// 	bday_timers.push(setTimeout(function() { singer.start(0); }, 6500));
-// 	bday_timers.push(setTimeout(function() { singer.start(1); }, 7000));
-// 	bday_timers.push(setTimeout(function() { singer.start(0); }, 8000));
-// 	bday_timers.push(setTimeout(function() { singer.start(4); }, 9000));
-// 	bday_timers.push(setTimeout(function() { singer.start(3); }, 10000));
-// 	bday_timers.push(setTimeout(function() { singer.start(0); }, 12000));
-// 	bday_timers.push(setTimeout(function() { singer.start(0); }, 12500));
-// 	bday_timers.push(setTimeout(function() { singer.start(7); }, 13000));
-// 	bday_timers.push(setTimeout(function() { singer.start(5); }, 14000));
-// 	bday_timers.push(setTimeout(function() { singer.start(3); }, 15000));
-// 	bday_timers.push(setTimeout(function() { singer.start(2); }, 16000));
-// 	bday_timers.push(setTimeout(function() { singer.start(1); }, 17000));
-// 	bday_timers.push(setTimeout(function() { singer.start(6); }, 19000));
-// 	bday_timers.push(setTimeout(function() { singer.start(6); }, 19500));
-// 	bday_timers.push(setTimeout(function() { singer.start(5); }, 20000));
-// 	bday_timers.push(setTimeout(function() { singer.start(3); }, 21000));
-// 	bday_timers.push(setTimeout(function() { singer.start(4); }, 22000));
-// 	bday_timers.push(setTimeout(function() { singer.start(3); }, 23000));
-// 	//done! clear array.
-// 	bday_timers.push(setTimeout(function() { bday_timers = []; }, 25000));
-// });
+// function bd_tgen() {
+//     var bd_r = [1, 1, 2, 2, 2, 4, 1, 1, 2, 2, 2, 4, 1, 1, 2, 2, 2, 2, 4, 1, 1, 2, 2, 2, 4]; //rhythm
+//     var bd_tscale = 500; //ms
+//     var sum = 0;
 
+//     for (var i = 0; i < 25; i++) {
+// 	// console.log(bd_r[i]*bd_tscale);
+// 	console.log(sum);
+// 	sum = sum + bd_r[i]*bd_tscale;
+//     }
+// }
+
+
+// balls = [];
+// for (var idx = 0; idx < 6; idx++) {
+//     url = "audio/balls@6/" + ("0" + (idx + 1)).slice(-2) + ".mp3"; // slice(-2) will select last(minus) two characters.
+//     balls.push(new Tone.Player(url).toMaster());
+// }
+
+
+//ball
+//to get duration of an audio sample in MultiPlayer loaded..
+// singer.buffers.get(0)._buffer.duration
+// ball.buffers.get(Math.random)._buffer.duration
