@@ -173,15 +173,24 @@ gn.init(args).then(function(){
 
 $( document ).ready(function() {
 
-    // var ampEnv = new Tone.AmplitudeEnvelope({
-    // 	"attack": 0.1,
-    // 	"decay": 0.2,
-    // 	"sustain": 0,
-    // 	"release": 0
-    // }).toMaster();
+    ////ui utilities
     
-    // var osc = new Tone.Oscillator(440, "sine").connect(ampEnv);
-    // osc.start();
+    $('.ui-btn').click(function() {
+        $(this).removeClass('bg-blue').addClass('bg-yellow');
+        setTimeout(function() {
+            $(this).removeClass('bg-yellow').addClass('bg-blue');
+        }.bind(this), 300);
+    });
+
+    var ampEnv = new Tone.AmplitudeEnvelope({
+    	"attack": 0.1,
+    	"decay": 0.3,
+    	"sustain": 0,
+    	"release": 0
+    }).toMaster();
+    
+    var osc = new Tone.Oscillator(440, "sine").connect(ampEnv);
+    osc.start();
     
     //// audio data loading
     var boo = new Tone.MultiPlayer(
@@ -195,6 +204,7 @@ $( document ).ready(function() {
     // sound enabler (for iOS)
     $(".touch").click(function() {
 	boo.start(0);
+	osc.start();
     });
 
     //
@@ -207,8 +217,8 @@ $( document ).ready(function() {
 	if (state == "released") {
 	    if (sensed_inst < -0.5) {
 		//bang
-		// osc.frequency.value = Math.random()*1400 + 200;
-		// ampEnv.triggerAttackRelease(0.3);
+		osc.frequency.value = Math.random()*1400 + 200;
+		ampEnv.triggerAttackRelease(0.4);
 		// boo.playbackRate = (Math.random()-0.5)*0.5+1;
 		boo.start(Math.floor(Math.random()*3)+1);
 		state = "engaged";
