@@ -80,7 +80,8 @@ gn.init(args).then(function(){
 	g_motionr = data.do.gamma/90; //-1 ~ 1 : roll
 
 	////  cooking... shaker motion detecting signal..
-	var sensed = g_tiltsx;
+	// var sensed = g_tiltsx;
+	var sensed = g_tiltsy;
 	
 	//moving average
 	if (g_sensed_array_slow_first == true) {
@@ -174,14 +175,32 @@ gn.init(args).then(function(){
 $( document ).ready(function() {
 
     ////ui utilities
-    
     $('.ui-btn').click(function() {
         $(this).removeClass('bg-blue').addClass('bg-yellow');
         setTimeout(function() {
             $(this).removeClass('bg-yellow').addClass('bg-blue');
         }.bind(this), 300);
     });
+    $('.ui-tgl').change(function() {
+	if ($(this).prop('checked') == true) {
+	    $(this).removeClass('bg-near-black').addClass('bg-white');
+	}
+	else {
+	    $(this).removeClass('bg-white').addClass('bg-near-black');
+	}
+    });
+    // animationStripes
 
+    $('.ui-tgl-disco').change(function() {
+	if ($(this).prop('checked') == true) {
+	    $(this).removeClass('bg-near-black').addClass('bg-white');
+	}
+	else {
+	    $(this).removeClass('bg-white').addClass('bg-near-black');
+	}
+    });
+
+    //// audio    
     var ampEnv = new Tone.AmplitudeEnvelope({
     	"attack": 0.1,
     	"decay": 0.3,
@@ -215,7 +234,7 @@ $( document ).ready(function() {
 
 	//threshold~ 0 10 -0.8 100
 	if (state == "released") {
-	    if (sensed_inst < -0.5) {
+	    if (sensed_inst > 0) {
 		//bang
 		osc.frequency.value = Math.random()*1400 + 200;
 		ampEnv.triggerAttackRelease(0.4);
@@ -225,7 +244,7 @@ $( document ).ready(function() {
 	    }
 	}
 	else if (state == "engaged") {
-	    if (sensed_inst > -0.2) {
+	    if (sensed_inst < -0.2) {
 		//nothing
 		state = "released";
 	    }
