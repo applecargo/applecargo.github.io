@@ -19,7 +19,8 @@ var g_sensed_mavg_slow = 0;
 var g_sensed_mavg_fast = 0;
 
 var args = {
-	frequency:50,			// ( How often the object sends the values - milliseconds )
+	// frequency:50,			// ( How often the object sends the values - milliseconds )
+	frequency:20,			// ( How often the object sends the values - milliseconds )
 	gravityNormalized:true,		// ( If the gravity related values to be normalized )
 	orientationBase:GyroNorm.GAME,	// ( Can be GyroNorm.GAME or GyroNorm.WORLD. gn.GAME returns orientation values with respect to the head direction of the device. gn.WORLD returns the orientation values with respect to the actual north direction of the world. )
 	decimalCount:2,			// ( How many digits after the decimal point will there be in the return values )
