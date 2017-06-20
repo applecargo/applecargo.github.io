@@ -12,6 +12,7 @@ var g_motiony;
 var g_motionr;
 var g_motionp;
 
+var g_sensed = 0;
 var g_sensed_array_slow_first = true;
 var g_sensed_array_slow = [];
 var g_sensed_array_fast = [];
@@ -83,6 +84,7 @@ gn.init(args).then(function(){
 	////  cooking... shaker motion detecting signal..
 	// var sensed = g_tiltsx;
 	var sensed = g_tiltsy;
+	g_sensed = sensed;
 	
 	//moving average
 	if (g_sensed_array_slow_first == true) {
@@ -231,7 +233,8 @@ $( document ).ready(function() {
     var state = "released";
     var motionupdater = setInterval(function() {
 
-	var sensed_inst = g_sensed_mavg_fast - g_sensed_mavg_slow;
+	// var sensed_inst = g_sensed_mavg_fast - g_sensed_mavg_slow;
+	var sensed_inst = g_sensed;
 
 	//threshold~ 0 10 -0.8 100
 	if (state == "released") {
