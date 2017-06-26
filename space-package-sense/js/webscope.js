@@ -9,6 +9,15 @@ function Webscope(canvas, miny, maxy, maxbuf) {
     this.miny = miny;//-10;
     this.maxy = maxy;//10;
 
+    this.clear = function() {
+	this.buf = [];
+    }
+    
+    this.update = function(item) {
+	this.push(item);
+	this.draw();
+    }
+    
     this.push = function(item) {
 	if (this.buf.length > this.maxbuf) this.buf.shift();
 	this.buf.push(item);

@@ -1,16 +1,16 @@
 //// collect motion data!!!
 
-var g_tiltsx;
-var g_tiltsy;
-var g_accelx;
-var g_accely;
-var g_accelz;
-var g_gyroy;
-var g_gyror;
-var g_gyrop;
-var g_motiony;
-var g_motionr;
-var g_motionp;
+var g_tiltsx = 0;
+var g_tiltsy = 0;
+var g_accelx = 0;
+var g_accely = 0;
+var g_accelz = 0;
+var g_gyroy = 0;
+var g_gyror = 0;
+var g_gyrop = 0;
+var g_motiony = 0;
+var g_motionr = 0;
+var g_motionp = 0;
 
 var g_sensed = 0;
 var g_sensed_array_slow_first = true;
@@ -20,8 +20,8 @@ var g_sensed_mavg_slow = 0;
 var g_sensed_mavg_fast = 0;
 
 var args = {
-	// frequency:50,			// ( How often the object sends the values - milliseconds )
-	frequency:20,			// ( How often the object sends the values - milliseconds )
+	frequency:50,			// ( How often the object sends the values - milliseconds )
+	// frequency:20,			// ( How often the object sends the values - milliseconds )
 	gravityNormalized:true,		// ( If the gravity related values to be normalized )
 	orientationBase:GyroNorm.GAME,	// ( Can be GyroNorm.GAME or GyroNorm.WORLD. gn.GAME returns orientation values with respect to the head direction of the device. gn.WORLD returns the orientation values with respect to the actual north direction of the world. )
 	decimalCount:2,			// ( How many digits after the decimal point will there be in the return values )
@@ -50,9 +50,14 @@ gn.init(args).then(function(){
 	// data.dm.alpha	( devicemotion event rotationRate alpha value )
 	// data.dm.beta		( devicemotion event rotationRate beta value )
 	// data.dm.gamma	( devicemotion event rotationRate gamma value )
-	var rawaccelx = g_accelx = data.dm.gx/9.8; // -1 ~ 1
-	var rawaccely = g_accely = data.dm.gy/9.8; // -1 ~ 1
-	var rawaccelz = g_accelz = data.dm.gz/9.8; // -1 ~ 1
+
+	
+	// var rawaccelx = g_accelx = data.dm.gx/9.8; // -1 ~ 1
+	// var rawaccely = g_accely = data.dm.gy/9.8; // -1 ~ 1
+	// var rawaccelz = g_accelz = data.dm.gz/9.8; // -1 ~ 1
+	var rawaccelx = g_accelx = data.dm.x/9.8; // -1 ~ 1
+	var rawaccely = g_accely = data.dm.y/9.8; // -1 ~ 1
+	var rawaccelz = g_accelz = data.dm.z/9.8; // -1 ~ 1
 
 	//cook accel to get more close 'tilts' as mobmuplat's tilts
 	var cookedx = rawaccelx;
@@ -83,7 +88,8 @@ gn.init(args).then(function(){
 
 	////  cooking... shaker motion detecting signal..
 	// var sensed = g_tiltsx;
-	var sensed = g_tiltsy;
+	// var sensed = g_tiltsy;
+	var sensed = g_accelx + g_accely + g_accelz;
 	g_sensed = sensed;
 	
 	//moving average
@@ -230,29 +236,51 @@ $( document ).ready(function() {
     });
 
     //
-    var state = "released";
-    var motionupdater = setInterval(function() {
+    var sensed = 0;
+    var state = 0; //"ready"
+    var holdcnt = 0;
+    var sum = 0;
+    var mavg_slow = new Mavg(7);
+    var mavg_fast = new Mavg(3);
+    var motioncapture = setInterval(function() {
 
-	// var sensed_inst = g_sensed_mavg_fast - g_sensed_mavg_slow;
-	var sensed_inst = g_sensed;
+	//integration
+    	sum = sum + Math.abs(g_accelx + g_accely + g_accelz);
 
-	//threshold~ 0 10 -0.8 100
-	if (state == "released") {
-	    if (sensed_inst > 0) {
-		//bang
-		osc.frequency.value = Math.random()*1400 + 200;
-		ampEnv.triggerAttackRelease(0.4);
-		// boo.playbackRate = (Math.random()-0.5)*0.5+1;
-		boo.start(Math.floor(Math.random()*3)+1);
-		state = "engaged";
-	    }
-	}
-	else if (state == "engaged") {
-	    if (sensed_inst < -0.2) {
-		//nothing
-		state = "released";
-	    }
-	}
+	//mavgs for drift canceling
+	mavg_slow.push(sum);
+	mavg_fast.push(sum);
+
+	//growing case only
+	sensed = Math.abs(mavg_fast.get() - mavg_slow.get());
 	
+    	//threshold emulation. bang/freeze/ready again.
+    	if (state == 0) { //"ready"
+    	    if (sensed > 4) {
+    		//bang!!
+    		bang();
+    		state = 1; //"triggering";
+    		holdcnt = 5;
+    	    }
+    	}
+    	else if (state == 1) { //"triggering"
+    	    holdcnt = holdcnt - 1;
+    	    if (holdcnt <= 0) {
+    		state = 2; //"triggered";
+    	    }
+    	}
+    	else if (state == 2) { //"triggered"
+    	    state = 0; //"ready";
+    	}
+
     }, 50);
+
+    //
+    function bang() {
+	//bang
+	osc.frequency.value = Math.random()*1400 + 200;
+	ampEnv.triggerAttackRelease(0.4);
+	// boo.playbackRate = (Math.random()-0.5)*0.5+1;
+	boo.start(Math.floor(Math.random()*2));
+    }
 });

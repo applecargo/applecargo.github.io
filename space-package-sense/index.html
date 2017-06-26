@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- dependencies -->
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script type="text/javascript" src="js/gyronorm.complete.min.js"></script>
+    <link rel="stylesheet" href="https://unpkg.com/tachyons@4.7.0/css/tachyons.min.css"/>
+    <link rel="stylesheet" href="css/colors.css">
+    <!-- js code -->
+    <script type="text/javascript" src="js/webscope.js"></script>
+    <script type="text/javascript" src="js/mavg.js"></script>
+    <script type="text/javascript" src="js/script.js"></script>
+    <!-- NOTE : to make canvas fill 100% of div in html, no way to achieve that. you must do it by css! -->
+    <style>
+     .scope {
+       width:100%;
+       height:100%;
+       margin:0;
+     }
+    </style>
+  </head>
+  <body class="bg-light-blue min-h-100 h-auto">
+    <!-- full page layout -->
+    <div class="vh-100 w-100 absolute top-0 left-0">
+      <div class="cf w-100 top-0">
+
+	<!-- contents -->
+	<div class="absolute top-0 right-0 pt2 pl2">
+	  <input type="checkbox" class="ui-tgl-capture input-reset dib br-100 mh2 w2 h2 ba bw3 b--white" value="0"/>
+	</div>
+	<div class="fl w-100" id="page-scope">
+	  <div class="fl w-100 pb2 pt4 bg-light-gray">
+	    <div class="tc">
+	      <div class="dib w-100">
+		<canvas class="ws_accelxyz" width="300px" height="150px"/>
+	      </div>
+	    </div>
+	  </div>
+	  <div class="fl tc w-100 pv2 bg-light-gray">
+	    ws_accelxyz
+	  </div>
+	  <div class="fl w-100 pv2 bg-white">
+	    <div class="tc">
+	      <div class="dib w-100">
+		<canvas class="ws_accelintegral" width="300px" height="150px"/>
+	      </div>
+	    </div>
+	  </div>
+	  <div class="fl tc w-100 pv2 bg-white">
+	    ws_accelintegral
+	  </div>
+	  <div class="fl w-100 pv2 bg-light-gray">
+	    <div class="tc">
+	      <div class="dib w-100">
+		<canvas class="ws_mavg_slow" width="300px" height="150px"/>
+	      </div>
+	    </div>
+	  </div>
+	  <div class="fl tc w-100 pv2 bg-light-gray">
+	    ws_mavg_slow
+	  </div>
+	  <div class="fl w-100 pv2 bg-white">
+	    <div class="tc">
+	      <div class="dib w-100">
+		<canvas class="ws_mavg_fast" width="300px" height="150px"/>
+	      </div>
+	    </div>
+	  </div>
+	  <div class="fl tc w-100 pv2 bg-white">
+	    ws_mavg_fast
+	  </div>
+	  <div class="fl w-100 pv2 bg-light-gray">
+	    <div class="tc">
+	      <div class="dib w-100">
+		<canvas class="ws_sensed" width="300px" height="150px"/>
+	      </div>
+	    </div>
+	  </div>
+	  <div class="fl tc w-100 pv2 bg-light-gray">
+	    ws_sensed
+	  </div>
+	  <div class="fl w-100 pv2 bg-white">
+	    <div class="tc">
+	      <div class="dib w-100">
+		<canvas class="ws_cooked" width="300px" height="150px"/>
+	      </div>
+	    </div>
+	  </div>
+	  <div class="fl tc w-100 pv2 bg-white">
+	    ws_cooked
+	  </div>
+	</div>
+	
+      </div><!-- full page end -->
+    </div>
+  </body>
+</html>
