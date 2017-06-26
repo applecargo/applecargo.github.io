@@ -116,65 +116,36 @@ $( document ).ready(function() {
     $('.ui-tgl-capture').prop('checked', true).change();
     
     //
-    var ws_accelxyz = new Webscope($(".ws_accelxyz")[0], -20, 20, 300);
-    var ws_accelintegral = new Webscope($(".ws_accelintegral")[0], -20, 20, 300);
-    var ws_mavg_slow = new Webscope($(".ws_mavg_slow")[0], -20, 20, 300);
-    var ws_mavg_fast = new Webscope($(".ws_mavg_fast")[0], -20, 20, 300);
-    var ws_sensed = new Webscope($(".ws_sensed")[0], -40, 40, 300);
-    var ws_cooked = new Webscope($(".ws_cooked")[0], -20, 20, 300);
+    var ws_tiltsx = new Webscope($(".ws_tiltsx")[0], -1, 1, 300);
+    var ws_tiltsy = new Webscope($(".ws_tiltsy")[0], -1, 1, 300);
+    var ws_accelx = new Webscope($(".ws_accelx")[0], -1, 1, 300);
+    var ws_accely = new Webscope($(".ws_accely")[0], -1, 1, 300);
+    var ws_accelz = new Webscope($(".ws_accelz")[0], -1, 1, 300);
+    var ws_gyroy = new Webscope($(".ws_gyroy")[0], -1, 1, 300);
+    var ws_gyror = new Webscope($(".ws_gyror")[0], -1, 1, 300);
+    var ws_gyrop = new Webscope($(".ws_gyrop")[0], -1, 1, 300);
+    var ws_motiony = new Webscope($(".ws_motiony")[0], -1, 1, 300);
+    var ws_motionr = new Webscope($(".ws_motionr")[0], -1, 1, 300);
+    var ws_motionp = new Webscope($(".ws_motionp")[0], -1, 1, 300);
 
     //
-    var sensed = 0;
-    var state = 0; //"ready"
-    var holdcnt = 0;
-    var sum = 0;
-    var mavg_slow = new Mavg(10);
-    var mavg_fast = new Mavg(3);
     var capture_running = 1;
     var motioncapture = setInterval(function() {
 
 	if (capture_running == 1) {
 
-	    ws_accelxyz.update(g_accelx + g_accely + g_accelz);//SCOPE
-
-	    //integration
-    	    sum = sum + Math.abs(g_accelx + g_accely + g_accelz);
-	    ws_accelintegral.update(sum);//SCOPE
+	    ws_tiltsx.update(g_tiltsx);//SCOPE
+	    ws_tiltsy.update(g_tiltsy);//SCOPE
+	    ws_accelx.update(g_accelx);//SCOPE
+	    ws_accely.update(g_accely);//SCOPE
+	    ws_accelz.update(g_accelz);//SCOPE
+	    ws_gyroy.update(g_gyroy);//SCOPE
+	    ws_gyror.update(g_gyror);//SCOPE
+	    ws_gyrop.update(g_gyrop);//SCOPE
+	    ws_motiony.update(g_motiony);//SCOPE
+	    ws_motionr.update(g_motionr);//SCOPE
+	    ws_motionp.update(g_motionp);//SCOPE
 	    
-	    //mavgs for drift canceling
-	    mavg_slow.push(sum);
-	    ws_mavg_slow.update(mavg_slow.get());//SCOPE
-	    mavg_fast.push(sum);
-	    ws_mavg_fast.update(mavg_fast.get());//SCOPE
-
-	    //growing case only
-	    sensed = Math.abs(mavg_fast.get() - mavg_slow.get());
-	    
-	    ws_sensed.update(sensed);//SCOPE
-		
-    	    //threshold emulation. bang/freeze/ready again.
-    	    if (state == 0) { //"ready"
-    		if (sensed > 5) {
-    		    // //bang!!
-    		    // bang();
-    		    state = 1; //"triggering";
-    		    holdcnt = 7;
-    		}
-    	    }
-    	    else if (state == 1) { //"triggering"
-    		holdcnt = holdcnt - 1;
-    		if (holdcnt <= 0) {
-    		    state = 2; //"triggered";
-    		}
-    	    }
-    	    else if (state == 2) { //"triggered"
-    		if (sensed < 2) {
-    		    state = 0; //"ready";
-		}
-    	    }
-
-    	    //
-    	    ws_cooked.update(state);//SCOPE
 	}
 	
     }, 50);
