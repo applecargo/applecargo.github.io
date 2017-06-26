@@ -109,6 +109,9 @@ gn.init(args).then(function(){
 // 	outputAccel[1] = cookedY;
 // }
 
+//NEW IDEA : let's loosen criteria to trigger any jerky motion. and then, decide what to do according to *filtered* motionr/motionp at that moment!
+var g_posep = 0;
+var g_poser = 0;
 function motionprocessing (motioncallback) {
 
     // motion sensing.
@@ -116,28 +119,39 @@ function motionprocessing (motioncallback) {
     var state = 0; //0 : ready, 1: tringgering, 2: triggered
     var holdcnt = 0;
     var sum = 0;
-    var mavg_slow = new Mavg(5);
-    // var mavg_fast = new Mavg(3);
-    var mavg_fast = new Mavg(1);
+    var mavg_motionp = new Mavg(2);
+    // var mavg_motionr = new Mavg(20);
+    var mavg_motionr = new Mavg(5);
+    var mavg_tiltsy = new Mavg(20);
     var motioncapture = setInterval(function() {
 
-	//integral
-    	sum = sum + Math.abs(g_accelx + g_accely + g_accelz);
+	// //integral
+    	// sum = sum + Math.abs(g_accelx + g_accely + g_accelz);
 
-	//mavgs for drift canceling
-	mavg_slow.push(sum);
-	mavg_fast.push(sum);
+	// //mavgs for drift canceling
+	// mavg_slow.push(sum);
+	// mavg_fast.push(sum);
 
-	//growing case only
-	sensed = Math.abs(mavg_fast.get() - mavg_slow.get());
+	// //growing case only
+	// sensed = Math.abs(mavg_fast.get() - mavg_slow.get());
+
+	//any jerky motion!!
+	sensed = Math.abs(g_accelx) + Math.abs(g_accely) + Math.abs(g_accelz);
+
+	mavg_motionp.push(Math.abs(g_motionp));
+	mavg_motionr.push(Math.abs(g_motionr));
+	mavg_tiltsy.push(Math.abs(g_tiltsy));
+	g_posep = mavg_motionp.get(); //nice to check front/back
+	g_poser = mavg_motionr.get(); //nice to check upright/flat
+	g_posey = mavg_tiltsy.get(); //nice to check upright/flat
 	
     	//thresholding emulation. bang/freeze/ready again.
     	if (state == 0) { //ready
-    	    if (sensed > 4) {
+    	    if (sensed > 3) {
     		//bang!!
-    		motioncallback();
+    		motioncallback(g_poser, g_posep, g_posey);
     		state = 1; //triggering
-    		holdcnt = 5;
+    		holdcnt = 7;
     	    }
     	}
     	else if (state == 1) { //triggering
@@ -147,9 +161,9 @@ function motionprocessing (motioncallback) {
     	    }
     	}
     	else if (state == 2) { //triggered
-	    if (sensed < 4) { //comment out this to allow re-triggering!! --> more pleasure.
-    		state = 0; //ready
-	    }
+	    // if (sensed < 3) { //comment out this to allow re-triggering!! --> more pleasure.
+    	    state = 0; //ready
+	    // }
     	}
 
     }, 50);

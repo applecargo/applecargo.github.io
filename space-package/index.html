@@ -13,9 +13,11 @@
     <link rel="stylesheet" href="css/colors.css">
     <link rel="stylesheet" href="css/loading-animation.css"/>
     <!-- js code -->
+    <script type="text/javascript" src="js/webscope.js"></script>
     <script type="text/javascript" src="js/ui.js"></script>
     <script type="text/javascript" src="js/mavg.js"></script>
     <script type="text/javascript" src="js/motion.js"></script>
+    <script type="text/javascript" src="js/instruments.js"></script>
     <script type="text/javascript" src="js/script.js"></script>
   </head>
   <body class="bg-near-black min-h-100 h-auto">
@@ -67,6 +69,47 @@
 		<span class="prog-no lime f3 fw7 b">0</span><br>
 	      </div>
 	    </div>
+	    <div class="fl w-100 pb2 pt4">
+	      <div class="tc">
+		<div class="dib w-100">
+		  <canvas class="ws_poser" width="300px" height="150px"/>
+		</div>
+	      </div>
+	    </div>
+	    <div class="fl tc w-100 pv2 white">
+	      ws_poser
+	    </div>
+	    <div class="fl w-100 pb2 pt4">
+	      <div class="tc">
+		<div class="dib w-100">
+		  <canvas class="ws_posey" width="300px" height="150px"/>
+		</div>
+	      </div>
+	    </div>
+	    <div class="fl tc w-100 pv2 white">
+	      ws_posey
+	    </div>
+	    <div class="fl w-100 pb2 pt4">
+	      <div class="tc">
+		<div class="dib w-100">
+		  <canvas class="ws_motionr" width="300px" height="150px"/>
+		</div>
+	      </div>
+	    </div>
+	    <div class="fl tc w-100 pv2 white">
+	      ws_motionr:Math.abs(g_motionr)
+	    </div>
+	    <div class="fl w-100 pb2 pt4">
+	      <div class="tc">
+		<div class="dib w-100">
+		  <canvas class="ws_tiltsy" width="300px" height="150px"/>
+		</div>
+	      </div>
+	    </div>
+	    <div class="fl tc w-100 pv2 white">
+	      ws_tiltsy:Math.abs(g_tiltsy)
+	    </div>
+	    
 	  </div>
 	</div>
 	
