@@ -36,7 +36,8 @@ $( document ).ready(function() {
 
     ////////audio
     ////beep-tone
-    var synth_beep = new Synth_beep();
+    // var synth_beep = new Synth_beep();
+    var synth_beep = new Synth_beepshift();
 
     ////noise
     var synth_whistle = new Synth_whistle();

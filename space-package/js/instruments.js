@@ -10,8 +10,34 @@ function Synth_beep () {
     this.osc.start();
     
     this.start = function() {
+	this.osc.start();
 	this.ampEnv.triggerAttackRelease(0.4);
     }
+}
+
+function Synth_beepshift () {
+    this.ampEnv = new Tone.AmplitudeEnvelope({
+    	"attack": 0.1,
+    	"decay": 0.3,
+    	"sustain": 0,
+    	"release": 0
+    }).toMaster();
+
+    this.pitchShift = new Tone.PitchShift({
+	"pitch": 0,
+	"feedback": 0.5
+    }).connect(this.ampEnv);
+    
+    this.osc = new Tone.Oscillator(440, "sine").connect(this.pitchShift);
+    this.osc.start();
+    
+    this.start = function() {
+	this.osc.start();
+	this.ampEnv.triggerAttackRelease(0.4);
+    }
+
+    // this.shifter = function(master) {
+    // 	this.pitchShift
 }
 
 function Synth_whistle () {
