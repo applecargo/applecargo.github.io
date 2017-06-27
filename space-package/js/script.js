@@ -51,7 +51,7 @@ $( document ).ready(function() {
     });
 
     //programs
-    function actioncallback(poser, posep, posey) {
+    function actioncallback(poser, posep) {
 	switch(program) {
 	case 0:
 	    //bang!
@@ -107,12 +107,12 @@ $( document ).ready(function() {
     motionprocessing(actioncallback);
 
     var ws_poser = new Webscope($('.ws_poser')[0], -2, 2, 300);
-    var ws_posey = new Webscope($('.ws_posey')[0], -2, 2, 300);
+    var ws_posep = new Webscope($('.ws_posep')[0], -2, 2, 300);
     var ws_motionr = new Webscope($('.ws_motionr')[0], -2, 2, 300);
     var ws_tiltsy = new Webscope($('.ws_tiltsy')[0], -2, 2, 300);
     var motionscope = setInterval(function() {
 	ws_poser.update(g_poser);
-	ws_posey.update(g_posey);
+	ws_posep.update(g_posep);
 	ws_motionr.update(Math.abs(g_motionr));
 	ws_tiltsy.update(Math.abs(g_tiltsy));
     }, 50);
