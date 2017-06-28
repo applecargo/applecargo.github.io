@@ -20,4 +20,13 @@ $( document ).ready(function() {
     var prog_two = new Btn($(".prog-two")[0], 'bg-white', 'bg-near-black', 300, function() {
 	socket.emit('sound',2);
     });
+    var prog_three = new Btn($(".prog-three")[0], 'bg-white', 'bg-near-black', 300, function() {
+	socket.emit('sound',3);
+    });
+    var prog_four = new Btn($(".prog-four")[0], 'bg-white', 'bg-near-black', 300, function() {
+	socket.emit('sound',4);
+    });
+    var prog_five = new Btn($(".prog-five")[0], 'bg-white', 'bg-near-black', 300, function() {
+	socket.emit('sound',5);
+    });
 });

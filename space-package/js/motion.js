@@ -237,16 +237,6 @@ function motionprocessing (motioncallback) {
 	g_motionp = data.do.beta;
 	g_motionr = data.do.gamma;
 
-	// //integral
-    	// sum = sum + Math.abs(g_accelx + g_accely + g_accelz);
-
-	// //mavgs for drift canceling
-	// mavg_slow.push(sum);
-	// mavg_fast.push(sum);
-
-	// //growing case only
-	// sensed = Math.abs(mavg_fast.get() - mavg_slow.get());
-
 	//any jerky motion!!
 	sensed = Math.abs(g_accelx) + Math.abs(g_accely) + Math.abs(g_accelz);
 
@@ -258,7 +248,7 @@ function motionprocessing (motioncallback) {
 
     	//thresholding emulation. bang/freeze/ready again.
     	if (state == 0) { //ready
-    	    if (sensed > 3) {
+    	    if (sensed > 2) {
     		//bang!!
     		motioncallback(g_poser, g_posep);
     		state = 1; //triggering
@@ -272,7 +262,7 @@ function motionprocessing (motioncallback) {
     	    }
     	}
     	else if (state == 2) { //triggered
-	    // if (sensed < 3) { //comment out this to allow re-triggering!! --> more pleasure.
+	    // if (sensed < 2) { //comment out this to allow re-triggering!! --> more pleasure.
     	    state = 0; //ready
 	    // }
     	}
