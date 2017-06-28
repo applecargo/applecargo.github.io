@@ -205,6 +205,7 @@ $( document ).ready(function() {
 	    //screen bang!
 	    // flasher.flash();
 	    $(flasher.elem).fadeIn();
+	    synth_whistle.stop();
 	    break;
 	default:
 	    ;
