@@ -103,10 +103,10 @@ $( document ).ready(function() {
 	    //start cricket
 	    cricket.start();
 	}
-	if (msg == 5) {
-	    //start cricket
-	    cricket.stop();
-	}
+	// if (msg == 5) {
+	//     //stop cricket?
+	//     cricket.stop();
+	// }
     });
 
     //programs
@@ -203,7 +203,8 @@ $( document ).ready(function() {
 	    break;
 	case 5: //silence
 	    //screen bang!
-	    flasher.flash();
+	    // flasher.flash();
+	    $(flasher.elem).fadeIn();
 	    break;
 	default:
 	    ;
