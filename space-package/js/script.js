@@ -112,39 +112,7 @@ $( document ).ready(function() {
     //programs
     function actioncallback(poser, posep) {
 	switch(program) {
-	case 0: // boo/bap
-	    //bang!
-	    if (poser < 0.7) {
-		if (posep < 0.5) {// snap, front
-		    boo.start(0);
-		}
-		else {// snap, back
-		    boo.start(1);
-		}
-	    }
-	    else {// waving
-		boo.start(2);
-	    }
-	    //screen bang!
-	    flasher.flash();
-	    break;
-	case 1: // dog/cat/cymbal
-	    //bang!
-	    if (poser < 0.7) {
-		if (posep < 0.5) {// snap, front
-		    dog.start(Math.floor(Math.random()*2));
-		}
-		else {// snap, back
-		    cat.start(Math.floor(Math.random()*3));
-		}
-	    }
-	    else {// waving
-		cymbal.start(0);
-	    }
-	    //screen bang!
-	    flasher.flash();
-	    break;
-	case 2: //marimba
+	case 0: //marimba
 	    //bang!
 	    if (poser < 0.7) {
 		if (posep < 0.5) {// snap, front
@@ -163,26 +131,39 @@ $( document ).ready(function() {
 	    //screen bang!
 	    flasher.flash();
 	    break;
-	case 3: //noise + marimba
+	case 1: // boo/bap
 	    //bang!
 	    if (poser < 0.7) {
 		if (posep < 0.5) {// snap, front
-		    synth_whistle.filter.frequency.value =
-			Tone.Frequency(Math.floor(Math.random()*12 + 72), "midi").toFrequency();
-		    synth_whistle.start();
+		    boo.start(0);
 		}
 		else {// snap, back
-		    synth_whistle.stop();
-		    marimba.start(Math.floor(Math.random()*15));
+		    boo.start(1);
 		}
 	    }
 	    else {// waving
-		marimba.start(Math.floor(Math.random()*15));
+		boo.start(2);
 	    }
 	    //screen bang!
 	    flasher.flash();
 	    break;
-	case 4: //noise + marimba + cricket
+	case 2: // dog/cat/cymbal
+	    //bang!
+	    if (poser < 0.7) {
+		if (posep < 0.5) {// snap, front
+		    dog.start(Math.floor(Math.random()*2));
+		}
+		else {// snap, back
+		    cat.start(Math.floor(Math.random()*3));
+		}
+	    }
+	    else {// waving
+		cymbal.start(0);
+	    }
+	    //screen bang!
+	    flasher.flash();
+	    break;
+	case 3: //noise
 	    //bang!
 	    if (poser < 0.7) {
 		if (posep < 0.5) {// snap, front
@@ -192,11 +173,30 @@ $( document ).ready(function() {
 		}
 		else {// snap, back
 		    synth_whistle.stop();
-		    marimba.start(Math.floor(Math.random()*15));
+		    // marimba.start(Math.floor(Math.random()*15));
 		}
 	    }
 	    else {// waving
-		marimba.start(Math.floor(Math.random()*15));
+		// marimba.start(Math.floor(Math.random()*15));
+	    }
+	    //screen bang!
+	    flasher.flash();
+	    break;
+	case 4: //noise + cricket
+	    //bang!
+	    if (poser < 0.7) {
+		if (posep < 0.5) {// snap, front
+		    synth_whistle.filter.frequency.value =
+			Tone.Frequency(Math.floor(Math.random()*12 + 72), "midi").toFrequency();
+		    synth_whistle.start();
+		}
+		else {// snap, back
+		    synth_whistle.stop();
+		    // marimba.start(Math.floor(Math.random()*15));
+		}
+	    }
+	    else {// waving
+		// marimba.start(Math.floor(Math.random()*15));
 	    }
 	    //screen bang!
 	    flasher.flash();
