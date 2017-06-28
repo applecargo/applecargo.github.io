@@ -149,17 +149,17 @@ $( document ).ready(function() {
 	    break;
 	case 2: // dog/cat/cymbal
 	    //bang!
-	    if (poser < 0.7) {
+	    // if (poser < 0.7) {
 		if (posep < 0.5) {// snap, front
 		    dog.start(Math.floor(Math.random()*2));
 		}
 		else {// snap, back
 		    cat.start(Math.floor(Math.random()*3));
 		}
-	    }
-	    else {// waving
-		cymbal.start(0);
-	    }
+	    // }
+	    // else {// waving
+	    // 	// cymbal.start(0);
+	    // }
 	    //screen bang!
 	    flasher.flash();
 	    break;
@@ -184,7 +184,7 @@ $( document ).ready(function() {
 	    break;
 	case 4: //noise + cricket
 	    //bang!
-	    if (poser < 0.7) {
+	    // if (poser < 0.7) {
 		if (posep < 0.5) {// snap, front
 		    synth_whistle.filter.frequency.value =
 			Tone.Frequency(Math.floor(Math.random()*12 + 72), "midi").toFrequency();
@@ -194,10 +194,10 @@ $( document ).ready(function() {
 		    synth_whistle.stop();
 		    // marimba.start(Math.floor(Math.random()*15));
 		}
-	    }
-	    else {// waving
-		// marimba.start(Math.floor(Math.random()*15));
-	    }
+	    // }
+	    // else {// waving
+	    // 	// marimba.start(Math.floor(Math.random()*15));
+	    // }
 	    //screen bang!
 	    flasher.flash();
 	    break;
