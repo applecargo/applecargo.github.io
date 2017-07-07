@@ -1,0 +1,18 @@
+{
+  "name": "njp-bulma",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "bulma": "node_modules/node-sass/bin/node-sass bulma/bulma-mod.sass -o css"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "bulma": "^0.4.3"
+  },
+  "devDependencies": {
+    "node-sass": "^4.5.3"
+  }
+}
