@@ -1,0 +1,8 @@
+name: D
+markdown: kramdown
+port: 5000
+host: 0.0.0.0
+include: ["_pages"]
+collections:
+  work:
+    output: true

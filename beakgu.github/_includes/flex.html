@@ -1,0 +1,8 @@
+<div class="flex-wrapper">
+  {% for item in include.items %}
+  <article>
+    <a href="{{ item.url }}"><img src="{{ item.image_path }}" alt="{{ item.title }}" width="100%" align="center"/></a>
+    <p>{{ item.title }}</p>
+  </article>
+  {% endfor %}
+</div>
