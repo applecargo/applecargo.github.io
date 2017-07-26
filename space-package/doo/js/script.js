@@ -23,7 +23,6 @@ $( document ).ready(function() {
 
   //wonjung's or dooho's
   var group = Math.ceil(Math.random()*2); //1 or 2
-  console.log('group:' + group);
 
   ////audio sample loading
   var boo = new Tone.MultiPlayer(
@@ -139,25 +138,6 @@ $( document ).ready(function() {
     }
   });
 
-  //sync
-  socket.on('sing-note', function(msg) {
-    if (program == 3) {
-      if (msg < 100 && group == 1) { // group 1
-        //marimba
-        marimba.start(msg);
-        //screen bang!
-        flasher.flash();
-      }
-      else if (msg >= 100 && group == 2) { // group 2
-        msg = msg - 100;
-        //alucan
-        alucan.start(msg);
-        //screen bang!
-        flasher.flash();
-      }
-    }
-  });
-
   //programs
   function actioncallback(poser, posep) {
     switch(program) {
@@ -193,6 +173,21 @@ $( document ).ready(function() {
       else {// waving
 	boo.start(2);
       }
+      //screen bang!
+      flasher.flash();
+      break;
+    case 2: // alucan
+      //bang!
+      var note = Math.floor(Math.random()*12); // 0 - 11
+      alucan.start(note);
+      //screen bang!
+      flasher.flash();
+      break;
+    case 3: // sync - alucan
+      //bang!
+      var note = Math.floor(Math.random()*12); // 0 - 11
+      alucan.start(note);
+      socket.emit('sing-note', note+100);
       //screen bang!
       flasher.flash();
       break;
@@ -240,4 +235,24 @@ $( document ).ready(function() {
   // 	ws_motionr.update(Math.abs(g_motionr));
   // 	ws_tiltsy.update(Math.abs(g_tiltsy));
   // }, 50);
+
+  //program controller
+  var prog_zero = new Btn($(".prog-zero")[0], 'bg-white', 'bg-near-black', 300, function() {
+    socket.emit('sound',0);
+  });
+  var prog_one = new Btn($(".prog-one")[0], 'bg-white', 'bg-near-black', 300, function() {
+    socket.emit('sound',1);
+  });
+  var prog_two = new Btn($(".prog-two")[0], 'bg-white', 'bg-near-black', 300, function() {
+    socket.emit('sound',2);
+  });
+  var prog_three = new Btn($(".prog-three")[0], 'bg-white', 'bg-near-black', 300, function() {
+    socket.emit('sound',3);
+  });
+  var prog_four = new Btn($(".prog-four")[0], 'bg-white', 'bg-near-black', 300, function() {
+    socket.emit('sound',4);
+  });
+  var prog_five = new Btn($(".prog-five")[0], 'bg-white', 'bg-near-black', 300, function() {
+    socket.emit('sound',5);
+  });
 });

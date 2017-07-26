@@ -22,6 +22,7 @@ $( document ).ready(function() {
     });
     var prog_three = new Btn($(".prog-three")[0], 'bg-white', 'bg-near-black', 300, function() {
 	socket.emit('sound',3);
+	socket.emit('sing-note',3);
     });
     var prog_four = new Btn($(".prog-four")[0], 'bg-white', 'bg-near-black', 300, function() {
 	socket.emit('sound',4);

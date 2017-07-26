@@ -23,7 +23,7 @@
   <body class="bg-near-black min-h-100 h-auto">
 
     <!-- top sticky overlay-ed flasher -->
-    <div class="flasher fixed top-0 left-0 vh-100 w-100 bg-white z-max" style="display:none"></div>
+    <div class="flasher fixed top-0 left-0 vh-100 w-100 bg-white z-max" style="display:none;pointer-events:none"></div>
 
     <!-- full page layout START -->
     <div class="vh-100 w-100 absolute top-0 left-0 bg-near-black">
@@ -32,7 +32,7 @@
 	<!-- full page layout block START -->
 	<!-- top sticky system status header -->
 	<div class="absolute top-0 right-0 pt2 pr2">
-	  <input type="checkbox" class="netstat input-reset dib br-100 w2 h2 ba bw2 b--near-black" value="0"/>
+	  <input type="checkbox" class="netstat input-reset dib br-100 w2 h2 ba bw2 b--near-black" style="pointer-events:none" value="0"/>
 	</div>
 
 	<!-- page - sound & (checklist) -->
@@ -81,43 +81,3 @@
     
   </body>
 </html>
-<!-- <div class="fl w-100 pb2 pt4">
-     <div class="tc">
-     <div class="dib w-100">
-     <canvas class="ws_poser" width="300px" height="150px"/>
-     </div>
-     </div>
-     </div>
-     <div class="fl tc w-100 pv2 white">
-     ws_poser
-     </div>
-     <div class="fl w-100 pb2 pt4">
-     <div class="tc">
-     <div class="dib w-100">
-     <canvas class="ws_posep" width="300px" height="150px"/>
-     </div>
-     </div>
-     </div>
-     <div class="fl tc w-100 pv2 white">
-     ws_posep
-     </div>
-     <div class="fl w-100 pb2 pt4">
-     <div class="tc">
-     <div class="dib w-100">
-     <canvas class="ws_motionr" width="300px" height="150px"/>
-     </div>
-     </div>
-     </div>
-     <div class="fl tc w-100 pv2 white">
-     ws_motionr:Math.abs(g_motionr)
-     </div>
-     <div class="fl w-100 pb2 pt4">
-     <div class="tc">
-     <div class="dib w-100">
-     <canvas class="ws_tiltsy" width="300px" height="150px"/>
-     </div>
-     </div>
-     </div>
-     <div class="fl tc w-100 pv2 white">
-     ws_tiltsy:Math.abs(g_tiltsy)
-     </div> -->
