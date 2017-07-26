@@ -141,25 +141,25 @@ $( document ).ready(function() {
   //programs
   function actioncallback(poser, posep) {
     switch(program) {
-    // case 0: //marimba
-    //   //bang!
-    //   if (poser < 0.7) {
-    //     if (posep < 0.5) {// snap, front
-    //       marimba.start(Math.floor(Math.random()*15));
-    //     }
-    //     else {// snap, back
-    //       marimba.start(Math.floor(Math.random()*15));
-    //       // synth_beep.osc.frequency.value =
-    //       // 	Tone.Frequency(Math.floor(Math.random()*12 + 60), "midi").toFrequency();
-    //       // synth_beep.start();
-    //     }
-    //   }
-    //   else {// waving
-    //     marimba.start(Math.floor(Math.random()*15));
-    //   }
-    //   //screen bang!
-    //   flasher.flash();
-    //   break;
+      // case 0: //marimba
+      //   //bang!
+      //   if (poser < 0.7) {
+      //     if (posep < 0.5) {// snap, front
+      //       marimba.start(Math.floor(Math.random()*15));
+      //     }
+      //     else {// snap, back
+      //       marimba.start(Math.floor(Math.random()*15));
+      //       // synth_beep.osc.frequency.value =
+      //       // 	Tone.Frequency(Math.floor(Math.random()*12 + 60), "midi").toFrequency();
+      //       // synth_beep.start();
+      //     }
+      //   }
+      //   else {// waving
+      //     marimba.start(Math.floor(Math.random()*15));
+      //   }
+      //   //screen bang!
+      //   flasher.flash();
+      //   break;
     case 0: // boo/bap
       //bang!
       if (poser < 0.7) {
@@ -191,25 +191,25 @@ $( document ).ready(function() {
       //screen bang!
       flasher.flash();
       break;
-    // case 3: //noise
-    //   //bang!
-    //   if (poser < 0.7) {
-    //     if (posep < 0.5) {// snap, front
-    //       synth_whistle.filter.frequency.value =
-    //         Tone.Frequency(Math.floor(Math.random()*12 + 72), "midi").toFrequency();
-    //       synth_whistle.start();
-    //     }
-    //     else {// snap, back
-    //       synth_whistle.stop();
-    //       // marimba.start(Math.floor(Math.random()*15));
-    //     }
-    //   }
-    //   else {// waving
-    //     // marimba.start(Math.floor(Math.random()*15));
-    //   }
-    //   //screen bang!
-    //   flasher.flash();
-    //   break;
+      // case 3: //noise
+      //   //bang!
+      //   if (poser < 0.7) {
+      //     if (posep < 0.5) {// snap, front
+      //       synth_whistle.filter.frequency.value =
+      //         Tone.Frequency(Math.floor(Math.random()*12 + 72), "midi").toFrequency();
+      //       synth_whistle.start();
+      //     }
+      //     else {// snap, back
+      //       synth_whistle.stop();
+      //       // marimba.start(Math.floor(Math.random()*15));
+      //     }
+      //   }
+      //   else {// waving
+      //     // marimba.start(Math.floor(Math.random()*15));
+      //   }
+      //   //screen bang!
+      //   flasher.flash();
+      //   break;
     case 5: //silence
       //screen bang!
       // flasher.flash();
