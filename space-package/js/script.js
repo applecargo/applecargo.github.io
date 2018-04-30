@@ -52,7 +52,7 @@ $( document ).ready(function() {
       "audio/marimba@15/15.wav"
     ]
   ).toMaster();
-  
+
   //alucan
   var alucan_pitch = new Tone.PitchShift().toMaster();
   alucan_pitch.pitch = -12;
@@ -74,13 +74,13 @@ $( document ).ready(function() {
       "audio/alucan@12/12.mp3"
     ]
   ).connect(alucan_pitch);//.toMaster();
-  
+
   //phone
   var phone = new Tone.Player("audio/phone@5/" + ("0" + (Math.ceil(Math.random()*5))).slice(-2) + ".mp3").toMaster();
-  
+
   //trk01
   var trk01 = new Tone.Player("audio/trk01@7/" + ("0" + (Math.ceil(Math.random()*7))).slice(-2) + ".mp3").toMaster();
-  
+
   //cricket
   var cricket = new Tone.Player("audio/cricket-short@10/" + ("0" + (Math.ceil(Math.random()*10))).slice(-2) + ".mp3").toMaster();
 
@@ -90,7 +90,7 @@ $( document ).ready(function() {
 
   // ////noise
   // var synth_whistle = new Synth_whistle();
-  
+
   //program change by network msg.
   //program list
   //0 : invitation (boobab)
@@ -170,7 +170,7 @@ $( document ).ready(function() {
     //     else {// snap, back
     //       marimba.start(Math.floor(Math.random()*15));
     //       // synth_beep.osc.frequency.value =
-    //       // 	Tone.Frequency(Math.floor(Math.random()*12 + 60), "midi").toFrequency();
+    //       //         Tone.Frequency(Math.floor(Math.random()*12 + 60), "midi").toFrequency();
     //       // synth_beep.start();
     //     }
     //   }
@@ -183,15 +183,15 @@ $( document ).ready(function() {
     case 0: // boo/bap
       //bang!
       if (poser < 0.7) {
-	if (posep < 0.5) {// snap, front
-	  boo.start(0);
-	}
-	else {// snap, back
-	  boo.start(1);
-	}
+        if (posep < 0.5) {// snap, front
+          boo.start(0);
+        }
+        else {// snap, back
+          boo.start(1);
+        }
       }
       else {// waving
-	boo.start(2);
+        boo.start(2);
       }
       //screen bang!
       flasher.flash();
@@ -235,9 +235,9 @@ $( document ).ready(function() {
   // var ws_motionr = new Webscope($('.ws_motionr')[0], -2, 2, 300);
   // var ws_tiltsy = new Webscope($('.ws_tiltsy')[0], -2, 2, 300);
   // var motionscope = setInterval(function() {
-  // 	ws_poser.update(g_poser);
-  // 	ws_posep.update(g_posep);
-  // 	ws_motionr.update(Math.abs(g_motionr));
-  // 	ws_tiltsy.update(Math.abs(g_tiltsy));
+  //    ws_poser.update(g_poser);
+  //    ws_posep.update(g_posep);
+  //    ws_motionr.update(Math.abs(g_motionr));
+  //    ws_tiltsy.update(Math.abs(g_tiltsy));
   // }, 50);
 });

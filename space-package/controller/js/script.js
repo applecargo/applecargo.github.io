@@ -4,30 +4,30 @@ $( document ).ready(function() {
     var socket = io('http://13.125.85.223:5500'); //temporal ip - amazon aws ec2 server
     var netstat = new Tgl($(".netstat")[0], 'bg-white', 'bg-near-black', null, null);
     socket.on('connect', function() {
-	netstat.set();
-	socket.on('disconnect', function() {
-	    netstat.clear();
-	});
+        netstat.set();
+        socket.on('disconnect', function() {
+            netstat.clear();
+        });
     });
-    
+
     //program controller
     var prog_zero = new Btn($(".prog-zero")[0], 'bg-white', 'bg-near-black', 300, function() {
-	socket.emit('sound',0);
+        socket.emit('sound',0);
     });
     var prog_one = new Btn($(".prog-one")[0], 'bg-white', 'bg-near-black', 300, function() {
-	socket.emit('sound',1);
+        socket.emit('sound',1);
     });
     var prog_two = new Btn($(".prog-two")[0], 'bg-white', 'bg-near-black', 300, function() {
-	socket.emit('sound',2);
+        socket.emit('sound',2);
     });
     var prog_three = new Btn($(".prog-three")[0], 'bg-white', 'bg-near-black', 300, function() {
-	socket.emit('sound',3);
-	socket.emit('sing-note',3);
+        socket.emit('sound',3);
+        socket.emit('sing-note',3);
     });
     var prog_four = new Btn($(".prog-four")[0], 'bg-white', 'bg-near-black', 300, function() {
-	socket.emit('sound',4);
+        socket.emit('sound',4);
     });
     var prog_five = new Btn($(".prog-five")[0], 'bg-white', 'bg-near-black', 300, function() {
-	socket.emit('sound',5);
+        socket.emit('sound',5);
     });
 });
