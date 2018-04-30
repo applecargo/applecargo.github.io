@@ -1,7 +1,7 @@
 $( document ).ready(function() {
 
     //network
-    var socket = io('http://13.125.52.106:5500'); //temporal ip - amazon aws ec2 server
+    var socket = io('http://13.125.85.223:5500'); //temporal ip - amazon aws ec2 server
     var netstat = new Tgl($(".netstat")[0], 'bg-white', 'bg-near-black', null, null);
     socket.on('connect', function() {
 	netstat.set();
