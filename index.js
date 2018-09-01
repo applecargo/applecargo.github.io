@@ -11,21 +11,21 @@
 var express = require('express');
 var http = require('http');
 
-//// socket.io service - for Instruments clients (:5500)
+//// socket.io service - for Instruments clients (:8500)
 var ioInstApp = express();
 var ioInstServer = http.Server(ioInstApp);
 var ioInst = require('socket.io')(ioInstServer, {'pingInterval': 1000, 'pingTimeout': 3000});
-ioInstServer.listen(5500, function(){
-    console.log('[socket.io] listening on *:5500');
+ioInstServer.listen(8500, function(){
+    console.log('[socket.io] listening on *:8500');
 });
 ioInstApp.use(express.static('camino2017/client'));
 
-//// socket.io service - for Monitoring client (:5700)
+//// socket.io service - for Monitoring client (:8700)
 var ioMonApp = express();
 var ioMonServer = http.Server(ioMonApp);
 var ioMon = require('socket.io')(ioMonServer);
-ioMonServer.listen(5700, function(){
-    console.log('[socket.io] listening on *:5700');
+ioMonServer.listen(8700, function(){
+    console.log('[socket.io] listening on *:8700');
 });
 ioMonApp.use(express.static('camino2017/monitor'));
 

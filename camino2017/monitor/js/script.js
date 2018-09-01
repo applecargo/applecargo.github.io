@@ -62,7 +62,7 @@ $(document).ready(function() {
 
   // connect server
   //var socket = io('http://52.78.239.112:5700'); // amazon aws ec2 node.js server
-  var socket = io('http://choir.run:5700');
+  var socket = io('http://choir.run:8700');
 
   socket.on('connect', function() {
     console.log('connected');
