@@ -1,12 +1,12 @@
 $( document ).ready(function() {
-    
+
     $('.ui-btn').click(function() {
         $(this).removeClass('bg-blue').addClass('bg-yellow');
         setTimeout(function() {
             $(this).removeClass('bg-yellow').addClass('bg-blue');
         }.bind(this), 300);
     });
-    
+
     $('.ui-tgl').change(function() {
 	if ($(this).prop('checked') == true) {
 	    $(this).removeClass('bg-near-black').addClass('bg-white');
@@ -54,7 +54,7 @@ $( document ).ready(function() {
     });
 
     //var socket = io('http://52.78.239.112:5500');
-    var socket = io('https://choir.run');
+    var socket = io('http://choir.run:5500');
 
     socket.on('connect', function() {
 
@@ -71,7 +71,7 @@ $( document ).ready(function() {
     function getTimeNow() { return (Date.now()+clock_offset); }
 
     //// audio data loading
-    
+
     //announcements
     var clap;
     var count;
@@ -255,7 +255,7 @@ $( document ).ready(function() {
     $('.ui-clap').click(function() {
         clap.start();
     });
-    
+
     //net msg.
     socket.on('54321',        function() { count.start(); });
     socket.on('10meg',        function() { meg10.start(); });
@@ -282,9 +282,9 @@ $( document ).ready(function() {
 
 	//
 	scheduler = function(prog) { prog.start(); };
-	
+
 	//// manage programs
-	
+
 	//
         if (stat.prog == 'carhorn')     { scheduler(carhorn);    $('#program').text('경적'); }
         if (stat.prog == 'carhorn-mix') { scheduler(carhornmix); $('#program').text('경적Mix'); }
@@ -315,7 +315,7 @@ $( document ).ready(function() {
 	    $('#playsound').show();
 	    $('#program').text('에델바이스');
 	}
-	
+
 	// stop all!!
 	else if (stat.prog == 'wait') {
             //announcements
