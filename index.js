@@ -1,6 +1,6 @@
 //
 // this is a node.js server
-// 
+//
 
 // uses both socket.io & osc.js
 
@@ -15,11 +15,19 @@ var http = require('http');
 var ioInstApp = express();
 var ioInstServer = http.Server(ioInstApp);
 var ioInst = require('socket.io')(ioInstServer, {'pingInterval': 1000, 'pingTimeout': 3000});
+ioInstServer.listen(5500, function(){
+    console.log('[socket.io] listening on *:5500');
+});
+ioInstApp.use(express.static('camino2017/client'));
 
 //// socket.io service - for Monitoring client (:5700)
 var ioMonApp = express();
 var ioMonServer = http.Server(ioMonApp);
 var ioMon = require('socket.io')(ioMonServer);
+ioMonServer.listen(5700, function(){
+    console.log('[socket.io] listening on *:5700');
+});
+ioMonApp.use(express.static('camino2017/monitor'));
 
 ////shared
 var seats = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
@@ -54,7 +62,7 @@ ioMon.on('connection', function(socket){
     // 	    'stat': stat
     // 	});
     // }, 1000);
-    
+
     //announcements
     socket.on('54321-all',        function() { ioInst.emit('54321'); });
     socket.on('10meg-all',        function() { ioInst.emit('10meg'); });
@@ -78,7 +86,7 @@ ioMon.on('connection', function(socket){
     // 	console.log('playall-start: ' + msg);
     // 	ioInst.emit('playall-start', msg); //broadcast
     // });
-    
+
     // //stop! (sound#)
     // socket.on('playall-stop', function(msg){
     // 	console.log('playall-stop: ' + msg);
@@ -95,7 +103,7 @@ ioMon.on('connection', function(socket){
     	stat.ctime = Date.now();
     	ioInst.emit('schedule', stat); //broadcast
     });
-    
+
     //
     socket.on('disconnect', function(){
     	console.log('monitoring user disconnected');
@@ -107,7 +115,7 @@ ioInst.on('connection', function(socket){
 
     //
     console.log('a instrument user connected');
-    
+
     // //
     // stat.ctime = Date.now();
     // socket.emit('schedule', stat);
@@ -124,7 +132,7 @@ ioInst.on('connection', function(socket){
     //
     socket.on('disconnect', function(){
     	console.log('instrument user disconnected');
-	
+
 	// // clear the flag : again, we won't care colliding selections!
 	// if (seatNo != -1) {
 	//     seats[seatNo] = 0;
@@ -137,14 +145,6 @@ ioInst.on('connection', function(socket){
     // 	stat.ctime = Date.now();
     // 	socket.emit('schedule', stat);
     // });
-});
-
-ioInstServer.listen(5500, function(){
-    console.log('[socket.io] listening on *:5500');
-});
-
-ioMonServer.listen(5700, function(){
-    console.log('[socket.io] listening on *:5700');
 });
 
 //// osc.js/udp service
