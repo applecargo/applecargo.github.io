@@ -19,7 +19,7 @@
   "homepage": "https://github.com/applecargo/njp-node-server#readme",
   "dependencies": {
     "express": "^4.15.3",
-    "http-proxy": "^1.16.2",
+    "http-proxy": "^1.18.1",
     "https": "^1.0.0",
     "osc": "^2.2.0",
     "socket.io": "^2.0.3"
